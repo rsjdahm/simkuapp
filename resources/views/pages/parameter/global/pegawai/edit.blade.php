@@ -22,8 +22,8 @@
         <select name="jenis_kelamin" class="form-control">
             <option disabled>-- Pilih Jenis Kelamin --</option>
             @foreach (\App\Enums\Parameter\Global\JenisKelaminPegawaiEnum::cases() as $jenis_kelamin)
-                <option @if ($pegawai->jenis_kelamin == $jenis_kelamin->value) selected @endif value="{{ $jenis_kelamin->value }}">
-                    {{ $jenis_kelamin->value }}
+                <option @selected($pegawai->jenis_kelamin == $jenis_kelamin) value="{{ $jenis_kelamin }}">
+                    {{ $jenis_kelamin }}
                 </option>
             @endforeach
         </select>
@@ -57,7 +57,7 @@
         <select name="status_kepeg" class="form-control">
             <option disabled>-- Pilih Status Pegawai --</option>
             @foreach (\App\Enums\Parameter\Global\JenisPegawaiEnum::cases() as $status_kepeg)
-                <option @if ($pegawai->status_kepeg == $status_kepeg->value) selected @endif value="{{ $status_kepeg->value }}">
+                <option @selected($pegawai->status_kepeg == $status_kepeg) value="{{ $status_kepeg }}">
                     {{ $status_kepeg->value }}
                 </option>
             @endforeach
