@@ -20,7 +20,7 @@
                     </span>
                 </a>
             </div>
-            <button type="button" class="btn btn-sm font-size-16 header-item waves-effect px-3" id="vertical-menu-btn">
+            <button type="button" class="btn btn-sm font-size-16 header-item px-3" id="vertical-menu-btn">
                 <i class="fa fa-fw fa-bars"></i>
             </button>
             <div class="navbar-brand-box d-block d-lg-none">
@@ -40,8 +40,8 @@
         </div>
         <div class="d-flex">
             <div class="dropdown d-inline-block">
-                <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="btn header-item" id="page-header-user-dropdown" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user" src="{{ asset('img/logo-rsjd.png') }}"
                         alt="Header Avatar">
                     <span class="d-none d-xl-inline-block ml-1">{{ Auth::user()->nama }}</span>

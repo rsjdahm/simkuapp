@@ -4,13 +4,13 @@
             <ul class="metismenu list-unstyled" id="sidebar">
                 <li class="menu-title">Main</li>
                 <li>
-                    <a load="page" menu="default" href="{{ route('dashboard.show') }}" class="waves-effect">
+                    <a load="page" menu="default" href="{{ route('dashboard.show') }}">
                         <i class="bx bx-home-circle"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 {{-- <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                    <a href="javascript: void(0);" class="has-arrow">
                         <i class="bx bx-bar-chart-alt-2"></i>
                         <span>Anggaran</span>
                     </a>
@@ -40,7 +40,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                    <a href="javascript: void(0);" class="has-arrow">
                         <i class="bx bx-file"></i>
                         <span>Penatausahaan</span>
                     </a>
@@ -115,7 +115,7 @@
                 </li> --}}
                 <li class="menu-title">Parameter</li>
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                    <a href="javascript: void(0);" class="has-arrow">
                         <i class="bx bx-globe"></i>
                         <span>Global</span>
                     </a>
@@ -140,7 +140,7 @@
                     </ul>
                 </li>
                 {{-- <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                    <a href="javascript: void(0);" class="has-arrow">
                         <i class="bx bx-terminal"></i>
                         <span>SiMKU</span>
                     </a>

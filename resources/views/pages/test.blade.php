@@ -59,7 +59,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-4">
-                                    <a href="#" class="btn btn-primary waves-effect waves-light btn-sm">View
+                                    <a href="#" class="btn btn-primary btn-sm">View
                                         Profile <i class="mdi mdi-arrow-right ml-1"></i></a>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@
                                 </span> From previous period</p>
 
                             <div class="mt-4">
-                                <a href="#" class="btn btn-primary waves-effect waves-light btn-sm">View More <i
+                                <a href="#" class="btn btn-primary btn-sm">View More <i
                                         class="mdi mdi-arrow-right ml-1"></i></a>
                             </div>
                         </div>
