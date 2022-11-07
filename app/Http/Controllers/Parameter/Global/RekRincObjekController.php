@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Parameter\Global;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Parameter\Global\Rekening\RekRincObjekRequest;
+use App\Http\Requests\Parameter\Global\RekRincObjekRequest;
 use App\Models\Parameter\Global\RekObjek;
 use App\Models\Parameter\Global\RekRincObjek;
 use Illuminate\Http\Request;

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Parameter\Global\Rekening;
+namespace App\Http\Requests\Parameter\Global;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RekAkunRequest extends FormRequest
+class RekJenisRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,10 @@ class RekAkunRequest extends FormRequest
     public function rules()
     {
         return [
+            'rek_kelompok_id' => ['required'],
             'kd_rek1' => ['required', 'numeric'],
+            'kd_rek2' => ['required', 'numeric'],
+            'kd_rek3' => ['required', 'numeric'],
             'nama' => ['required', 'string'],
         ];
     }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Parameter\Global;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Parameter\Global\Rekening\RekAkunRequest;
+use App\Http\Requests\Parameter\Global\RekAkunRequest;
 use App\Models\Parameter\Global\RekAkun;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;

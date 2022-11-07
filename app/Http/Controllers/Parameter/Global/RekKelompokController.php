@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Parameter\Global;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Parameter\Global\Rekening\RekKelompokRequest;
+use App\Http\Requests\Parameter\Global\RekKelompokRequest;
 use App\Models\Parameter\Global\RekAkun;
 use App\Models\Parameter\Global\RekKelompok;
 use Illuminate\Http\Request;

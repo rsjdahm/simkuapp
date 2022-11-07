@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Parameter\Global\Rekening;
+namespace App\Http\Requests\Parameter\Global;
 
 use Illuminate\Foundation\Http\FormRequest;
 
