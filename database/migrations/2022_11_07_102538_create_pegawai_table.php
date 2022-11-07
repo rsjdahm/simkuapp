@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('tmpt_lahir')->nullable();
             $table->string('jenis_kelamin');
             $table->string('status_kepeg');
-            $table->text('alamat');
+            $table->text('alamat')->nullable();
             $table->timestamps();
         });
     }
