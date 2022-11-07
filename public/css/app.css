@@ -352,8 +352,8 @@ main[data-layout="horizontal"] .footer {
     transform: rotate(-180deg);
 }
 #sidebar-menu .has-arrow:after {
-    content: "\F140";
-    font-family: "Material Design Icons";
+    content: "\e9e2";
+    font-family: "boxicons";
     display: block;
     float: right;
     -webkit-transition: -webkit-transform 0.2s;

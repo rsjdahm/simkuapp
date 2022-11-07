@@ -45,7 +45,7 @@
                     <img class="rounded-circle header-profile-user" src="{{ asset('img/logo-rsjd.png') }}"
                         alt="Header Avatar">
                     <span class="d-none d-xl-inline-block ml-1">{{ Auth::user()->nama }}</span>
-                    <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                    <i class="bx bx-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <form id="logout_form" method="POST" action="{{ route('logout') }}">
