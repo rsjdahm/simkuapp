@@ -2,8 +2,8 @@
 
 namespace App\Models\Parameter\Global;
 
-use App\Enums\Parameter\Global\JenisKelaminPegawaiEnum;
-use App\Enums\Parameter\Global\JenisPegawaiEnum;
+use App\Enums\Parameter\Global\JenisKelaminEnum;
+use App\Enums\Parameter\Global\StatusKepegawaianEnum;
 use Illuminate\Database\Eloquent\Model;
 
 class Pegawai extends Model
@@ -28,8 +28,8 @@ class Pegawai extends Model
     ];
 
     protected $casts = [
-        'jenis_kelamin' => JenisKelaminPegawaiEnum::class,
-        'status_kepeg' => JenisPegawaiEnum::class
+        'jenis_kelamin' => JenisKelaminEnum::class,
+        'status_kepeg' => StatusKepegawaianEnum::class
     ];
 
     public function getNamaLengkapAttribute()

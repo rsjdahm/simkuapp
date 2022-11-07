@@ -8,18 +8,14 @@
     <meta content="{{ config('app.meta.author') }}" name="author" />
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     <meta name="theme-color" content="#2a3042">
-
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="auth-url" content="{{ route('auth') }}" />
-    <title>
-        {{ config('app.name') }}</title>
-
+    <title>{{ config('app.name') }}</title>
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('libs/nprogress/nprogress.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('libs/toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
-
     <link href="{{ asset('css/app.css' . '?v=' . time()) }}" rel="stylesheet" type="text/css" />
 </head>
 
@@ -30,7 +26,6 @@
     <script src="{{ asset('libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('libs/nprogress/nprogress.js') }}"></script>
     <script src="{{ asset('libs/metismenu/metisMenu.min.js') }}"></script>
-    <script src="{{ asset('libs/node-waves/waves.min.js') }}"></script>
     <script src="{{ asset('libs/toastr/toastr.min.js') }}"></script>
     <script src="{{ asset('libs/sweetalert2/sweetalert2.min.js') }}"></script>
 

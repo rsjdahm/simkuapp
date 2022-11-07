@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests\Parameter\Global;
 
-use App\Enums\Parameter\Global\JenisKelaminPegawaiEnum;
-use App\Enums\Parameter\Global\JenisPegawaiEnum;
+use App\Enums\Parameter\Global\JenisKelaminEnum;
+use App\Enums\Parameter\Global\StatusKepegawaianEnum;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Enum;
 
@@ -35,8 +35,8 @@ class PegawaiRequest extends FormRequest
             'tgl_lahir' => ['nullable', 'date'],
             'alamat' => ['nullable'],
             'tmpt_lahir' => ['nullable'],
-            'status_kepeg' => ['required', new Enum(JenisPegawaiEnum::class)],
-            'jenis_kelamin' => ['required', new Enum(JenisKelaminPegawaiEnum::class)]
+            'status_kepeg' => ['required', new Enum(StatusKepegawaianEnum::class)],
+            'jenis_kelamin' => ['required', new Enum(JenisKelaminEnum::class)]
         ];
     }
 }

@@ -1,7 +1,5 @@
 /** Libs Configuration */
 
-Waves.init();
-
 toastr.options = {
     closeButton: true,
     debug: false,
