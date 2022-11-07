@@ -3,12 +3,12 @@
         <div class="col-md-9">
             <table class="table-responsive m-0 table">
                 <tr>
-                    <td><a do="back-to-tab" tab="#rek_akun" class="btn btn-primary btn-sm text-white"><i
+                    <td class="py-2"><a do="back-to-tab" tab="#rek_akun" class="btn btn-primary btn-sm text-white"><i
                                 class="fas fa-backward"></i> Kembali</a></td>
-                    <td>Rekening Akun</td>
-                    <td>:</td>
-                    <th>{{ $rek_akun->kd_rek1 }}</th>
-                    <td>{{ $rek_akun->nama }}</td>
+                    <td class="py-2">Rekening Akun</td>
+                    <td class="py-2">:</td>
+                    <th class="py-2">{{ $rek_akun->kd_rek1 }}</th>
+                    <td class="py-2">{{ $rek_akun->nama }}</td>
                 </tr>
             </table>
         </div>

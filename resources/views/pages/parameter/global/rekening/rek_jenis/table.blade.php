@@ -3,20 +3,20 @@
         <div class="col-md-9">
             <table class="table-responsive m-0 table">
                 <tr>
-                    <td><a do="back-to-tab" tab="#rek_akun" class="btn btn-primary btn-sm text-white"><i
+                    <td class="py-2"><a do="back-to-tab" tab="#rek_akun" class="btn btn-primary btn-sm text-white"><i
                                 class="fas fa-backward"></i> Kembali</a></td>
-                    <td>Rekening Akun</td>
-                    <td>:</td>
-                    <th>{{ $rek_kelompok->rek_akun->kd_rek }}</th>
-                    <td>{{ $rek_kelompok->rek_akun->nama }}</td>
+                    <td class="py-2">Rekening Akun</td>
+                    <td class="py-2">:</td>
+                    <th class="py-2">{{ $rek_kelompok->rek_akun->kd_rek }}</th>
+                    <td class="py-2">{{ $rek_kelompok->rek_akun->nama }}</td>
                 </tr>
                 <tr>
-                    <td><a do="back-to-tab" tab="#rek_kelompok" class="btn btn-primary btn-sm text-white"><i
-                                class="fas fa-backward"></i> Kembali</a></td>
-                    <td>Rekening Kelompok</td>
-                    <td>:</td>
-                    <th>{{ $rek_kelompok->kd_rek }}</th>
-                    <td>{{ $rek_kelompok->nama }}</td>
+                    <td class="py-2"><a do="back-to-tab" tab="#rek_kelompok"
+                            class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
+                    <td class="py-2">Rekening Kelompok</td>
+                    <td class="py-2">:</td>
+                    <th class="py-2">{{ $rek_kelompok->kd_rek }}</th>
+                    <td class="py-2">{{ $rek_kelompok->nama }}</td>
                 </tr>
             </table>
         </div>
