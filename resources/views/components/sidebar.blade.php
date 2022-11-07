@@ -126,7 +126,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a load="page" menu="item" href="{{ route('test') }}">
+                                    <a load="page" menu="item" href="{{ route('pegawai.index') }}">
                                         Data Pegawai
                                     </a>
                                 </li>
