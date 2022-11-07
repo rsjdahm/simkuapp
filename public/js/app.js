@@ -31,9 +31,7 @@ $(document)
     .ajaxStart(function () {
         NProgress.start();
         $("form").find("span.invalid-feedback").remove();
-        $("form").find("input.border-danger").removeClass("border-danger");
-        $("form").find("textarea.border-danger").removeClass("border-danger");
-        $("form").find("select.border-danger").removeClass("border-danger");
+        $("form").find("[name].border-danger").removeClass("border-danger");
     })
     .ajaxComplete(function () {
         NProgress.done();
