@@ -11,7 +11,13 @@ use Yajra\DataTables\Html\Builder;
 
 class PegawaiController extends Controller
 {
-    public function index(Builder $builder, Request $request)
+
+    public function index()
+    {
+        return view('pages.parameter.global.pegawai.index');
+    }
+
+    public function table(Builder $builder, Request $request)
     {
         if ($request->wantsJson()) {
             $data = Pegawai::orderBy('nama')->get();
@@ -29,7 +35,7 @@ class PegawaiController extends Controller
                 ->addColumn('detail', function ($item) {
                     return '
                     <div class="btn-group btn-group-sm">
-                        <a do="open-to-tab" target="rek_kelompok_page" tab="#rek_kelompok" href="' . route('rekening.rek_kelompok.index', ['pegawai_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
+                        <a do="open-to-tab" target="detail_pegawai_page" tab="#detail_pegawai" href="' . route('pegawai.show', $item->id) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
                     </div>
                     ';
                 })
@@ -37,7 +43,7 @@ class PegawaiController extends Controller
                 ->make(true);
         }
 
-        $table = $builder->ajax(route('pegawai.index'))
+        $table = $builder->ajax(route('pegawai.table'))
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama_lengkap', 'title' => 'Nama Lengkap & Gelar'])
@@ -46,6 +52,11 @@ class PegawaiController extends Controller
             ->addColumn(['data' => 'detail', 'title' => '', 'style' => 'width: 1%;', 'orderable' => false]);
 
         return view('pages.parameter.global.pegawai.table', compact('table'));
+    }
+
+    public function show(Pegawai $pegawai)
+    {
+        return view('pages.parameter.global.pegawai.show', compact('pegawai'));
     }
 
     public function create()
