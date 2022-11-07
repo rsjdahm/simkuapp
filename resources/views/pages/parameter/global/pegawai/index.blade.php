@@ -28,7 +28,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Daftar Pegawai</h4>
-                    <p class="card-title-desc mb-2">Berdasarkan data kepegawaian
+                    <p class="card-title-desc mb-4">Berdasarkan data kepegawaian
                     </p>
 
                     <!-- Nav tabs -->
