@@ -34,6 +34,9 @@ class Pegawai extends Model
 
     public function getNamaLengkapAttribute()
     {
+        if (!$this->gelar_blkg) {
+            return $this->gelar_dpn . ' ' . $this->nama;
+        }
         return $this->gelar_dpn . ' ' . $this->nama . ', ' . $this->gelar_blkg;
     }
 }
