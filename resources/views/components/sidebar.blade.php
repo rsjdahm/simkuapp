@@ -120,7 +120,7 @@
                         <span>Global</span>
                     </a>
                     <ul class="sub-menu">
-                        {{-- <li>
+                        <li>
                             <a href="javascript: void(0);" class="has-arrow">
                                 <span>Organisasi</span>
                             </a>
@@ -131,7 +131,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li> --}}
+                        </li>
                         <li>
                             <a load="page" menu="item" href="{{ route('rekening.index') }}">
                                 Rekening
@@ -139,7 +139,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-terminal"></i>
                         <span>SiMKU</span>
@@ -158,7 +158,7 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

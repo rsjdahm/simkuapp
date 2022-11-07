@@ -6,7 +6,7 @@
         <input name="rek_akun_id" type="hidden" value="{{ $rek_kelompok->rek_akun_id }}">
         <div class="row">
             <div class="col">
-                <input name="kd_rek1" class="form-control" type="number" value="{{ $rek_kelompok->kd_rek1 }}">
+                <input readonly name="kd_rek1" class="form-control" type="number" value="{{ $rek_kelompok->kd_rek1 }}">
             </div>
             <div class="col">
                 <input name="kd_rek2" class="form-control" type="number" value="{{ $rek_kelompok->kd_rek2 }}">

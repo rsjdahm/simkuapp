@@ -7,19 +7,24 @@
         <input name="rek_rinc_objek_id" type="hidden" value="{{ $rek_sub_rinc_objek->rek_rinc_objek_id }}">
         <div class="row">
             <div class="col">
-                <input name="kd_rek1" class="form-control" type="number" value="{{ $rek_sub_rinc_objek->kd_rek1 }}">
+                <input readonly name="kd_rek1" class="form-control" type="number"
+                    value="{{ $rek_sub_rinc_objek->kd_rek1 }}">
             </div>
             <div class="col">
-                <input name="kd_rek2" class="form-control" type="number" value="{{ $rek_sub_rinc_objek->kd_rek2 }}">
+                <input readonly name="kd_rek2" class="form-control" type="number"
+                    value="{{ $rek_sub_rinc_objek->kd_rek2 }}">
             </div>
             <div class="col">
-                <input name="kd_rek3" class="form-control" type="number" value="{{ $rek_sub_rinc_objek->kd_rek3 }}">
+                <input readonly name="kd_rek3" class="form-control" type="number"
+                    value="{{ $rek_sub_rinc_objek->kd_rek3 }}">
             </div>
             <div class="col">
-                <input name="kd_rek4" class="form-control" type="number" value="{{ $rek_sub_rinc_objek->kd_rek4 }}">
+                <input readonly name="kd_rek4" class="form-control" type="number"
+                    value="{{ $rek_sub_rinc_objek->kd_rek4 }}">
             </div>
             <div class="col">
-                <input name="kd_rek5" class="form-control" type="number" value="{{ $rek_sub_rinc_objek->kd_rek5 }}">
+                <input readonly name="kd_rek5" class="form-control" type="number"
+                    value="{{ $rek_sub_rinc_objek->kd_rek5 }}">
             </div>
             <div class="col">
                 <input name="kd_rek6" class="form-control" type="number" value="{{ $rek_sub_rinc_objek->kd_rek6 }}">

@@ -6,10 +6,10 @@
         <input name="rek_kelompok_id" type="hidden" value="{{ $rek_jenis->rek_kelompok_id }}">
         <div class="row">
             <div class="col">
-                <input name="kd_rek1" class="form-control" type="number" value="{{ $rek_jenis->kd_rek1 }}">
+                <input readonly name="kd_rek1" class="form-control" type="number" value="{{ $rek_jenis->kd_rek1 }}">
             </div>
             <div class="col">
-                <input name="kd_rek2" class="form-control" type="number" value="{{ $rek_jenis->kd_rek2 }}">
+                <input readonly name="kd_rek2" class="form-control" type="number" value="{{ $rek_jenis->kd_rek2 }}">
             </div>
             <div class="col">
                 <input name="kd_rek3" class="form-control" type="number" value="{{ $rek_jenis->kd_rek3 }}">
