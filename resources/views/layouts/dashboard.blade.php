@@ -34,14 +34,15 @@
             return deletor(anchor.attr('href'));
         }
         if (anchor.attr('do') == 'open-to-tab') {
-            $(anchor.attr('target')).html('');
-            load(anchor.attr('target'), anchor.attr('href'));
+            $(anchor.attr('tab')).html('');
+            load(anchor.attr('tab'), anchor.attr('href'));
             $("a[href='" + anchor.attr('tab') + "'].nav-link").removeClass('disabled');
             $('.nav-tabs a[href="' + anchor.attr('tab') + '"]').tab('show');
         }
         if (anchor.attr('do') == 'back-to-tab') {
             $("a[href='" + anchor.attr('tab') + "'].nav-link").parent().nextAll().children('a.nav-link')
                 .addClass('disabled');
+            $(anchor.attr('tab') + ".tab-pane").nextAll().html('');
             $('.nav-tabs a[href="' + anchor.attr('tab') + '"]').tab('show');
         }
     });

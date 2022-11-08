@@ -47,12 +47,8 @@
 
                     <!-- Tab panes -->
                     <div class="tab-content text-muted py-3">
-                        <div class="tab-pane active" id="pegawai" role="tabpanel">
-                            <pegawai_page></pegawai_page>
-                        </div>
-                        <div class="tab-pane" id="detail_pegawai" role="tabpanel">
-                            <detail_pegawai_page></detail_pegawai_page>
-                        </div>
+                        <div class="tab-pane active" id="pegawai" role="tabpanel"></div>
+                        <div class="tab-pane" id="detail_pegawai" role="tabpanel"></div>
                     </div>
                 </div>
             </div>
@@ -61,6 +57,6 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-        load('pegawai_page', '{{ route('pegawai.table') }}')
+        load('#pegawai', '{{ route('pegawai.table') }}')
     });
 </script>

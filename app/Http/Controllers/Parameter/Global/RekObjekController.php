@@ -36,7 +36,7 @@ class RekObjekController extends Controller
                     ->addColumn('detail', function ($item) {
                         return '
                         <div class="btn-group btn-group-sm">
-                            <a do="open-to-tab" target="rek_rinc_objek_page" tab="#rek_rinc_objek" href="'  . route('rekening.rek_rinc_objek.index', ['rek_objek_id' => $item->id]) .   '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
+                            <a do="open-to-tab" tab="#rek_rinc_objek" href="'  . route('rekening.rek_rinc_objek.index', ['rek_objek_id' => $item->id]) .   '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
                         </div>
                         ';
                     })

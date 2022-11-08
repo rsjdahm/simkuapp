@@ -72,24 +72,12 @@
 
                     <!-- Tab panes -->
                     <div class="tab-content text-muted py-3">
-                        <div class="tab-pane active" id="rek_akun" role="tabpanel">
-                            <rek_akun_page></rek_akun_page>
-                        </div>
-                        <div class="tab-pane" id="rek_kelompok" role="tabpanel">
-                            <rek_kelompok_page></rek_kelompok_page>
-                        </div>
-                        <div class="tab-pane" id="rek_jenis" role="tabpanel">
-                            <rek_jenis_page></rek_jenis_page>
-                        </div>
-                        <div class="tab-pane" id="rek_objek" role="tabpanel">
-                            <rek_objek_page></rek_objek_page>
-                        </div>
-                        <div class="tab-pane" id="rek_rinc_objek" role="tabpanel">
-                            <rek_rinc_objek_page></rek_rinc_objek_page>
-                        </div>
-                        <div class="tab-pane" id="rek_sub_rinc_objek" role="tabpanel">
-                            <rek_sub_rinc_objek_page></rek_sub_rinc_objek_page>
-                        </div>
+                        <div class="tab-pane active" id="rek_akun" role="tabpanel"></div>
+                        <div class="tab-pane" id="rek_kelompok" role="tabpanel"></div>
+                        <div class="tab-pane" id="rek_jenis" role="tabpanel"></div>
+                        <div class="tab-pane" id="rek_objek" role="tabpanel"></div>
+                        <div class="tab-pane" id="rek_rinc_objek" role="tabpanel"> </div>
+                        <div class="tab-pane" id="rek_sub_rinc_objek" role="tabpanel"></div>
                     </div>
                 </div>
             </div>
@@ -99,6 +87,6 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        load('rek_akun_page', '{{ route('rekening.rek_akun.index') }}')
+        load('#rek_akun', '{{ route('rekening.rek_akun.index') }}')
     });
 </script>

@@ -35,7 +35,7 @@ class PegawaiController extends Controller
                 ->addColumn('detail', function ($item) {
                     return '
                     <div class="btn-group btn-group-sm">
-                        <a do="open-to-tab" target="detail_pegawai_page" tab="#detail_pegawai" href="' . route('pegawai.show', $item->id) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
+                        <a do="open-to-tab" tab="#detail_pegawai" href="' . route('pegawai.show', $item->id) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
                     </div>
                     ';
                 })
