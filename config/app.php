@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => 'Aplikasi SiMKU',
+    'name' => 'Aplikasi SiMKU - RSJD AHM',
     'meta' => [
         'description' => 'Aplikasi Sistem Informasi Manajemen Keuangan RSJD Atma Husada Mahakam',
         'author' => 'Moh. Walid Arkham Sani, A.Md.Pnl.',
