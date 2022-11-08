@@ -40,6 +40,8 @@
             $('.nav-tabs a[href="' + anchor.attr('tab') + '"]').tab('show');
         }
         if (anchor.attr('do') == 'back-to-tab') {
+            $("a[href='" + anchor.attr('tab') + "'].nav-link").parent().nextAll().children('a.nav-link')
+                .addClass('disabled');
             $('.nav-tabs a[href="' + anchor.attr('tab') + '"]').tab('show');
         }
     });
