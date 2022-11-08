@@ -1,9 +1,9 @@
 <header id="page-topbar">
     <div class="navbar-header">
         <div class="d-flex">
-            <button type="button" class="btn btn-sm font-size-16 d-lg-none header-item px-3" data-toggle="collapse"
+            <button type="button" class="btn btn-sm font-size-20 d-lg-none header-item px-3" data-toggle="collapse"
                 data-target="#topnav-menu-content">
-                <i class="fa fa-fw fa-bars"></i>
+                <i class="bx bx-menu"></i>
             </button>
             <div class="navbar-brand-box">
                 <a rel="preload" href="{{ url('/') }}" class="logo logo-dark">
