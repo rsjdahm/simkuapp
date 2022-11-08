@@ -27,7 +27,7 @@
 
                         <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
                             <span class="avatar-title">
-                                <i class="bx bx-copy-alt font-size-24"></i>
+                                <i class="fas fa-copy font-size-24"></i>
                             </span>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
 
                         <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
                             <span class="avatar-title rounded-circle bg-primary">
-                                <i class="bx bx-archive-in font-size-24"></i>
+                                <i class="fas fa-archive font-size-24"></i>
                             </span>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
 
                         <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
                             <span class="avatar-title rounded-circle bg-primary">
-                                <i class="bx bx-purchase-tag-alt font-size-24"></i>
+                                <i class="fas fa-money-bill font-size-24"></i>
                             </span>
                         </div>
                     </div>

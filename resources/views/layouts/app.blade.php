@@ -16,7 +16,7 @@
     <link href="{{ asset('libs/nprogress/nprogress.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('libs/toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/app.css' . '?v=' . time()) }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/app.min.css' . '?v=' . time()) }}" rel="stylesheet" type="text/css" />
 </head>
 
 <body>

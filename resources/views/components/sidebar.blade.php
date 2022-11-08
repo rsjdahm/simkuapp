@@ -5,7 +5,7 @@
                 <li class="menu-title">Main</li>
                 <li>
                     <a load="page" menu="default" href="{{ route('dashboard.show') }}">
-                        <i class="bx bx-home-circle"></i>
+                        <i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
@@ -116,7 +116,7 @@
                 <li class="menu-title">Parameter</li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i class="bx bx-globe"></i>
+                        <i class="fas fa-globe"></i>
                         <span>Global</span>
                     </a>
                     <ul class="sub-menu">

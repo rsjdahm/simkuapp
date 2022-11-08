@@ -21,7 +21,7 @@
                 </a>
             </div>
             <button type="button" class="btn btn-sm font-size-20 header-item px-3" id="vertical-menu-btn">
-                <i class="bx bx-menu"></i>
+                <i class="fas fa-bars"></i>
             </button>
             <div class="navbar-brand-box d-block d-lg-none">
                 <a rel="preload" href="{{ route('home') }}" class="logo logo-dark">
@@ -34,7 +34,7 @@
             <form class="app-search d-none d-lg-block">
                 <div class="position-relative">
                     <input type="text" class="form-control" placeholder="Cari sesuatu di sini...">
-                    <span class="bx bx-search-alt"></span>
+                    <span class="fas fa-search"></span>
                 </div>
             </form>
         </div>
@@ -45,13 +45,13 @@
                     <img class="rounded-circle header-profile-user" src="{{ asset('img/logo-rsjd.png') }}"
                         alt="Header Avatar">
                     <span class="d-none d-xl-inline-block ml-1">{{ Auth::user()->nama }}</span>
-                    <i class="bx bx-chevron-down d-none d-xl-inline-block"></i>
+                    <i class="fas fa-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <form id="logout_form" method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="dropdown-item text-danger" href="{{ route('logout') }}">
-                            <i class="bx bx-power-off font-size-16 text-danger mr-1 align-middle"></i>
+                            <i class="fas fa-power-off text-danger mr-1 align-middle"></i>
                             Logout
                         </button>
                     </form>

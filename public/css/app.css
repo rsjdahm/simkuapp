@@ -352,15 +352,16 @@ main[data-layout="horizontal"] .footer {
     transform: rotate(-180deg);
 }
 #sidebar-menu .has-arrow:after {
-    content: "\e9e2";
-    font-family: "boxicons";
+    content: "\f078";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
     display: block;
     float: right;
     -webkit-transition: -webkit-transform 0.2s;
     transition: -webkit-transform 0.2s;
     transition: transform 0.2s;
     transition: transform 0.2s, -webkit-transform 0.2s;
-    font-size: 1rem;
+    font-size: 0.7rem;
 }
 #sidebar-menu ul li a {
     display: block;
@@ -375,7 +376,7 @@ main[data-layout="horizontal"] .footer {
     display: inline-block;
     min-width: 1.75rem;
     padding-bottom: 0.125em;
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 1.40625rem;
     vertical-align: middle;
     color: #7f8387;
