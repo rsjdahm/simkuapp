@@ -20,7 +20,7 @@
                     </span>
                 </a>
             </div>
-            <button type="button" class="btn btn-sm font-size-20 header-item px-3" id="vertical-menu-btn">
+            <button type="button" class="btn btn-sm font-size-16 header-item px-3" id="vertical-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="navbar-brand-box d-block d-lg-none">
