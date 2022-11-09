@@ -1,4 +1,7 @@
-/** Libs Configuration */
+NProgress.configure({
+    template:
+        '<div class="bar" role="bar"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-container"><div class="spinner-icon"></div></div></div>',
+});
 
 toastr.options = {
     closeButton: true,
@@ -17,8 +20,6 @@ toastr.options = {
     showMethod: "fadeIn",
     hideMethod: "fadeOut",
 };
-
-/** AJAX Setup & Errors Handler */
 
 $.ajaxSetup({
     headers: {
