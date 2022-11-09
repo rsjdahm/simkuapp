@@ -1,9 +1,9 @@
 <header id="page-topbar">
     <div class="navbar-header">
         <div class="d-flex">
-            <button type="button" class="btn btn-sm font-size-20 d-lg-none header-item px-3" data-toggle="collapse"
+            <button type="button" class="btn btn-sm font-size-16 d-lg-none header-item px-3" data-toggle="collapse"
                 data-target="#topnav-menu-content">
-                <i class="bx bx-menu"></i>
+                <i class="fas fa-bars"></i>
             </button>
             <div class="navbar-brand-box">
                 <a rel="preload" href="{{ url('/') }}" class="logo logo-dark">
@@ -18,7 +18,7 @@
             <form class="app-search d-none d-lg-block">
                 <div class="position-relative">
                     <input type="text" class="form-control" placeholder="Cari sesuatu di sini...">
-                    <span class="bx bx-search-alt"></span>
+                    <span class="fas fa-search"></span>
                 </div>
             </form>
         </div>

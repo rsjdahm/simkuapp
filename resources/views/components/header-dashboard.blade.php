@@ -96,7 +96,7 @@
             processData: false,
             contentType: false,
             success: function(response) {
-                return load('app', response);
+                return load('#app', response);
             }
         });
         return false;

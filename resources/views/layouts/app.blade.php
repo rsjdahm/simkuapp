@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <app></app>
+    <div id="app"></div>
 
     <script src="{{ asset('libs/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -43,7 +43,7 @@
         function modal(title, url, size) {
             $(".modal.fade").not(".modal.fade.show").remove();
             $("body").append(
-                `<div page="${url}" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                `<div data-href="${url}" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered ${size ? `modal-${size}` : ""}" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -54,30 +54,28 @@
                                     </span>
                                 </button>
                             </div>
-                            <div class="modal-body">
-                                <modal_page></modal_page>
-                            </div>
+                            <div class="modal-body"></div>
                         </div>
                     </div>
                 </div>`
             );
-            $('div.modal[page="' + url + '"]').modal("toggle");
-            load('div.modal[page="' + url + '"] modal_page', url);
+            $('div.modal[data-href="' + url + '"]').modal("toggle");
+            load('div.modal[data-href="' + url + '"] .modal-body', url);
         }
     </script>
     <script type="text/javascript">
         /// call initial layout berdasarkan status guest/loggedin
         $(document).ready(function() {
-            load('app', '{{ Auth::check() ? route('dashboard') : route('auth') }}');
+            load('#app', '{{ Auth::check() ? route('dashboard') : route('auth') }}');
         });
         /// hook for anchor
-        $("body").on('click', 'a[load]', function(event) {
+        $("body").on('click', 'a[data-load]', function(event) {
             const anchor = $(this);
             event.preventDefault();
-            if (anchor.attr('load') == 'modal') {
-                return modal(anchor.attr('title'), anchor.attr('href'), anchor.attr('modal-size'));
+            if (anchor.data('load') == 'modal') {
+                return modal(anchor.attr('title'), anchor.attr('href'), anchor.data('size'));
             }
-            return load(anchor.attr('load'), anchor.attr('href'));
+            return load(anchor.data('load'), anchor.attr('href'));
         });
     </script>
 </body>

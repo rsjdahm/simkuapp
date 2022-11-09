@@ -21,7 +21,7 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="bx bx-envelope"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                 </div>
                                 <input name="email" type="email" class="form-control"
                                     placeholder="{{ __('Email') }}" required />
@@ -36,7 +36,7 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="bx bx-key"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
                                 <input name="password" type="password" class="form-control"
                                     placeholder="{{ __('Password') }}" required />
@@ -54,15 +54,14 @@
                         </div>
 
                         <div class="mt-3">
-                            <button class="btn btn-lg btn-primary btn-block waves-effect waves-light" type="submit">
-                                <i class="bx bx-right-arrow-circle"></i>
+                            <button class="btn btn-lg btn-primary btn-block waves-effect" type="submit">
                                 {{ __('Log in') }}
                             </button>
                         </div>
                         @if (Route::has('password.request'))
                             <div class="mt-4 text-center">
                                 <a load="page" href="{{ route('password.request') }}" class="text-muted">
-                                    <i class="mdi mdi-lock mr-1"></i>
+                                    <i class="fas fa-lock mr-1"></i>
                                     {{ __('Forgot your password?') }}
                                 </a>
                             </div>
@@ -86,7 +85,7 @@
             processData: false,
             contentType: false,
             success: function(response) {
-                return load('app', response);
+                return load('#app', response);
             }
         });
         return false;

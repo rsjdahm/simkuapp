@@ -27,15 +27,15 @@ class PegawaiController extends Controller
                 ->addColumn('action', function ($item) {
                     return '
                     <div class="btn-group btn-group-sm">
-                        <a load="modal" title="Edit Data Pegawai" href="' . route('pegawai.edit', $item->id) . '" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
-                        <a do="delete" href="' . route('pegawai.destroy', $item->id) . '" class="btn btn-danger text-white"><i class="fas fa-trash"></i></a>
+                        <a data-load="modal" title="Edit Data Pegawai" href="' . route('pegawai.edit', $item->id) . '" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
+                        <a data-action="delete" href="' . route('pegawai.destroy', $item->id) . '" class="btn btn-danger text-white"><i class="fas fa-trash"></i></a>
                     </div>
                     ';
                 })
                 ->addColumn('detail', function ($item) {
                     return '
                     <div class="btn-group btn-group-sm">
-                        <a do="open-to-tab" tab="#detail_pegawai" href="' . route('pegawai.show', $item->id) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
+                        <a data-action="open-tab" data-target="#detail_pegawai" href="' . route('pegawai.show', $item->id) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
                     </div>
                     ';
                 })

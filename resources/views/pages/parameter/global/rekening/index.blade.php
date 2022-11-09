@@ -5,15 +5,9 @@
                 <h4 class="font-size-18">Rekening</h4>
 
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item">
-                        <a>Parameter</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a>Global</a>
-                    </li>
-                    <li class="breadcrumb-item active">
-                        <a load="page" href="{{ route('rekening.index') }}">Rekening</a>
-                    </li>
+                    <li class="breadcrumb-item">Parameter</a></li>
+                    <li class="breadcrumb-item">Global</a></li>
+                    <li class="breadcrumb-item active">Rekening</li>
                 </ol>
 
             </div>
@@ -30,7 +24,7 @@
                         Dalam Negeri.
                     </p>
                     <div class="alert alert-success mb-4" role="alert">
-                        <i class="mdi mdi-bullseye-arrow mr-2"></i>
+                        <i class="fas fa-receipt mr-2"></i>
                         Permendagri No. 90 Tahun 2019 tentang Klasifikasi, Kodefikasi, dan Nomenklatur Perencanaan
                         Pembangunan dan Keuangan Daerah
                     </div>

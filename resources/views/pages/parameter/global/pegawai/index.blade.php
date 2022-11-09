@@ -5,18 +5,10 @@
                 <h4 class="font-size-18">Data Pegawai</h4>
 
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item">
-                        <a>Parameter</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a>Global</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a>Organisasi</a>
-                    </li>
-                    <li class="breadcrumb-item active">
-                        <a load="page" href="{{ route('pegawai.index') }}">Data Pegawai</a>
-                    </li>
+                    <li class="breadcrumb-item">Parameter</li>
+                    <li class="breadcrumb-item">Global</li>
+                    <li class="breadcrumb-item">Organisasi</li>
+                    <li class="breadcrumb-item active">Data Pegawai</li>
                 </ol>
 
             </div>
@@ -28,7 +20,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Daftar Pegawai</h4>
-                    <p class="card-title-desc mb-4">Berdasarkan data kepegawaian
+                    <p class="card-title-desc mb-4">Berdasarkan data kepegawaian terbaru.
                     </p>
 
                     <!-- Nav tabs -->

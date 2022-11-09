@@ -4,7 +4,7 @@
             <ul class="metismenu list-unstyled" id="sidebar">
                 <li class="menu-title">Main</li>
                 <li>
-                    <a load="page" menu="default" href="{{ route('dashboard.show') }}">
+                    <a data-load="#page" data-menu="default" href="{{ route('dashboard.show') }}">
                         <i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -21,17 +21,17 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a load="page" menu="item" href="{{ route('test') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         RKA PD
                                     </a>
                                 </li>
                                 <li>
-                                    <a load="page" menu="item" href="{{ route('test') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         Rincian Belanja PD
                                     </a>
                                 </li>
                                 <li>
-                                    <a load="page" menu="item" href="{{ route('test') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         Rencana Kas
                                     </a>
                                 </li>
@@ -51,17 +51,17 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a load="page" menu="item" href="{{ route('test') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         Data Umum Unit/Sub Unit
                                     </a>
                                 </li>
                                 <li>
-                                    <a load="page" menu="item" href="{{ route('test') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         Potongan PFK
                                     </a>
                                 </li>
                                 <li>
-                                    <a load="page" menu="item" href="{{ route('test') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         Bank Tujuan
                                     </a>
                                 </li>
@@ -73,12 +73,12 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a load="page" menu="item" href="{{ route('test') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         SPM
                                     </a>
                                 </li>
                                 <li>
-                                    <a load="page" menu="item" href="{{ route('test') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         Pengesahan SPJ
                                     </a>
                                 </li>
@@ -90,22 +90,22 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a load="page" menu="item" href="{{ route('test') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         Bukti GU
                                     </a>
                                 </li>
                                 <li>
-                                    <a load="page" menu="item" href="{{ route('test') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         SPP
                                     </a>
                                 </li>
                                 <li>
-                                    <a load="page" menu="item" href="{{ route('test') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         SPJ GU
                                     </a>
                                 </li>
                                 <li>
-                                    <a load="page" menu="item" href="{{ route('test') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         Pajak
                                     </a>
                                 </li>
@@ -126,14 +126,14 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a load="page" menu="item" href="{{ route('pegawai.index') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('pegawai.index') }}">
                                         Data Pegawai
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a load="page" menu="item" href="{{ route('rekening.index') }}">
+                            <a data-load="#page" data-menu="item" href="{{ route('rekening.index') }}">
                                 Rekening
                             </a>
                         </li>
@@ -151,7 +151,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a load="page" menu="item" href="{{ route('test') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         Data Pegawai
                                     </a>
                                 </li>
@@ -167,10 +167,10 @@
     $("#sidebar").metisMenu();
 
     $(document).ready(function() {
-        $('a[menu="default"]').addClass('active').parents('li').addClass('mm-active active');
+        $('a[data-menu="default"]').addClass('active').parents('li').addClass('mm-active active');
     });
 
-    $("body").on('click', 'a[menu]', function(event) {
+    $("body").on('click', 'a[data-menu]', function(event) {
         event.preventDefault();
 
         $(".metismenu .active").removeClass('active');

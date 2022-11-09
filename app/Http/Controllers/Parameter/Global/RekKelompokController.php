@@ -26,15 +26,15 @@ class RekKelompokController extends Controller
                     ->addColumn('action', function ($item) {
                         return '
                         <div class="btn-group btn-group-sm">
-                            <a load="modal" title="Edit Rekening Kelompok" href="' . route('rekening.rek_kelompok.edit', $item->id) . '" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
-                            <a do="delete" href="' . route('rekening.rek_kelompok.destroy', $item->id) . '" class="btn btn-danger text-white"><i class="fas fa-trash"></i></a>
+                            <a data-load="modal" title="Edit Rekening Kelompok" href="' . route('rekening.rek_kelompok.edit', $item->id) . '" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
+                            <a data-action="delete" href="' . route('rekening.rek_kelompok.destroy', $item->id) . '" class="btn btn-danger text-white"><i class="fas fa-trash"></i></a>
                         </div>
                         ';
                     })
                     ->addColumn('detail', function ($item) {
                         return '
                         <div class="btn-group btn-group-sm">
-                            <a do="open-to-tab" tab="#rek_jenis" href="' . route('rekening.rek_jenis.index', ['rek_kelompok_id' => $item->id]) .  '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
+                            <a data-action="open-tab" data-target="#rek_jenis" href="' . route('rekening.rek_jenis.index', ['rek_kelompok_id' => $item->id]) .  '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
                         </div>
                         ';
                     })

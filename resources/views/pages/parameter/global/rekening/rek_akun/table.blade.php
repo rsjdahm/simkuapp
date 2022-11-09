@@ -12,7 +12,7 @@
             </ul>
         </div>
         <div class="col-md-3 text-right">
-            <a load="modal" title="Tambah Rekening Akun" href="{{ route('rekening.rek_akun.create') }}"
+            <a data-load="modal" title="Tambah Rekening Akun" href="{{ route('rekening.rek_akun.create') }}"
                 class="btn btn-success text-white"><i class="fas fa-plus mr-2"></i> Tambah</a>
         </div>
     </div>

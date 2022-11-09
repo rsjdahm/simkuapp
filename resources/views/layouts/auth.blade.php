@@ -7,7 +7,7 @@
 
         <div class="main-content">
             <div class="page-content">
-                <page></page>
+                <div id="page"></div>
             </div>
 
             @include('components.footer')
@@ -17,6 +17,6 @@
 <script type="text/javascript">
     /// call initial page of auth layout: login page
     $(document).ready(function() {
-        load('page', '{{ route('login') }}');
+        load('#page', '{{ route('login') }}');
     });
 </script>

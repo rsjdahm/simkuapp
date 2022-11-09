@@ -30,8 +30,8 @@ class RekSubRincObjekController extends Controller
                     ->addColumn('action', function ($item) {
                         return '
                         <div class="btn-group btn-group-sm">
-                            <a load="modal" title="Edit Rekening Sub Rincian Objek" href="' . route('rekening.rek_sub_rinc_objek.edit', $item->id) . '" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
-                            <a do="delete" href="' . route('rekening.rek_sub_rinc_objek.destroy', $item->id) . '" class="btn btn-danger text-white"><i class="fas fa-trash"></i></a>
+                            <a data-load="modal" title="Edit Rekening Sub Rincian Objek" href="' . route('rekening.rek_sub_rinc_objek.edit', $item->id) . '" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
+                            <a data-action="delete" href="' . route('rekening.rek_sub_rinc_objek.destroy', $item->id) . '" class="btn btn-danger text-white"><i class="fas fa-trash"></i></a>
                         </div>
                         ';
                     })

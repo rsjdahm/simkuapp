@@ -11,7 +11,7 @@
 
         <div class="main-content">
             <div class="page-content">
-                <page></page>
+                <div id="page"></div>
             </div>
 
             @include('components.footer')
@@ -22,28 +22,28 @@
 <script type="text/javascript">
     /// call initial page of auth layout: dashboard page
     $(document).ready(function() {
-        load('page', '{{ route('dashboard.show') }}');
+        load('#page', '{{ route('dashboard.show') }}');
     });
 </script>
 <script type="text/javascript">
     /// hooks for anchor do
-    $("body").on('click', 'a[do]', function(event) {
+    $("body").on('click', 'a[data-action]', function(event) {
         const anchor = $(this);
         event.preventDefault();
-        if (anchor.attr('do') == 'delete') {
+        if (anchor.data('action') == 'delete') {
             return deletor(anchor.attr('href'));
         }
-        if (anchor.attr('do') == 'open-to-tab') {
-            $(anchor.attr('tab')).html('');
-            load(anchor.attr('tab'), anchor.attr('href'));
-            $("a[href='" + anchor.attr('tab') + "'].nav-link").removeClass('disabled');
-            $('.nav-tabs a[href="' + anchor.attr('tab') + '"]').tab('show');
+        if (anchor.data('action') == 'open-tab') {
+            $(anchor.data('target')).html('');
+            load(anchor.data('target'), anchor.attr('href'));
+            $("a[href='" + anchor.data('target') + "'].nav-link").removeClass('disabled');
+            $('.nav-tabs a[href="' + anchor.data('target') + '"]').tab('show');
         }
-        if (anchor.attr('do') == 'back-to-tab') {
-            $("a[href='" + anchor.attr('tab') + "'].nav-link").parent().nextAll().children('a.nav-link')
+        if (anchor.data('action') == 'back-tab') {
+            $("a[href='" + anchor.data('target') + "'].nav-link").parent().nextAll().children('a.nav-link')
                 .addClass('disabled');
-            $(anchor.attr('tab') + ".tab-pane").nextAll().html('');
-            $('.nav-tabs a[href="' + anchor.attr('tab') + '"]').tab('show');
+            $(anchor.data('target') + ".tab-pane").nextAll().html('');
+            $('.nav-tabs a[href="' + anchor.data('target') + '"]').tab('show');
         }
     });
     /// deletor data
