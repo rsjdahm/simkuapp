@@ -142,6 +142,16 @@
                                         Urusan - Bidang
                                     </a>
                                 </li>
+                                <li>
+                                    <a data-load="#page" data-menu="item" href="{{ route('urusan_bidang.index') }}">
+                                        Unit - Sub Unit
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-load="#page" data-menu="item" href="{{ route('urusan_bidang.index') }}">
+                                        Program - Kegiatan
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li>
