@@ -34,6 +34,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Artisan::call('migrate:rollback');
     });
 
-    require __DIR__ . '/parameter/global/rekening.php';
+    /// Parameter/Global
     require __DIR__ . '/parameter/global/pegawai.php';
+    require __DIR__ . '/parameter/global/urusan_bidang.php';
+    require __DIR__ . '/parameter/global/rekening.php';
 });

@@ -133,6 +133,18 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="javascript: void(0);" class="has-arrow">
+                                <span>Nomenklatur</span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a data-load="#page" data-menu="item" href="{{ route('urusan_bidang.index') }}">
+                                        Urusan - Bidang
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
                             <a data-load="#page" data-menu="item" href="{{ route('rekening.index') }}">
                                 Rekening
                             </a>

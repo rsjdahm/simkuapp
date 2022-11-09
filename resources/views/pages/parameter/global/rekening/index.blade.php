@@ -19,7 +19,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Daftar Rekening</h4>
-                    <p class="card-title-desc mb-2">Nomenklatur kode rekening ditetapkan berdasarkan regulasi
+                    <p class="card-title-desc mb-2">Daftar kode rekening ditetapkan berdasarkan regulasi
                         Kementerian
                         Dalam Negeri.
                     </p>

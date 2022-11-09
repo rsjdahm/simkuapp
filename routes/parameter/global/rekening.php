@@ -9,7 +9,7 @@ use App\Http\Controllers\Parameter\Global\RekRincObjekController;
 use App\Http\Controllers\Parameter\Global\RekSubRincObjekController;
 use Illuminate\Support\Facades\Route;
 
-/// Rekening
+/// Rekening indexer
 Route::get('/parameter/global/rekening', [RekeningController::class, 'index'])->name('rekening.index');
 /// rek_akun
 Route::resource('/parameter/global/rekening/rek_akun', RekAkunController::class, ['as' => 'rekening']);
