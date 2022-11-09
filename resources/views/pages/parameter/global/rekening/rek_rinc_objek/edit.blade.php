@@ -32,7 +32,7 @@
         <textarea name="nama" class="form-control">{{ $rek_rinc_objek->nama }}</textarea>
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Simpan</button>
+        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
     </div>
 </form>
 

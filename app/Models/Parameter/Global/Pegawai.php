@@ -16,6 +16,7 @@ class Pegawai extends Model
         'gelar_blkg',
         'nip',
         'nik',
+        'npwp',
         'tgl_lahir',
         'alamat',
         'tmpt_lahir',

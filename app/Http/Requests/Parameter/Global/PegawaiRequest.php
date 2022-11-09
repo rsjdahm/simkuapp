@@ -32,6 +32,7 @@ class PegawaiRequest extends FormRequest
             'gelar_blkg' => ['nullable'],
             'nip' => ['nullable'],
             'nik' => ['nullable', 'numeric'],
+            'npwp' => ['nullable'],
             'tgl_lahir' => ['nullable', 'date'],
             'alamat' => ['nullable'],
             'tmpt_lahir' => ['nullable'],

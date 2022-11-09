@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('gelar_blkg')->nullable();
             $table->string('nip')->nullable();
             $table->string('nik')->nullable();
+            $table->string('npwp')->nullable();
             $table->date('tgl_lahir')->nullable();
             $table->string('tmpt_lahir')->nullable();
             $table->string('jenis_kelamin');

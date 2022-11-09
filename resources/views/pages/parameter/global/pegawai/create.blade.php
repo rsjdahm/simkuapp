@@ -34,6 +34,10 @@
         <input type="text" name="nip" class="form-control">
     </div>
     <div class="form-group">
+        <label class="form-label">NPWP</label>
+        <input type="text" name="npwp" class="form-control">
+    </div>
+    <div class="form-group">
         <label class="form-label">Alamat</label>
         <textarea name="alamat" class="form-control"></textarea>
     </div>
@@ -59,7 +63,7 @@
         </select>
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Simpan</button>
+        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
     </div>
 </form>
 
