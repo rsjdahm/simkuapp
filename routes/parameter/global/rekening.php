@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Parameter\Global\RekAkunController;
-use App\Http\Controllers\Parameter\Global\RekeningController;
 use App\Http\Controllers\Parameter\Global\RekJenisController;
 use App\Http\Controllers\Parameter\Global\RekKelompokController;
 use App\Http\Controllers\Parameter\Global\RekObjekController;
@@ -10,7 +9,10 @@ use App\Http\Controllers\Parameter\Global\RekSubRincObjekController;
 use Illuminate\Support\Facades\Route;
 
 /// Rekening indexer
-Route::get('/parameter/global/rekening', [RekeningController::class, 'index'])->name('rekening.index');
+Route::get('/parameter/global/rekening', function () {
+    return view('pages.parameter.global.rekening.index');
+})->name('rekening.index');
+
 /// rek_akun
 Route::resource('/parameter/global/rekening/rek_akun', RekAkunController::class, ['as' => 'rekening']);
 /// rek_kelompok

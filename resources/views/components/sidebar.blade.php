@@ -143,15 +143,15 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a data-load="#page" data-menu="item" href="{{ route('urusan_bidang.index') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('unit_subunit.index') }}">
                                         Unit - Sub Unit
                                     </a>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a data-load="#page" data-menu="item" href="{{ route('urusan_bidang.index') }}">
                                         Program - Kegiatan
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </li>
                         <li>
