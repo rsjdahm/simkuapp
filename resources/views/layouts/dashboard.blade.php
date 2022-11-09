@@ -38,6 +38,10 @@
             load(anchor.data('target'), anchor.attr('href'));
             $("a[href='" + anchor.data('target') + "'].nav-link").removeClass('disabled');
             $('.nav-tabs a[href="' + anchor.data('target') + '"]').tab('show');
+            // disabled next tab
+            $("a[href='" + anchor.data('target') + "'].nav-link").parent().nextAll().children('a.nav-link')
+                .addClass('disabled');
+            $(anchor.data('target') + ".tab-pane").nextAll().html('');
         }
         if (anchor.data('action') == 'back-tab') {
             $("a[href='" + anchor.data('target') + "'].nav-link").parent().nextAll().children('a.nav-link')
