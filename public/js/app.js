@@ -39,6 +39,13 @@ $(document)
     })
     .ajaxError(function (event, xhr, settings, thrownError) {
         NProgress.done();
+
+        if (xhr.readyState == 0) {
+            return toastr.error(
+                "Silakan periksa koneksi internet Anda atau hubungi administrator jika masalah tetap berlanjut."
+            );
+        }
+
         var message = xhr?.responseJSON?.message
             ? xhr.responseJSON.message
             : JSON.stringify(xhr);
