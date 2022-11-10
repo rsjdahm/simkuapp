@@ -70,21 +70,21 @@ class KegiatanController extends Controller
         return response()->json(['message' => 'Data berhasil ditambah.']);
     }
 
-    public function edit(Kegiatan $program)
+    public function edit(Kegiatan $kegiatan)
     {
-        return view('pages.parameter.global.program_kegiatan.kegiatan.edit', compact('program'));
+        return view('pages.parameter.global.program_kegiatan.kegiatan.edit', compact('kegiatan'));
     }
 
-    public function update(Kegiatan $program, KegiatanRequest $request)
+    public function update(Kegiatan $kegiatan, KegiatanRequest $request)
     {
-        $program->update($request->validated());
+        $kegiatan->update($request->validated());
 
         return response()->json(['message' => 'Data berhasil diubah.']);
     }
 
-    public function destroy(Kegiatan $program)
+    public function destroy(Kegiatan $kegiatan)
     {
-        $program->delete();
+        $kegiatan->delete();
 
         return response()->json(['message' => 'Data berhasil dihapus.']);
     }
