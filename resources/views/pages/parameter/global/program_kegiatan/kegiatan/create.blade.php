@@ -1,25 +1,26 @@
-<form id="{{ time() }}_form" method="post" action="{{ route('unit_subunit.subunit.store') }}">
+<form id="{{ time() }}_form" method="post" action="{{ route('program_kegiatan.kegiatan.store') }}">
     @csrf
     <div class="form-group">
-        <label class="form-label">Kode Subunit</label>
-        <input name="unit_id" type="hidden" value="{{ request()->unit_id }}">
+        <label class="form-label">Kode Program</label>
+        <input name="program_id" type="hidden" value="{{ request()->program_id }}">
         <div class="row">
             <div class="col">
-                <input readonly name="kd_urusan" class="form-control" type="number" value="{{ $unit->kd_urusan }}">
+                <input readonly name="kd_urusan" class="form-control" type="number" value="{{ $program->kd_urusan }}">
             </div>
             <div class="col">
-                <input readonly name="kd_bidang" class="form-control" type="number" value="{{ $unit->kd_bidang }}">
+                <input readonly name="kd_bidang" class="form-control" type="number" value="{{ $program->kd_bidang }}">
             </div>
             <div class="col">
-                <input readonly name="kd_unit" class="form-control" type="number" value="{{ $unit->kd_unit }}">
+                <input readonly name="kd_program" class="form-control" type="number"
+                    value="{{ $program->kd_program }}">
             </div>
             <div class="col">
-                <input name="kd_subunit" class="form-control" type="number">
+                <input name="kd_kegiatan" class="form-control" type="number">
             </div>
         </div>
     </div>
     <div class="form-group">
-        <label class="form-label">Nama Subunit</label>
+        <label class="form-label">Nama Kegiatan</label>
         <textarea name="nama" class="form-control"></textarea>
     </div>
     <div class="form-group">

@@ -33,11 +33,11 @@ class ProgramController extends Controller
                     ';
                     })
                     ->addColumn('detail', function ($item) {
-                        // return '
-                        // <div class="btn-group btn-group-sm">
-                        //     <a data-action="open-tab" data-target="#kegiatan" href="' . route('program_kegiatan.kegiatan.index', ['program_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
-                        // </div>
-                        // ';
+                        return '
+                        <div class="btn-group btn-group-sm">
+                            <a data-action="open-tab" data-target="#kegiatan" href="' . route('program_kegiatan.kegiatan.index', ['program_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
+                        </div>
+                        ';
                     })
                     ->rawColumns(['action', 'detail'])
                     ->make(true);
