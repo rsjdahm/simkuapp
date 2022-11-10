@@ -5,7 +5,7 @@
 <main data-topbar="dark">
     <div id="layout-wrapper">
 
-        @include('components.header-dashboard')
+        @include('components.header_dashboard')
 
         @include('components.sidebar')
 
