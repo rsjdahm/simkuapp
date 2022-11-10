@@ -7,29 +7,37 @@
                             class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
                     <td class="py-2">Urusan</td>
                     <td class="py-2">:</td>
-                    <th class="py-2">{{ $unit->bidang->urusan->kd }}</th>
-                    <td class="py-2">{{ $unit->bidang->urusan->nama }}</td>
+                    <th class="py-2">{{ $kegiatan->program->bidang->urusan->kd }}</th>
+                    <td class="py-2">{{ $kegiatan->program->bidang->urusan->nama }}</td>
                 </tr>
                 <tr>
                     <td class="py-2"></td>
                     <td class="py-2">Bidang</td>
                     <td class="py-2">:</td>
-                    <th class="py-2">{{ $unit->bidang->kd }}</th>
-                    <td class="py-2">{{ $unit->bidang->nama }}</td>
+                    <th class="py-2">{{ $kegiatan->program->bidang->kd }}</th>
+                    <td class="py-2">{{ $kegiatan->program->bidang->nama }}</td>
                 </tr>
                 <tr>
-                    <td class="py-2"><a data-action="back-tab" data-target="#unit"
+                    <td class="py-2"><a data-action="back-tab" data-target="#program"
                             class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
-                    <td class="py-2">Unit</td>
+                    <td class="py-2">Program</td>
                     <td class="py-2">:</td>
-                    <th class="py-2">{{ $unit->kd }}</th>
-                    <td class="py-2">{{ $unit->nama }}</td>
+                    <th class="py-2">{{ $kegiatan->program->kd }}</th>
+                    <td class="py-2">{{ $kegiatan->program->nama }}</td>
+                </tr>
+                <tr>
+                    <td class="py-2"><a data-action="back-tab" data-target="#kegiatan"
+                            class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
+                    <td class="py-2">Kegiatan</td>
+                    <td class="py-2">:</td>
+                    <th class="py-2">{{ $kegiatan->kd }}</th>
+                    <td class="py-2">{{ $kegiatan->nama }}</td>
                 </tr>
             </table>
         </div>
         <div class="col-md-3 text-right">
-            <a data-load="modal" title="Tambah Data Subunit"
-                href="{{ route('unit_subunit.subunit.create', ['unit_id' => $unit->id]) }}"
+            <a data-load="modal" title="Tambah Subkegiatan"
+                href="{{ route('program_kegiatan.subkegiatan.create', ['kegiatan_id' => $kegiatan->id]) }}"
                 class="btn btn-success text-white"><i class="fas fa-plus mr-2"></i> Tambah</a>
         </div>
     </div>

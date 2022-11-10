@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="form-label">Nama Kegiatan</label>
+        <label class="form-label">Nomenklatur Kegiatan</label>
         <textarea name="nama" class="form-control"></textarea>
     </div>
     <div class="form-group">

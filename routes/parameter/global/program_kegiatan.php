@@ -3,6 +3,7 @@
 use App\Http\Controllers\Parameter\Global\BidangController;
 use App\Http\Controllers\Parameter\Global\KegiatanController;
 use App\Http\Controllers\Parameter\Global\ProgramController;
+use App\Http\Controllers\Parameter\Global\SubkegiatanController;
 use Illuminate\Support\Facades\Route;
 
 /// Program - Kegiatan indexer
@@ -16,5 +17,5 @@ Route::get('/parameter/global/urusan_bidang/program_kegiatan', [BidangController
 Route::resource('/parameter/global/program_kegiatan/program', ProgramController::class, ['as' => 'program_kegiatan']);
 /// kegiatan
 Route::resource('/parameter/global/program_kegiatan/kegiatan', KegiatanController::class, ['as' => 'program_kegiatan']);
-// /// subkegiatan
-// Route::resource('/parameter/global/program_kegiatan/subkegiatan', SubkegiatanController::class, ['as' => 'program_kegiatan']);
+/// subkegiatan
+Route::resource('/parameter/global/program_kegiatan/subkegiatan', SubkegiatanController::class, ['as' => 'program_kegiatan']);

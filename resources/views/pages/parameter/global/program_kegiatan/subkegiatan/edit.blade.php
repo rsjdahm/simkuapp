@@ -1,27 +1,36 @@
-<form id="{{ time() }}_form" method="post" action="{{ route('unit_subunit.subunit.update', $subunit->id) }}">
+<form id="{{ time() }}_form" method="post"
+    action="{{ route('program_kegiatan.subkegiatan.update', $subkegiatan->id) }}">
     @csrf
     @method('put')
     <div class="form-group">
-        <label class="form-label">Kode Subunit</label>
-        <input name="unit_id" type="hidden" value="{{ $subunit->unit_id }}">
+        <label class="form-label">Kode Kegiatan</label>
+        <input name="kegiatan_id" type="hidden" value="{{ $subkegiatan->kegiatan_id }}">
         <div class="row">
             <div class="col">
-                <input readonly name="kd_urusan" class="form-control" type="number" value="{{ $subunit->kd_urusan }}">
+                <input readonly name="kd_urusan" class="form-control" type="number"
+                    value="{{ $subkegiatan->kd_urusan }}">
             </div>
             <div class="col">
-                <input readonly name="kd_bidang" class="form-control" type="number" value="{{ $subunit->kd_bidang }}">
+                <input readonly name="kd_bidang" class="form-control" type="number"
+                    value="{{ $subkegiatan->kd_bidang }}">
             </div>
             <div class="col">
-                <input readonly name="kd_unit" class="form-control" type="number" value="{{ $subunit->kd_unit }}">
+                <input readonly name="kd_program" class="form-control" type="number"
+                    value="{{ $subkegiatan->kd_program }}">
             </div>
             <div class="col">
-                <input name="kd_subunit" class="form-control" type="number" value="{{ $subunit->kd_subunit }}">
+                <input readonly name="kd_kegiatan" class="form-control" type="number"
+                    value="{{ $subkegiatan->kd_kegiatan }}">
+            </div>
+            <div class="col">
+                <input name="kd_subkegiatan" class="form-control" type="number"
+                    value="{{ $subkegiatan->kd_subkegiatan }}">
             </div>
         </div>
     </div>
     <div class="form-group">
-        <label class="form-label">Nama Subunit</label>
-        <textarea name="nama" class="form-control">{{ $subunit->nama }}</textarea>
+        <label class="form-label">Nomenklatur Subkegiatan</label>
+        <textarea name="nama" class="form-control">{{ $subkegiatan->nama }}</textarea>
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
