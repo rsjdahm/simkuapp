@@ -28,6 +28,6 @@ class Subunit extends Model
 
     public function getKdAttribute()
     {
-        return $this->kd_urusan . '.' . str_pad($this->kd_bidang, 2, '0', STR_PAD_LEFT) . '.' . '0-00' . '.' . '0-00' . '.' . str_pad($this->kd_unit, 2, '0', STR_PAD_LEFT) . '.' . str_pad($this->kd_subunit, 3, '0', STR_PAD_LEFT);
+        return $this->kd_urusan . '.' . str_pad($this->kd_bidang, 2, '0', STR_PAD_LEFT) . '.' . '0.00.0.00' . '.' . str_pad($this->kd_unit, 2, '0', STR_PAD_LEFT) . '.' . str_pad($this->kd_subunit, 3, '0', STR_PAD_LEFT);
     }
 }
