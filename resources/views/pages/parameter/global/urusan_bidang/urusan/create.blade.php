@@ -5,7 +5,7 @@
         <input name="kd_urusan" class="form-control" type="number">
     </div>
     <div class="form-group">
-        <label class="form-label">Nomenklatur</label>
+        <label class="form-label">Nomenklatur Urusan</label>
         <textarea name="nama" class="form-control"></textarea>
     </div>
     <div class="form-group">

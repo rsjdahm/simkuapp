@@ -6,7 +6,7 @@
         <input name="kd_urusan" class="form-control" type="number" value="{{ $urusan->kd_urusan }}">
     </div>
     <div class="form-group">
-        <label class="form-label">Nomenklatur</label>
+        <label class="form-label">Nomenklatur Urusan</label>
         <textarea name="nama" class="form-control">{{ $urusan->nama }}</textarea>
     </div>
     <div class="form-group">

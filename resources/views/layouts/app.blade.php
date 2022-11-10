@@ -44,10 +44,10 @@
             $("body").append(
                 `<div data-href="${url}" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered ${size ? `modal-${size}` : ""}" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title font-weight-bold">${title}</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <div class="modal-content border-0">
+                            <div class="modal-header bg-dark">
+                                <h5 class="modal-title text-white font-weight-bold">${title}</h5>
+                                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">
                                         <i class="fas fa-times"></i>
                                     </span>
