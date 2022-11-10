@@ -7,7 +7,6 @@
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">Parameter</a></li>
                     <li class="breadcrumb-item">Global</a></li>
-                    <li class="breadcrumb-item">Nomenklatur</li>
                     <li class="breadcrumb-item active">Unit - Subunit</li>
                 </ol>
 

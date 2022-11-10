@@ -143,16 +143,17 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a data-load="#page" data-menu="item" href="{{ route('unit_subunit.index') }}">
-                                        Unit - Sub Unit
-                                    </a>
-                                </li>
-                                <li>
                                     <a data-load="#page" data-menu="item" href="{{ route('program_kegiatan.index') }}">
                                         Program - Kegiatan
                                     </a>
                                 </li>
                             </ul>
+                        </li>
+
+                        <li>
+                            <a data-load="#page" data-menu="item" href="{{ route('unit_subunit.index') }}">
+                                Unit/Subunit
+                            </a>
                         </li>
                         <li>
                             <a data-load="#page" data-menu="item" href="{{ route('rekening.index') }}">
