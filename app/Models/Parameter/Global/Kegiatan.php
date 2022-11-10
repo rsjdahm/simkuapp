@@ -28,6 +28,6 @@ class Kegiatan extends Model
 
     public function getKdAttribute()
     {
-        return $this->kd_urusan . '.' . str_pad($this->kd_bidang, 2, '0', STR_PAD_LEFT) . '.' . str_pad($this->kd_program, 2, '0', STR_PAD_LEFT) . '.' . str_pad($this->kd_kegiatan, 2, '0', STR_PAD_LEFT);
+        return $this->kd_urusan . '.' . str_pad($this->kd_bidang, 2, '0', STR_PAD_LEFT) . '.' . str_pad($this->kd_program, 2, '0', STR_PAD_LEFT) . '.' . '1-' . str_pad($this->kd_kegiatan, 2, '0', STR_PAD_LEFT);
     }
 }
