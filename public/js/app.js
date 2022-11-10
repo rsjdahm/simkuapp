@@ -1,6 +1,8 @@
 NProgress.configure({
     template:
-        '<div class="bar" role="bar"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-container"><div class="spinner-icon"></div></div></div>',
+        '<div class="bar" role="bar"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-container"><img src="../img/loader.gif"/></div></div>',
+    // template:
+    //     '<div class="bar" role="bar"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-container"><div class="spinner-icon"></div></div></div>',
 });
 
 toastr.options = {
