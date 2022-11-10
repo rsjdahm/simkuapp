@@ -134,4 +134,60 @@ class BidangController extends Controller
 
         return view('pages.parameter.global.urusan_bidang.bidang.table_unit', compact('table'));
     }
+
+    public function indexProgram(Builder $builder, Request $request)
+    {
+        if ($request->wantsJson()) {
+            $data = Bidang::with(['urusan'])
+                ->orderBy('kd_urusan')
+                ->orderBy('kd_bidang')
+                ->get();
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('detail', function ($item) {
+                    return '
+                    <div class="btn-group btn-group-sm">
+                        <a data-action="open-tab" data-target="#program" href="' . route('program_kegiatan.program.index', ['bidang_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
+                    </div>
+                    ';
+                })
+                ->addColumn('urusan', function ($item) {
+                    return $item->urusan->kd . '  ' . $item->urusan->nama;
+                })
+                ->rawColumns(['detail'])
+                ->make(true);
+        }
+
+        $table = $builder->ajax(route('urusan_bidang.bidang.index_program'))
+            ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'urusan', 'title' => 'Urusan'])
+            ->addColumn(['data' => 'kd', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'nama', 'title' => 'Bidang'])
+            ->addColumn(['data' => 'detail', 'title' => '', 'style' => 'width: 1%;', 'orderable' => false])
+            ->parameters([
+                "drawCallback" => "
+                function(settings) {
+                    var api = this.api();
+                    var rows = api.rows({
+                        page: 'current'
+                    }).nodes();
+                    var last = null;
+                    api.column(1, {page: 'current'}).data().each(function(group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before('<td colspan=\"4\"><strong>Urusan : ' + group + '</strong></td></tr>');
+                            last = group;
+                        }
+                    });
+                }
+                ",
+                "columnDefs" => [
+                    [
+                        "targets" => [1], "visible" => false,
+                    ],
+                ],
+            ]);
+
+        return view('pages.parameter.global.urusan_bidang.bidang.table_program', compact('table'));
+    }
 }

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
-                <h4 class="font-size-18">Nomenklatur</h4>
+                <h4 class="font-size-18">Urusan dan Bidang</h4>
 
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">Parameter</a></li>
