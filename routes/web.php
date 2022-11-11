@@ -27,13 +27,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('pages.test');
     })->name('test');
 
-    Route::get('/migrate', function () {
-        return Artisan::call('migrate');
-    });
-    Route::get('/migrate/rollback', function () {
-        return Artisan::call('migrate:rollback');
-    });
-
     /// Parameter/Global
     require __DIR__ . '/parameter/global/pegawai.php';
     require __DIR__ . '/parameter/global/urusan_bidang.php';
