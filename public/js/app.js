@@ -42,7 +42,7 @@ $(document)
 
         if (xhr.readyState == 0) {
             return toastr.error(
-                "Silakan periksa koneksi internet Anda atau hubungi administrator jika masalah tetap berlanjut."
+                "Koneksi ke server terputus. Silakan periksa koneksi internet Anda atau hubungi administrator jika masalah tetap berlanjut."
             );
         }
 

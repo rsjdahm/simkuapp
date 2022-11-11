@@ -9,37 +9,37 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                {{-- <li>
+                <li>
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i class="bx bx-bar-chart-alt-2"></i>
+                        <i class="fas fa-chart-bar"></i>
                         <span>Anggaran</span>
                     </a>
                     <ul class="sub-menu">
                         <li>
                             <a href="javascript: void(0);" class="has-arrow">
-                                <span>Penganggaran PD</span>
+                                <span>Penganggaran</span>
                             </a>
                             <ul class="sub-menu">
+                                {{-- <li>
+                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
+                                        RKA
+                                    </a>
+                                </li> --}}
                                 <li>
                                     <a data-load="#page" data-menu="item" href="{{ route('test') }}">
-                                        RKA PD
+                                        Rincian Belanja
                                     </a>
                                 </li>
-                                <li>
-                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
-                                        Rincian Belanja PD
-                                    </a>
-                                </li>
-                                <li>
+                                {{-- <li>
                                     <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         Rencana Kas
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i class="bx bx-file"></i>
                         <span>Penatausahaan</span>
@@ -162,26 +162,20 @@
                         </li>
                     </ul>
                 </li>
-                {{-- <li>
+                <li class="menu-title">Admin</li>
+                <li>
                     <a href="javascript: void(0);" class="has-arrow">
-                        <i class="bx bx-terminal"></i>
-                        <span>SiMKU</span>
+                        <i class="fas fa-database"></i>
+                        <span>Database</span>
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="javascript: void(0);" class="has-arrow">
-                                <span>Organisasi</span>
+                            <a data-load="#page" data-menu="item" href="{{ route('migration.index') }}">
+                                Migration
                             </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
-                                        Data Pegawai
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
-                </li> --}}
+                </li>
             </ul>
         </div>
     </div>

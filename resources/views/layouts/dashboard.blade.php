@@ -33,6 +33,9 @@
         if (anchor.data('action') == 'delete') {
             return deletor(anchor.attr('href'));
         }
+        if (anchor.data('action') == 'post') {
+            return poster(anchor.attr('href'));
+        }
         if (anchor.data('action') == 'open-tab') {
             $(anchor.data('target')).html('');
             load(anchor.data('target'), anchor.attr('href'));
@@ -67,6 +70,31 @@
                 $.ajax({
                     url: href,
                     type: "delete",
+                    success: function(response) {
+                        toastr.success(response.message);
+                        $('table.datatable').DataTable().ajax.reload(null, false);
+                    }
+                });
+            }
+        });
+    }
+
+    function poster(href) {
+        swal.fire({
+            title: "Anda yakin akan posting data ini?",
+            text: "Periksa kembali data anda sebelum posting.",
+            type: "warning",
+            showCancelButton: true,
+            buttonsStyling: false,
+            confirmButtonClass: "btn btn-warning mr-4",
+            cancelButtonClass: "btn btn-secondary",
+            confirmButtonText: "<i class='fas fa-upload'></i> Posting",
+            cancelButtonText: "Batal"
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    url: href,
+                    type: "post",
                     success: function(response) {
                         toastr.success(response.message);
                         $('table.datatable').DataTable().ajax.reload(null, false);

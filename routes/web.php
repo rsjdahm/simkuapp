@@ -40,4 +40,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     require __DIR__ . '/parameter/global/program_kegiatan.php';
     require __DIR__ . '/parameter/global/unit_subunit.php';
     require __DIR__ . '/parameter/global/rekening.php';
+
+    /// Admin/Database
+    require __DIR__ . '/admin/database/migration.php';
 });
