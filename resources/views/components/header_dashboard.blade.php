@@ -51,11 +51,17 @@
                     <form id="logout_form" method="POST" action="{{ route('logout') }}">
                         <div class="dropdown-item">
                             <div class="avatar-md profile-user-wid mb-2">
-                                <img src="{{ asset('img/logo-rsjd.png') }}" alt=""
+                                <img src="{{ asset('img/avatar.png') }}" alt=""
                                     class="img-thumbnail rounded-circle">
                             </div>
                             <h5 class="font-size-15">{{ Auth::user()->nama }}</h5>
-                            <p class="text-muted mb-0">{{ Auth::user()->jabatan }}</p>
+                            <p class="text-muted mb-2">{{ Auth::user()->jabatan }}</p>
+                            <span class="badge badge-pill badge-soft-primary font-size-10"><i
+                                    class="fas fa-user mr-1 align-middle"></i>
+                                {{ Auth::user()->role }}</span>
+                            <span class="badge badge-pill badge-soft-secondary font-size-10"><i
+                                    class="fas fa-envelope mr-1 align-middle"></i>
+                                {{ Auth::user()->email }}</span>
                         </div>
                         <div class="dropdown-divider"></div>
                         @csrf
