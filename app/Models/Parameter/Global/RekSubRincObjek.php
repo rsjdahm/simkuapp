@@ -20,10 +20,10 @@ class RekSubRincObjek extends Model
     ];
 
     protected $appends = [
-        'kd_rek'
+        'kd'
     ];
 
-    public function getKdRekAttribute()
+    public function getKdAttribute()
     {
         return $this->kd_rek1 . '.' . $this->kd_rek2 . '.' . str_pad($this->kd_rek3, 2, '0', STR_PAD_LEFT) . '.' . str_pad($this->kd_rek4, 2, '0', STR_PAD_LEFT) . '.' . str_pad($this->kd_rek5, 2, '0', STR_PAD_LEFT) . '.' . str_pad($this->kd_rek6, 3, '0', STR_PAD_LEFT);
     }

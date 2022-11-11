@@ -7,7 +7,7 @@
                             class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
                     <td class="py-2">Rekening Akun</td>
                     <td class="py-2">:</td>
-                    <th class="py-2">{{ $rek_rinc_objek->rek_objek->rek_jenis->rek_kelompok->rek_akun->kd_rek }}</th>
+                    <th class="py-2">{{ $rek_rinc_objek->rek_objek->rek_jenis->rek_kelompok->rek_akun->kd }}</th>
                     <td class="py-2">{{ $rek_rinc_objek->rek_objek->rek_jenis->rek_kelompok->rek_akun->nama }}</td>
                 </tr>
                 <tr>
@@ -15,7 +15,7 @@
                             class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
                     <td class="py-2">Rekening Kelompok</td>
                     <td class="py-2">:</td>
-                    <th class="py-2">{{ $rek_rinc_objek->rek_objek->rek_jenis->rek_kelompok->kd_rek }}</th>
+                    <th class="py-2">{{ $rek_rinc_objek->rek_objek->rek_jenis->rek_kelompok->kd }}</th>
                     <td class="py-2">{{ $rek_rinc_objek->rek_objek->rek_jenis->rek_kelompok->nama }}</td>
                 </tr>
                 <tr>
@@ -23,7 +23,7 @@
                             class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
                     <td class="py-2">Rekening Jenis</td>
                     <td class="py-2">:</td>
-                    <th class="py-2">{{ $rek_rinc_objek->rek_objek->rek_jenis->kd_rek }}</th>
+                    <th class="py-2">{{ $rek_rinc_objek->rek_objek->rek_jenis->kd }}</th>
                     <td class="py-2">{{ $rek_rinc_objek->rek_objek->rek_jenis->nama }}</td>
                 </tr>
                 <tr>
@@ -31,7 +31,7 @@
                             class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
                     <td class="py-2">Rekening Objek</td>
                     <td class="py-2">:</td>
-                    <th class="py-2">{{ $rek_rinc_objek->rek_objek->kd_rek }}</th>
+                    <th class="py-2">{{ $rek_rinc_objek->rek_objek->kd }}</th>
                     <td class="py-2">{{ $rek_rinc_objek->rek_objek->nama }}</td>
                 </tr>
                 <tr>
@@ -39,7 +39,7 @@
                             class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
                     <td class="py-2">Rekening Rincian Objek</td>
                     <td class="py-2">:</td>
-                    <th class="py-2">{{ $rek_rinc_objek->kd_rek }}</th>
+                    <th class="py-2">{{ $rek_rinc_objek->kd }}</th>
                     <td class="py-2">{{ $rek_rinc_objek->nama }}</td>
                 </tr>
             </table>

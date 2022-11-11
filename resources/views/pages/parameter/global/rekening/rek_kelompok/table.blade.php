@@ -7,7 +7,7 @@
                             class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
                     <td class="py-2">Rekening Akun</td>
                     <td class="py-2">:</td>
-                    <th class="py-2">{{ $rek_akun->kd_rek1 }}</th>
+                    <th class="py-2">{{ $rek_akun->kd }}</th>
                     <td class="py-2">{{ $rek_akun->nama }}</td>
                 </tr>
             </table>

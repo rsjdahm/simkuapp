@@ -14,10 +14,10 @@ class RekAkun extends Model
     ];
 
     protected $appends = [
-        'kd_rek'
+        'kd'
     ];
 
-    public function getKdRekAttribute()
+    public function getKdAttribute()
     {
         return $this->kd_rek1;
     }

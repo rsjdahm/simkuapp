@@ -47,7 +47,7 @@ class RekObjekController extends Controller
             $table = $builder->ajax(route('rekening.rek_objek.index', ['rek_jenis_id' => $request->rek_jenis_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'kd_rek', 'title' => 'Kode Objek', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
+                ->addColumn(['data' => 'kd', 'title' => 'Kode Objek', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening'])
                 ->addColumn(['data' => 'detail', 'title' => '', 'style' => 'width: 1%;', 'orderable' => false]);
 
