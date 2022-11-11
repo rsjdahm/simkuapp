@@ -9,7 +9,8 @@
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-right d-none d-sm-block">
-                    Dikembangkan oleh {{ config('app.meta.author_alias') }}
+                    {{-- Dikembangkan oleh {{ config('app.meta.author_alias') }} --}}
+                    by <img src="{{ asset('img/walid-mark.png') }}" width="75.8" height="20" />
                 </div>
             </div>
         </div>
