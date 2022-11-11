@@ -230,7 +230,7 @@ main[data-layout="horizontal"] .page-content {
     right: 0;
     color: #74788d;
     left: 250px;
-    height: 60px;
+    /* height: 60px; */
     background-color: #f2f2f5;
 }
 @media (max-width: 992px) {
