@@ -20,8 +20,14 @@
 </main>
 
 <script type="text/javascript">
-    /// call initial page of auth layout: dashboard page
     $(document).ready(function() {
+        // check if there is history
+        if (window.location.href.includes('/#/') && window.location.href.replace(BASE_URL + '/#', '') !=
+            '/') {
+            return load('#page', BASE_URL + window.location.href.replace(BASE_URL + '/#', ''));
+        }
+
+        // losss langsung load dashboard
         load('#page', '{{ route('dashboard.show') }}');
     });
 </script>

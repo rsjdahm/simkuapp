@@ -202,6 +202,15 @@
         }
     });
 
+    // save to history loader
+    $("body").on('click', 'a[data-menu]', function(event) {
+        event.preventDefault();
+        const href = BASE_URL + '/#/' + $(this).attr('href').replace(BASE_URL + '/', '');
+        window.history.pushState({
+            href
+        }, '', href)
+    });
+
     $('main').click(function(event) {
         if ($('main').hasClass("sidebar-enable")) {
             var $target = $(event.target);

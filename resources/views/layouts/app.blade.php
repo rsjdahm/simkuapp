@@ -30,6 +30,7 @@
 
     <script src="{{ asset('js/app.js' . '?v=' . time()) }}"></script>
     <script type="text/javascript">
+        var BASE_URL = "{{ url('/') }}";
         /// script global app and page loader
         function load(container, url) {
             $.ajax({
