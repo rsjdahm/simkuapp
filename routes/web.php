@@ -22,7 +22,7 @@ require __DIR__ . '/auth.php';
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/summary', [DashboardController::class, 'show'])->name('dashboard.show');
+    Route::get('/ringkasan', [DashboardController::class, 'show'])->name('dashboard.show');
     Route::get('/test', function () {
         return view('pages.test');
     })->name('test');

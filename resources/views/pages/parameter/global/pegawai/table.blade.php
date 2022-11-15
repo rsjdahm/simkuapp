@@ -4,6 +4,6 @@
 </div>
 
 <div class="table-responsive">
-    {!! $table->table(['id' => time()]) !!}
+    {!! $table->table(['id' => 'pegawai-table']) !!}
     {!! $table->scripts() !!}
 </div>

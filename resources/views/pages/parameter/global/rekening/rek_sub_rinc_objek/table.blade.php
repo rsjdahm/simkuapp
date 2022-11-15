@@ -53,6 +53,6 @@
 </div>
 
 <div class="table-responsive">
-    {!! $table->table(['id' => time()]) !!}
+    {!! $table->table(['id' => 'rekening-rek_sub_rinc_objek-table']) !!}
     {!! $table->scripts() !!}
 </div>

@@ -36,6 +36,6 @@
 </div>
 
 <div class="table-responsive">
-    {!! $table->table(['id' => time()]) !!}
+    {!! $table->table(['id' => 'program_kegiatan-kegiatan-table']) !!}
     {!! $table->scripts() !!}
 </div>

@@ -44,6 +44,6 @@
 </div>
 
 <div class="table-responsive">
-    {!! $table->table(['id' => time()]) !!}
+    {!! $table->table(['id' => 'program_kegiatan-subkegiatan']) !!}
     {!! $table->scripts() !!}
 </div>
