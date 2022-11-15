@@ -371,6 +371,7 @@ main[data-layout="horizontal"] .footer {
 }
 #sidebar-menu ul li a i {
     display: inline-block;
+    font-size: 1.3rem;
     min-width: 1.75rem;
     padding-bottom: 0.125em;
     line-height: 1.40625rem;
