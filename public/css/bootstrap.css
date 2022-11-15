@@ -36,6 +36,7 @@
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
         "Liberation Mono", "Courier New", monospace;
     font-size: 100%;
+    font-variant-numeric: tabular-nums;
 }
 *,
 ::after,
@@ -2419,7 +2420,7 @@ textarea.form-control.is-valid {
     display: none;
     width: 100%;
     margin-top: 0.25rem;
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: #f46a6a;
 }
 .invalid-tooltip {
