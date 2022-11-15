@@ -1,4 +1,4 @@
-<form id="{{ time() }}_form" method="post" action="{{ route('program_kegiatan.kegiatan.store') }}">
+<form method="post" action="{{ route('program_kegiatan.kegiatan.store') }}">
     @csrf
     <div class="form-group">
         <label class="form-label">Kode Program</label>
@@ -29,7 +29,7 @@
 </form>
 
 <script>
-    $("form#{{ time() }}_form").on("submit", function(event) {
+    $("form[action='{{ route('program_kegiatan.kegiatan.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);

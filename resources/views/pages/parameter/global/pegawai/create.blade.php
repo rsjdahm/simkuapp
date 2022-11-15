@@ -1,4 +1,4 @@
-<form id="{{ time() }}_form" method="post" action="{{ route('pegawai.store') }}">
+<form method="post" action="{{ route('pegawai.store') }}">
     @csrf
     <div class="form-group">
         <div class="row">
@@ -68,7 +68,7 @@
 </form>
 
 <script>
-    $("form#{{ time() }}_form").on("submit", function(event) {
+    $("form['{{ route('pegawai.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);

@@ -9,13 +9,13 @@
                 </div>
             </div>
 
-            <div class="card mt-n5 overflow-hidden pt-5">
+            <div class="card mt-n5 overflow-hidden pt-4">
                 <div class="card-body p-4">
-                    <form id="login_form" class="form-horizontal" method="post" action="{{ route('login') }}">
+                    <form class="form-horizontal" method="post" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group text-center">
-                            <strong>{{ config('app.meta.description') }}</strong>
+                            <h6 class="font-weight-bold">{{ config('app.meta.description') }}</h6>
                         </div>
 
                         <div class="form-group">
@@ -74,7 +74,7 @@
 </div>
 
 <script>
-    $("#login_form").on("submit", function(event) {
+    $("form[action='{{ route('login') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);

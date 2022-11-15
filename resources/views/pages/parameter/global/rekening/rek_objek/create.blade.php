@@ -1,4 +1,4 @@
-<form id="{{ time() }}_form" method="post" action="{{ route('rekening.rek_objek.store') }}">
+<form method="post" action="{{ route('rekening.rek_objek.store') }}">
     @csrf
     <div class="form-group">
         <label class="form-label">Kode Rekening Objek</label>
@@ -28,7 +28,7 @@
 </form>
 
 <script>
-    $("form#{{ time() }}_form").on("submit", function(event) {
+    $("form[action='{{ route('rekening.rek_objek.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);

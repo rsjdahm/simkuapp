@@ -1,4 +1,4 @@
-<form id="{{ time() }}_form" method="post" action="{{ route('urusan_bidang.urusan.store') }}">
+<form method="post" action="{{ route('urusan_bidang.urusan.store') }}">
     @csrf
     <div class="form-group">
         <label class="form-label">Kode Urusan</label>
@@ -14,7 +14,7 @@
 </form>
 
 <script>
-    $("form#{{ time() }}_form").on("submit", function(event) {
+    $("form[action='{{ route('urusan_bidang.urusan.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);

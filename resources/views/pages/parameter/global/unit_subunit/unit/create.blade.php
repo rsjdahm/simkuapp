@@ -1,4 +1,4 @@
-<form id="{{ time() }}_form" method="post" action="{{ route('unit_subunit.unit.store') }}">
+<form method="post" action="{{ route('unit_subunit.unit.store') }}">
     @csrf
     <div class="form-group">
         <label class="form-label">Kode Unit</label>
@@ -25,7 +25,7 @@
 </form>
 
 <script>
-    $("form#{{ time() }}_form").on("submit", function(event) {
+    $("form[action='{{ route('unit_subunit.unit.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);
