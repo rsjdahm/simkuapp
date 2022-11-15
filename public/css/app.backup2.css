@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito:400,500,800,900&amp;display=swap);
+@import url(https://fonts.googleapis.com/css?family=Nunito:300,400,500,800,900&amp;display=swap);
 #page-topbar {
     position: fixed;
     top: 0;
@@ -361,12 +361,14 @@ main[data-layout="horizontal"] .footer {
     transition: -webkit-transform 0.2s;
     transition: transform 0.2s;
     transition: transform 0.2s, -webkit-transform 0.2s;
+    font-size: 0.7rem;
 }
 #sidebar-menu ul li a {
     display: block;
     padding: 0.625rem 1.5rem;
     color: #545a6d;
     position: relative;
+    font-size: 13px;
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
 }
@@ -374,6 +376,7 @@ main[data-layout="horizontal"] .footer {
     display: inline-block;
     min-width: 1.75rem;
     padding-bottom: 0.125em;
+    font-size: 1rem;
     line-height: 1.40625rem;
     vertical-align: middle;
     color: #7f8387;
@@ -394,6 +397,7 @@ main[data-layout="horizontal"] .footer {
 }
 #sidebar-menu ul li ul.sub-menu li a {
     padding: 0.4rem 1.5rem 0.4rem 3.5rem;
+    font-size: 13px;
     color: #545a6d;
 }
 #sidebar-menu ul li ul.sub-menu li ul.sub-menu {
@@ -401,12 +405,14 @@ main[data-layout="horizontal"] .footer {
 }
 #sidebar-menu ul li ul.sub-menu li ul.sub-menu li a {
     padding: 0.4rem 1.5rem 0.4rem 4.5rem;
+    /* font-size: 13.5px; */
 }
 .menu-title {
     padding: 12px 20px !important;
     letter-spacing: 0.05em;
     pointer-events: none;
     cursor: default;
+    font-size: 11px;
     text-transform: uppercase;
     color: #7f8387;
     font-weight: 600;
@@ -496,6 +502,7 @@ main[data-layout="horizontal"] .footer {
     color: #383c40;
 }
 .vertical-collpsed .vertical-menu #sidebar-menu > ul > li > a i {
+    font-size: 1.45rem;
     margin-left: 4px;
 }
 .vertical-collpsed .vertical-menu #sidebar-menu > ul > li > a span {

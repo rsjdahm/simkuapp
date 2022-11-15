@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('aktivitas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('subkegiatan_id');
+            $table->string('nama');
             $table->timestamps();
         });
     }

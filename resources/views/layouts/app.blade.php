@@ -11,11 +11,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="auth-url" content="{{ route('auth') }}" />
     <title>{{ config('app.name') }}</title>
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/bootstrap.min.css' . '?v=' . Str::random(4)) }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('libs/toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/app.min.css' . '?v=' . time()) }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/app.min.css' . '?v=' . Str::random(8)) }}" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -28,7 +28,7 @@
     <script src="{{ asset('libs/toastr/toastr.min.js') }}"></script>
     <script src="{{ asset('libs/sweetalert2/sweetalert2.min.js') }}"></script>
 
-    <script src="{{ asset('js/app.js' . '?v=' . time()) }}"></script>
+    <script src="{{ asset('js/app.js' . '?v=' . Str::random(8)) }}"></script>
     <script type="text/javascript">
         var BASE_URL = "{{ url('/') }}";
         /// script global app and page loader
