@@ -14,14 +14,14 @@ Route::get('/parameter/global/rekening', function () {
 })->name('rekening.index');
 
 /// rek_akun
-Route::resource('/parameter/global/rekening/rek_akun', RekAkunController::class, ['as' => 'rekening']);
+Route::resource('/parameter/global/rekening/rek-akun', RekAkunController::class, ['as' => 'rekening']);
 /// rek_kelompok
-Route::resource('/parameter/global/rekening/rek_kelompok', RekKelompokController::class, ['as' => 'rekening']);
+Route::resource('/parameter/global/rekening/rek-kelompok', RekKelompokController::class, ['as' => 'rekening']);
 /// rek_jenis
-Route::resource('/parameter/global/rekening/rek_jenis', RekJenisController::class, ['as' => 'rekening']);
+Route::resource('/parameter/global/rekening/rek-jenis', RekJenisController::class, ['as' => 'rekening']);
 /// rek_objek
-Route::resource('/parameter/global/rekening/rek_objek', RekObjekController::class, ['as' => 'rekening']);
+Route::resource('/parameter/global/rekening/rek-objek', RekObjekController::class, ['as' => 'rekening']);
 /// rek_rinc_objek
-Route::resource('/parameter/global/rekening/rek_rinc_objek', RekRincObjekController::class, ['as' => 'rekening']);
+Route::resource('/parameter/global/rekening/rek-rinc-objek', RekRincObjekController::class, ['as' => 'rekening']);
 /// rek_sub_rinc_objek
-Route::resource('/parameter/global/rekening/rek_sub_rinc_objek', RekSubRincObjekController::class, ['as' => 'rekening']);
+Route::resource('/parameter/global/rekening/rek-sub-rinc-objek', RekSubRincObjekController::class, ['as' => 'rekening']);
