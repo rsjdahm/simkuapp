@@ -334,27 +334,27 @@ h6 {
 }
 .h1,
 h1 {
-    font-size: 2.03125rem;
+    font-size: 1.6rem;
 }
 .h2,
 h2 {
-    font-size: 1.625rem;
+    font-size: 1.5rem;
 }
 .h3,
 h3 {
-    font-size: 1.42188rem;
+    font-size: 1.4rem;
 }
 .h4,
 h4 {
-    font-size: 1.21875rem;
+    font-size: 1.3rem;
 }
 .h5,
 h5 {
-    font-size: 1.01563rem;
+    font-size: 1.2rem;
 }
 .h6,
 h6 {
-    font-size: 0.8125rem;
+    font-size: 1.1rem;
 }
 .lead {
     font-weight: 300;
@@ -2210,7 +2210,7 @@ select.form-control:focus::-ms-value {
 .col-form-label-sm {
     padding-top: calc(0.25rem + 1px);
     padding-bottom: calc(0.25rem + 1px);
-    font-size: 0.71094rem;
+    font-size: 0.85rem;
     line-height: 1.5;
 }
 .form-control-plaintext {
@@ -2232,7 +2232,7 @@ select.form-control:focus::-ms-value {
 .form-control-sm {
     height: calc(1.5em + 0.5rem + 2px);
     padding: 0.25rem 0.5rem;
-    font-size: 0.71094rem;
+    font-size: 0.85rem;
     line-height: 1.5;
     border-radius: 0.2rem;
 }
@@ -3318,7 +3318,7 @@ fieldset:disabled a.btn {
 .btn-group-sm > .btn,
 .btn-sm {
     padding: 0.25rem 0.5rem;
-    font-size: 0.71094rem;
+    font-size: 0.85rem;
     line-height: 1.5;
     border-radius: 0.2rem;
 }
@@ -3791,7 +3791,7 @@ input[type="submit"].btn-block {
 .input-group-sm > .input-group-prepend > .btn,
 .input-group-sm > .input-group-prepend > .input-group-text {
     padding: 0.25rem 0.5rem;
-    font-size: 0.71094rem;
+    font-size: 0.85rem;
     line-height: 1.5;
     border-radius: 0.2rem;
 }
@@ -4028,7 +4028,7 @@ input[type="submit"].btn-block {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
     padding-left: 0.5rem;
-    font-size: 0.71094rem;
+    font-size: 0.85rem;
 }
 .custom-select-lg {
     height: calc(1.5em + 1rem + 2px);
@@ -5108,7 +5108,7 @@ input[type="submit"].btn-block {
 }
 .pagination-sm .page-link {
     padding: 0.25rem 0.5rem;
-    font-size: 0.71094rem;
+    font-size: 0.85rem;
     line-height: 1.5;
 }
 .pagination-sm .page-item:first-child .page-link {

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
-                <h4 class="font-size-18">Program, Kegiatan, dan Subkegiatan</h4>
+                <h4>Program, Kegiatan, dan Subkegiatan</h4>
 
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">Parameter</a></li>

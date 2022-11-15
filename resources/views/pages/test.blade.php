@@ -3,15 +3,13 @@
     <!-- start page title -->
     <div class="row">
         <div class="col-12">
-            <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="font-size-18 mb-0">TESTING Layout</h4>
+            <div class="page-title-box">
+                <h4>Test</h4>
 
-                <div class="page-title-right">
-                    <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Test</a></li>
-                        <li class="breadcrumb-item active">Vertical</li>
-                    </ol>
-                </div>
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Test</li>
+                </ol>
 
             </div>
         </div>

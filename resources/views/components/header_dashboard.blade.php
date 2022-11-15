@@ -54,14 +54,11 @@
                                 <img src="{{ asset('img/avatar.png') }}" alt=""
                                     class="img-thumbnail rounded-circle">
                             </div>
-                            <h5 class="font-size-15">{{ Auth::user()->nama }}</h5>
+                            <h5>{{ Auth::user()->nama }}</h5>
                             <p class="text-muted mb-2">{{ Auth::user()->jabatan }}</p>
-                            <span class="badge badge-pill badge-soft-primary font-size-10"><i
+                            <span class="badge badge-pill badge-soft-primary"><i
                                     class="fas fa-user mr-1 align-middle"></i>
                                 {{ Auth::user()->role }}</span>
-                            <span class="badge badge-pill badge-soft-secondary font-size-10"><i
-                                    class="fas fa-envelope mr-1 align-middle"></i>
-                                {{ Auth::user()->email }}</span>
                         </div>
                         <div class="dropdown-divider"></div>
                         @csrf
