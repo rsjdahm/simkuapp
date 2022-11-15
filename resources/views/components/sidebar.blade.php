@@ -184,7 +184,26 @@
     $("#sidebar").metisMenu();
 
     $(document).ready(function() {
-        $('a[data-menu="default"]').addClass('active').parents('li').addClass('mm-active active');
+        // check if there is history then activate menu
+        if (window.location.href.includes('/#/') && window.location.href.replace(BASE_URL + '/#', '') !=
+            '/') {
+            const new_url = BASE_URL + window.location.href.replace(BASE_URL + '/#', '');
+            load('#page', new_url);
+
+            $(".metismenu .active").removeClass('active');
+
+            $('a[data-menu][href="' + new_url + '"]')
+                .addClass("active");
+            $('a[data-menu][href="' + new_url + '"]')
+                .parents('li').children('a').addClass('active');
+            $('a[data-menu][href="' + new_url + '"]')
+                .parents('li').addClass('mm-active active');
+            $('a[data-menu][href="' + new_url + '"]')
+                .parents('ul.sub-menu').addClass('mm-show');
+        } else {
+            // if no history
+            $('a[data-menu="default"]').addClass('active').parents('li').addClass('mm-active active');
+        }
     });
 
     $("body").on('click', 'a[data-menu]', function(event) {

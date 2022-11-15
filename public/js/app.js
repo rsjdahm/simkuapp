@@ -97,14 +97,22 @@ $(document)
             });
             message += "</ul>";
             return toastr.error(xhr.responseJSON.message);
-        } else if (xhr.status == 401 || xhr.status == 419) {
+        } else if (xhr.status == 401) {
             message =
                 "Sesi login habis, silakan login kembali." +
                 "<br /><br />" +
                 "<i>" +
                 xhr.responseJSON.message +
                 "</i>";
-            load("app", $('meta[name="auth-url"]').attr("content"));
+            load("#app", $('meta[name="auth-url"]').attr("content"));
+            return toastr.error(message);
+        } else if (xhr.status == 419) {
+            message =
+                "Sesi habis, silakan muat ulang browser." +
+                "<br /><br />" +
+                "<i>" +
+                xhr.responseJSON.message +
+                "</i>";
             return toastr.error(message);
         } else if (xhr.status == 500) {
             message =
