@@ -111,6 +111,9 @@
             processData: false,
             contentType: false,
             success: function(response) {
+                window.history.pushState({
+                    href: BASE_URL
+                }, '', BASE_URL)
                 return load('#app', response);
             }
         });
