@@ -1,7 +1,7 @@
 <header id="page-topbar">
     <div class="navbar-header">
         <div class="d-flex">
-            <button type="button" class="btn btn-sm font-size-16 d-lg-none header-item px-3" data-toggle="collapse"
+            <button type="button" class="btn d-lg-none header-item px-3" data-toggle="collapse"
                 data-target="#topnav-menu-content">
                 <i class="fas fa-bars"></i>
             </button>

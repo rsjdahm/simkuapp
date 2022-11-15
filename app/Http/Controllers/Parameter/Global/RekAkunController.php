@@ -20,16 +20,17 @@ class RekAkunController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($item) {
                     return '
-                    <div class="btn-group btn-group-sm">
-                        <a data-load="modal" title="Edit Rekening Akun" href="' . route('rekening.rek_akun.edit', $item->id) . '" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
-                        <a data-action="delete" href="' . route('rekening.rek_akun.destroy', $item->id) . '" class="btn btn-danger text-white"><i class="fas fa-trash"></i></a>
-                    </div>
-                    ';
-                })
-                ->addColumn('detail', function ($item) {
-                    return '
-                    <div class="btn-group btn-group-sm">
-                        <a data-action="open-tab" data-target="#rek_kelompok" href="' . route('rekening.rek_kelompok.index', ['rek_akun_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
+                    <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                        <i class="fas fa-wrench"></i> Aksi
+                        </button>
+                        <div class="dropdown-menu">
+                            <a data-load="modal" title="Edit Rekening Akun" href="' . route('rekening.rek_akun.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                            <a data-action="delete" href="' . route('rekening.rek_akun.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                        </div>
+                        <div class="btn-group btn-group-sm">
+                            <a data-action="open-tab" data-target="#rek_kelompok" href="' . route('rekening.rek_kelompok.index', ['rek_akun_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
+                        </div>
                     </div>
                     ';
                 })
@@ -38,11 +39,9 @@ class RekAkunController extends Controller
         }
 
         $table = $builder->ajax(route('rekening.rek_akun.index'))
-            ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
-            ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
+            ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
             ->addColumn(['data' => 'kd', 'title' => 'Kode Akun', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
-            ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening'])
-            ->addColumn(['data' => 'detail', 'title' => '', 'style' => 'width: 1%;', 'orderable' => false]);
+            ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening']);
 
         return view('pages.parameter.global.rekening.rek_akun.table', compact('table'));
     }

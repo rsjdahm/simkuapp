@@ -42,7 +42,7 @@ class RekSubRincObjekController extends Controller
             $table = $builder->ajax(route('rekening.rek_sub_rinc_objek.index', ['rek_rinc_objek_id' => $request->rek_rinc_objek_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'kd', 'title' => 'Kode Sub Rincian Objek', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
+                ->addColumn(['data' => 'kd', 'title' => 'Kode Sub Rincian Objek', 'class' => 'font-weight-bold text-nowrap', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening']);
 
             $rek_rinc_objek = RekRincObjek::findOrFail($request->rek_rinc_objek_id);

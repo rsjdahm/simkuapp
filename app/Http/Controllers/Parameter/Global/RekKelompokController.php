@@ -45,7 +45,7 @@ class RekKelompokController extends Controller
             $table = $builder->ajax(route('rekening.rek_kelompok.index', ['rek_akun_id' => $request->rek_akun_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'kd', 'title' => 'Kode Kelompok', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
+                ->addColumn(['data' => 'kd', 'title' => 'Kode Kelompok', 'class' => 'font-weight-bold text-nowrap', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening'])
                 ->addColumn(['data' => 'detail', 'title' => '', 'style' => 'width: 1%;', 'orderable' => false]);
 
