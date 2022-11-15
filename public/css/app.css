@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito:400,500,800,900&amp;display=swap);
+@import url(https://fonts.googleapis.com/css?family=Inter:400,500,800,900&amp;display=swap);
 #page-topbar {
     position: fixed;
     top: 0;
@@ -2501,7 +2501,7 @@ input[switch="dark"]:checked + label {
     min-height: 10px !important;
 }
 .apex-charts text {
-    font-family: Nunito, sans-serif !important;
+    font-family: Inter, sans-serif !important;
     fill: #adb5bd;
 }
 .apex-charts .apexcharts-canvas {
@@ -2509,7 +2509,7 @@ input[switch="dark"]:checked + label {
 }
 .apexcharts-tooltip-text,
 .apexcharts-tooltip-title {
-    font-family: Nunito, sans-serif !important;
+    font-family: Inter, sans-serif !important;
 }
 .apexcharts-legend-series {
     font-weight: 500;
@@ -2520,7 +2520,7 @@ input[switch="dark"]:checked + label {
 }
 .apexcharts-legend-text {
     color: #74788d !important;
-    font-family: Nunito, sans-serif !important;
+    font-family: Inter, sans-serif !important;
     font-size: 13px !important;
 }
 .apexcharts-pie-label {
@@ -2528,7 +2528,7 @@ input[switch="dark"]:checked + label {
 }
 .apexcharts-xaxis text,
 .apexcharts-yaxis text {
-    font-family: Nunito, sans-serif !important;
+    font-family: Inter, sans-serif !important;
     fill: #adb5bd;
 }
 .flot-charts-height {
@@ -2562,7 +2562,7 @@ input[switch="dark"]:checked + label {
     color: #eff2f7 !important;
     font-size: 12px !important;
     line-height: 18px !important;
-    font-family: Nunito, sans-serif !important;
+    font-family: Inter, sans-serif !important;
     font-weight: 500 !important;
 }
 .gmaps,
@@ -2604,7 +2604,7 @@ input[switch="dark"]:checked + label {
     border: none;
     background: #343a40;
     color: #f8f9fa;
-    font-family: Nunito, sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 0.8125rem;
     padding: 5px 8px;
 }
