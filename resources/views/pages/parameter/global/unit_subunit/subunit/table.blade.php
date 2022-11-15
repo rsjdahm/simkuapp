@@ -36,6 +36,6 @@
 </div>
 
 <div class="table-responsive">
-    {!! $table->table(['id' => 'unit_subunit-subunit-table']) !!}
+    {!! $table->table(['id' => Str::random(10)]) !!}
     {!! $table->scripts() !!}
 </div>

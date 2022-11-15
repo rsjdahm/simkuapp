@@ -28,6 +28,6 @@
 </div>
 
 <div class="table-responsive">
-    {!! $table->table(['id' => 'program_kegiatan-program-table']) !!}
+    {!! $table->table(['id' => Str::random(10)]) !!}
     {!! $table->scripts() !!}
 </div>

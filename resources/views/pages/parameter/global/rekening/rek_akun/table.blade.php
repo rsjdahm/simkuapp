@@ -19,6 +19,6 @@
 </div>
 
 <div class="table-responsive">
-    {!! $table->table(['id' => 'rekening-rek_akun-table']) !!}
+    {!! $table->table(['id' => Str::random(10)]) !!}
     {!! $table->scripts() !!}
 </div>
