@@ -119,7 +119,7 @@ class BidangController extends Controller
                     var last = null;
                     api.column(1, {page: 'current'}).data().each(function(group, i) {
                         if (last !== group) {
-                            $(rows).eq(i).before('<td colspan=\"4\"><strong>Urusan : ' + group + '</strong></td></tr>');
+                            $(rows).eq(i).before('<td colspan=\"4\"><strong>Urusan --- ' + group + '</strong></td></tr>');
                             last = group;
                         }
                     });
@@ -175,7 +175,7 @@ class BidangController extends Controller
                     var last = null;
                     api.column(1, {page: 'current'}).data().each(function(group, i) {
                         if (last !== group) {
-                            $(rows).eq(i).before('<td colspan=\"4\"><strong>Urusan : ' + group + '</strong></td></tr>');
+                            $(rows).eq(i).before('<td colspan=\"4\"><strong>Urusan --- ' + group + '</strong></td></tr>');
                             last = group;
                         }
                     });
