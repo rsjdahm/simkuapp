@@ -1,6 +1,6 @@
 <div class="alert alert-warning" role="alert">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-12">
             <table class="table-responsive m-0 table">
                 <tr>
                     <td class="py-2"><a data-action="back-tab" data-target="#rek_akun"
@@ -12,7 +12,7 @@
                 </tr>
             </table>
         </div>
-        <div class="col-md-3 text-right">
+        <div class="col-12 text-right">
             <a data-load="modal" title="Tambah Rekening Akun"
                 href="{{ route('rekening.rek_kelompok.create', ['rek_akun_id' => $rek_akun->id]) }}"
                 class="btn btn-success text-white"><i class="fas fa-plus mr-2"></i> Tambah</a>
