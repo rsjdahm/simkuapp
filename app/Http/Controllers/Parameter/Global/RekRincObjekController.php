@@ -28,20 +28,20 @@ class RekRincObjekController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function ($item) {
                         return '
-                        <div class="btn-group btn-group-sm">
-                            <a data-load="modal" title="Edit Rekening Rincian Objek" href="' . route('rekening.rek_rinc_objek.edit', $item->id) . '" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
-                            <a data-action="delete" href="' . route('rekening.rek_rinc_objek.destroy', $item->id) . '" class="btn btn-danger text-white"><i class="fas fa-trash"></i></a>
+                        <div class="btn-group btn-group-sm" role="group">
+                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                                <i class="fas fa-wrench"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a data-load="modal" title="Edit Rekening Rincian Objek" href="' . route('rekening.rek_rinc_objek.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                <a data-action="delete" href="' . route('rekening.rek_rinc_objek.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                            </div>
+                            <a data-action="open-tab" data-target="#rek_sub_rinc_objek" href="' . route('rekening.rek_sub_rinc_objek.index', ['rek_rinc_objek_id' => $item->id]) . '" class="btn btn-primary text-white">
+                                <i class="fas fa-forward"></i>
+                            </a>
                         </div>
                         ';
                     })
-                    ->addColumn('detail', function ($item) {
-                        return '
-                        <div class="btn-group btn-group-sm">
-                            <a data-action="open-tab" data-target="#rek_sub_rinc_objek" href="' . route('rekening.rek_sub_rinc_objek.index', ['rek_rinc_objek_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
-                        </div>
-                        ';
-                    })
-                    ->rawColumns(['action', 'detail'])
                     ->make(true);
             }
 
@@ -49,8 +49,7 @@ class RekRincObjekController extends Controller
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Rincian Objek', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening'])
-                ->addColumn(['data' => 'detail', 'title' => '', 'style' => 'width: 1%;', 'orderable' => false]);
+                ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening']);
 
             $rek_objek = RekObjek::findOrFail($request->rek_objek_id);
 

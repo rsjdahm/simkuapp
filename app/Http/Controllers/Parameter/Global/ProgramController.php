@@ -26,20 +26,20 @@ class ProgramController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function ($item) {
                         return '
-                    <div class="btn-group btn-group-sm">
-                        <a data-load="modal" title="Edit Program" href="' . route('program_kegiatan.program.edit', $item->id) . '" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
-                        <a data-action="delete" href="' . route('program_kegiatan.program.destroy', $item->id) . '" class="btn btn-danger text-white"><i class="fas fa-trash"></i></a>
-                    </div>
-                    ';
-                    })
-                    ->addColumn('detail', function ($item) {
-                        return '
-                        <div class="btn-group btn-group-sm">
-                            <a data-action="open-tab" data-target="#kegiatan" href="' . route('program_kegiatan.kegiatan.index', ['program_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
+                        <div class="btn-group btn-group-sm" role="group">
+                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                                <i class="fas fa-wrench"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a data-load="modal" title="Edit Program" href="' . route('program_kegiatan.program.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                <a data-action="delete" href="' . route('program_kegiatan.program.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                            </div>
+                            <a data-action="open-tab" data-target="#kegiatan" href="' . route('program_kegiatan.kegiatan.index', ['program_id' => $item->id]) . '" class="btn btn-primary text-white">
+                                <i class="fas fa-forward"></i>
+                            </a>
                         </div>
                         ';
                     })
-                    ->rawColumns(['action', 'detail'])
                     ->make(true);
             }
 
@@ -47,8 +47,7 @@ class ProgramController extends Controller
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Program', 'class' => 'font-weight-bold'])
-                ->addColumn(['data' => 'nama', 'title' => 'Nama Program'])
-                ->addColumn(['data' => 'detail', 'title' => '', 'style' => 'width: 1%;', 'orderable' => false]);
+                ->addColumn(['data' => 'nama', 'title' => 'Nama Program']);
 
             $bidang = Bidang::findOrFail($request->bidang_id);
 

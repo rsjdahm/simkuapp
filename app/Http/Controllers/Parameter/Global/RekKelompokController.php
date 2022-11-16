@@ -25,20 +25,20 @@ class RekKelompokController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function ($item) {
                         return '
-                        <div class="btn-group btn-group-sm">
-                            <a data-load="modal" title="Edit Rekening Kelompok" href="' . route('rekening.rek_kelompok.edit', $item->id) . '" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
-                            <a data-action="delete" href="' . route('rekening.rek_kelompok.destroy', $item->id) . '" class="btn btn-danger text-white"><i class="fas fa-trash"></i></a>
+                        <div class="btn-group btn-group-sm" role="group">
+                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                                <i class="fas fa-wrench"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a data-load="modal"  title="Edit Rekening Kelompok" href="' . route('rekening.rek_kelompok.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                <a data-action="delete" href="' . route('rekening.rek_kelompok.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                            </div>
+                            <a data-action="open-tab" data-target="#rek_jenis" href="' . route('rekening.rek_jenis.index', ['rek_kelompok_id' => $item->id]) .  '" class="btn btn-primary text-white">
+                                <i class="fas fa-forward"></i>
+                            </a>
                         </div>
                         ';
                     })
-                    ->addColumn('detail', function ($item) {
-                        return '
-                        <div class="btn-group btn-group-sm">
-                            <a data-action="open-tab" data-target="#rek_jenis" href="' . route('rekening.rek_jenis.index', ['rek_kelompok_id' => $item->id]) .  '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
-                        </div>
-                        ';
-                    })
-                    ->rawColumns(['action', 'detail'])
                     ->make(true);
             }
 
@@ -46,8 +46,7 @@ class RekKelompokController extends Controller
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Kelompok', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening'])
-                ->addColumn(['data' => 'detail', 'title' => '', 'style' => 'width: 1%;', 'orderable' => false]);
+                ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening']);
 
             $rek_akun = RekAkun::findOrFail($request->rek_akun_id);
 

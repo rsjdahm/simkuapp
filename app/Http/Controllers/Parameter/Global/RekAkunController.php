@@ -22,19 +22,18 @@ class RekAkunController extends Controller
                     return '
                     <div class="btn-group btn-group-sm" role="group">
                         <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                        <i class="fas fa-wrench"></i> Aksi
+                            <i class="fas fa-wrench"></i>
                         </button>
                         <div class="dropdown-menu">
                             <a data-load="modal" title="Edit Rekening Akun" href="' . route('rekening.rek_akun.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
                             <a data-action="delete" href="' . route('rekening.rek_akun.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
                         </div>
-                        <div class="btn-group btn-group-sm">
-                            <a data-action="open-tab" data-target="#rek_kelompok" href="' . route('rekening.rek_kelompok.index', ['rek_akun_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
-                        </div>
+                        <a data-action="open-tab" data-target="#rek_kelompok" href="' . route('rekening.rek_kelompok.index', ['rek_akun_id' => $item->id]) . '" class="btn btn-primary text-white">
+                            <i class="fas fa-forward"></i>
+                        </a>
                     </div>
                     ';
                 })
-                ->rawColumns(['action', 'detail'])
                 ->make(true);
         }
 

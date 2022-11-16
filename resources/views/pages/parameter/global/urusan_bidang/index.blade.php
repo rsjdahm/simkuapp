@@ -19,7 +19,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Nomenklatur Urusan - Bidang</h4>
+                    <h4 class="card-title">Nomenklatur Urusan dan Bidang</h4>
                     <p class="card-title-desc mb-2">Nomenklatur Urusan dan Bidang
                         ditetapkan berdasarkan regulasi
                         Kementerian

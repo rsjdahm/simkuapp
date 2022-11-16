@@ -19,7 +19,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Data Program, Kegiatan, dan Subkegiatan</h4>
+                    <h4 class="card-title">Nomenklatur Program, Kegiatan, dan Subkegiatan</h4>
                     <p class="card-title-desc mb-4">Data berdasarkan Peraturan pelaksanaan Pemerintah Provinsi
                         Kalimantan Timur.
                     </p>

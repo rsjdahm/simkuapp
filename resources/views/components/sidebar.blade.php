@@ -139,12 +139,12 @@
                             <ul class="sub-menu">
                                 <li>
                                     <a data-load="#page" data-menu="item" href="{{ route('urusan_bidang.index') }}">
-                                        Urusan - Bidang
+                                        Urusan-Bidang
                                     </a>
                                 </li>
                                 <li>
                                     <a data-load="#page" data-menu="item" href="{{ route('program_kegiatan.index') }}">
-                                        Program - Kegiatan
+                                        Program-Kegiatan
                                     </a>
                                 </li>
                             </ul>

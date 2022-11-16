@@ -20,20 +20,20 @@ class UrusanController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($item) {
                     return '
-                    <div class="btn-group btn-group-sm">
-                        <a data-load="modal" title="Edit Nomenklatur Urusan" href="' . route('urusan_bidang.urusan.edit', $item->id) . '" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
-                        <a data-action="delete" href="' . route('urusan_bidang.urusan.destroy', $item->id) . '" class="btn btn-danger text-white"><i class="fas fa-trash"></i></a>
+                    <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                            <i class="fas fa-wrench"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a data-load="modal" title="Edit Nomenklatur Urusan" href="' . route('urusan_bidang.urusan.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                            <a data-action="delete" href="' . route('urusan_bidang.urusan.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                        </div>
+                        <a data-action="open-tab" data-target="#bidang" href="' . route('urusan_bidang.bidang.index', ['urusan_id' => $item->id]) . '" class="btn btn-primary text-white">
+                            <i class="fas fa-forward"></i>
+                        </a>
                     </div>
                     ';
                 })
-                ->addColumn('detail', function ($item) {
-                    return '
-                    <div class="btn-group btn-group-sm">
-                        <a data-action="open-tab" data-target="#bidang" href="' . route('urusan_bidang.bidang.index', ['urusan_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
-                    </div>
-                    ';
-                })
-                ->rawColumns(['action', 'detail'])
                 ->make(true);
         }
 
@@ -41,8 +41,7 @@ class UrusanController extends Controller
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'kd', 'title' => 'Kode Urusan', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
-            ->addColumn(['data' => 'nama', 'title' => 'Nomenklatur'])
-            ->addColumn(['data' => 'detail', 'title' => '', 'style' => 'width: 1%;', 'orderable' => false]);
+            ->addColumn(['data' => 'nama', 'title' => 'Nomenklatur']);
 
         return view('pages.parameter.global.urusan_bidang.urusan.table', compact('table'));
     }

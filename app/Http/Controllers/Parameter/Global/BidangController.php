@@ -25,13 +25,17 @@ class BidangController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function ($item) {
                         return '
-                    <div class="btn-group btn-group-sm">
-                        <a data-load="modal" title="Edit Nomenklatur Bidang" href="' . route('urusan_bidang.bidang.edit', $item->id) . '" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
-                        <a data-action="delete" href="' . route('urusan_bidang.bidang.destroy', $item->id) . '" class="btn btn-danger text-white"><i class="fas fa-trash"></i></a>
-                    </div>
-                    ';
+                        <div class="btn-group btn-group-sm" role="group">
+                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                                <i class="fas fa-wrench"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a data-load="modal" title="Edit Nomenklatur Bidang" href="' . route('urusan_bidang.bidang.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                <a data-action="delete" href="' . route('urusan_bidang.bidang.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                            </div>
+                        </div>
+                        ';
                     })
-                    ->rawColumns(['action'])
                     ->make(true);
             }
 
@@ -89,7 +93,7 @@ class BidangController extends Controller
 
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('detail', function ($item) {
+                ->addColumn('action', function ($item) {
                     return '
                     <div class="btn-group btn-group-sm">
                         <a data-action="open-tab" data-target="#unit" href="' . route('unit_subunit.unit.index', ['bidang_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
@@ -99,35 +103,34 @@ class BidangController extends Controller
                 ->addColumn('urusan', function ($item) {
                     return $item->urusan->kd . '  ' . $item->urusan->nama;
                 })
-                ->rawColumns(['detail'])
                 ->make(true);
         }
 
         $table = $builder->ajax(route('urusan_bidang.bidang.index_unit'))
+            ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'urusan', 'title' => 'Urusan'])
             ->addColumn(['data' => 'kd', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Bidang'])
-            ->addColumn(['data' => 'detail', 'title' => '', 'style' => 'width: 1%;', 'orderable' => false])
             ->parameters([
                 "drawCallback" => "
-                function(settings) {
-                    var api = this.api();
-                    var rows = api.rows({
-                        page: 'current'
-                    }).nodes();
-                    var last = null;
-                    api.column(1, {page: 'current'}).data().each(function(group, i) {
-                        if (last !== group) {
-                            $(rows).eq(i).before('<td colspan=\"4\"><span class=\"mr-3 badge badge-pill badge-primary\">Urusan</span><strong>' + group + '</strong></td></tr>');
-                            last = group;
-                        }
-                    });
-                }
-                ",
+            function(settings) {
+                var api = this.api();
+                var rows = api.rows({
+                    page: 'current'
+                }).nodes();
+                var last = null;
+                api.column(2, {page: 'current'}).data().each(function(group, i) {
+                    if (last !== group) {
+                        $(rows).eq(i).before('<td colspan=\"4\"><span class=\"mr-3 badge badge-pill badge-success\">Urusan</span><strong>' + group + '</strong></td></tr>');
+                        last = group;
+                    }
+                });
+            }
+            ",
                 "columnDefs" => [
                     [
-                        "targets" => [1], "visible" => false,
+                        "targets" => [2], "visible" => false,
                     ],
                 ],
             ]);
@@ -145,7 +148,7 @@ class BidangController extends Controller
 
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('detail', function ($item) {
+                ->addColumn('action', function ($item) {
                     return '
                     <div class="btn-group btn-group-sm">
                         <a data-action="open-tab" data-target="#program" href="' . route('program_kegiatan.program.index', ['bidang_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
@@ -155,16 +158,15 @@ class BidangController extends Controller
                 ->addColumn('urusan', function ($item) {
                     return $item->urusan->kd . '  ' . $item->urusan->nama;
                 })
-                ->rawColumns(['detail'])
                 ->make(true);
         }
 
         $table = $builder->ajax(route('urusan_bidang.bidang.index_program'))
+            ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'urusan', 'title' => 'Urusan'])
             ->addColumn(['data' => 'kd', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Bidang'])
-            ->addColumn(['data' => 'detail', 'title' => '', 'style' => 'width: 1%;', 'orderable' => false])
             ->parameters([
                 "drawCallback" => "
                 function(settings) {
@@ -173,9 +175,9 @@ class BidangController extends Controller
                         page: 'current'
                     }).nodes();
                     var last = null;
-                    api.column(1, {page: 'current'}).data().each(function(group, i) {
+                    api.column(2, {page: 'current'}).data().each(function(group, i) {
                         if (last !== group) {
-                            $(rows).eq(i).before('<td colspan=\"4\"><span class=\"mr-3 badge badge-pill badge-primary\">Urusan</span><strong>' + group + '</strong></td></tr>');
+                            $(rows).eq(i).before('<td colspan=\"4\"><span class=\"mr-3 badge badge-pill badge-success\">Urusan</span><strong>' + group + '</strong></td></tr>');
                             last = group;
                         }
                     });
@@ -183,7 +185,7 @@ class BidangController extends Controller
                 ",
                 "columnDefs" => [
                     [
-                        "targets" => [1], "visible" => false,
+                        "targets" => [2], "visible" => false,
                     ],
                 ],
             ]);
