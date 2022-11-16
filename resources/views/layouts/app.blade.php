@@ -11,6 +11,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="auth-url" content="{{ route('auth') }}" />
     <title>{{ config('app.name') }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800;900&display=swap" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css' . '?v=' . Str::random(4)) }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('libs/toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
