@@ -8,7 +8,7 @@
                     <li class="breadcrumb-item">Parameter</a></li>
                     <li class="breadcrumb-item">Global</a></li>
                     <li class="breadcrumb-item">Nomenklatur</li>
-                    <li class="breadcrumb-item active">Urusan - Bidang</li>
+                    <li class="breadcrumb-item active">Urusan-Bidang</li>
                 </ol>
 
             </div>
