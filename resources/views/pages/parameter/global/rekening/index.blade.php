@@ -31,7 +31,7 @@
 
 
                     <!-- Nav tabs -->
-                    <ul class="nav nav-tabs" role="tablist">
+                    <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#rek_akun" role="tab">
                                 <span><i class="fas fa-home mr-1"></i></span> Akun</span>
