@@ -188,7 +188,6 @@
         if (window.location.href.includes('/#/') && window.location.href.replace(BASE_URL + '/#', '') !=
             '/') {
             const new_url = BASE_URL + window.location.href.replace(BASE_URL + '/#', '');
-            load('#page', new_url);
 
             $(".metismenu .active").removeClass('active');
 

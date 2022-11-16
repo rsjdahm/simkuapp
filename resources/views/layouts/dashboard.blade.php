@@ -25,10 +25,11 @@
         if (window.location.href.includes('/#/') && window.location.href.replace(BASE_URL + '/#', '') !=
             '/') {
             return load('#page', BASE_URL + window.location.href.replace(BASE_URL + '/#', ''));
+        } else {
+            // losss langsung load dashboard
+            return load('#page', '{{ route('dashboard.show') }}');
         }
 
-        // losss langsung load dashboard
-        load('#page', '{{ route('dashboard.show') }}');
     });
 </script>
 <script type="text/javascript">
