@@ -27,13 +27,17 @@ class SubunitController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function ($item) {
                         return '
-                    <div class="btn-group btn-group-sm">
-                        <a data-load="modal" title="Edit Subunit" href="' . route('unit_subunit.subunit.edit', $item->id) . '" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
-                        <a data-action="delete" href="' . route('unit_subunit.subunit.destroy', $item->id) . '" class="btn btn-danger text-white"><i class="fas fa-trash"></i></a>
-                    </div>
-                    ';
+                        <div class="btn-group btn-group-sm" role="group">
+                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                                <i class="fas fa-wrench"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a data-load="modal" title="Edit Subunit" href="' . route('unit_subunit.subunit.edit', $item->id) . '"  class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                <a data-action="delete" href="' . route('unit_subunit.subunit.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                            </div>
+                        </div>
+                        ';
                     })
-                    ->rawColumns(['action'])
                     ->make(true);
             }
 
