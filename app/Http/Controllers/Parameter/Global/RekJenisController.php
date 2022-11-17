@@ -34,7 +34,7 @@ class RekJenisController extends Controller
                                 <a data-load="modal" title="Edit Rekening Jenis" href="' . route('rekening.rek-jenis.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
                                 <a data-action="delete" href="' . route('rekening.rek-jenis.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
                             </div>
-                            <a data-action="open-tab" data-target="#rek_objek" href="' . route('rekening.rek-objek.index', ['rek_jenis_id' => $item->id]) .  '" class="btn btn-primary text-white">
+                            <a data-action="open-tab" data-target="#rek-objek" href="' . route('rekening.rek-objek.index', ['rek_jenis_id' => $item->id]) .  '" class="btn btn-primary text-white">
                                 <i class="fas fa-forward"></i>
                             </a>
                         </div>

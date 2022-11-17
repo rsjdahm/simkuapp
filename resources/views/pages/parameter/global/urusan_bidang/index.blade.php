@@ -59,6 +59,6 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        load('#urusan', '{{ route('urusan-bidang.urusan.index') }}')
+        load('.tab-pane.active', '{{ route('urusan-bidang.urusan.index') }}')
     });
 </script>

@@ -31,7 +31,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" data-toggle="tab" href="#detail_pegawai" role="tab">
+                            <a class="nav-link disabled" data-toggle="tab" href="#detail-pegawai" role="tab">
                                 <span><i class="fas fa-user mr-1"></i></span> Detail Pegawai</span>
                             </a>
                         </li>
@@ -40,7 +40,7 @@
                     <!-- Tab panes -->
                     <div class="tab-content text-muted py-3">
                         <div class="tab-pane active" id="pegawai" role="tabpanel"></div>
-                        <div class="tab-pane" id="detail_pegawai" role="tabpanel"></div>
+                        <div class="tab-pane" id="detail-pegawai" role="tabpanel"></div>
                     </div>
                 </div>
             </div>
@@ -49,6 +49,6 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-        load('#pegawai', '{{ route('pegawai.table') }}')
+        load('.tab-pane.active', '{{ route('pegawai.table') }}')
     });
 </script>

@@ -35,7 +35,7 @@ class PegawaiController extends Controller
                 ->addColumn('detail', function ($item) {
                     return '
                     <div class="btn-group btn-group-sm">
-                        <a data-action="open-tab" data-target="#detail_pegawai" href="' . route('pegawai.show', $item->id) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
+                        <a data-action="open-tab" data-target="#detail-pegawai" href="' . route('pegawai.show', $item->id) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
                     </div>
                     ';
                 })
@@ -45,11 +45,11 @@ class PegawaiController extends Controller
 
         $table = $builder->ajax(route('pegawai.table'))
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
+            ->addColumn(['data' => 'detail', 'title' => '', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama_lengkap', 'title' => 'Nama Lengkap & Gelar'])
             ->addColumn(['data' => 'jenis_kelamin', 'title' => 'Jenis Kelamin'])
-            ->addColumn(['data' => 'status_kepeg', 'title' => 'Status Kepegawaian'])
-            ->addColumn(['data' => 'detail', 'title' => '', 'style' => 'width: 1%;', 'orderable' => false]);
+            ->addColumn(['data' => 'status_kepeg', 'title' => 'Status Kepegawaian']);
 
         return view('pages.parameter.global.pegawai.table', compact('table'));
     }

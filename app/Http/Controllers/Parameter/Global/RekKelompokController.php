@@ -33,7 +33,7 @@ class RekKelompokController extends Controller
                                 <a data-load="modal"  title="Edit Rekening Kelompok" href="' . route('rekening.rek-kelompok.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
                                 <a data-action="delete" href="' . route('rekening.rek-kelompok.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
                             </div>
-                            <a data-action="open-tab" data-target="#rek_jenis" href="' . route('rekening.rek-jenis.index', ['rek_kelompok_id' => $item->id]) .  '" class="btn btn-primary text-white">
+                            <a data-action="open-tab" data-target="#rek-jenis" href="' . route('rekening.rek-jenis.index', ['rek_kelompok_id' => $item->id]) .  '" class="btn btn-primary text-white">
                                 <i class="fas fa-forward"></i>
                             </a>
                         </div>

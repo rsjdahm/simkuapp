@@ -57,6 +57,6 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        load('#bidang', '{{ route('urusan-bidang.bidang.index_unit') }}')
+        load('.tab-pane.active', '{{ route('urusan-bidang.bidang.index_unit') }}')
     });
 </script>

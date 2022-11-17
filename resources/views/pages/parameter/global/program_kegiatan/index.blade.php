@@ -64,6 +64,6 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        load('#bidang', '{{ route('urusan-bidang.bidang.index_program') }}')
+        load('.tab-pane.active', '{{ route('urusan-bidang.bidang.index_program') }}')
     });
 </script>
