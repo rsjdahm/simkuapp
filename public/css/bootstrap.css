@@ -5027,10 +5027,14 @@ input[type="submit"].btn-block {
     padding-left: 0.5rem;
 }
 .breadcrumb-item + .breadcrumb-item::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+.breadcrumb-item + .breadcrumb-item::before {
     display: inline-block;
     padding-right: 0.5rem;
     color: #74788d;
-    content: "/";
+    content: "\f105";
 }
 .breadcrumb-item + .breadcrumb-item:hover::before {
     text-decoration: underline;
@@ -10235,9 +10239,6 @@ button {
 }
 .breadcrumb-item > a {
     color: #495057;
-}
-.breadcrumb-item + .breadcrumb-item::before {
-    font-family: "Material Design Icons";
 }
 .card {
     margin-bottom: 24px;

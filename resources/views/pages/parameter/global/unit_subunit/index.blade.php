@@ -7,7 +7,7 @@
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">Parameter</a></li>
                     <li class="breadcrumb-item">Global</a></li>
-                    <li class="breadcrumb-item active">Unit - Subunit</li>
+                    <li class="breadcrumb-item active">Unit/Subunit</li>
                 </ol>
 
             </div>
@@ -18,7 +18,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Data Unit - Subunit</h4>
+                    <h4 class="card-title">Data Unit/Subunit</h4>
                     <p class="card-title-desc mb-4">Data berdasarkan Peraturan pelaksanaan Pemerintah Provinsi
                         Kalimantan Timur.
                     </p>
