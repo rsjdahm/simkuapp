@@ -30,8 +30,8 @@ class BidangController extends Controller
                                 <i class="fas fa-wrench"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a data-load="modal" title="Edit Nomenklatur Bidang" href="' . route('urusan-bidang.bidang.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                                <a data-action="delete" href="' . route('urusan-bidang.bidang.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                <a data-load="modal" title="Edit Nomenklatur Bidang" href="' . route('bidang.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                <a data-action="delete" href="' . route('bidang.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
                             </div>
                         </div>
                         ';
@@ -39,7 +39,7 @@ class BidangController extends Controller
                     ->make(true);
             }
 
-            $table = $builder->ajax(route('urusan-bidang.bidang.index', ['urusan_id' => $request->urusan_id]))
+            $table = $builder->ajax(route('bidang.index', ['urusan_id' => $request->urusan_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
@@ -47,14 +47,14 @@ class BidangController extends Controller
 
             $urusan = Urusan::findOrFail($request->urusan_id);
 
-            return view('pages.parameter.global.urusan_bidang.bidang.table', compact('table', 'urusan'));
+            return view('pages.parameter.global.urusan-bidang.bidang.table', compact('table', 'urusan'));
         }
     }
 
     public function create(Request $request)
     {
         $urusan = Urusan::findOrFail($request->urusan_id);
-        return view('pages.parameter.global.urusan_bidang.bidang.create', compact('urusan'));
+        return view('pages.parameter.global.urusan-bidang.bidang.create', compact('urusan'));
     }
 
     public function store(BidangRequest $request)
@@ -66,7 +66,7 @@ class BidangController extends Controller
 
     public function edit(Bidang $bidang)
     {
-        return view('pages.parameter.global.urusan_bidang.bidang.edit', compact('bidang'));
+        return view('pages.parameter.global.urusan-bidang.bidang.edit', compact('bidang'));
     }
 
     public function update(Bidang $bidang, BidangRequest $request)
@@ -96,7 +96,7 @@ class BidangController extends Controller
                 ->addColumn('action', function ($item) {
                     return '
                     <div class="btn-group btn-group-sm">
-                        <a data-action="open-tab" data-target="#unit" href="' . route('unit-subunit.unit.index', ['bidang_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
+                        <a data-action="open-tab" data-target="#unit" href="' . route('unit.index', ['bidang_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
                     </div>
                     ';
                 })
@@ -106,7 +106,7 @@ class BidangController extends Controller
                 ->make(true);
         }
 
-        $table = $builder->ajax(route('urusan-bidang.bidang.index_unit'))
+        $table = $builder->ajax(route('bidang.unit.index'))
             ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'urusan', 'title' => 'Urusan'])
@@ -135,7 +135,7 @@ class BidangController extends Controller
                 ],
             ]);
 
-        return view('pages.parameter.global.urusan_bidang.bidang.table_unit', compact('table'));
+        return view('pages.parameter.global.urusan-bidang.bidang.table_unit', compact('table'));
     }
 
     public function indexProgram(Builder $builder, Request $request)
@@ -151,7 +151,7 @@ class BidangController extends Controller
                 ->addColumn('action', function ($item) {
                     return '
                     <div class="btn-group btn-group-sm">
-                        <a data-action="open-tab" data-target="#program" href="' . route('program-kegiatan.program.index', ['bidang_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
+                        <a data-action="open-tab" data-target="#program" href="' . route('program.index', ['bidang_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
                     </div>
                     ';
                 })
@@ -161,7 +161,7 @@ class BidangController extends Controller
                 ->make(true);
         }
 
-        $table = $builder->ajax(route('urusan-bidang.bidang.index_program'))
+        $table = $builder->ajax(route('bidang.program.index'))
             ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'urusan', 'title' => 'Urusan'])
@@ -190,6 +190,6 @@ class BidangController extends Controller
                 ],
             ]);
 
-        return view('pages.parameter.global.urusan_bidang.bidang.table_program', compact('table'));
+        return view('pages.parameter.global.urusan-bidang.bidang.table_program', compact('table'));
     }
 }

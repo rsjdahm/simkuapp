@@ -32,8 +32,8 @@ class SubkegiatanController extends Controller
                                 <i class="fas fa-wrench"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a data-load="modal" title="Edit Subkegiatan" href="' . route('program-kegiatan.subkegiatan.edit', $item->id) . '"  class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                                <a data-action="delete" href="' . route('program-kegiatan.subkegiatan.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                <a data-load="modal" title="Edit Subkegiatan" href="' . route('subkegiatan.edit', $item->id) . '"  class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                <a data-action="delete" href="' . route('subkegiatan.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
                             </div>
                         </div>
                         ';
@@ -41,7 +41,7 @@ class SubkegiatanController extends Controller
                     ->make(true);
             }
 
-            $table = $builder->ajax(route('program-kegiatan.subkegiatan.index', ['kegiatan_id' => $request->kegiatan_id]))
+            $table = $builder->ajax(route('subkegiatan.index', ['kegiatan_id' => $request->kegiatan_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Subkegiatan', 'class' => 'font-weight-bold'])
@@ -49,14 +49,14 @@ class SubkegiatanController extends Controller
 
             $kegiatan = Kegiatan::findOrFail($request->kegiatan_id);
 
-            return view('pages.parameter.global.program_kegiatan.subkegiatan.table', compact('table', 'kegiatan'));
+            return view('pages.parameter.global.program-kegiatan.subkegiatan.table', compact('table', 'kegiatan'));
         }
     }
 
     public function create(Request $request)
     {
         $kegiatan = Kegiatan::findOrFail($request->kegiatan_id);
-        return view('pages.parameter.global.program_kegiatan.subkegiatan.create', compact('kegiatan'));
+        return view('pages.parameter.global.program-kegiatan.subkegiatan.create', compact('kegiatan'));
     }
 
     public function store(SubkegiatanRequest $request)
@@ -68,7 +68,7 @@ class SubkegiatanController extends Controller
 
     public function edit(Subkegiatan $subkegiatan)
     {
-        return view('pages.parameter.global.program_kegiatan.subkegiatan.edit', compact('subkegiatan'));
+        return view('pages.parameter.global.program-kegiatan.subkegiatan.edit', compact('subkegiatan'));
     }
 
     public function update(Subkegiatan $subkegiatan, SubkegiatanRequest $request)

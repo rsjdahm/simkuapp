@@ -25,10 +25,10 @@ class RekAkunController extends Controller
                             <i class="fas fa-wrench"></i>
                         </button>
                         <div class="dropdown-menu">
-                            <a data-load="modal" title="Edit Rekening Akun" href="' . route('rekening.rek-akun.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                            <a data-action="delete" href="' . route('rekening.rek-akun.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                            <a data-load="modal" title="Edit Rekening Akun" href="' . route('rek-akun.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                            <a data-action="delete" href="' . route('rek-akun.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
                         </div>
-                        <a data-action="open-tab" data-target="#rek-kelompok" href="' . route('rekening.rek-kelompok.index', ['rek_akun_id' => $item->id]) . '" class="btn btn-primary text-white">
+                        <a data-action="open-tab" data-target="#rek-kelompok" href="' . route('rek-kelompok.index', ['rek_akun_id' => $item->id]) . '" class="btn btn-primary text-white">
                             <i class="fas fa-forward"></i>
                         </a>
                     </div>
@@ -37,17 +37,17 @@ class RekAkunController extends Controller
                 ->make(true);
         }
 
-        $table = $builder->ajax(route('rekening.rek-akun.index'))
+        $table = $builder->ajax(route('rek-akun.index'))
             ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
             ->addColumn(['data' => 'kd', 'title' => 'Kode Akun', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening']);
 
-        return view('pages.parameter.global.rekening.rek_akun.table', compact('table'));
+        return view('pages.parameter.global.rekening.rek-akun.table', compact('table'));
     }
 
     public function create()
     {
-        return view('pages.parameter.global.rekening.rek_akun.create');
+        return view('pages.parameter.global.rekening.rek-akun.create');
     }
 
     public function store(RekAkunRequest $request)
@@ -59,7 +59,7 @@ class RekAkunController extends Controller
 
     public function edit(RekAkun $rek_akun)
     {
-        return view('pages.parameter.global.rekening.rek_akun.edit', compact('rek_akun'));
+        return view('pages.parameter.global.rekening.rek-akun.edit', compact('rek_akun'));
     }
 
     public function update(RekAkun $rek_akun, RekAkunRequest $request)

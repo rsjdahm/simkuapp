@@ -31,10 +31,10 @@ class RekJenisController extends Controller
                                 <i class="fas fa-wrench"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a data-load="modal" title="Edit Rekening Jenis" href="' . route('rekening.rek-jenis.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                                <a data-action="delete" href="' . route('rekening.rek-jenis.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                <a data-load="modal" title="Edit Rekening Jenis" href="' . route('rek-jenis.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                <a data-action="delete" href="' . route('rek-jenis.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
                             </div>
-                            <a data-action="open-tab" data-target="#rek-objek" href="' . route('rekening.rek-objek.index', ['rek_jenis_id' => $item->id]) .  '" class="btn btn-primary text-white">
+                            <a data-action="open-tab" data-target="#rek-objek" href="' . route('rek-objek.index', ['rek_jenis_id' => $item->id]) .  '" class="btn btn-primary text-white">
                                 <i class="fas fa-forward"></i>
                             </a>
                         </div>
@@ -43,7 +43,7 @@ class RekJenisController extends Controller
                     ->make(true);
             }
 
-            $table = $builder->ajax(route('rekening.rek-jenis.index', ['rek_kelompok_id' => $request->rek_kelompok_id]))
+            $table = $builder->ajax(route('rek-jenis.index', ['rek_kelompok_id' => $request->rek_kelompok_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Jenis', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
@@ -51,14 +51,14 @@ class RekJenisController extends Controller
 
             $rek_kelompok = RekKelompok::findOrFail($request->rek_kelompok_id);
 
-            return view('pages.parameter.global.rekening.rek_jenis.table', compact('table', 'rek_kelompok'));
+            return view('pages.parameter.global.rekening.rek-jenis.table', compact('table', 'rek_kelompok'));
         }
     }
 
     public function create(Request $request)
     {
         $rek_kelompok = RekKelompok::findOrFail($request->rek_kelompok_id);
-        return view('pages.parameter.global.rekening.rek_jenis.create', compact('rek_kelompok'));
+        return view('pages.parameter.global.rekening.rek-jenis.create', compact('rek_kelompok'));
     }
 
     public function store(RekJenisRequest $request)
@@ -70,7 +70,7 @@ class RekJenisController extends Controller
 
     public function edit(RekJenis $rek_jeni)
     {
-        return view('pages.parameter.global.rekening.rek_jenis.edit', ['rek_jenis' => $rek_jeni]);
+        return view('pages.parameter.global.rekening.rek-jenis.edit', ['rek_jenis' => $rek_jeni]);
     }
 
     public function update(RekJenis $rek_jeni, RekJenisRequest $request)

@@ -34,8 +34,8 @@ class RekSubRincObjekController extends Controller
                                 <i class="fas fa-wrench"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a data-load="modal" title="Edit Rekening Sub Rincian Objek" href="' . route('rekening.rek-sub-rinc-objek.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                                <a data-action="delete" href="' . route('rekening.rek-sub-rinc-objek.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                <a data-load="modal" title="Edit Rekening Sub Rincian Objek" href="' . route('rek-sub-rinc-objek.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                <a data-action="delete" href="' . route('rek-sub-rinc-objek.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
                             </div>
                         </div>
                         ';
@@ -43,7 +43,7 @@ class RekSubRincObjekController extends Controller
                     ->make(true);
             }
 
-            $table = $builder->ajax(route('rekening.rek-sub-rinc-objek.index', ['rek_rinc_objek_id' => $request->rek_rinc_objek_id]))
+            $table = $builder->ajax(route('rek-sub-rinc-objek.index', ['rek_rinc_objek_id' => $request->rek_rinc_objek_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Sub Rincian Objek', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
@@ -51,14 +51,14 @@ class RekSubRincObjekController extends Controller
 
             $rek_rinc_objek = RekRincObjek::findOrFail($request->rek_rinc_objek_id);
 
-            return view('pages.parameter.global.rekening.rek_sub_rinc_objek.table', compact('table', 'rek_rinc_objek'));
+            return view('pages.parameter.global.rekening.rek-sub-rinc-objek.table', compact('table', 'rek_rinc_objek'));
         }
     }
 
     public function create(Request $request)
     {
         $rek_rinc_objek = RekRincObjek::findOrFail($request->rek_rinc_objek_id);
-        return view('pages.parameter.global.rekening.rek_sub_rinc_objek.create', compact('rek_rinc_objek'));
+        return view('pages.parameter.global.rekening.rek-sub-rinc-objek.create', compact('rek_rinc_objek'));
     }
 
     public function store(RekSubRincObjekRequest $request)
@@ -70,7 +70,7 @@ class RekSubRincObjekController extends Controller
 
     public function edit(RekSubRincObjek $rek_sub_rinc_objek)
     {
-        return view('pages.parameter.global.rekening.rek_sub_rinc_objek.edit', compact('rek_sub_rinc_objek'));
+        return view('pages.parameter.global.rekening.rek-sub-rinc-objek.edit', compact('rek_sub_rinc_objek'));
     }
 
     public function update(RekSubRincObjek $rek_sub_rinc_objek, RekSubRincObjekRequest $request)

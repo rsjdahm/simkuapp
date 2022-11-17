@@ -33,10 +33,10 @@ class RekRincObjekController extends Controller
                                 <i class="fas fa-wrench"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a data-load="modal" title="Edit Rekening Rincian Objek" href="' . route('rekening.rek-rinc-objek.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                                <a data-action="delete" href="' . route('rekening.rek-rinc-objek.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                <a data-load="modal" title="Edit Rekening Rincian Objek" href="' . route('rek-rinc-objek.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                <a data-action="delete" href="' . route('rek-rinc-objek.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
                             </div>
-                            <a data-action="open-tab" data-target="#rek-sub-rinc-objek" href="' . route('rekening.rek-sub-rinc-objek.index', ['rek_rinc_objek_id' => $item->id]) . '" class="btn btn-primary text-white">
+                            <a data-action="open-tab" data-target="#rek-sub-rinc-objek" href="' . route('rek-sub-rinc-objek.index', ['rek_rinc_objek_id' => $item->id]) . '" class="btn btn-primary text-white">
                                 <i class="fas fa-forward"></i>
                             </a>
                         </div>
@@ -45,7 +45,7 @@ class RekRincObjekController extends Controller
                     ->make(true);
             }
 
-            $table = $builder->ajax(route('rekening.rek-rinc-objek.index', ['rek_objek_id' => $request->rek_objek_id]))
+            $table = $builder->ajax(route('rek-rinc-objek.index', ['rek_objek_id' => $request->rek_objek_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Rincian Objek', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
@@ -53,14 +53,14 @@ class RekRincObjekController extends Controller
 
             $rek_objek = RekObjek::findOrFail($request->rek_objek_id);
 
-            return view('pages.parameter.global.rekening.rek_rinc_objek.table', compact('table', 'rek_objek'));
+            return view('pages.parameter.global.rekening.rek-rinc-objek.table', compact('table', 'rek_objek'));
         }
     }
 
     public function create(Request $request)
     {
         $rek_objek = RekObjek::findOrFail($request->rek_objek_id);
-        return view('pages.parameter.global.rekening.rek_rinc_objek.create', compact('rek_objek'));
+        return view('pages.parameter.global.rekening.rek-rinc-objek.create', compact('rek_objek'));
     }
 
     public function store(RekRincObjekRequest $request)
@@ -72,7 +72,7 @@ class RekRincObjekController extends Controller
 
     public function edit(RekRincObjek $rek_rinc_objek)
     {
-        return view('pages.parameter.global.rekening.rek_rinc_objek.edit', compact('rek_rinc_objek'));
+        return view('pages.parameter.global.rekening.rek-rinc-objek.edit', compact('rek_rinc_objek'));
     }
 
     public function update(RekRincObjek $rek_rinc_objek, RekRincObjekRequest $request)
