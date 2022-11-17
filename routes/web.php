@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Database\MigrationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Parameter\Global\BidangController;
@@ -85,6 +86,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     });
 
-    /// Admin/Database
-    require __DIR__ . '/admin/database/migration.php';
+    // ADMIN
+    Route::prefix('/admin/database')->group(function () {
+        Route::resource('/migration', MigrationController::class)->except(['show', 'create']); //->name('migration.*');
+    });
 });
