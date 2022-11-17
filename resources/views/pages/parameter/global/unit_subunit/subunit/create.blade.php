@@ -1,4 +1,4 @@
-<form method="post" action="{{ route('unit_subunit.subunit.store') }}">
+<form method="post" action="{{ route('unit-subunit.subunit.store') }}">
     @csrf
     <div class="form-group">
         <label class="form-label">Kode Subunit</label>
@@ -28,7 +28,7 @@
 </form>
 
 <script>
-    $("form[action='{{ route('unit_subunit.subunit.store') }}']").on("submit", function(event) {
+    $("form[action='{{ route('unit-subunit.subunit.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);

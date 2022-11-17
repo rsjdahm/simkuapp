@@ -34,8 +34,8 @@ class RekSubRincObjekController extends Controller
                                 <i class="fas fa-wrench"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a data-load="modal" title="Edit Rekening Sub Rincian Objek" href="' . route('rekening.rek_sub_rinc_objek.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                                <a data-action="delete" href="' . route('rekening.rek_sub_rinc_objek.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                <a data-load="modal" title="Edit Rekening Sub Rincian Objek" href="' . route('rekening.rek-sub-rinc-objek.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                <a data-action="delete" href="' . route('rekening.rek-sub-rinc-objek.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
                             </div>
                         </div>
                         ';
@@ -43,7 +43,7 @@ class RekSubRincObjekController extends Controller
                     ->make(true);
             }
 
-            $table = $builder->ajax(route('rekening.rek_sub_rinc_objek.index', ['rek_rinc_objek_id' => $request->rek_rinc_objek_id]))
+            $table = $builder->ajax(route('rekening.rek-sub-rinc-objek.index', ['rek_rinc_objek_id' => $request->rek_rinc_objek_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Sub Rincian Objek', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])

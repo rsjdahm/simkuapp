@@ -35,11 +35,17 @@
     <script type="text/javascript">
         var BASE_URL = "{{ url('/') }}";
         /// script global app and page loader
-        function load(container, url) {
+        function load(parent, url) {
             $.ajax({
-                url
-            }).then(function(response) {
-                $(container).html(response);
+                url,
+                success: function(response) {
+                    $(parent).html(response);
+                },
+                error: function(xhr) {
+                    if (xhr.status == 404) {
+                        $(parent).html('<h5 class="text-center">404 - Page Not Found</h5>');
+                    }
+                }
             });
         }
         /// global loader modal

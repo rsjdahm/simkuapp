@@ -38,7 +38,7 @@
         </div>
         <div class="col-12 text-right">
             <a data-load="modal" title="Tambah Rekening Akun"
-                href="{{ route('rekening.rek_rinc_objek.create', ['rek_objek_id' => $rek_objek->id]) }}"
+                href="{{ route('rekening.rek-rinc-objek.create', ['rek_objek_id' => $rek_objek->id]) }}"
                 class="btn btn-success text-white"><i class="fas fa-plus mr-2"></i> Tambah</a>
         </div>
     </div>

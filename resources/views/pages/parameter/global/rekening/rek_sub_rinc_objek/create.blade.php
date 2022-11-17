@@ -1,4 +1,4 @@
-<form method="post" action="{{ route('rekening.rek_sub_rinc_objek.store') }}">
+<form method="post" action="{{ route('rekening.rek-sub-rinc-objek.store') }}">
     @csrf
     <div class="form-group">
         <label class="form-label">Kode Rekening Sub Rincian Objek</label>
@@ -39,7 +39,7 @@
 </form>
 
 <script>
-    $("form[action='{{ route('rekening.rek_sub_rinc_objek.store') }}']").on("submit", function(event) {
+    $("form[action='{{ route('rekening.rek-sub-rinc-objek.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);

@@ -30,10 +30,10 @@ class RekKelompokController extends Controller
                                 <i class="fas fa-wrench"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a data-load="modal"  title="Edit Rekening Kelompok" href="' . route('rekening.rek_kelompok.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                                <a data-action="delete" href="' . route('rekening.rek_kelompok.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                <a data-load="modal"  title="Edit Rekening Kelompok" href="' . route('rekening.rek-kelompok.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                <a data-action="delete" href="' . route('rekening.rek-kelompok.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
                             </div>
-                            <a data-action="open-tab" data-target="#rek_jenis" href="' . route('rekening.rek_jenis.index', ['rek_kelompok_id' => $item->id]) .  '" class="btn btn-primary text-white">
+                            <a data-action="open-tab" data-target="#rek_jenis" href="' . route('rekening.rek-jenis.index', ['rek_kelompok_id' => $item->id]) .  '" class="btn btn-primary text-white">
                                 <i class="fas fa-forward"></i>
                             </a>
                         </div>
@@ -42,7 +42,7 @@ class RekKelompokController extends Controller
                     ->make(true);
             }
 
-            $table = $builder->ajax(route('rekening.rek_kelompok.index', ['rek_akun_id' => $request->rek_akun_id]))
+            $table = $builder->ajax(route('rekening.rek-kelompok.index', ['rek_akun_id' => $request->rek_akun_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Kelompok', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])

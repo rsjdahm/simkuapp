@@ -138,12 +138,12 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a data-load="#page" data-menu="item" href="{{ route('urusan_bidang.index') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('urusan-bidang.index') }}">
                                         Urusan-Bidang
                                     </a>
                                 </li>
                                 <li>
-                                    <a data-load="#page" data-menu="item" href="{{ route('program_kegiatan.index') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('program-kegiatan.index') }}">
                                         Program-Kegiatan
                                     </a>
                                 </li>
@@ -151,7 +151,7 @@
                         </li>
 
                         <li>
-                            <a data-load="#page" data-menu="item" href="{{ route('unit_subunit.index') }}">
+                            <a data-load="#page" data-menu="item" href="{{ route('unit-subunit.index') }}">
                                 Unit/Subunit
                             </a>
                         </li>

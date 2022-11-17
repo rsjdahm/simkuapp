@@ -31,10 +31,10 @@ class UnitController extends Controller
                                 <i class="fas fa-wrench"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a data-load="modal" title="Edit Unit" href="' . route('unit_subunit.unit.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                                <a data-action="delete" href="' . route('unit_subunit.unit.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                <a data-load="modal" title="Edit Unit" href="' . route('unit-subunit.unit.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                <a data-action="delete" href="' . route('unit-subunit.unit.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
                             </div>
-                            <a data-action="open-tab" data-target="#subunit" href="' . route('unit_subunit.subunit.index', ['unit_id' => $item->id]) . '" class="btn btn-primary text-white">
+                            <a data-action="open-tab" data-target="#subunit" href="' . route('unit-subunit.subunit.index', ['unit_id' => $item->id]) . '" class="btn btn-primary text-white">
                                 <i class="fas fa-forward"></i>
                             </a>
                         </div>
@@ -43,7 +43,7 @@ class UnitController extends Controller
                     ->make(true);
             }
 
-            $table = $builder->ajax(route('unit_subunit.unit.index', ['bidang_id' => $request->bidang_id]))
+            $table = $builder->ajax(route('unit-subunit.unit.index', ['bidang_id' => $request->bidang_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Unit', 'class' => 'font-weight-bold'])

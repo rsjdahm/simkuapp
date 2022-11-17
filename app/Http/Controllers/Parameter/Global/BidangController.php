@@ -30,8 +30,8 @@ class BidangController extends Controller
                                 <i class="fas fa-wrench"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a data-load="modal" title="Edit Nomenklatur Bidang" href="' . route('urusan_bidang.bidang.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                                <a data-action="delete" href="' . route('urusan_bidang.bidang.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                <a data-load="modal" title="Edit Nomenklatur Bidang" href="' . route('urusan-bidang.bidang.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                <a data-action="delete" href="' . route('urusan-bidang.bidang.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
                             </div>
                         </div>
                         ';
@@ -39,7 +39,7 @@ class BidangController extends Controller
                     ->make(true);
             }
 
-            $table = $builder->ajax(route('urusan_bidang.bidang.index', ['urusan_id' => $request->urusan_id]))
+            $table = $builder->ajax(route('urusan-bidang.bidang.index', ['urusan_id' => $request->urusan_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
@@ -96,7 +96,7 @@ class BidangController extends Controller
                 ->addColumn('action', function ($item) {
                     return '
                     <div class="btn-group btn-group-sm">
-                        <a data-action="open-tab" data-target="#unit" href="' . route('unit_subunit.unit.index', ['bidang_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
+                        <a data-action="open-tab" data-target="#unit" href="' . route('unit-subunit.unit.index', ['bidang_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
                     </div>
                     ';
                 })
@@ -106,7 +106,7 @@ class BidangController extends Controller
                 ->make(true);
         }
 
-        $table = $builder->ajax(route('urusan_bidang.bidang.index_unit'))
+        $table = $builder->ajax(route('urusan-bidang.bidang.index_unit'))
             ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'urusan', 'title' => 'Urusan'])
@@ -151,7 +151,7 @@ class BidangController extends Controller
                 ->addColumn('action', function ($item) {
                     return '
                     <div class="btn-group btn-group-sm">
-                        <a data-action="open-tab" data-target="#program" href="' . route('program_kegiatan.program.index', ['bidang_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
+                        <a data-action="open-tab" data-target="#program" href="' . route('program-kegiatan.program.index', ['bidang_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
                     </div>
                     ';
                 })
@@ -161,7 +161,7 @@ class BidangController extends Controller
                 ->make(true);
         }
 
-        $table = $builder->ajax(route('urusan_bidang.bidang.index_program'))
+        $table = $builder->ajax(route('urusan-bidang.bidang.index_program'))
             ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'urusan', 'title' => 'Urusan'])

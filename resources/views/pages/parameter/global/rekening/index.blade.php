@@ -81,6 +81,6 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        load('#rek_akun', '{{ route('rekening.rek_akun.index') }}')
+        load('#rek_akun', '{{ route('rekening.rek-akun.index') }}')
     });
 </script>

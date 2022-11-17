@@ -25,10 +25,10 @@ class UrusanController extends Controller
                             <i class="fas fa-wrench"></i>
                         </button>
                         <div class="dropdown-menu">
-                            <a data-load="modal" title="Edit Nomenklatur Urusan" href="' . route('urusan_bidang.urusan.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                            <a data-action="delete" href="' . route('urusan_bidang.urusan.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                            <a data-load="modal" title="Edit Nomenklatur Urusan" href="' . route('urusan-bidang.urusan.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                            <a data-action="delete" href="' . route('urusan-bidang.urusan.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
                         </div>
-                        <a data-action="open-tab" data-target="#bidang" href="' . route('urusan_bidang.bidang.index', ['urusan_id' => $item->id]) . '" class="btn btn-primary text-white">
+                        <a data-action="open-tab" data-target="#bidang" href="' . route('urusan-bidang.bidang.index', ['urusan_id' => $item->id]) . '" class="btn btn-primary text-white">
                             <i class="fas fa-forward"></i>
                         </a>
                     </div>
@@ -37,7 +37,7 @@ class UrusanController extends Controller
                 ->make(true);
         }
 
-        $table = $builder->ajax(route('urusan_bidang.urusan.index'))
+        $table = $builder->ajax(route('urusan-bidang.urusan.index'))
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'kd', 'title' => 'Kode Urusan', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])

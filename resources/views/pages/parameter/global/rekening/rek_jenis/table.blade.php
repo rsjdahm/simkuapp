@@ -22,7 +22,7 @@
         </div>
         <div class="col-12 text-right">
             <a data-load="modal" title="Tambah Rekening Akun"
-                href="{{ route('rekening.rek_jenis.create', ['rek_kelompok_id' => $rek_kelompok->id]) }}"
+                href="{{ route('rekening.rek-jenis.create', ['rek_kelompok_id' => $rek_kelompok->id]) }}"
                 class="btn btn-success text-white"><i class="fas fa-plus mr-2"></i> Tambah</a>
         </div>
     </div>

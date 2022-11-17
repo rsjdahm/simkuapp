@@ -32,8 +32,8 @@ class SubkegiatanController extends Controller
                                 <i class="fas fa-wrench"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a data-load="modal" title="Edit Subkegiatan" href="' . route('program_kegiatan.subkegiatan.edit', $item->id) . '"  class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                                <a data-action="delete" href="' . route('program_kegiatan.subkegiatan.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                <a data-load="modal" title="Edit Subkegiatan" href="' . route('program-kegiatan.subkegiatan.edit', $item->id) . '"  class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                <a data-action="delete" href="' . route('program-kegiatan.subkegiatan.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
                             </div>
                         </div>
                         ';
@@ -41,7 +41,7 @@ class SubkegiatanController extends Controller
                     ->make(true);
             }
 
-            $table = $builder->ajax(route('program_kegiatan.subkegiatan.index', ['kegiatan_id' => $request->kegiatan_id]))
+            $table = $builder->ajax(route('program-kegiatan.subkegiatan.index', ['kegiatan_id' => $request->kegiatan_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Subkegiatan', 'class' => 'font-weight-bold'])

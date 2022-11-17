@@ -1,4 +1,4 @@
-<form id="{{ time() }}_form" method="post" action="{{ route('rekening.rek_kelompok.update', $rek_kelompok->id) }}">
+<form id="{{ time() }}_form" method="post" action="{{ route('rekening.rek-kelompok.update', $rek_kelompok->id) }}">
     @csrf
     @method('put')
     <div class="form-group">

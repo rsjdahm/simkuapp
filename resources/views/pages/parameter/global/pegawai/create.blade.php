@@ -68,7 +68,7 @@
 </form>
 
 <script>
-    $("form['{{ route('pegawai.store') }}']").on("submit", function(event) {
+    $("form[action='{{ route('pegawai.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);

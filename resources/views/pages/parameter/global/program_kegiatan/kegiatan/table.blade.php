@@ -29,7 +29,7 @@
         </div>
         <div class="col-12 text-right">
             <a data-load="modal" title="Tambah Program"
-                href="{{ route('program_kegiatan.kegiatan.create', ['program_id' => $program->id]) }}"
+                href="{{ route('program-kegiatan.kegiatan.create', ['program_id' => $program->id]) }}"
                 class="btn btn-success text-white"><i class="fas fa-plus mr-2"></i> Tambah</a>
         </div>
     </div>

@@ -14,7 +14,7 @@
         </div>
         <div class="col-12 text-right">
             <a data-load="modal" title="Tambah Nomenklatur Bidang"
-                href="{{ route('urusan_bidang.bidang.create', ['urusan_id' => $urusan->id]) }}"
+                href="{{ route('urusan-bidang.bidang.create', ['urusan_id' => $urusan->id]) }}"
                 class="btn btn-success text-white"><i class="fas fa-plus mr-2"></i> Tambah</a>
         </div>
     </div>

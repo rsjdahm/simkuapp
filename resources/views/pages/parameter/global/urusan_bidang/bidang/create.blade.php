@@ -1,4 +1,4 @@
-<form method="post" action="{{ route('urusan_bidang.bidang.store') }}">
+<form method="post" action="{{ route('urusan-bidang.bidang.store') }}">
     @csrf
     <div class="form-group">
         <label class="form-label">Kode Bidang</label>
@@ -22,7 +22,7 @@
 </form>
 
 <script>
-    $("form[action='{{ route('urusan_bidang.bidang.store') }}']").on("submit", function(event) {
+    $("form[action='{{ route('urusan-bidang.bidang.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);

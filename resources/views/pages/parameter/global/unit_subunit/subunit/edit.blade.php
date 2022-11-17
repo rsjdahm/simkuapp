@@ -1,4 +1,4 @@
-<form id="{{ time() }}_form" method="post" action="{{ route('unit_subunit.subunit.update', $subunit->id) }}">
+<form id="{{ time() }}_form" method="post" action="{{ route('unit-subunit.subunit.update', $subunit->id) }}">
     @csrf
     @method('put')
     <div class="form-group">

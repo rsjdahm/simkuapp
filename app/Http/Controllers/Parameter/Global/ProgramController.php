@@ -31,10 +31,10 @@ class ProgramController extends Controller
                                 <i class="fas fa-wrench"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a data-load="modal" title="Edit Program" href="' . route('program_kegiatan.program.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                                <a data-action="delete" href="' . route('program_kegiatan.program.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                <a data-load="modal" title="Edit Program" href="' . route('program-kegiatan.program.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                                <a data-action="delete" href="' . route('program-kegiatan.program.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
                             </div>
-                            <a data-action="open-tab" data-target="#kegiatan" href="' . route('program_kegiatan.kegiatan.index', ['program_id' => $item->id]) . '" class="btn btn-primary text-white">
+                            <a data-action="open-tab" data-target="#kegiatan" href="' . route('program-kegiatan.kegiatan.index', ['program_id' => $item->id]) . '" class="btn btn-primary text-white">
                                 <i class="fas fa-forward"></i>
                             </a>
                         </div>
@@ -43,7 +43,7 @@ class ProgramController extends Controller
                     ->make(true);
             }
 
-            $table = $builder->ajax(route('program_kegiatan.program.index', ['bidang_id' => $request->bidang_id]))
+            $table = $builder->ajax(route('program-kegiatan.program.index', ['bidang_id' => $request->bidang_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Program', 'class' => 'font-weight-bold'])
