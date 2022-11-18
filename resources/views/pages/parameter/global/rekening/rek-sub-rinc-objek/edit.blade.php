@@ -1,5 +1,4 @@
-<form id="{{ time() }}_form" method="post"
-    action="{{ route('rek-sub-rinc-objek.update', $rek_sub_rinc_objek->id) }}">
+<form method="post" action="{{ route('rek-sub-rinc-objek.update', $rek_sub_rinc_objek->id) }}">
     @csrf
     @method('put')
     <div class="form-group">
@@ -41,7 +40,7 @@
 </form>
 
 <script>
-    $("form#{{ time() }}_form").on("submit", function(event) {
+    $("form[action='{{ route('rek-sub-rinc-objek.update', $rek_sub_rinc_objek->id) }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);

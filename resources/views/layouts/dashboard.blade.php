@@ -44,10 +44,12 @@
             return poster(anchor.attr('href'));
         }
         if (anchor.data('action') == 'open-tab') {
+            // clear
             $(anchor.data('target')).html('');
-            load(anchor.data('target'), anchor.attr('href'));
             $("a[href='" + anchor.data('target') + "'].nav-link").removeClass('disabled');
             $('.nav-tabs a[href="' + anchor.data('target') + '"]').tab('show');
+            // load
+            load(anchor.data('target'), anchor.attr('href'));
             // disabled next tab
             $("a[href='" + anchor.data('target') + "'].nav-link").parent().nextAll().children('a.nav-link')
                 .addClass('disabled');

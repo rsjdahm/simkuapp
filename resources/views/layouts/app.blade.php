@@ -36,17 +36,21 @@
         var BASE_URL = "{{ url('/') }}";
         /// script global app and page loader
         function load(parent, url) {
-            $.ajax({
-                url,
-                success: function(response) {
-                    $(parent).html(response);
-                },
-                error: function(xhr) {
-                    if (xhr.status == 404) {
-                        $(parent).html('<h5 class="text-center">404 - Page Not Found</h5>');
+            $(parent).fadeOut(250, function() {
+                $.ajax({
+                    url,
+                    success: function(response) {
+                        $(parent).html(response).fadeIn(300);
+                    },
+                    error: function(xhr) {
+                        if (xhr.status == 404) {
+                            $(parent).html('<h5 class="text-center">404 - Page Not Found</h5>')
+                                .fadeIn(300);
+                        }
                     }
-                }
+                });
             });
+            return false;
         }
         /// global loader modal
         function modal(title, url, size) {
