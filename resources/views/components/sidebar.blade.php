@@ -20,16 +20,16 @@
                                 <span>Penganggaran</span>
                             </a>
                             <ul class="sub-menu">
-                                {{-- <li>
+                                <li>
                                     <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         RKA
                                     </a>
-                                </li> --}}
-                                <li>
+                                </li>
+                                {{-- <li>
                                     <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         Rincian Belanja
                                     </a>
-                                </li>
+                                </li> --}}
                                 {{-- <li>
                                     <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         Rencana Kas
