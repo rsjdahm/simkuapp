@@ -41,7 +41,7 @@
                 url,
                 success: function(response) {
                     $(parent).fadeOut(250, function() {
-                        $(parent).html(response).fadeIn(300);
+                        $(parent).html(response).fadeIn(250);
                     });
                     return false;
                 },
@@ -49,7 +49,7 @@
                     if (xhr.status == 404) {
                         $(parent).fadeOut(250, function() {
                             $(parent).html('<h5 class="text-center">404 - Page Not Found</h5>').fadeIn(
-                                300);
+                                250);
                         });
                         return false;
                     }
