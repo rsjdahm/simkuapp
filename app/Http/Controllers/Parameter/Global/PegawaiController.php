@@ -26,26 +26,23 @@ class PegawaiController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function ($item) {
                     return '
-                    <div class="btn-group btn-group-sm">
-                        <a data-load="modal" title="Edit Data Pegawai" href="' . route('pegawai.edit', $item->id) . '" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
-                        <a data-action="delete" href="' . route('pegawai.destroy', $item->id) . '" class="btn btn-danger text-white"><i class="fas fa-trash"></i></a>
-                    </div>
-                    ';
-                })
-                ->addColumn('detail', function ($item) {
-                    return '
-                    <div class="btn-group btn-group-sm">
+                    <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                            <i class="fas fa-wrench"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a data-load="modal" title="Edit Data Pegawai" href="' . route('pegawai.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
+                            <a data-action="delete" href="' . route('pegawai.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                        </div>
                         <a data-action="open-tab" data-target="#detail-pegawai" href="' . route('pegawai.show', $item->id) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
                     </div>
                     ';
                 })
-                ->rawColumns(['action', 'detail'])
                 ->make(true);
         }
 
         $table = $builder->ajax(route('pegawai.table'))
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
-            ->addColumn(['data' => 'detail', 'title' => '', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama_lengkap', 'title' => 'Nama Lengkap & Gelar'])
             ->addColumn(['data' => 'jenis_kelamin', 'title' => 'Jenis Kelamin'])
