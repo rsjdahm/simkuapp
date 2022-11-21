@@ -22,9 +22,9 @@
 <script type="text/javascript">
     $(document).ready(function() {
         // check if there is history
-        if (window.location.href.includes('/#/') && window.location.href.replace(BASE_URL + '/#', '') !=
-            '/') {
-            return load('#page', BASE_URL + window.location.href.replace(BASE_URL + '/#', ''));
+        const hash = window.location.hash.substr(1);
+        if (hash && hash != '/') {
+            return load('#page', BASE_URL + hash);
         } else {
             // losss langsung load dashboard
             return load('#page', '{{ route('dashboard.show') }}');

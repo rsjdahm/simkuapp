@@ -185,9 +185,9 @@
 
     $(document).ready(function() {
         // check if there is history then activate menu
-        if (window.location.href.includes('/#/') && window.location.href.replace(BASE_URL + '/#', '') !=
-            '/') {
-            const new_url = BASE_URL + window.location.href.replace(BASE_URL + '/#', '');
+        const hash = window.location.hash.substr(1);
+        if (hash && hash != '/') {
+            const new_url = BASE_URL + hash;
 
             $(".metismenu .active").removeClass('active');
 

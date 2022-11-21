@@ -2,8 +2,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                Copyright © {{ date('Y') }} <span class="badge badge-pill badge-soft-success ml-2"><i
-                        class="fas fa-check mr-1 align-middle"></i><strong>SiMKU</strong> |
+                Copyright © {{ date('Y') }} {{ config('app.meta.company') }} <span
+                    class="badge badge-pill badge-soft-success ml-2"><i
+                        class="fas fa-check mr-1 align-middle"></i><strong>{{ config('app.meta.name') }}</strong> |
                     V{{ config('app.meta.version') }}</span>
             </div>
             <div class="col-sm-6">
