@@ -55,6 +55,15 @@
                                     250);
                         });
                         return false;
+                    } else if (xhr.status == 500) {
+                        $(parent).fadeOut(250, function() {
+                            $(parent).html(
+                                    '<div class="text-center py-4"><i style="font-size: 52pt" class="fas fa-exclamation-circle text-danger mb-3"></i><br/><h5 class="text-center"><strong>500</strong> Internal Server Error</h5></div>'
+                                )
+                                .fadeIn(
+                                    250);
+                        });
+                        return false;
                     }
                 }
             });
