@@ -48,8 +48,11 @@
                 error: function(xhr) {
                     if (xhr.status == 404) {
                         $(parent).fadeOut(250, function() {
-                            $(parent).html('<h5 class="text-center">404 - Page Not Found</h5>').fadeIn(
-                                250);
+                            $(parent).html(
+                                    '<div class="text-center py-4"><i style="font-size: 52pt" class="fas fa-exclamation-triangle text-danger mb-3"></i><br/><h5 class="text-center"><strong>404</strong> Not Found</h5></div>'
+                                )
+                                .fadeIn(
+                                    250);
                         });
                         return false;
                     }
