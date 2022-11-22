@@ -3,15 +3,15 @@
         <div class="col-12">
             <table class="table-responsive table-borderless table-sm m-0 table">
                 <tr>
-                    <td><a data-action="back-tab" data-target="#bidang" class="btn btn-primary btn-sm text-white"><i
-                                class="fas fa-backward"></i> Kembali</a></td>
+                    <td></td>
                     <td>Urusan</td>
                     <td>:</td>
                     <th>{{ $unit->bidang->urusan->kd }}</th>
                     <td>{{ $unit->bidang->urusan->nama }}</td>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td><a data-action="back-tab" data-target="#bidang" class="btn btn-primary btn-sm text-white"><i
+                                class="fas fa-backward"></i> Kembali</a></td>
                     <td>Bidang</td>
                     <td>:</td>
                     <th>{{ $unit->bidang->kd }}</th>
