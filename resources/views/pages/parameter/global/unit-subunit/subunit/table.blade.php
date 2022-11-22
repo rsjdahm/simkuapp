@@ -1,29 +1,29 @@
 <div class="alert alert-warning" role="alert">
     <div class="row">
         <div class="col-12">
-            <table class="table-responsive table-borderless m-0 table">
+            <table class="table-responsive table-borderless table-sm m-0 table">
                 <tr>
-                    <td class="py-2"><a data-action="back-tab" data-target="#bidang"
-                            class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
-                    <td class="py-2">Urusan</td>
-                    <td class="py-2">:</td>
-                    <th class="py-2">{{ $unit->bidang->urusan->kd }}</th>
-                    <td class="py-2">{{ $unit->bidang->urusan->nama }}</td>
+                    <td><a data-action="back-tab" data-target="#bidang" class="btn btn-primary btn-sm text-white"><i
+                                class="fas fa-backward"></i> Kembali</a></td>
+                    <td>Urusan</td>
+                    <td>:</td>
+                    <th>{{ $unit->bidang->urusan->kd }}</th>
+                    <td>{{ $unit->bidang->urusan->nama }}</td>
                 </tr>
                 <tr>
-                    <td class="py-2"></td>
-                    <td class="py-2">Bidang</td>
-                    <td class="py-2">:</td>
-                    <th class="py-2">{{ $unit->bidang->kd }}</th>
-                    <td class="py-2">{{ $unit->bidang->nama }}</td>
+                    <td></td>
+                    <td>Bidang</td>
+                    <td>:</td>
+                    <th>{{ $unit->bidang->kd }}</th>
+                    <td>{{ $unit->bidang->nama }}</td>
                 </tr>
                 <tr>
-                    <td class="py-2"><a data-action="back-tab" data-target="#unit"
-                            class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
-                    <td class="py-2">Unit</td>
-                    <td class="py-2">:</td>
-                    <th class="py-2">{{ $unit->kd }}</th>
-                    <td class="py-2">{{ $unit->nama }}</td>
+                    <td><a data-action="back-tab" data-target="#unit" class="btn btn-primary btn-sm text-white"><i
+                                class="fas fa-backward"></i> Kembali</a></td>
+                    <td>Unit</td>
+                    <td>:</td>
+                    <th>{{ $unit->kd }}</th>
+                    <td>{{ $unit->nama }}</td>
                 </tr>
             </table>
         </div>

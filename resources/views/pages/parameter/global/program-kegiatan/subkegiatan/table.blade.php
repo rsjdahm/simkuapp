@@ -1,37 +1,37 @@
 <div class="alert alert-warning" role="alert">
     <div class="row">
         <div class="col-12">
-            <table class="table-responsive table-borderless m-0 table">
+            <table class="table-responsive table-borderless table-sm m-0 table">
                 <tr>
-                    <td class="py-2"><a data-action="back-tab" data-target="#bidang"
-                            class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
-                    <td class="py-2">Urusan</td>
-                    <td class="py-2">:</td>
-                    <th class="py-2">{{ $kegiatan->program->bidang->urusan->kd }}</th>
-                    <td class="py-2">{{ $kegiatan->program->bidang->urusan->nama }}</td>
+                    <td><a data-action="back-tab" data-target="#bidang" class="btn btn-primary btn-sm text-white"><i
+                                class="fas fa-backward"></i> Kembali</a></td>
+                    <td>Urusan</td>
+                    <td>:</td>
+                    <th>{{ $kegiatan->program->bidang->urusan->kd }}</th>
+                    <td>{{ $kegiatan->program->bidang->urusan->nama }}</td>
                 </tr>
                 <tr>
-                    <td class="py-2"></td>
-                    <td class="py-2">Bidang</td>
-                    <td class="py-2">:</td>
-                    <th class="py-2">{{ $kegiatan->program->bidang->kd }}</th>
-                    <td class="py-2">{{ $kegiatan->program->bidang->nama }}</td>
+                    <td></td>
+                    <td>Bidang</td>
+                    <td>:</td>
+                    <th>{{ $kegiatan->program->bidang->kd }}</th>
+                    <td>{{ $kegiatan->program->bidang->nama }}</td>
                 </tr>
                 <tr>
-                    <td class="py-2"><a data-action="back-tab" data-target="#program"
-                            class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
-                    <td class="py-2">Program</td>
-                    <td class="py-2">:</td>
-                    <th class="py-2">{{ $kegiatan->program->kd }}</th>
-                    <td class="py-2">{{ $kegiatan->program->nama }}</td>
+                    <td><a data-action="back-tab" data-target="#program" class="btn btn-primary btn-sm text-white"><i
+                                class="fas fa-backward"></i> Kembali</a></td>
+                    <td>Program</td>
+                    <td>:</td>
+                    <th>{{ $kegiatan->program->kd }}</th>
+                    <td>{{ $kegiatan->program->nama }}</td>
                 </tr>
                 <tr>
-                    <td class="py-2"><a data-action="back-tab" data-target="#kegiatan"
-                            class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
-                    <td class="py-2">Kegiatan</td>
-                    <td class="py-2">:</td>
-                    <th class="py-2">{{ $kegiatan->kd }}</th>
-                    <td class="py-2">{{ $kegiatan->nama }}</td>
+                    <td><a data-action="back-tab" data-target="#kegiatan" class="btn btn-primary btn-sm text-white"><i
+                                class="fas fa-backward"></i> Kembali</a></td>
+                    <td>Kegiatan</td>
+                    <td>:</td>
+                    <th>{{ $kegiatan->kd }}</th>
+                    <td>{{ $kegiatan->nama }}</td>
                 </tr>
             </table>
         </div>

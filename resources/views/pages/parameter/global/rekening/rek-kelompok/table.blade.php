@@ -1,14 +1,14 @@
 <div class="alert alert-warning" role="alert">
     <div class="row">
         <div class="col-12">
-            <table class="table-responsive table-borderless m-0 table">
+            <table class="table-responsive table-borderless table-sm m-0 table">
                 <tr>
-                    <td class="py-2"><a data-action="back-tab" data-target="#rek-akun"
-                            class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
-                    <td class="py-2">Rekening Akun</td>
-                    <td class="py-2">:</td>
-                    <th class="py-2">{{ $rek_akun->kd }}</th>
-                    <td class="py-2">{{ $rek_akun->nama }}</td>
+                    <td><a data-action="back-tab" data-target="#rek-akun" class="btn btn-primary btn-sm text-white"><i
+                                class="fas fa-backward"></i> Kembali</a></td>
+                    <td>Rekening Akun</td>
+                    <td>:</td>
+                    <th>{{ $rek_akun->kd }}</th>
+                    <td>{{ $rek_akun->nama }}</td>
                 </tr>
             </table>
         </div>
