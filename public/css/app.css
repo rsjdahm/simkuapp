@@ -3017,15 +3017,16 @@ table thead {
 #nprogress .spinner {
     /* display: block;
     position: fixed; */
-    z-index: 1999;
-
+    z-index: 2000;
+    pointer-events: auto;
     display: flex;
     position: fixed;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: 100%;
-    /* background-color: rgb(255 255 255 / 25%); */
+    /* background: rgb(255 255 255 / 25%); */
+    background: transparent;
     top: 0;
 
     /* top: 15px;
