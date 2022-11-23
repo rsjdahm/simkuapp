@@ -2,7 +2,7 @@
     @csrf
     @method('put')
     <div class="form-group">
-        <label class="form-label">Kode Rekening Jenis</label>
+        <label class="form-label">Kode Bidang</label>
         <input name="urusan_id" type="hidden" value="{{ $bidang->urusan_id }}">
         <div class="row">
             <div class="col">
