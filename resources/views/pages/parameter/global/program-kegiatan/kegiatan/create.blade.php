@@ -1,7 +1,7 @@
 <form method="post" action="{{ route('kegiatan.store') }}">
     @csrf
     <div class="form-group">
-        <label class="form-label">Kode Program</label>
+        <label class="form-label">Kode Kegiatan</label>
         <input name="program_id" type="hidden" value="{{ request()->program_id }}">
         <div class="row">
             <div class="col">

@@ -6,7 +6,7 @@
         <input name="kd_rek1" class="form-control" type="number" value="{{ $rek_akun->kd_rek1 }}">
     </div>
     <div class="form-group">
-        <label class="form-label">Nama Rekening</label>
+        <label class="form-label">Nama Rekening Akun</label>
         <textarea name="nama" class="form-control">{{ $rek_akun->nama }}</textarea>
     </div>
     <div class="form-group">

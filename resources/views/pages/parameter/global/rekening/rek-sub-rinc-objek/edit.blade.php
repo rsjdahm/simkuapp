@@ -2,7 +2,7 @@
     @csrf
     @method('put')
     <div class="form-group">
-        <label class="form-label">Kode Rekening Rincian Objek</label>
+        <label class="form-label">Kode Rekening Sub Rincian Objek</label>
         <input name="rek_rinc_objek_id" type="hidden" value="{{ $rek_sub_rinc_objek->rek_rinc_objek_id }}">
         <div class="row">
             <div class="col">
@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="form-label">Nama Rekening</label>
+        <label class="form-label">Nama Rekening Sub Rincian Objek</label>
         <textarea name="nama" class="form-control">{{ $rek_sub_rinc_objek->nama }}</textarea>
     </div>
     <div class="form-group">

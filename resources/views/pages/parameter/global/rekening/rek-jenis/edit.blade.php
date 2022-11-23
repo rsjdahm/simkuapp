@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="form-label">Nama Rekening</label>
+        <label class="form-label">Nama Rekening Jenis</label>
         <textarea name="nama" class="form-control">{{ $rek_jenis->nama }}</textarea>
     </div>
     <div class="form-group">

@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="form-label">Nama Rekening</label>
+        <label class="form-label">Nama Rekening Rincian Objek</label>
         <textarea name="nama" class="form-control"></textarea>
     </div>
     <div class="form-group">

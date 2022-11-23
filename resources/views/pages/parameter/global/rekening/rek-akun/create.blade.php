@@ -5,7 +5,7 @@
         <input name="kd_rek1" class="form-control" type="number">
     </div>
     <div class="form-group">
-        <label class="form-label">Nama Rekening</label>
+        <label class="form-label">Nama Rekening Akun</label>
         <textarea name="nama" class="form-control"></textarea>
     </div>
     <div class="form-group">

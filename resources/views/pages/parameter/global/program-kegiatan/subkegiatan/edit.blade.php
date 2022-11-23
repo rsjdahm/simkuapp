@@ -2,7 +2,7 @@
     @csrf
     @method('put')
     <div class="form-group">
-        <label class="form-label">Kode Kegiatan</label>
+        <label class="form-label">Kode Subkegiatan</label>
         <input name="kegiatan_id" type="hidden" value="{{ $subkegiatan->kegiatan_id }}">
         <div class="row">
             <div class="col">
