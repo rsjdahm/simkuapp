@@ -18,7 +18,7 @@ class Rka extends Model
         'thn_anggaran',
     ];
 
-    protected $cast = [
+    protected $casts = [
         'jenis' => JenisRkaEnum::class
     ];
 }

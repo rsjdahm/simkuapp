@@ -1,71 +1,35 @@
-<form id="{{ time() }}_form" method="post" action="{{ route('rka.update', $pegawai->id) }}">
+<form method="post" action="{{ route('rka.update', $rka->id) }}">
     @csrf
     @method('put')
+    <input type="hidden" name="subunit_id" value="{{ $rka->subunit_id }}">
     <div class="form-group">
-        <div class="row">
-            <div class="col-sm-3">
-                <label class="form-label">Gelar Depan</label>
-                <input type="text" name="gelar_dpn" class="form-control" value="{{ $pegawai->gelar_dpn }}">
-            </div>
-            <div class="col-sm-6">
-                <label class="form-label">Nama Lengkap</label>
-                <input type="text" name="nama" class="form-control" value="{{ $pegawai->nama }}">
-            </div>
-            <div class="col-sm-3">
-                <label class="form-label">Gelar Belakang</label>
-                <input type="text" name="gelar_blkg" class="form-control" value="{{ $pegawai->gelar_blkg }}">
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="form-label">Jenis Kelamin</label>
-        <select name="jenis_kelamin" class="form-control">
-            <option disabled>-- Pilih Jenis Kelamin --</option>
-            @foreach (\App\Enums\Parameter\Global\JenisKelaminEnum::cases() as $jenis_kelamin)
-                <option @selected($pegawai->jenis_kelamin == $jenis_kelamin) value="{{ $jenis_kelamin }}">
-                    {{ $jenis_kelamin }}
-                </option>
+        <label class="form-label">Jenis Dokumen</label>
+        <select name="jenis" class="form-control">
+            <option disabled selected>-- Pilih Jenis Dokumen --</option>
+            @foreach (\App\Enums\Main\Anggaran\JenisRkaEnum::cases() as $jenis)
+                <option @selected($rka->jenis == $jenis) value="{{ $jenis }}">
+                    {{ $jenis }}</option>
             @endforeach
         </select>
     </div>
     <div class="form-group">
-        <label class="form-label">NIK</label>
-        <input type="number" name="nik" class="form-control" value="{{ $pegawai->nik }}">
-    </div>
-    <div class="form-group">
-        <label class="form-label">NIP</label>
-        <input type="text" name="nip" class="form-control" value="{{ $pegawai->nip }}">
-    </div>
-    <div class="form-group">
-        <label class="form-label">NPWP</label>
-        <input type="text" name="npwp" class="form-control" value="{{ $pegawai->npwp }}">
-    </div>
-    <div class="form-group">
-        <label class="form-label">Alamat</label>
-        <textarea name="alamat" class="form-control">{{ $pegawai->alamat }}</textarea>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-sm-6">
-                <label class="form-label">Tempat Lahir</label>
-                <input type="text" name="tmpt_lahir" class="form-control" value="{{ $pegawai->tmpt_lahir }}">
-            </div>
-            <div class="col-sm-6">
-                <label class="form-label">Tanggal Lahir</label>
-                <input type="date" name="tgl_lahir" class="form-control" value="{{ $pegawai->tgl_lahir }}">
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="form-label">Status Pegawai</label>
-        <select name="status_kepeg" class="form-control">
-            <option disabled>-- Pilih Status Pegawai --</option>
-            @foreach (\App\Enums\Parameter\Global\StatusKepegawaianEnum::cases() as $status_kepeg)
-                <option @selected($pegawai->status_kepeg == $status_kepeg) value="{{ $status_kepeg }}">
-                    {{ $status_kepeg->value }}
-                </option>
-            @endforeach
+        <label class="form-label">Tahun Anggaran</label>
+        <select name="thn_anggaran" class="form-control">
+            <option disabled selected>-- Pilih Tahun Anggaran --</option>
+            <option @selected($rka->thn_anggaran == '2023') value="2023">2023</option>
         </select>
+    </div>
+    <div class="form-group">
+        <label class="form-label">No. Dokumen</label>
+        <input type="text" name="no_dokumen" class="form-control" value="{{ $rka->no_dokumen }}">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Tanggal Dokumen</label>
+        <input type="date" name="tgl_dokumen" class="form-control" value="{{ $rka->tgl_dokumen }}">
+    </div>
+    <div class="form-group">
+        <label class="form-label">Uraian</label>
+        <textarea name="uraian" class="form-control">{{ $rka->uraian }}</textarea>
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
@@ -73,7 +37,7 @@
 </form>
 
 <script>
-    $("form#{{ time() }}_form").on("submit", function(event) {
+    $("form[action='{{ route('rka.update', $rka->id) }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);
