@@ -21,7 +21,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a data-load="#page" data-menu="item" href="{{ route('test') }}">
+                                    <a data-load="#page" data-menu="item" href="{{ route('rka.index') }}">
                                         RKA
                                     </a>
                                 </li>

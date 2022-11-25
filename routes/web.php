@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Database\MigrationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Main\Anggaran\RkaController;
 use App\Http\Controllers\Parameter\Global\BidangController;
 use App\Http\Controllers\Parameter\Global\KegiatanController;
 use App\Http\Controllers\Parameter\Global\PegawaiController;
@@ -17,7 +18,6 @@ use App\Http\Controllers\Parameter\Global\SubkegiatanController;
 use App\Http\Controllers\Parameter\Global\SubunitController;
 use App\Http\Controllers\Parameter\Global\UnitController;
 use App\Http\Controllers\Parameter\Global\UrusanController;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -72,6 +72,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         })->name('unit-subunit.index');
         Route::resource('/unit-subunit/unit', UnitController::class)->except(['show']); //->name('unit.*');
         Route::resource('/unit-subunit/subunit', SubunitController::class)->except(['show']); //->name('subunit.*');
+        Route::get('/unit-subunit/rka', [SubunitController::class, 'indexRka'])->name('subunit.rka.index');
 
         // Rekening
         Route::get('/rekening', function () {
@@ -86,8 +87,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     });
 
+    /// MAIN - ANGGARAN
+    Route::prefix('/main/anggaran')->group(function () {
+        /// Rka
+        Route::resource('/rka', RkaController::class)->except(['show']); //->name('rka.*');
+        Route::get('/rka-table', [RkaController::class, 'table'])->name('rka.table');
+    });
+
     // ADMIN
     Route::prefix('/admin/database')->group(function () {
-        Route::resource('/migration', MigrationController::class)->except(['show', 'create']); //->name('migration.*');
+        Route::get('/migration', [MigrationController::class, 'index'])->name('migration.index');
+        Route::post('/migration/{migration}', [MigrationController::class, 'store'])->name('migration.store');
+        Route::get('/migration/{migration}/edit', [MigrationController::class, 'edit'])->name('migration.edit');
+        Route::put('/migration/{migration}', [MigrationController::class, 'update'])->name('migration.update');
+        Route::delete('/migration/{migration}', [MigrationController::class, 'destroy'])->name('migration.destroy');
     });
 });

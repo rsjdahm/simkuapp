@@ -84,4 +84,59 @@ class SubunitController extends Controller
 
         return response()->json(['message' => 'Data berhasil dihapus.']);
     }
+
+    public function indexRka(Builder $builder, Request $request)
+    {
+        if ($request->wantsJson()) {
+            $data = Subunit::with(['unit'])
+                ->orderBy('kd_unit')
+                ->orderBy('kd_subunit')
+                ->get();
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($item) {
+                    return '
+                    <div class="btn-group btn-group-sm">
+                        <a data-action="open-tab" data-target="#rka" href="' . route('rka.table', ['subunit_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
+                    </div>
+                    ';
+                })
+                ->addColumn('unit', function ($item) {
+                    return $item->unit->kd . '  ' . $item->unit->nama;
+                })
+                ->make(true);
+        }
+
+        $table = $builder->ajax(route('subunit.rka.index'))
+            ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
+            ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'unit', 'title' => 'Unit'])
+            ->addColumn(['data' => 'kd', 'title' => 'Kode Unit', 'class' => 'font-weight-bold text-nowrap', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'nama', 'title' => 'Subunit SKPD'])
+            ->parameters([
+                "drawCallback" => "
+                function(settings) {
+                    var api = this.api();
+                    var rows = api.rows({
+                        page: 'current'
+                    }).nodes();
+                    var last = null;
+                    api.column(2, {page: 'current'}).data().each(function(group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before('<td colspan=\"4\"><span class=\"mr-3 badge badge-pill badge-success\">Unit</span><strong>' + group + '</strong></td></tr>');
+                            last = group;
+                        }
+                    });
+                }
+                ",
+                "columnDefs" => [
+                    [
+                        "targets" => [2], "visible" => false,
+                    ],
+                ],
+            ]);
+
+        return view('pages.parameter.global.unit-subunit.subunit.table_rka', compact('table'));
+    }
 }

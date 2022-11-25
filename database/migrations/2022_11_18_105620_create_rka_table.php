@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('aktivitas', function (Blueprint $table) {
+        Schema::create('rka', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('subkegiatan_id');
-            $table->string('nama');
+            $table->unsignedBigInteger('subunit_id');
+            $table->string('no_dokumen');
+            $table->date('tgl_dokumen');
+            $table->text('uraian')->nullable();
+            $table->string('jenis');
+            $table->year('thn_anggaran');
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aktivitas');
+        Schema::dropIfExists('rka');
     }
 };
