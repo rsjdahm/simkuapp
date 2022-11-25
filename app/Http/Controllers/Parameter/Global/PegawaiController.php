@@ -20,7 +20,7 @@ class PegawaiController extends Controller
     public function table(Builder $builder, Request $request)
     {
         if ($request->wantsJson()) {
-            $data = Pegawai::orderBy('nama')->get();
+            $data = Pegawai::orderBy('nama');
 
             return DataTables::of($data)
                 ->addIndexColumn()

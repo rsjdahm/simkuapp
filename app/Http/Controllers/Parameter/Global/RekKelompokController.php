@@ -18,8 +18,7 @@ class RekKelompokController extends Controller
             if ($request->wantsJson()) {
                 $data = RekKelompok::where('rek_akun_id', $request->rek_akun_id)
                     ->orderBy('kd_rek1')
-                    ->orderBy('kd_rek2')
-                    ->get();
+                    ->orderBy('kd_rek2');
 
                 return DataTables::of($data)
                     ->addIndexColumn()

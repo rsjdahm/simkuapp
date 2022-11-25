@@ -20,8 +20,7 @@ class SubunitController extends Controller
                     ->orderBy('kd_urusan')
                     ->orderBy('kd_bidang')
                     ->orderBy('kd_unit')
-                    ->orderBy('kd_subunit')
-                    ->get();
+                    ->orderBy('kd_subunit');
 
                 return DataTables::of($data)
                     ->addIndexColumn()
@@ -90,8 +89,7 @@ class SubunitController extends Controller
         if ($request->wantsJson()) {
             $data = Subunit::with(['unit'])
                 ->orderBy('kd_unit')
-                ->orderBy('kd_subunit')
-                ->get();
+                ->orderBy('kd_subunit');
 
             return DataTables::of($data)
                 ->addIndexColumn()

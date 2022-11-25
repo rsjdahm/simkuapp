@@ -14,7 +14,7 @@ class RekAkunController extends Controller
     public function index(Builder $builder, Request $request)
     {
         if ($request->wantsJson()) {
-            $data = RekAkun::orderBy('kd_rek1')->get();
+            $data = RekAkun::orderBy('kd_rek1');
 
             return DataTables::of($data)
                 ->addIndexColumn()

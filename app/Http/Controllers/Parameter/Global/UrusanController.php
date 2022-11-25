@@ -14,7 +14,7 @@ class UrusanController extends Controller
     public function index(Builder $builder, Request $request)
     {
         if ($request->wantsJson()) {
-            $data = Urusan::orderBy('kd_urusan')->get();
+            $data = Urusan::orderBy('kd_urusan');
 
             return DataTables::of($data)
                 ->addIndexColumn()

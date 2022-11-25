@@ -19,8 +19,7 @@ class ProgramController extends Controller
                 $data = Program::where('bidang_id', $request->bidang_id)
                     ->orderBy('kd_urusan')
                     ->orderBy('kd_bidang')
-                    ->orderBy('kd_program')
-                    ->get();
+                    ->orderBy('kd_program');
 
                 return DataTables::of($data)
                     ->addIndexColumn()

@@ -19,8 +19,7 @@ class RekJenisController extends Controller
                 $data = RekJenis::where('rek_kelompok_id', $request->rek_kelompok_id)
                     ->orderBy('kd_rek1')
                     ->orderBy('kd_rek2')
-                    ->orderBy('kd_rek3')
-                    ->get();
+                    ->orderBy('kd_rek3');
 
                 return DataTables::of($data)
                     ->addIndexColumn()

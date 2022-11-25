@@ -21,8 +21,7 @@ class RkaController extends Controller
     {
         if ($request->subunit_id) {
             if ($request->wantsJson()) {
-                $data = Rka::where('subunit_id', $request->subunit_id)
-                    ->get();
+                $data = Rka::where('subunit_id', $request->subunit_id);
 
                 return DataTables::of($data)
                     ->addIndexColumn()
@@ -47,7 +46,9 @@ class RkaController extends Controller
                 ->addIndex(['title' => 'No.', 'style' => 'width: 1%;', 'class' => 'text-center'])
                 ->addColumn(['data' => 'thn_anggaran', 'title' => 'Tahun Anggaran', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'no_dokumen', 'title' => 'No. Dokumen'])
-                ->addColumn(['data' => 'uraian', 'title' => 'Uraian']);
+                ->addColumn(['data' => 'uraian', 'title' => 'Uraian'])
+                ->addColumn(['data' => 'thn_anggaran', 'title' => 'Pagu Belanja'])
+                ->addColumn(['data' => 'jenis', 'title' => 'Jenis']);
 
             $subunit = Subunit::findOrFail($request->subunit_id);
 

@@ -20,8 +20,7 @@ class RekObjekController extends Controller
                     ->orderBy('kd_rek1')
                     ->orderBy('kd_rek2')
                     ->orderBy('kd_rek3')
-                    ->orderBy('kd_rek4')
-                    ->get();
+                    ->orderBy('kd_rek4');
 
                 return DataTables::of($data)
                     ->addIndexColumn()

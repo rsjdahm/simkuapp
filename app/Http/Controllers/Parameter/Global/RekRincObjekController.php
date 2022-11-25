@@ -21,8 +21,7 @@ class RekRincObjekController extends Controller
                     ->orderBy('kd_rek2')
                     ->orderBy('kd_rek3')
                     ->orderBy('kd_rek4')
-                    ->orderBy('kd_rek5')
-                    ->get();
+                    ->orderBy('kd_rek5');
 
                 return DataTables::of($data)
                     ->addIndexColumn()

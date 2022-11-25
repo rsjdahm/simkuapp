@@ -20,8 +20,7 @@ class SubkegiatanController extends Controller
                     ->orderBy('kd_urusan')
                     ->orderBy('kd_bidang')
                     ->orderBy('kd_program')
-                    ->orderBy('kd_kegiatan')
-                    ->get();
+                    ->orderBy('kd_kegiatan');
 
                 return DataTables::of($data)
                     ->addIndexColumn()

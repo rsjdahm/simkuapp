@@ -18,8 +18,7 @@ class BidangController extends Controller
             if ($request->wantsJson()) {
                 $data = Bidang::where('urusan_id', $request->urusan_id)
                     ->orderBy('kd_urusan')
-                    ->orderBy('kd_bidang')
-                    ->get();
+                    ->orderBy('kd_bidang');
 
                 return DataTables::of($data)
                     ->addIndexColumn()
@@ -88,8 +87,7 @@ class BidangController extends Controller
         if ($request->wantsJson()) {
             $data = Bidang::with(['urusan'])
                 ->orderBy('kd_urusan')
-                ->orderBy('kd_bidang')
-                ->get();
+                ->orderBy('kd_bidang');
 
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -143,8 +141,7 @@ class BidangController extends Controller
         if ($request->wantsJson()) {
             $data = Bidang::with(['urusan'])
                 ->orderBy('kd_urusan')
-                ->orderBy('kd_bidang')
-                ->get();
+                ->orderBy('kd_bidang');
 
             return DataTables::of($data)
                 ->addIndexColumn()

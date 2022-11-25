@@ -19,8 +19,7 @@ class UnitController extends Controller
                 $data = Unit::where('bidang_id', $request->bidang_id)
                     ->orderBy('kd_urusan')
                     ->orderBy('kd_bidang')
-                    ->orderBy('kd_unit')
-                    ->get();
+                    ->orderBy('kd_unit');
 
                 return DataTables::of($data)
                     ->addIndexColumn()
