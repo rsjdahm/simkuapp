@@ -37,41 +37,15 @@ class MigrationController extends Controller
         if ($request->wantsJson()) {
             return DataTables::of($migration_files)
                 ->addIndexColumn()
-                ->addColumn('action', function ($item) {
-                    if ($item->batch) {
-                        return '
-                <div class="btn-group btn-group-sm">
-                    <a data-load="modal" title="Edit Migration" href="' . route('migration.edit', ['migration' => $item->migration])  . '" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
-                </div>
-                ';
-                    }
-                })
-                ->addColumn('migrate', function ($item) {
-                    if ($item->batch && $item->rollback) {
-                        return  '<a data-action="delete" href="' . route('migration.destroy', ['migration' => $item->migration]) . '" class="btn btn-danger btn-sm btn-rounded">
-                                    <i class="fas fa-arrow-left"></i> Rollback
-                                </a>';
-                    }
-                    if (!$item->batch) {
-                        return '<a data-action="post" href="' . route('migration.store', ['migration' => $item->migration_file]) . '" class="btn btn-success btn-sm btn-rounded">
-                                    <i class="fas fa-arrow-right"></i> Migrate
-                                </a>';
-                    }
-                })
-                ->editColumn('tgl', function ($item) {
-                    if ($item->batch) {
-                        return '<span class="badge badge-pill badge-soft-success font-size-10">' . $item->tgl . '</span>';
-                    }
-                    return '<span class="badge badge-pill badge-soft-warning font-size-10">' . $item->tgl . '</span>';
-                })
-                ->editColumn('migration_file', function ($item) {
-                    return substr($item->migration_file, 18);
-                })
+                ->addColumn('action', '@if($batch) <div class="btn-group btn-group-sm"><a data-load="modal" title="Edit Migration" href="{{ route("migration.edit", ["migration" => $migration]) }}" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a></div> @endif')
+                ->addColumn('migrate', '@if($batch && $rollback) <a data-action="delete" href="{{ route("migration.destroy", ["migration" => $migration]) }}" class="btn btn-danger btn-sm btn-rounded"><i class="fas fa-arrow-left"></i> Rollback</a> @endif @if(!$batch) <a data-action="post" href="{{ route("migration.store", ["migration" => $migration_file]) }}" class="btn btn-success btn-sm btn-rounded"><i class="fas fa-arrow-right"></i> Migrate</a> @endif')
+                ->editColumn('tgl', '@if($batch) <span class="badge badge-pill badge-soft-success font-size-10">{{ $tgl }}</span> @else <span class="badge badge-pill badge-soft-warning font-size-10">{{ $tgl }}</span> @endif')
+                ->editColumn('migration_file', '{{ substr($migration_file, 18) }}')
                 ->rawColumns(['tgl', 'action', 'migrate'])
                 ->make(true);
         }
 
-        $table = $builder->ajax(route('migration.index'))
+        $table = $builder->minifiedAjax(route('migration.index'))
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'tgl', 'title' => 'Stamp', 'style' => 'width: 1%;'])

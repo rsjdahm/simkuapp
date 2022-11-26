@@ -23,26 +23,11 @@ class RekJenisController extends Controller
 
                 return DataTables::of($data)
                     ->addIndexColumn()
-                    ->addColumn('action', function ($item) {
-                        return '
-                        <div class="btn-group btn-group-sm" role="group">
-                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                                <i class="fas fa-wrench"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a data-load="modal" title="Edit Rekening Jenis" href="' . route('rek-jenis.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                                <a data-action="delete" href="' . route('rek-jenis.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                            </div>
-                            <a data-action="open-tab" data-target="#rek-objek" href="' . route('rek-objek.index', ['rek_jenis_id' => $item->id]) .  '" class="btn btn-primary text-white">
-                                <i class="fas fa-forward"></i>
-                            </a>
-                        </div>
-                        ';
-                    })
+                    ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Rekening Jenis" href="{{ route("rek-jenis.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("rek-jenis.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#rek-objek" href="{{ route("rek-objek.index", ["rek_jenis_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
                     ->make(true);
             }
 
-            $table = $builder->ajax(route('rek-jenis.index', ['rek_kelompok_id' => $request->rek_kelompok_id]))
+            $table = $builder->minifiedAjax(route('rek-jenis.index', ['rek_kelompok_id' => $request->rek_kelompok_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Jenis', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])

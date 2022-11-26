@@ -25,10 +25,10 @@ api.search(this.value).draw();
 });
 });
 });
-$.extend(true, $.fn.dataTable.defaults, {
-{{-- scrollY: '55vh',
+{{-- $.extend(true, $.fn.dataTable.defaults, {
+scrollY: '55vh',
 scrollX: true,
-scrollCollapse: true, --}}
+scrollCollapse: true
 language: {
 processing: "Sedang memproses...",
 lengthMenu: "Tampilkan _MENU_ entri",
@@ -43,4 +43,4 @@ previous: "Sebelumnya",
 next: "Selanjutnya"
 }
 },
-});
+}); --}}

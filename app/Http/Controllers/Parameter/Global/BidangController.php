@@ -22,23 +22,11 @@ class BidangController extends Controller
 
                 return DataTables::of($data)
                     ->addIndexColumn()
-                    ->addColumn('action', function ($item) {
-                        return '
-                        <div class="btn-group btn-group-sm" role="group">
-                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                                <i class="fas fa-wrench"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a data-load="modal" title="Edit Nomenklatur Bidang" href="' . route('bidang.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                                <a data-action="delete" href="' . route('bidang.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                            </div>
-                        </div>
-                        ';
-                    })
+                    ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Nomenklatur Bidang" href="{{ route("bidang.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("bidang.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div></div>')
                     ->make(true);
             }
 
-            $table = $builder->ajax(route('bidang.index', ['urusan_id' => $request->urusan_id]))
+            $table = $builder->minifiedAjax(route('bidang.index', ['urusan_id' => $request->urusan_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
@@ -91,20 +79,12 @@ class BidangController extends Controller
 
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', function ($item) {
-                    return '
-                    <div class="btn-group btn-group-sm">
-                        <a data-action="open-tab" data-target="#unit" href="' . route('unit.index', ['bidang_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
-                    </div>
-                    ';
-                })
-                ->addColumn('urusan', function ($item) {
-                    return $item->urusan->kd . '  ' . $item->urusan->nama;
-                })
+                ->addColumn('action', '<div class="btn-group btn-group-sm"><a data-action="open-tab" data-target="#unit" href="{{ route("unit.index", ["bidang_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
+                ->addColumn('urusan', '{{ $urusan["kd"] }} {{ $urusan["nama"] }}')
                 ->make(true);
         }
 
-        $table = $builder->ajax(route('bidang.unit.index'))
+        $table = $builder->minifiedAjax(route('bidang.unit.index'))
             ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'urusan', 'title' => 'Urusan'])
@@ -145,20 +125,12 @@ class BidangController extends Controller
 
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', function ($item) {
-                    return '
-                    <div class="btn-group btn-group-sm">
-                        <a data-action="open-tab" data-target="#program" href="' . route('program.index', ['bidang_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
-                    </div>
-                    ';
-                })
-                ->addColumn('urusan', function ($item) {
-                    return $item->urusan->kd . '  ' . $item->urusan->nama;
-                })
+                ->addColumn('action', '<div class="btn-group btn-group-sm"><a data-action="open-tab" data-target="#program" href="{{ route("program.index", ["bidang_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
+                ->addColumn('urusan', '{{ $urusan["kd"] }} {{ $urusan["nama"] }}')
                 ->make(true);
         }
 
-        $table = $builder->ajax(route('bidang.program.index'))
+        $table = $builder->minifiedAjax(route('bidang.program.index'))
             ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'urusan', 'title' => 'Urusan'])

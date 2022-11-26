@@ -23,26 +23,11 @@ class UnitController extends Controller
 
                 return DataTables::of($data)
                     ->addIndexColumn()
-                    ->addColumn('action', function ($item) {
-                        return '
-                        <div class="btn-group btn-group-sm" role="group">
-                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                                <i class="fas fa-wrench"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a data-load="modal" title="Edit Unit" href="' . route('unit.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                                <a data-action="delete" href="' . route('unit.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                            </div>
-                            <a data-action="open-tab" data-target="#subunit" href="' . route('subunit.index', ['unit_id' => $item->id]) . '" class="btn btn-primary text-white">
-                                <i class="fas fa-forward"></i>
-                            </a>
-                        </div>
-                        ';
-                    })
+                    ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Unit" href="{{ route("unit.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("unit.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#subunit" href="{{ route("subunit.index", ["unit_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
                     ->make(true);
             }
 
-            $table = $builder->ajax(route('unit.index', ['bidang_id' => $request->bidang_id]))
+            $table = $builder->minifiedAjax(route('unit.index', ['bidang_id' => $request->bidang_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Unit', 'class' => 'font-weight-bold'])

@@ -26,23 +26,11 @@ class RekSubRincObjekController extends Controller
 
                 return DataTables::of($data)
                     ->addIndexColumn()
-                    ->addColumn('action', function ($item) {
-                        return '
-                        <div class="btn-group btn-group-sm" role="group">
-                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                                <i class="fas fa-wrench"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a data-load="modal" title="Edit Rekening Sub Rincian Objek" href="' . route('rek-sub-rinc-objek.edit', $item->id) . '" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                                <a data-action="delete" href="' . route('rek-sub-rinc-objek.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                            </div>
-                        </div>
-                        ';
-                    })
+                    ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Rekening Sub Rincian Objek" href="{{ route("rek-sub-rinc-objek.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("rek-sub-rinc-objek.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div></div>')
                     ->make(true);
             }
 
-            $table = $builder->ajax(route('rek-sub-rinc-objek.index', ['rek_rinc_objek_id' => $request->rek_rinc_objek_id]))
+            $table = $builder->minifiedAjax(route('rek-sub-rinc-objek.index', ['rek_rinc_objek_id' => $request->rek_rinc_objek_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Sub Rincian Objek', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])

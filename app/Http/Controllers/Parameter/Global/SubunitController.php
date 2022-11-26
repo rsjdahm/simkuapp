@@ -24,23 +24,11 @@ class SubunitController extends Controller
 
                 return DataTables::of($data)
                     ->addIndexColumn()
-                    ->addColumn('action', function ($item) {
-                        return '
-                        <div class="btn-group btn-group-sm" role="group">
-                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                                <i class="fas fa-wrench"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a data-load="modal" title="Edit Subunit" href="' . route('subunit.edit', $item->id) . '"  class="dropdown-item"><i class="fas fa-edit"></i> Edit</a>
-                                <a data-action="delete" href="' . route('subunit.destroy', $item->id) . '" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                            </div>
-                        </div>
-                        ';
-                    })
+                    ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Subunit" href="{{ route("subunit.edit", $id) }}"  class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("subunit.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div></div>')
                     ->make(true);
             }
 
-            $table = $builder->ajax(route('subunit.index', ['unit_id' => $request->unit_id]))
+            $table = $builder->minifiedAjax(route('subunit.index', ['unit_id' => $request->unit_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'kd', 'title' => 'Kode Subunit', 'class' => 'font-weight-bold'])
@@ -93,20 +81,12 @@ class SubunitController extends Controller
 
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', function ($item) {
-                    return '
-                    <div class="btn-group btn-group-sm">
-                        <a data-action="open-tab" data-target="#rka" href="' . route('rka.table', ['subunit_id' => $item->id]) . '" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a>
-                    </div>
-                    ';
-                })
-                ->addColumn('unit', function ($item) {
-                    return $item->unit->kd . '  ' . $item->unit->nama;
-                })
+                ->addColumn('action', '<div class="btn-group btn-group-sm"><a data-action="open-tab" data-target="#rka" href="{{ route("rka.table", ["subunit_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
+                ->addColumn('unit', '{{ $unit["kd"] }} {{ $unit["nama"] }}')
                 ->make(true);
         }
 
-        $table = $builder->ajax(route('subunit.rka.index'))
+        $table = $builder->minifiedAjax(route('subunit.rka.index'))
             ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'unit', 'title' => 'Unit'])
