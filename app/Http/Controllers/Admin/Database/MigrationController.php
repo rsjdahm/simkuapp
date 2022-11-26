@@ -35,7 +35,7 @@ class MigrationController extends Controller
             ->sortBy('batch');
 
         if ($request->wantsJson()) {
-            return DataTables::eloquent($migration_files)
+            return DataTables::of($migration_files)
                 ->addIndexColumn()
                 ->addColumn('action', '@if($batch) <div class="btn-group btn-group-sm"><a data-load="modal" title="Edit Migration" href="{{ route("migration.edit", ["migration" => $migration]) }}" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a></div> @endif')
                 ->addColumn('migrate', '@if($batch && $rollback) <a data-action="delete" href="{{ route("migration.destroy", ["migration" => $migration]) }}" class="btn btn-danger btn-sm btn-rounded"><i class="fas fa-arrow-left"></i> Rollback</a> @endif @if(!$batch) <a data-action="post" href="{{ route("migration.store", ["migration" => $migration_file]) }}" class="btn btn-success btn-sm btn-rounded"><i class="fas fa-arrow-right"></i> Migrate</a> @endif')
