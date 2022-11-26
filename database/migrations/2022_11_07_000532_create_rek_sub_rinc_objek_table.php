@@ -16,12 +16,7 @@ return new class extends Migration
         Schema::create('rek_sub_rinc_objek', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('rek_rinc_objek_id');
-            $table->unsignedInteger('kd_rek1');
-            $table->unsignedInteger('kd_rek2');
-            $table->unsignedInteger('kd_rek3');
-            $table->unsignedInteger('kd_rek4');
-            $table->unsignedInteger('kd_rek5');
-            $table->unsignedInteger('kd_rek6');
+            $table->string('kode');
             $table->string('nama');
             $table->timestamps();
         });

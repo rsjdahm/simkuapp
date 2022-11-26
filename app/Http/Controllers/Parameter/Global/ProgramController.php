@@ -21,10 +21,10 @@ class ProgramController extends Controller
                     ->orderBy('kd_bidang')
                     ->orderBy('kd_program');
 
-                return DataTables::of($data)
+                return DataTables::eloquent($data)
                     ->addIndexColumn()
                     ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Program" href="{{ route("program.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("program.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#kegiatan" href="{{ route("kegiatan.index", ["program_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
-                    ->make(true);
+                    ->toJson();
             }
 
             $table = $builder->minifiedAjax(route('program.index', ['bidang_id' => $request->bidang_id]))

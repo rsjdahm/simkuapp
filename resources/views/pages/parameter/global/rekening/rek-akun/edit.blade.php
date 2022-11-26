@@ -3,7 +3,7 @@
     @method('put')
     <div class="form-group">
         <label class="form-label">Kode Rekening Akun</label>
-        <input name="kd_rek1" class="form-control" type="number" value="{{ $rek_akun->kd_rek1 }}">
+        <input name="kode" class="form-control" value="{{ $rek_akun->kode }}">
     </div>
     <div class="form-group">
         <label class="form-label">Nama Rekening Akun</label>

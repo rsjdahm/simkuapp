@@ -25,8 +25,7 @@ class RekKelompokRequest extends FormRequest
     {
         return [
             'rek_akun_id' => ['required'],
-            'kd_rek1' => ['required', 'numeric'],
-            'kd_rek2' => ['required', 'numeric'],
+            'kode' => ['required', 'string'],
             'nama' => ['required', 'string'],
         ];
     }

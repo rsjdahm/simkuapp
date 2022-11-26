@@ -21,10 +21,10 @@ class UnitController extends Controller
                     ->orderBy('kd_bidang')
                     ->orderBy('kd_unit');
 
-                return DataTables::of($data)
+                return DataTables::eloquent($data)
                     ->addIndexColumn()
                     ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Unit" href="{{ route("unit.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("unit.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#subunit" href="{{ route("subunit.index", ["unit_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
-                    ->make(true);
+                    ->toJson();
             }
 
             $table = $builder->minifiedAjax(route('unit.index', ['bidang_id' => $request->bidang_id]))

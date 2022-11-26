@@ -1,23 +1,10 @@
 <form method="post" action="{{ route('rek-objek.update', $rek_objek->id) }}">
     @csrf
     @method('put')
+    <input name="rek_jenis_id" type="hidden" value="{{ $rek_objek->rek_jenis_id }}">
     <div class="form-group">
         <label class="form-label">Kode Rekening Objek</label>
-        <input name="rek_jenis_id" type="hidden" value="{{ $rek_objek->rek_jenis_id }}">
-        <div class="row">
-            <div class="col">
-                <input readonly name="kd_rek1" class="form-control" type="number" value="{{ $rek_objek->kd_rek1 }}">
-            </div>
-            <div class="col">
-                <input readonly name="kd_rek2" class="form-control" type="number" value="{{ $rek_objek->kd_rek2 }}">
-            </div>
-            <div class="col">
-                <input readonly name="kd_rek3" class="form-control" type="number" value="{{ $rek_objek->kd_rek3 }}">
-            </div>
-            <div class="col">
-                <input name="kd_rek4" class="form-control" type="number" value="{{ $rek_objek->kd_rek4 }}">
-            </div>
-        </div>
+        <input name="kode" class="form-control" value="{{ $rek_objek->kode }}">
     </div>
     <div class="form-group">
         <label class="form-label">Nama Rekening Objek</label>

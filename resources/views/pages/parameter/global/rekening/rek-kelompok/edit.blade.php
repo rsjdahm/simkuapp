@@ -1,17 +1,10 @@
 <form method="post" action="{{ route('rek-kelompok.update', $rek_kelompok->id) }}">
     @csrf
     @method('put')
+    <input name="rek_akun_id" type="hidden" value="{{ $rek_kelompok->rek_akun_id }}">
     <div class="form-group">
         <label class="form-label">Kode Rekening Kelompok</label>
-        <input name="rek_akun_id" type="hidden" value="{{ $rek_kelompok->rek_akun_id }}">
-        <div class="row">
-            <div class="col">
-                <input readonly name="kd_rek1" class="form-control" type="number" value="{{ $rek_kelompok->kd_rek1 }}">
-            </div>
-            <div class="col">
-                <input name="kd_rek2" class="form-control" type="number" value="{{ $rek_kelompok->kd_rek2 }}">
-            </div>
-        </div>
+        <input name="kode" class="form-control" value="{{ $rek_kelompok->kode }}">
     </div>
     <div class="form-group">
         <label class="form-label">Nama Rekening Kelompok</label>

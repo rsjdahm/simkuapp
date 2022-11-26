@@ -24,7 +24,7 @@ class RekAkunRequest extends FormRequest
     public function rules()
     {
         return [
-            'kd_rek1' => ['required', 'numeric'],
+            'kode' => ['required', 'string'],
             'nama' => ['required', 'string'],
         ];
     }

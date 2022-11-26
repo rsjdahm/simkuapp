@@ -20,10 +20,10 @@ class BidangController extends Controller
                     ->orderBy('kd_urusan')
                     ->orderBy('kd_bidang');
 
-                return DataTables::of($data)
+                return DataTables::eloquent($data)
                     ->addIndexColumn()
                     ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Nomenklatur Bidang" href="{{ route("bidang.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("bidang.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div></div>')
-                    ->make(true);
+                    ->toJson();
             }
 
             $table = $builder->minifiedAjax(route('bidang.index', ['urusan_id' => $request->urusan_id]))
@@ -77,11 +77,11 @@ class BidangController extends Controller
                 ->orderBy('kd_urusan')
                 ->orderBy('kd_bidang');
 
-            return DataTables::of($data)
+            return DataTables::eloquent($data)
                 ->addIndexColumn()
                 ->addColumn('action', '<div class="btn-group btn-group-sm"><a data-action="open-tab" data-target="#unit" href="{{ route("unit.index", ["bidang_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
                 ->addColumn('urusan', '{{ $urusan["kd"] }} {{ $urusan["nama"] }}')
-                ->make(true);
+                ->toJson();
         }
 
         $table = $builder->minifiedAjax(route('bidang.unit.index'))
@@ -123,11 +123,11 @@ class BidangController extends Controller
                 ->orderBy('kd_urusan')
                 ->orderBy('kd_bidang');
 
-            return DataTables::of($data)
+            return DataTables::eloquent($data)
                 ->addIndexColumn()
                 ->addColumn('action', '<div class="btn-group btn-group-sm"><a data-action="open-tab" data-target="#program" href="{{ route("program.index", ["bidang_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
                 ->addColumn('urusan', '{{ $urusan["kd"] }} {{ $urusan["nama"] }}')
-                ->make(true);
+                ->toJson();
         }
 
         $table = $builder->minifiedAjax(route('bidang.program.index'))

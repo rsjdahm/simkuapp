@@ -14,32 +14,25 @@ class RekSubRincObjekController extends Controller
 {
     public function index(Builder $builder, Request $request)
     {
-        if ($request->rek_rinc_objek_id) {
-            if ($request->wantsJson()) {
-                $data = RekSubRincObjek::where('rek_rinc_objek_id', $request->rek_rinc_objek_id)
-                    ->orderBy('kd_rek1')
-                    ->orderBy('kd_rek2')
-                    ->orderBy('kd_rek3')
-                    ->orderBy('kd_rek4')
-                    ->orderBy('kd_rek5')
-                    ->orderBy('kd_rek6');
+        if ($request->wantsJson()) {
+            $data = RekSubRincObjek::where('rek_rinc_objek_id', $request->rek_rinc_objek_id)
+                ->orderBy('kode');
 
-                return DataTables::of($data)
-                    ->addIndexColumn()
-                    ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Rekening Sub Rincian Objek" href="{{ route("rek-sub-rinc-objek.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("rek-sub-rinc-objek.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div></div>')
-                    ->make(true);
-            }
-
-            $table = $builder->minifiedAjax(route('rek-sub-rinc-objek.index', ['rek_rinc_objek_id' => $request->rek_rinc_objek_id]))
-                ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
-                ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'kd', 'title' => 'Kode Sub Rincian Objek', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening']);
-
-            $rek_rinc_objek = RekRincObjek::findOrFail($request->rek_rinc_objek_id);
-
-            return view('pages.parameter.global.rekening.rek-sub-rinc-objek.table', compact('table', 'rek_rinc_objek'));
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Rekening Sub Rincian Objek" href="{{ route("rek-sub-rinc-objek.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("rek-sub-rinc-objek.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div></div>')
+                ->toJson();
         }
+
+        $table = $builder->minifiedAjax(route('rek-sub-rinc-objek.index', ['rek_rinc_objek_id' => $request->rek_rinc_objek_id]))
+            ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
+            ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'kode', 'title' => 'Kode Sub Rincian Objek', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening']);
+
+        $rek_rinc_objek = RekRincObjek::findOrFail($request->rek_rinc_objek_id);
+
+        return view('pages.parameter.global.rekening.rek-sub-rinc-objek.table', compact('table', 'rek_rinc_objek'));
     }
 
     public function create(Request $request)

@@ -23,10 +23,10 @@ class RkaController extends Controller
             if ($request->wantsJson()) {
                 $data = Rka::where('subunit_id', $request->subunit_id);
 
-                return DataTables::of($data)
+                return DataTables::eloquent($data)
                     ->addIndexColumn()
                     ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button> <div class="dropdown-menu"><a data-load="modal" title="Edit Dokumen RKA" href="{{ route("rka.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("rka.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div></div>')
-                    ->make(true);
+                    ->toJson();
             }
 
             $table = $builder->minifiedAjax(route('rka.table', ['subunit_id' => $request->subunit_id]))

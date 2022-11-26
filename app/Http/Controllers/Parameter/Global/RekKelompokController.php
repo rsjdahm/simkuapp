@@ -14,28 +14,25 @@ class RekKelompokController extends Controller
 {
     public function index(Builder $builder, Request $request)
     {
-        if ($request->rek_akun_id) {
-            if ($request->wantsJson()) {
-                $data = RekKelompok::where('rek_akun_id', $request->rek_akun_id)
-                    ->orderBy('kd_rek1')
-                    ->orderBy('kd_rek2');
+        if ($request->wantsJson()) {
+            $data = RekKelompok::where('rek_akun_id', $request->rek_akun_id)
+                ->orderBy('kode');
 
-                return DataTables::of($data)
-                    ->addIndexColumn()
-                    ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal"  title="Edit Rekening Kelompok" href="{{ route("rek-kelompok.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("rek-kelompok.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#rek-jenis" href="{{ route("rek-jenis.index", ["rek_kelompok_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
-                    ->make(true);
-            }
-
-            $table = $builder->minifiedAjax(route('rek-kelompok.index', ['rek_akun_id' => $request->rek_akun_id]))
-                ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
-                ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'kd', 'title' => 'Kode Kelompok', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening']);
-
-            $rek_akun = RekAkun::findOrFail($request->rek_akun_id);
-
-            return view('pages.parameter.global.rekening.rek-kelompok.table', compact('table', 'rek_akun'));
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal"  title="Edit Rekening Kelompok" href="{{ route("rek-kelompok.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("rek-kelompok.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#rek-jenis" href="{{ route("rek-jenis.index", ["rek_kelompok_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
+                ->toJson();
         }
+
+        $table = $builder->minifiedAjax(route('rek-kelompok.index', ['rek_akun_id' => $request->rek_akun_id]))
+            ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
+            ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'kode', 'title' => 'Kode Kelompok', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening']);
+
+        $rek_akun = RekAkun::findOrFail($request->rek_akun_id);
+
+        return view('pages.parameter.global.rekening.rek-kelompok.table', compact('table', 'rek_akun'));
     }
 
     public function create(Request $request)

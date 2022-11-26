@@ -22,10 +22,10 @@ class PegawaiController extends Controller
         if ($request->wantsJson()) {
             $data = Pegawai::orderBy('nama');
 
-            return DataTables::of($data)
+            return DataTables::eloquent($data)
                 ->addIndexColumn()
                 ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Data Pegawai" href="{{ route("pegawai.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("pegawai.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#detail-pegawai" href="{{ route("pegawai.show", $id) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
-                ->make(true);
+                ->toJson();
         }
 
         $table = $builder->minifiedAjax(route('pegawai.table'))

@@ -25,9 +25,7 @@ class RekJenisRequest extends FormRequest
     {
         return [
             'rek_kelompok_id' => ['required'],
-            'kd_rek1' => ['required', 'numeric'],
-            'kd_rek2' => ['required', 'numeric'],
-            'kd_rek3' => ['required', 'numeric'],
+            'kode' => ['required', 'string'],
             'nama' => ['required', 'string'],
         ];
     }

@@ -2,7 +2,7 @@
     @csrf
     <div class="form-group">
         <label class="form-label">Kode Rekening Akun</label>
-        <input name="kd_rek1" class="form-control" type="number">
+        <input name="kode" class="form-control">
     </div>
     <div class="form-group">
         <label class="form-label">Nama Rekening Akun</label>

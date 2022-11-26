@@ -1,25 +1,9 @@
 <form method="post" action="{{ route('rek-rinc-objek.store') }}">
     @csrf
+    <input name="rek_objek_id" type="hidden" value="{{ request()->rek_objek_id }}">
     <div class="form-group">
         <label class="form-label">Kode Rekening Rincian Objek</label>
-        <input name="rek_objek_id" type="hidden" value="{{ request()->rek_objek_id }}">
-        <div class="row">
-            <div class="col">
-                <input readonly name="kd_rek1" class="form-control" type="number" value="{{ $rek_objek->kd_rek1 }}">
-            </div>
-            <div class="col">
-                <input readonly name="kd_rek2" class="form-control" type="number" value="{{ $rek_objek->kd_rek2 }}">
-            </div>
-            <div class="col">
-                <input readonly name="kd_rek3" class="form-control" type="number" value="{{ $rek_objek->kd_rek3 }}">
-            </div>
-            <div class="col">
-                <input readonly name="kd_rek4" class="form-control" type="number" value="{{ $rek_objek->kd_rek4 }}">
-            </div>
-            <div class="col">
-                <input name="kd_rek5" class="form-control" type="number">
-            </div>
-        </div>
+        <input name="kode" class="form-control">
     </div>
     <div class="form-group">
         <label class="form-label">Nama Rekening Rincian Objek</label>

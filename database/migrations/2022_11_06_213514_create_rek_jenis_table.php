@@ -16,9 +16,7 @@ return new class extends Migration
         Schema::create('rek_jenis', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('rek_kelompok_id');
-            $table->unsignedInteger('kd_rek1');
-            $table->unsignedInteger('kd_rek2');
-            $table->unsignedInteger('kd_rek3');
+            $table->string('kode');
             $table->string('nama');
             $table->timestamps();
         });

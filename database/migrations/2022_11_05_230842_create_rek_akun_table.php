@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('rek_akun', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('kd_rek1');
+            $table->string('kode');
             $table->string('nama');
             $table->timestamps();
         });

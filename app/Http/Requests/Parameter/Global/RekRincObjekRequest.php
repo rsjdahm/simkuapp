@@ -25,11 +25,7 @@ class RekRincObjekRequest extends FormRequest
     {
         return [
             'rek_objek_id' => ['required'],
-            'kd_rek1' => ['required', 'numeric'],
-            'kd_rek2' => ['required', 'numeric'],
-            'kd_rek3' => ['required', 'numeric'],
-            'kd_rek4' => ['required', 'numeric'],
-            'kd_rek5' => ['required', 'numeric'],
+            'kode' => ['required', 'string'],
             'nama' => ['required', 'string'],
         ];
     }

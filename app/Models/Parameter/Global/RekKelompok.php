@@ -10,19 +10,9 @@ class RekKelompok extends Model
 
     protected $fillable = [
         'rek_akun_id',
-        'kd_rek1',
-        'kd_rek2',
+        'kode',
         'nama'
     ];
-
-    protected $appends = [
-        'kd'
-    ];
-
-    public function getKdAttribute()
-    {
-        return $this->kd_rek1 . '.' . $this->kd_rek2;
-    }
 
     public function rek_akun()
     {

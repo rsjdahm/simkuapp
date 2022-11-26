@@ -22,10 +22,10 @@ class SubunitController extends Controller
                     ->orderBy('kd_unit')
                     ->orderBy('kd_subunit');
 
-                return DataTables::of($data)
+                return DataTables::eloquent($data)
                     ->addIndexColumn()
                     ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Subunit" href="{{ route("subunit.edit", $id) }}"  class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("subunit.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div></div>')
-                    ->make(true);
+                    ->toJson();
             }
 
             $table = $builder->minifiedAjax(route('subunit.index', ['unit_id' => $request->unit_id]))
@@ -79,11 +79,11 @@ class SubunitController extends Controller
                 ->orderBy('kd_unit')
                 ->orderBy('kd_subunit');
 
-            return DataTables::of($data)
+            return DataTables::eloquent($data)
                 ->addIndexColumn()
                 ->addColumn('action', '<div class="btn-group btn-group-sm"><a data-action="open-tab" data-target="#rka" href="{{ route("rka.table", ["subunit_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
                 ->addColumn('unit', '{{ $unit["kd"] }} {{ $unit["nama"] }}')
-                ->make(true);
+                ->toJson();
         }
 
         $table = $builder->minifiedAjax(route('subunit.rka.index'))

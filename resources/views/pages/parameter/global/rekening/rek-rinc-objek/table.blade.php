@@ -7,7 +7,7 @@
                                 class="fas fa-backward"></i> Kembali</a></td>
                     <td>Rekening Akun</td>
                     <td>:</td>
-                    <th>{{ $rek_objek->rek_jenis->rek_kelompok->rek_akun->kd }}</th>
+                    <th>{{ $rek_objek->rek_jenis->rek_kelompok->rek_akun->kode }}</th>
                     <td>{{ $rek_objek->rek_jenis->rek_kelompok->rek_akun->nama }}</td>
                 </tr>
                 <tr>
@@ -15,7 +15,7 @@
                             class="btn btn-primary btn-sm text-white"><i class="fas fa-backward"></i> Kembali</a></td>
                     <td>Rekening Kelompok</td>
                     <td>:</td>
-                    <th>{{ $rek_objek->rek_jenis->rek_kelompok->kd }}</th>
+                    <th>{{ $rek_objek->rek_jenis->rek_kelompok->kode }}</th>
                     <td>{{ $rek_objek->rek_jenis->rek_kelompok->nama }}</td>
                 </tr>
                 <tr>
@@ -23,7 +23,7 @@
                                 class="fas fa-backward"></i> Kembali</a></td>
                     <td>Rekening Jenis</td>
                     <td>:</td>
-                    <th>{{ $rek_objek->rek_jenis->kd }}</th>
+                    <th>{{ $rek_objek->rek_jenis->kode }}</th>
                     <td>{{ $rek_objek->rek_jenis->nama }}</td>
                 </tr>
                 <tr>
@@ -31,7 +31,7 @@
                                 class="fas fa-backward"></i> Kembali</a></td>
                     <td>Rekening Objek</td>
                     <td>:</td>
-                    <th>{{ $rek_objek->kd }}</th>
+                    <th>{{ $rek_objek->kode }}</th>
                     <td>{{ $rek_objek->nama }}</td>
                 </tr>
             </table>

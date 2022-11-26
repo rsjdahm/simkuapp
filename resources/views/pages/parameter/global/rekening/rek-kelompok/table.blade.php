@@ -7,7 +7,7 @@
                                 class="fas fa-backward"></i> Kembali</a></td>
                     <td>Rekening Akun</td>
                     <td>:</td>
-                    <th>{{ $rek_akun->kd }}</th>
+                    <th>{{ $rek_akun->kode }}</th>
                     <td>{{ $rek_akun->nama }}</td>
                 </tr>
             </table>

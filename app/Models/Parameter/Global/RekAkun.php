@@ -9,16 +9,7 @@ class RekAkun extends Model
     protected $table = 'rek_akun';
 
     protected $fillable = [
-        'kd_rek1',
+        'kode',
         'nama'
     ];
-
-    protected $appends = [
-        'kd'
-    ];
-
-    public function getKdAttribute()
-    {
-        return $this->kd_rek1;
-    }
 }
