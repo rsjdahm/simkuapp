@@ -15,6 +15,9 @@
 </form>
 
 <script>
+    $("input[name='kode']").inputmask("9", {
+        placeholder: "0"
+    });
     $("form[action='{{ route('rek-akun.update', $rek_akun->id) }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);

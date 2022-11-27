@@ -16,6 +16,9 @@
 </form>
 
 <script>
+    $("input[name='kode']").inputmask("9.9.99", {
+        placeholder: "0"
+    });
     $("form[action='{{ route('rek-jenis.update', $rek_jenis->id) }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);

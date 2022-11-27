@@ -77,11 +77,18 @@
                         <div class="modal-content border-0">
                             <div class="modal-header bg-dark">
                                 <h5 class="modal-title text-white font-weight-bold">${title}</h5>
-                                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">
-                                        <i class="fas fa-times"></i>
-                                    </span>
-                                </button>
+                                <div>
+                                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">
+                                            <i class="fas fa-times"></i>
+                                        </span>
+                                    </button>
+                                    <button type="button" class="close text-white" onclick="return load('div.modal[data-href=&quot;${url}&quot;] .modal-body', '${url}');">
+                                        <span aria-hidden="true">
+                                            <i class="fas fa-redo"></i>
+                                        </span>
+                                    </button>
+                                </div>
                             </div>
                             <div class="modal-body"></div>
                         </div>

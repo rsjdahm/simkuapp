@@ -15,6 +15,9 @@
 </form>
 
 <script>
+    $("input[name='kode']").inputmask("9.9.99.99.99.9999", {
+        placeholder: "0"
+    });
     $("form[action='{{ route('rek-sub-rinc-objek.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);

@@ -223,6 +223,7 @@ textarea {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
+    font-variant-numeric: tabular-nums;
 }
 button,
 input {

@@ -2,6 +2,8 @@
 <script src="{{ asset('libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 
+<script src="{{ asset('libs/inputmask/min/jquery.inputmask.bundle.min.js') }}"></script>
+
 <main data-topbar="dark">
     <div id="layout-wrapper">
 

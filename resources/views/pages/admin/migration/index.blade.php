@@ -16,15 +16,20 @@
 
     <div class="row">
         <div class="col-12">
+            <div class="card border-danger border">
+                <div class="card-header border-danger bg-transparent pb-2">
+                    <h5 class="text-danger my-0"><i class="fas fa-exclamation-triangle mr-2"></i>Perhatian
+                    </h5>
+                </div>
+                <div class="card-body pt-0">Migration ini berhubungan dengan DATABASE yang dapat berakibat fatal jika
+                    salah mengoperasikan
+                    dan menyebabkan data terhapus.
+                    <strong>HARAP BERHATI-HATI</strong> dalam mengoperasikan!
+                </div>
+            </div>
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-2">Daftar Migration</h4>
-                    <div class="alert alert-warning mb-4" role="alert">
-                        <i class="fas fa-exclamation-triangle mr-2"></i>
-                        Migration ini berhubungan dengan DATABASE yang dapat berakibat fatal jika salah mengoperasikan
-                        dan menyebabkan data terhapus.
-                        <strong>HARAP BERHATI-HATI</strong> dalam mengoperasikan!
-                    </div>
+                    <h4 class="card-title mb-4">Daftar Migration</h4>
                     <div class="table-responsive">
                         {!! $table->table(['id' => time()]) !!}
                         {!! $table->scripts() !!}
