@@ -6,7 +6,7 @@
                     <td></td>
                     <td>Unit</td>
                     <td>:</td>
-                    <th>{{ $subunit->unit->kd }}</th>
+                    <th>{{ $subunit->unit->kode }}</th>
                     <td>{{ $subunit->unit->nama }}</td>
                 </tr>
                 <tr>
@@ -14,7 +14,7 @@
                                 class="fas fa-backward"></i> Kembali</a></td>
                     <td>Subunit</td>
                     <td>:</td>
-                    <th>{{ $subunit->kd }}</th>
+                    <th>{{ $subunit->kode }}</th>
                     <td>{{ $subunit->nama }}</td>
                 </tr>
             </table>
