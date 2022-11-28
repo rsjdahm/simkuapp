@@ -7,7 +7,7 @@
                                 class="fas fa-backward"></i> Kembali</a></td>
                     <td>Urusan</td>
                     <td>:</td>
-                    <th>{{ $urusan->kd_urusan }}</th>
+                    <th>{{ $urusan->kode }}</th>
                     <td>{{ $urusan->nama }}</td>
                 </tr>
             </table>

@@ -25,8 +25,7 @@ class BidangRequest extends FormRequest
     {
         return [
             'urusan_id' => ['required'],
-            'kd_urusan' => ['required', 'numeric'],
-            'kd_bidang' => ['required', 'numeric'],
+            'kode' => ['required', 'string'],
             'nama' => ['required', 'string']
         ];
     }

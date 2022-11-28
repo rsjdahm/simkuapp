@@ -1,31 +1,10 @@
 <form id="{{ time() }}_form" method="post" action="{{ route('subkegiatan.update', $subkegiatan->id) }}">
     @csrf
     @method('put')
+    <input name="kegiatan_id" type="hidden" value="{{ $subkegiatan->kegiatan_id }}">
     <div class="form-group">
         <label class="form-label">Kode Subkegiatan</label>
-        <input name="kegiatan_id" type="hidden" value="{{ $subkegiatan->kegiatan_id }}">
-        <div class="row">
-            <div class="col">
-                <input readonly name="kd_urusan" class="form-control" type="number"
-                    value="{{ $subkegiatan->kd_urusan }}">
-            </div>
-            <div class="col">
-                <input readonly name="kd_bidang" class="form-control" type="number"
-                    value="{{ $subkegiatan->kd_bidang }}">
-            </div>
-            <div class="col">
-                <input readonly name="kd_program" class="form-control" type="number"
-                    value="{{ $subkegiatan->kd_program }}">
-            </div>
-            <div class="col">
-                <input readonly name="kd_kegiatan" class="form-control" type="number"
-                    value="{{ $subkegiatan->kd_kegiatan }}">
-            </div>
-            <div class="col">
-                <input name="kd_subkegiatan" class="form-control" type="number"
-                    value="{{ $subkegiatan->kd_subkegiatan }}">
-            </div>
-        </div>
+        <input name="kode" class="form-control" value="{{ $subkegiatan->kode }}">
     </div>
     <div class="form-group">
         <label class="form-label">Nomenklatur Subkegiatan</label>
@@ -37,6 +16,9 @@
 </form>
 
 <script>
+    $("input[name='kode']").inputmask("9.99.99.9-99.999", {
+        placeholder: "0"
+    });
     $("form#{{ time() }}_form").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);

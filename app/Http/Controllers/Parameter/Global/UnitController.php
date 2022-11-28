@@ -17,9 +17,7 @@ class UnitController extends Controller
         if ($request->bidang_id) {
             if ($request->wantsJson()) {
                 $data = Unit::where('bidang_id', $request->bidang_id)
-                    ->orderBy('kd_urusan')
-                    ->orderBy('kd_bidang')
-                    ->orderBy('kd_unit');
+                    ->orderBy('kode');
 
                 return DataTables::eloquent($data)
                     ->addIndexColumn()
@@ -30,7 +28,7 @@ class UnitController extends Controller
             $table = $builder->minifiedAjax(route('unit.index', ['bidang_id' => $request->bidang_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'kd', 'title' => 'Kode Unit', 'class' => 'font-weight-bold'])
+                ->addColumn(['data' => 'kode', 'title' => 'Kode Unit', 'class' => 'font-weight-bold'])
                 ->addColumn(['data' => 'nama', 'title' => 'Nama Unit']);
 
             $bidang = Bidang::findOrFail($request->bidang_id);

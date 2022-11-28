@@ -16,10 +16,7 @@ return new class extends Migration
         Schema::create('subunit', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('unit_id');
-            $table->unsignedInteger('kd_urusan');
-            $table->unsignedInteger('kd_bidang');
-            $table->unsignedInteger('kd_unit');
-            $table->unsignedInteger('kd_subunit');
+            $table->unsignedInteger('kode');
             $table->string('nama');
             $table->timestamps();
         });

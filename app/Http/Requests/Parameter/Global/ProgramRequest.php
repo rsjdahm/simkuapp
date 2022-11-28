@@ -25,9 +25,7 @@ class ProgramRequest extends FormRequest
     {
         return [
             'bidang_id' => ['required'],
-            'kd_urusan' => ['required', 'numeric'],
-            'kd_bidang' => ['required', 'numeric'],
-            'kd_program' => ['required', 'numeric'],
+            'kode' => ['required', 'string'],
             'nama' => ['required', 'string']
         ];
     }

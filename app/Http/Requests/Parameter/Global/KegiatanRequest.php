@@ -25,10 +25,7 @@ class KegiatanRequest extends FormRequest
     {
         return [
             'program_id' => ['required'],
-            'kd_urusan' => ['required', 'numeric'],
-            'kd_bidang' => ['required', 'numeric'],
-            'kd_program' => ['required', 'numeric'],
-            'kd_kegiatan' => ['required', 'numeric'],
+            'kode' => ['required', 'string'],
             'nama' => ['required', 'string']
         ];
     }

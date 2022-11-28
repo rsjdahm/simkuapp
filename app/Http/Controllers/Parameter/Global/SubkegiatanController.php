@@ -17,10 +17,7 @@ class SubkegiatanController extends Controller
         if ($request->kegiatan_id) {
             if ($request->wantsJson()) {
                 $data = Subkegiatan::where('kegiatan_id', $request->kegiatan_id)
-                    ->orderBy('kd_urusan')
-                    ->orderBy('kd_bidang')
-                    ->orderBy('kd_program')
-                    ->orderBy('kd_kegiatan');
+                    ->orderBy('kode');
 
                 return DataTables::eloquent($data)
                     ->addIndexColumn()
@@ -31,7 +28,7 @@ class SubkegiatanController extends Controller
             $table = $builder->minifiedAjax(route('subkegiatan.index', ['kegiatan_id' => $request->kegiatan_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'kd', 'title' => 'Kode Subkegiatan', 'class' => 'font-weight-bold'])
+                ->addColumn(['data' => 'kode', 'title' => 'Kode Subkegiatan', 'class' => 'font-weight-bold'])
                 ->addColumn(['data' => 'nama', 'title' => 'Nama Subkegiatan']);
 
             $kegiatan = Kegiatan::findOrFail($request->kegiatan_id);

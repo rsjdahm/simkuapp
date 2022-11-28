@@ -17,8 +17,7 @@ class BidangController extends Controller
         if ($request->urusan_id) {
             if ($request->wantsJson()) {
                 $data = Bidang::where('urusan_id', $request->urusan_id)
-                    ->orderBy('kd_urusan')
-                    ->orderBy('kd_bidang');
+                    ->orderBy('kode');
 
                 return DataTables::eloquent($data)
                     ->addIndexColumn()
@@ -29,7 +28,7 @@ class BidangController extends Controller
             $table = $builder->minifiedAjax(route('bidang.index', ['urusan_id' => $request->urusan_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'kd', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
+                ->addColumn(['data' => 'kode', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'nama', 'title' => 'Nomenklatur']);
 
             $urusan = Urusan::findOrFail($request->urusan_id);
@@ -74,13 +73,12 @@ class BidangController extends Controller
     {
         if ($request->wantsJson()) {
             $data = Bidang::with(['urusan'])
-                ->orderBy('kd_urusan')
-                ->orderBy('kd_bidang');
+                ->orderBy('kode');
 
             return DataTables::eloquent($data)
                 ->addIndexColumn()
                 ->addColumn('action', '<div class="btn-group btn-group-sm"><a data-action="open-tab" data-target="#unit" href="{{ route("unit.index", ["bidang_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
-                ->addColumn('urusan', '{{ $urusan["kd"] }} {{ $urusan["nama"] }}')
+                ->addColumn('urusan', '{{ $urusan["kode"] }} {{ $urusan["nama"] }}')
                 ->toJson();
         }
 
@@ -88,7 +86,7 @@ class BidangController extends Controller
             ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'urusan', 'title' => 'Urusan'])
-            ->addColumn(['data' => 'kd', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'kode', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Bidang'])
             ->parameters([
                 "drawCallback" => "
@@ -120,13 +118,12 @@ class BidangController extends Controller
     {
         if ($request->wantsJson()) {
             $data = Bidang::with(['urusan'])
-                ->orderBy('kd_urusan')
-                ->orderBy('kd_bidang');
+                ->orderBy('kode');
 
             return DataTables::eloquent($data)
                 ->addIndexColumn()
                 ->addColumn('action', '<div class="btn-group btn-group-sm"><a data-action="open-tab" data-target="#program" href="{{ route("program.index", ["bidang_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
-                ->addColumn('urusan', '{{ $urusan["kd"] }} {{ $urusan["nama"] }}')
+                ->addColumn('urusan', '{{ $urusan["kode"] }} {{ $urusan["nama"] }}')
                 ->toJson();
         }
 
@@ -134,7 +131,7 @@ class BidangController extends Controller
             ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'urusan', 'title' => 'Urusan'])
-            ->addColumn(['data' => 'kd', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'kode', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Bidang'])
             ->parameters([
                 "drawCallback" => "

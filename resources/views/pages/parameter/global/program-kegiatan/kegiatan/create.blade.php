@@ -1,23 +1,9 @@
 <form method="post" action="{{ route('kegiatan.store') }}">
     @csrf
+    <input name="program_id" type="hidden" value="{{ request()->program_id }}">
     <div class="form-group">
         <label class="form-label">Kode Kegiatan</label>
-        <input name="program_id" type="hidden" value="{{ request()->program_id }}">
-        <div class="row">
-            <div class="col">
-                <input readonly name="kd_urusan" class="form-control" type="number" value="{{ $program->kd_urusan }}">
-            </div>
-            <div class="col">
-                <input readonly name="kd_bidang" class="form-control" type="number" value="{{ $program->kd_bidang }}">
-            </div>
-            <div class="col">
-                <input readonly name="kd_program" class="form-control" type="number"
-                    value="{{ $program->kd_program }}">
-            </div>
-            <div class="col">
-                <input name="kd_kegiatan" class="form-control" type="number">
-            </div>
-        </div>
+        <input name="kode" class="form-control">
     </div>
     <div class="form-group">
         <label class="form-label">Nomenklatur Kegiatan</label>
@@ -29,6 +15,9 @@
 </form>
 
 <script>
+    $("input[name='kode']").inputmask("9.99.99.9-99", {
+        placeholder: "0"
+    });
     $("form[action='{{ route('kegiatan.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);

@@ -1,22 +1,9 @@
 <form method="post" action="{{ route('subunit.store') }}">
     @csrf
+    <input name="unit_id" type="hidden" value="{{ request()->unit_id }}">
     <div class="form-group">
         <label class="form-label">Kode Subunit</label>
-        <input name="unit_id" type="hidden" value="{{ request()->unit_id }}">
-        <div class="row">
-            <div class="col">
-                <input readonly name="kd_urusan" class="form-control" type="number" value="{{ $unit->kd_urusan }}">
-            </div>
-            <div class="col">
-                <input readonly name="kd_bidang" class="form-control" type="number" value="{{ $unit->kd_bidang }}">
-            </div>
-            <div class="col">
-                <input readonly name="kd_unit" class="form-control" type="number" value="{{ $unit->kd_unit }}">
-            </div>
-            <div class="col">
-                <input name="kd_subunit" class="form-control" type="number">
-            </div>
-        </div>
+        <input name="kode" class="form-control">
     </div>
     <div class="form-group">
         <label class="form-label">Nama Subunit</label>
@@ -28,6 +15,9 @@
 </form>
 
 <script>
+    $("input[name='kode']").inputmask("9-99.9-99.9-99.99.999", {
+        placeholder: "0"
+    });
     $("form[action='{{ route('subunit.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);

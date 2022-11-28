@@ -6,7 +6,7 @@
                     <td></td>
                     <td>Urusan</td>
                     <td>:</td>
-                    <th>{{ $unit->bidang->urusan->kd }}</th>
+                    <th>{{ $unit->bidang->urusan->kode }}</th>
                     <td>{{ $unit->bidang->urusan->nama }}</td>
                 </tr>
                 <tr>
@@ -14,7 +14,7 @@
                                 class="fas fa-backward"></i> Kembali</a></td>
                     <td>Bidang</td>
                     <td>:</td>
-                    <th>{{ $unit->bidang->kd }}</th>
+                    <th>{{ $unit->bidang->kode }}</th>
                     <td>{{ $unit->bidang->nama }}</td>
                 </tr>
                 <tr>
@@ -22,7 +22,7 @@
                                 class="fas fa-backward"></i> Kembali</a></td>
                     <td>Unit</td>
                     <td>:</td>
-                    <th>{{ $unit->kd }}</th>
+                    <th>{{ $unit->kode }}</th>
                     <td>{{ $unit->nama }}</td>
                 </tr>
             </table>

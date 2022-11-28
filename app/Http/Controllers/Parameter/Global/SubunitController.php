@@ -17,10 +17,7 @@ class SubunitController extends Controller
         if ($request->unit_id) {
             if ($request->wantsJson()) {
                 $data = Subunit::where('unit_id', $request->unit_id)
-                    ->orderBy('kd_urusan')
-                    ->orderBy('kd_bidang')
-                    ->orderBy('kd_unit')
-                    ->orderBy('kd_subunit');
+                    ->orderBy('kode');
 
                 return DataTables::eloquent($data)
                     ->addIndexColumn()
@@ -31,7 +28,7 @@ class SubunitController extends Controller
             $table = $builder->minifiedAjax(route('subunit.index', ['unit_id' => $request->unit_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'kd', 'title' => 'Kode Subunit', 'class' => 'font-weight-bold'])
+                ->addColumn(['data' => 'kode', 'title' => 'Kode Subunit', 'class' => 'font-weight-bold'])
                 ->addColumn(['data' => 'nama', 'title' => 'Nama Subunit']);
 
             $unit = Unit::findOrFail($request->unit_id);
@@ -76,13 +73,12 @@ class SubunitController extends Controller
     {
         if ($request->wantsJson()) {
             $data = Subunit::with(['unit'])
-                ->orderBy('kd_unit')
-                ->orderBy('kd_subunit');
+                ->orderBy('kode');
 
             return DataTables::eloquent($data)
                 ->addIndexColumn()
                 ->addColumn('action', '<div class="btn-group btn-group-sm"><a data-action="open-tab" data-target="#rka" href="{{ route("rka.table", ["subunit_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
-                ->addColumn('unit', '{{ $unit["kd"] }} {{ $unit["nama"] }}')
+                ->addColumn('unit', '{{ $unit["kode"] }} {{ $unit["nama"] }}')
                 ->toJson();
         }
 
@@ -90,7 +86,7 @@ class SubunitController extends Controller
             ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'unit', 'title' => 'Unit'])
-            ->addColumn(['data' => 'kd', 'title' => 'Kode Unit', 'class' => 'font-weight-bold text-nowrap', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'kode', 'title' => 'Kode Unit', 'class' => 'font-weight-bold text-nowrap', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Subunit SKPD'])
             ->parameters([
                 "drawCallback" => "

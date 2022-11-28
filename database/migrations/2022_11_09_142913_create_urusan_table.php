@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('urusan', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('kd_urusan');
+            $table->unsignedInteger('kode');
             $table->string('nama');
             $table->timestamps();
         });

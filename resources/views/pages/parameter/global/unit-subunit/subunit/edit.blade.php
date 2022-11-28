@@ -1,23 +1,10 @@
 <form id="{{ time() }}_form" method="post" action="{{ route('subunit.update', $subunit->id) }}">
     @csrf
     @method('put')
+    <input name="unit_id" type="hidden" value="{{ $subunit->unit_id }}">
     <div class="form-group">
         <label class="form-label">Kode Subunit</label>
-        <input name="unit_id" type="hidden" value="{{ $subunit->unit_id }}">
-        <div class="row">
-            <div class="col">
-                <input readonly name="kd_urusan" class="form-control" type="number" value="{{ $subunit->kd_urusan }}">
-            </div>
-            <div class="col">
-                <input readonly name="kd_bidang" class="form-control" type="number" value="{{ $subunit->kd_bidang }}">
-            </div>
-            <div class="col">
-                <input readonly name="kd_unit" class="form-control" type="number" value="{{ $subunit->kd_unit }}">
-            </div>
-            <div class="col">
-                <input name="kd_subunit" class="form-control" type="number" value="{{ $subunit->kd_subunit }}">
-            </div>
-        </div>
+        <input name="kode" class="form-control" value="{{ $subunit->kode }}">
     </div>
     <div class="form-group">
         <label class="form-label">Nama Subunit</label>
@@ -29,6 +16,9 @@
 </form>
 
 <script>
+    $("input[name='kode']").inputmask("9-99.9-99.9-99.99.999", {
+        placeholder: "0"
+    });
     $("form#{{ time() }}_form").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);

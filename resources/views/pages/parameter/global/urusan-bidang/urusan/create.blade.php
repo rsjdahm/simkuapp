@@ -2,7 +2,7 @@
     @csrf
     <div class="form-group">
         <label class="form-label">Kode Urusan</label>
-        <input name="kd_urusan" class="form-control" type="number">
+        <input name="kode" class="form-control">
     </div>
     <div class="form-group">
         <label class="form-label">Nomenklatur Urusan</label>
@@ -14,6 +14,9 @@
 </form>
 
 <script>
+    $("input[name='kode']").inputmask("9", {
+        placeholder: "0"
+    });
     $("form[action='{{ route('urusan.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);

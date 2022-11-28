@@ -16,10 +16,7 @@ return new class extends Migration
         Schema::create('kegiatan', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('program_id');
-            $table->unsignedInteger('kd_urusan');
-            $table->unsignedInteger('kd_bidang');
-            $table->unsignedInteger('kd_program');
-            $table->unsignedInteger('kd_kegiatan');
+            $table->unsignedInteger('kode');
             $table->string('nama');
             $table->timestamps();
         });

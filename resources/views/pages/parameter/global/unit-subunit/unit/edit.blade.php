@@ -1,20 +1,10 @@
 <form id="{{ time() }}_form" method="post" action="{{ route('unit.update', $unit->id) }}">
     @csrf
     @method('put')
+    <input name="bidang_id" type="hidden" value="{{ $unit->bidang_id }}">
     <div class="form-group">
         <label class="form-label">Kode Unit</label>
-        <input name="bidang_id" type="hidden" value="{{ $unit->bidang_id }}">
-        <div class="row">
-            <div class="col">
-                <input readonly name="kd_urusan" class="form-control" type="number" value="{{ $unit->kd_urusan }}">
-            </div>
-            <div class="col">
-                <input readonly name="kd_bidang" class="form-control" type="number" value="{{ $unit->kd_bidang }}">
-            </div>
-            <div class="col">
-                <input name="kd_unit" class="form-control" type="number" value="{{ $unit->kd_unit }}">
-            </div>
-        </div>
+        <input name="kode" class="form-control" value="{{ $unit->kode }}">
     </div>
     <div class="form-group">
         <label class="form-label">Nama Unit</label>
@@ -26,6 +16,9 @@
 </form>
 
 <script>
+    $("input[name='kode']").inputmask("9-99.9-99.9-99.99", {
+        placeholder: "0"
+    });
     $("form#{{ time() }}_form").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);

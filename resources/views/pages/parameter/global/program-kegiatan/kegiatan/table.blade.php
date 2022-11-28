@@ -7,14 +7,14 @@
                                 class="fas fa-backward"></i> Kembali</a></td>
                     <td>Urusan</td>
                     <td>:</td>
-                    <th>{{ $program->bidang->urusan->kd }}</th>
+                    <th>{{ $program->bidang->urusan->kode }}</th>
                     <td>{{ $program->bidang->urusan->nama }}</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>Bidang</td>
                     <td>:</td>
-                    <th>{{ $program->bidang->kd }}</th>
+                    <th>{{ $program->bidang->kode }}</th>
                     <td>{{ $program->bidang->nama }}</td>
                 </tr>
                 <tr>
@@ -22,7 +22,7 @@
                                 class="fas fa-backward"></i> Kembali</a></td>
                     <td>Program</td>
                     <td>:</td>
-                    <th>{{ $program->kd }}</th>
+                    <th>{{ $program->kode }}</th>
                     <td>{{ $program->nama }}</td>
                 </tr>
             </table>

@@ -1,16 +1,9 @@
 <form method="post" action="{{ route('bidang.store') }}">
     @csrf
+    <input name="urusan_id" type="hidden" value="{{ request()->urusan_id }}">
     <div class="form-group">
         <label class="form-label">Kode Bidang</label>
-        <input name="urusan_id" type="hidden" value="{{ request()->urusan_id }}">
-        <div class="row">
-            <div class="col">
-                <input readonly name="kd_urusan" class="form-control" type="number" value="{{ $urusan->kd_urusan }}">
-            </div>
-            <div class="col">
-                <input name="kd_bidang" class="form-control" type="number">
-            </div>
-        </div>
+        <input name="kode" class="form-control">
     </div>
     <div class="form-group">
         <label class="form-label">Nomenklatur Bidang</label>
@@ -22,6 +15,9 @@
 </form>
 
 <script>
+    $("input[name='kode']").inputmask("9.99", {
+        placeholder: "0"
+    });
     $("form[action='{{ route('bidang.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);

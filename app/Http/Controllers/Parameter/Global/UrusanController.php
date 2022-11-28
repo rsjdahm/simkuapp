@@ -14,7 +14,7 @@ class UrusanController extends Controller
     public function index(Builder $builder, Request $request)
     {
         if ($request->wantsJson()) {
-            $data = Urusan::orderBy('kd_urusan');
+            $data = Urusan::orderBy('kode');
 
             return DataTables::eloquent($data)
                 ->addIndexColumn()
@@ -24,8 +24,7 @@ class UrusanController extends Controller
 
         $table = $builder->minifiedAjax(route('urusan.index'))
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
-            ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
-            ->addColumn(['data' => 'kd', 'title' => 'Kode Urusan', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'kode', 'title' => 'Kode Urusan', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Nomenklatur']);
 
         return view('pages.parameter.global.urusan-bidang.urusan.table', compact('table'));

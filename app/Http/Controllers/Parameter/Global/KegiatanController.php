@@ -17,10 +17,7 @@ class KegiatanController extends Controller
         if ($request->program_id) {
             if ($request->wantsJson()) {
                 $data = Kegiatan::where('program_id', $request->program_id)
-                    ->orderBy('kd_urusan')
-                    ->orderBy('kd_bidang')
-                    ->orderBy('kd_program')
-                    ->orderBy('kd_kegiatan');
+                    ->orderBy('kode');
 
                 return DataTables::eloquent($data)
                     ->addIndexColumn()
@@ -31,7 +28,7 @@ class KegiatanController extends Controller
             $table = $builder->minifiedAjax(route('kegiatan.index', ['program_id' => $request->program_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'kd', 'title' => 'Kode Kegiatan', 'class' => 'font-weight-bold'])
+                ->addColumn(['data' => 'kode', 'title' => 'Kode Kegiatan', 'class' => 'font-weight-bold'])
                 ->addColumn(['data' => 'nama', 'title' => 'Nama Kegiatan']);
 
             $program = Program::findOrFail($request->program_id);
