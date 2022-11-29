@@ -14,31 +14,29 @@ class UnitController extends Controller
 {
     public function index(Builder $builder, Request $request)
     {
-        if ($request->bidang_id) {
-            if ($request->wantsJson()) {
-                $data = Unit::where('bidang_id', $request->bidang_id);
+        if ($request->wantsJson()) {
+            $data = Unit::where('bidang_id', $request->bidang_id);
 
-                return DataTables::eloquent($data)
-                    ->addIndexColumn()
-                    ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Unit" href="{{ route("unit.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("unit.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#subunit" href="{{ route("subunit.index", ["unit_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
-                    ->toJson();
-            }
-
-            $table = $builder->minifiedAjax(route('unit.index', ['bidang_id' => $request->bidang_id]))
-                ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
-                ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'kode', 'title' => 'Kode Unit', 'class' => 'font-weight-bold'])
-                ->addColumn(['data' => 'nama', 'title' => 'Nama Unit'])
-                ->parameters([
-                    'order' => [
-                        2, 'asc'
-                    ]
-                ]);
-
-            $bidang = Bidang::findOrFail($request->bidang_id);
-
-            return view('pages.parameter.global.unit-subunit.unit.table', compact('table', 'bidang'));
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Unit" href="{{ route("unit.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("unit.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#subunit" href="{{ route("subunit.index", ["unit_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
+                ->toJson();
         }
+
+        $table = $builder->minifiedAjax(route('unit.index', ['bidang_id' => $request->bidang_id]))
+            ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
+            ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'kode', 'title' => 'Kode Unit', 'class' => 'font-weight-bold'])
+            ->addColumn(['data' => 'nama', 'title' => 'Nama Unit'])
+            ->parameters([
+                'order' => [
+                    2, 'asc'
+                ]
+            ]);
+
+        $bidang = Bidang::findOrFail($request->bidang_id);
+
+        return view('pages.parameter.global.unit-subunit.unit.table', compact('table', 'bidang'));
     }
 
     public function create(Request $request)

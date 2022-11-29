@@ -20,11 +20,13 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Nomenklatur Program, Kegiatan, dan Subkegiatan</h4>
-                    <p class="card-title-desc mb-4">Data berdasarkan Peraturan pelaksanaan Pemerintah Provinsi
+                    <p class="card-title-desc mb-0">Data berdasarkan Peraturan pelaksanaan Pemerintah Provinsi
                         Kalimantan Timur.
                     </p>
-
-
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
                         <li class="nav-item">

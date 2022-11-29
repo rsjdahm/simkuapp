@@ -17,7 +17,7 @@ class BidangController extends Controller
         if ($request->wantsJson()) {
             $data = Bidang::where('urusan_id', $request->urusan_id);
 
-            return DataTables::eloquent($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Nomenklatur Bidang" href="{{ route("bidang.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("bidang.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div></div>')
                 ->toJson();
@@ -76,7 +76,7 @@ class BidangController extends Controller
         if ($request->wantsJson()) {
             $data = Bidang::with(['urusan']);
 
-            return DataTables::eloquent($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', '<div class="btn-group btn-group-sm"><a data-action="open-tab" data-target="#unit" href="{{ route("unit.index", ["bidang_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
                 ->addColumn('urusan', '{{ $urusan["kode"] }} {{ $urusan["nama"] }}')
@@ -124,7 +124,7 @@ class BidangController extends Controller
         if ($request->wantsJson()) {
             $data = Bidang::with(['urusan']);
 
-            return DataTables::eloquent($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', '<div class="btn-group btn-group-sm"><a data-action="open-tab" data-target="#program" href="{{ route("program.index", ["bidang_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
                 ->addColumn('urusan', '{{ $urusan["kode"] }} {{ $urusan["nama"] }}')

@@ -14,27 +14,29 @@ class KegiatanController extends Controller
 {
     public function index(Builder $builder, Request $request)
     {
-        if ($request->program_id) {
-            if ($request->wantsJson()) {
-                $data = Kegiatan::where('program_id', $request->program_id)
-                    ->orderBy('kode');
+        if ($request->wantsJson()) {
+            $data = Kegiatan::where('program_id', $request->program_id);
 
-                return DataTables::eloquent($data)
-                    ->addIndexColumn()
-                    ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Kegiatan" href="{{ route("kegiatan.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("kegiatan.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#subkegiatan" href="{{ route("subkegiatan.index", ["kegiatan_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
-                    ->toJson();
-            }
-
-            $table = $builder->minifiedAjax(route('kegiatan.index', ['program_id' => $request->program_id]))
-                ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
-                ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'kode', 'title' => 'Kode Kegiatan', 'class' => 'font-weight-bold'])
-                ->addColumn(['data' => 'nama', 'title' => 'Nama Kegiatan']);
-
-            $program = Program::findOrFail($request->program_id);
-
-            return view('pages.parameter.global.program-kegiatan.kegiatan.table', compact('table', 'program'));
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Kegiatan" href="{{ route("kegiatan.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("kegiatan.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#subkegiatan" href="{{ route("subkegiatan.index", ["kegiatan_id" => $id]) }}" class="btn btn-primary text-white"><i class="fas fa-forward"></i></a></div>')
+                ->toJson();
         }
+
+        $table = $builder->minifiedAjax(route('kegiatan.index', ['program_id' => $request->program_id]))
+            ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
+            ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'kode', 'title' => 'Kode Kegiatan', 'class' => 'font-weight-bold'])
+            ->addColumn(['data' => 'nama', 'title' => 'Nama Kegiatan'])
+            ->parameters([
+                'order' => [
+                    2, 'asc'
+                ]
+            ]);
+
+        $program = Program::findOrFail($request->program_id);
+
+        return view('pages.parameter.global.program-kegiatan.kegiatan.table', compact('table', 'program'));
     }
 
     public function create(Request $request)

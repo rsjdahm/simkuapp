@@ -20,9 +20,12 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Daftar Pegawai</h4>
-                    <p class="card-title-desc mb-4">Berdasarkan data kepegawaian terbaru.
+                    <p class="card-title-desc mb-0">Berdasarkan data kepegawaian terbaru.
                     </p>
-
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
                         <li class="nav-item">

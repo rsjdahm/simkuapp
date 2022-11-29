@@ -20,18 +20,15 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Nomenklatur Urusan dan Bidang</h4>
-                    <p class="card-title-desc mb-2">Nomenklatur Urusan dan Bidang
+                    <p class="card-title-desc mb-0">Nomenklatur Urusan dan Bidang
                         ditetapkan berdasarkan regulasi
                         Kementerian
                         Dalam Negeri.
                     </p>
-                    <div class="alert alert-success mb-4" role="alert">
-                        <i class="fas fa-receipt mr-2"></i>
-                        Permendagri No. 90 Tahun 2019 tentang Klasifikasi, Kodefikasi, dan Nomenklatur Perencanaan
-                        Pembangunan dan Keuangan Daerah
-                    </div>
-
-
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
                         <li class="nav-item">
