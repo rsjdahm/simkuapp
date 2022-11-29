@@ -14,27 +14,30 @@ class SubunitController extends Controller
 {
     public function index(Builder $builder, Request $request)
     {
-        if ($request->unit_id) {
-            if ($request->wantsJson()) {
-                $data = Subunit::where('unit_id', $request->unit_id)
-                    ->orderBy('kode');
+        if ($request->wantsJson()) {
+            $data = Subunit::where('unit_id', $request->unit_id)
+                ->orderBy('kode');
 
-                return DataTables::eloquent($data)
-                    ->addIndexColumn()
-                    ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Subunit" href="{{ route("subunit.edit", $id) }}"  class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("subunit.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div></div>')
-                    ->toJson();
-            }
-
-            $table = $builder->minifiedAjax(route('subunit.index', ['unit_id' => $request->unit_id]))
-                ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
-                ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'kode', 'title' => 'Kode Subunit', 'class' => 'font-weight-bold'])
-                ->addColumn(['data' => 'nama', 'title' => 'Nama Subunit']);
-
-            $unit = Unit::findOrFail($request->unit_id);
-
-            return view('pages.parameter.global.unit-subunit.subunit.table', compact('table', 'unit'));
+            return DataTables::eloquent($data)
+                ->addIndexColumn()
+                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Subunit" href="{{ route("subunit.edit", $id) }}"  class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("subunit.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div></div>')
+                ->toJson();
         }
+
+        $table = $builder->minifiedAjax(route('subunit.index', ['unit_id' => $request->unit_id]))
+            ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
+            ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'kode', 'title' => 'Kode Subunit', 'class' => 'font-weight-bold'])
+            ->addColumn(['data' => 'nama', 'title' => 'Nama Subunit'])
+            ->parameters([
+                'order' => [
+                    2, 'asc'
+                ]
+            ]);
+
+        $unit = Unit::findOrFail($request->unit_id);
+
+        return view('pages.parameter.global.unit-subunit.subunit.table', compact('table', 'unit'));
     }
 
     public function create(Request $request)
@@ -89,24 +92,27 @@ class SubunitController extends Controller
             ->addColumn(['data' => 'kode', 'title' => 'Kode Unit', 'class' => 'font-weight-bold text-nowrap', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Subunit SKPD'])
             ->parameters([
-                "drawCallback" => "
-                function(settings) {
-                    var api = this.api();
-                    var rows = api.rows({
-                        page: 'current'
-                    }).nodes();
-                    var last = null;
-                    api.column(2, {page: 'current'}).data().each(function(group, i) {
-                        if (last !== group) {
-                            $(rows).eq(i).before('<td colspan=\"4\"><span class=\"mr-3 badge badge-pill badge-success\">Unit</span><strong>' + group + '</strong></td></tr>');
-                            last = group;
-                        }
-                    });
-                }
-                ",
-                "columnDefs" => [
+                'order' => [
+                    2, 'asc'
+                ],
+                'drawCallback' => '
+                    function(settings) {
+                        var api = this.api();
+                        var rows = api.rows({
+                            page: "current"
+                        }).nodes();
+                        var last = null;
+                        api.column(2, {page: "current"}).data().each(function(group, i) {
+                            if (last !== group) {
+                                $(rows).eq(i).before("<td colspan=\'4\'><span class=\'mr-3 badge badge-pill badge-success\'>Unit</span><strong>" + group + "</strong></td></tr>");
+                                last = group;
+                            }
+                        });
+                    }
+                ',
+                'columnDefs' => [
                     [
-                        "targets" => [2], "visible" => false,
+                        'targets' => [2], 'visible' => false,
                     ],
                 ],
             ]);

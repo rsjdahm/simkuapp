@@ -18,12 +18,15 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Data Unit/Subunit</h4>
-                    <p class="card-title-desc mb-4">Data berdasarkan Peraturan pelaksanaan Pemerintah Provinsi
+                    <h4 class="card-title">Data Unit/Subunit SKPD</h4>
+                    <p class="card-title-desc mb-0">Data berdasarkan peraturan pelaksanaan Pemerintah Provinsi
                         Kalimantan Timur.
                     </p>
+                </div>
+            </div>
 
-
+            <div class="card">
+                <div class="card-body">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
                         <li class="nav-item">

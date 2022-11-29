@@ -14,27 +14,29 @@ class BidangController extends Controller
 {
     public function index(Builder $builder, Request $request)
     {
-        if ($request->urusan_id) {
-            if ($request->wantsJson()) {
-                $data = Bidang::where('urusan_id', $request->urusan_id)
-                    ->orderBy('kode');
+        if ($request->wantsJson()) {
+            $data = Bidang::where('urusan_id', $request->urusan_id);
 
-                return DataTables::eloquent($data)
-                    ->addIndexColumn()
-                    ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Nomenklatur Bidang" href="{{ route("bidang.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("bidang.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div></div>')
-                    ->toJson();
-            }
-
-            $table = $builder->minifiedAjax(route('bidang.index', ['urusan_id' => $request->urusan_id]))
-                ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
-                ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'kode', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'nama', 'title' => 'Nomenklatur']);
-
-            $urusan = Urusan::findOrFail($request->urusan_id);
-
-            return view('pages.parameter.global.urusan-bidang.bidang.table', compact('table', 'urusan'));
+            return DataTables::eloquent($data)
+                ->addIndexColumn()
+                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Nomenklatur Bidang" href="{{ route("bidang.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("bidang.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div></div>')
+                ->toJson();
         }
+
+        $table = $builder->minifiedAjax(route('bidang.index', ['urusan_id' => $request->urusan_id]))
+            ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
+            ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'kode', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'nama', 'title' => 'Nomenklatur'])
+            ->parameters([
+                'order' => [
+                    2, 'asc'
+                ]
+            ]);
+
+        $urusan = Urusan::findOrFail($request->urusan_id);
+
+        return view('pages.parameter.global.urusan-bidang.bidang.table', compact('table', 'urusan'));
     }
 
     public function create(Request $request)
@@ -72,8 +74,7 @@ class BidangController extends Controller
     public function indexUnit(Builder $builder, Request $request)
     {
         if ($request->wantsJson()) {
-            $data = Bidang::with(['urusan'])
-                ->orderBy('kode');
+            $data = Bidang::with(['urusan']);
 
             return DataTables::eloquent($data)
                 ->addIndexColumn()
@@ -89,27 +90,31 @@ class BidangController extends Controller
             ->addColumn(['data' => 'kode', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Bidang'])
             ->parameters([
-                "drawCallback" => "
-            function(settings) {
-                var api = this.api();
-                var rows = api.rows({
-                    page: 'current'
-                }).nodes();
-                var last = null;
-                api.column(2, {page: 'current'}).data().each(function(group, i) {
-                    if (last !== group) {
-                        $(rows).eq(i).before('<td colspan=\"4\"><span class=\"mr-3 badge badge-pill badge-success\">Urusan</span><strong>' + group + '</strong></td></tr>');
-                        last = group;
+                'order' => [
+                    3, 'asc'
+                ],
+                'drawCallback' => '
+                    function(settings) {
+                        var api = this.api();
+                        var rows = api.rows({
+                            page: "current"
+                        }).nodes();
+                        var last = null;
+                        api.column(2, {page: "current"}).data().each(function(group, i) {
+                            if (last !== group) {
+                                $(rows).eq(i).before("<td colspan=\'4\'><span class=\'mr-3 badge badge-pill badge-success\'>Urusan</span><strong>" + group + "</strong></td></tr>");
+                                last = group;
+                            }
+                        });
                     }
-                });
-            }
-            ",
-                "columnDefs" => [
+                ',
+                'columnDefs' => [
                     [
-                        "targets" => [2], "visible" => false,
+                        'targets' => [2], 'visible' => false,
                     ],
                 ],
             ]);
+
 
         return view('pages.parameter.global.urusan-bidang.bidang.table_unit', compact('table'));
     }
@@ -117,8 +122,7 @@ class BidangController extends Controller
     public function indexProgram(Builder $builder, Request $request)
     {
         if ($request->wantsJson()) {
-            $data = Bidang::with(['urusan'])
-                ->orderBy('kode');
+            $data = Bidang::with(['urusan']);
 
             return DataTables::eloquent($data)
                 ->addIndexColumn()
@@ -134,24 +138,27 @@ class BidangController extends Controller
             ->addColumn(['data' => 'kode', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Bidang'])
             ->parameters([
-                "drawCallback" => "
-                function(settings) {
-                    var api = this.api();
-                    var rows = api.rows({
-                        page: 'current'
-                    }).nodes();
-                    var last = null;
-                    api.column(2, {page: 'current'}).data().each(function(group, i) {
-                        if (last !== group) {
-                            $(rows).eq(i).before('<td colspan=\"4\"><span class=\"mr-3 badge badge-pill badge-success\">Urusan</span><strong>' + group + '</strong></td></tr>');
-                            last = group;
-                        }
-                    });
-                }
-                ",
-                "columnDefs" => [
+                'order' => [
+                    3, 'asc'
+                ],
+                'drawCallback' => '
+                    function(settings) {
+                        var api = this.api();
+                        var rows = api.rows({
+                            page: "current"
+                        }).nodes();
+                        var last = null;
+                        api.column(2, {page: "current"}).data().each(function(group, i) {
+                            if (last !== group) {
+                                $(rows).eq(i).before("<td colspan=\'4\'><span class=\'mr-3 badge badge-pill badge-success\'>Urusan</span><strong>" + group + "</strong></td></tr>");
+                                last = group;
+                            }
+                        });
+                    }
+                ',
+                'columnDefs' => [
                     [
-                        "targets" => [2], "visible" => false,
+                        'targets' => [2], 'visible' => false,
                     ],
                 ],
             ]);
