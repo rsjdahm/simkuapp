@@ -28,10 +28,10 @@ class RkaRequest extends FormRequest
         return [
             'subunit_id' => ['required'],
             'no_dokumen' => ['required'],
-            'tgl_dokumen' => ['required', 'date'],
+            'tanggal_dokumen' => ['required', 'date'],
             'uraian' => ['nullable'],
             'jenis' => ['required', new Enum(JenisRkaEnum::class)],
-            'thn_anggaran' => ['required', 'numeric'],
+            'tahun_anggaran' => ['required', 'numeric'],
         ];
     }
 }

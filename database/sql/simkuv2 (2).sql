@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 28, 2022 at 12:39 PM
+-- Generation Time: Nov 29, 2022 at 01:05 PM
 -- Server version: 5.7.33
 -- PHP Version: 8.1.9
 
@@ -139,15 +139,15 @@ CREATE TABLE `password_resets` (
 CREATE TABLE `pegawai` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `gelar_dpn` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `gelar_blkg` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gelar_depan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gelar_belakang` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `nip` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `nik` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `npwp` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tgl_lahir` date DEFAULT NULL,
-  `tmpt_lahir` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tanggal_lahir` date DEFAULT NULL,
+  `tempat_lahir` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `jenis_kelamin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status_kepeg` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status_kepegawaian` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -157,7 +157,7 @@ CREATE TABLE `pegawai` (
 -- Dumping data for table `pegawai`
 --
 
-INSERT INTO `pegawai` (`id`, `nama`, `gelar_dpn`, `gelar_blkg`, `nip`, `nik`, `npwp`, `tgl_lahir`, `tmpt_lahir`, `jenis_kelamin`, `status_kepeg`, `alamat`, `created_at`, `updated_at`) VALUES
+INSERT INTO `pegawai` (`id`, `nama`, `gelar_depan`, `gelar_belakang`, `nip`, `nik`, `npwp`, `tanggal_lahir`, `tempat_lahir`, `jenis_kelamin`, `status_kepegawaian`, `alamat`, `created_at`, `updated_at`) VALUES
 (1, 'Moh. Walid Arkham Sani', NULL, 'A.Md.Pnl.', '20000806 202201 1 001', '3510130608000002', '43.512.631.3-627.000', '2000-08-06', 'Banyuwangi', 'Laki-laki', 'PNS', 'Jl. Siradj Salman Gg. Nanas No. 20 RT027/000, Kel. Teluk Lerong Ilir, Kec. Samarinda Ulu, Kota Samarinda', '2022-11-06 20:38:24', '2022-11-06 20:38:24'),
 (2, 'Milenia Febrianti', NULL, 'A.Md.Pnl.', '20000201 202201 2 002', NULL, NULL, '2000-02-01', 'Kebumen', 'Perempuan', 'PNS', 'Jl. Bukit Barisan Gg. No. 2, Kel. Jawa, Samarinda Ulu, Kota Samarinda', '2022-11-06 20:45:50', '2022-11-09 23:29:54'),
 (3, 'Aulan Nawal', NULL, 'A.Md.Ak', '19990310 202201 1 002', '1106071003990001', '53.640.621.8-108.000', '1999-03-10', 'Aceh Besar', 'Laki-laki', 'PNS', 'Jl. Gunung Cermai, Kel. Jawa, Samarinda Ulu, Kota Samarinda', '2022-11-06 20:46:56', '2022-11-09 23:27:50'),
@@ -471,10 +471,10 @@ CREATE TABLE `rka` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `subunit_id` bigint(20) UNSIGNED NOT NULL,
   `no_dokumen` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tgl_dokumen` date NOT NULL,
+  `tanggal_dokumen` date NOT NULL,
   `uraian` text COLLATE utf8mb4_unicode_ci,
   `jenis` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `thn_anggaran` year(4) NOT NULL,
+  `tahun_anggaran` year(4) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -483,7 +483,7 @@ CREATE TABLE `rka` (
 -- Dumping data for table `rka`
 --
 
-INSERT INTO `rka` (`id`, `subunit_id`, `no_dokumen`, `tgl_dokumen`, `uraian`, `jenis`, `thn_anggaran`, `created_at`, `updated_at`) VALUES
+INSERT INTO `rka` (`id`, `subunit_id`, `no_dokumen`, `tanggal_dokumen`, `uraian`, `jenis`, `tahun_anggaran`, `created_at`, `updated_at`) VALUES
 (2, 1, 'DPA/1/2023', '2022-11-25', 'DPA BLUD RSJD Atma Husada Mahakam Murni Tahun 2023', 'Murni', 2023, '2022-11-25 10:30:29', '2022-11-25 10:30:29');
 
 -- --------------------------------------------------------

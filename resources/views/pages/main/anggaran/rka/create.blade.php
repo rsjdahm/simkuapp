@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
         <label class="form-label">Tahun Anggaran</label>
-        <select name="thn_anggaran" class="form-control">
+        <select name="tahun_anggaran" class="form-control">
             <option disabled selected>-- Pilih Tahun Anggaran --</option>
             <option value="2023">2023</option>
         </select>
@@ -23,7 +23,7 @@
     </div>
     <div class="form-group">
         <label class="form-label">Tanggal Dokumen</label>
-        <input type="date" name="tgl_dokumen" class="form-control">
+        <input type="date" name="tanggal_dokumen" class="form-control">
     </div>
     <div class="form-group">
         <label class="form-label">Uraian</label>

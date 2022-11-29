@@ -12,10 +12,10 @@ class Rka extends Model
     protected $fillable = [
         'subunit_id',
         'no_dokumen',
-        'tgl_dokumen',
+        'tanggal_dokumen',
         'uraian',
         'jenis',
-        'thn_anggaran',
+        'tahun_anggaran',
     ];
 
     protected $casts = [

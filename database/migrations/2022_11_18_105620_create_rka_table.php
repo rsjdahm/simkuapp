@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('subunit_id');
             $table->string('no_dokumen');
-            $table->date('tgl_dokumen');
+            $table->date('tanggal_dokumen');
             $table->text('uraian')->nullable();
             $table->string('jenis');
-            $table->year('thn_anggaran');
+            $table->year('tahun_anggaran');
             $table->timestamps();
         });
     }

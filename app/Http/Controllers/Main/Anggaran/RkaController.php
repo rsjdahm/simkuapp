@@ -32,10 +32,10 @@ class RkaController extends Controller
             $table = $builder->minifiedAjax(route('rka.table', ['subunit_id' => $request->subunit_id]))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'style' => 'width: 1%;', 'class' => 'text-center'])
-                ->addColumn(['data' => 'thn_anggaran', 'title' => 'Tahun Anggaran', 'style' => 'width: 1%;'])
+                ->addColumn(['data' => 'tahun_anggaran', 'title' => 'Tahun Anggaran', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'no_dokumen', 'title' => 'No. Dokumen'])
                 ->addColumn(['data' => 'uraian', 'title' => 'Uraian'])
-                ->addColumn(['data' => 'thn_anggaran', 'title' => 'Pagu Belanja'])
+                ->addColumn(['data' => 'tahun_anggaran', 'title' => 'Pagu Belanja'])
                 ->addColumn(['data' => 'jenis', 'title' => 'Jenis']);
 
             $subunit = Subunit::findOrFail($request->subunit_id);

@@ -14,9 +14,9 @@
     </div>
     <div class="form-group">
         <label class="form-label">Tahun Anggaran</label>
-        <select name="thn_anggaran" class="form-control">
+        <select name="tahun_anggaran" class="form-control">
             <option disabled selected>-- Pilih Tahun Anggaran --</option>
-            <option @selected($rka->thn_anggaran == '2023') value="2023">2023</option>
+            <option @selected($rka->tahun_anggaran == '2023') value="2023">2023</option>
         </select>
     </div>
     <div class="form-group">
@@ -25,7 +25,7 @@
     </div>
     <div class="form-group">
         <label class="form-label">Tanggal Dokumen</label>
-        <input type="date" name="tgl_dokumen" class="form-control" value="{{ $rka->tgl_dokumen }}">
+        <input type="date" name="tanggal_dokumen" class="form-control" value="{{ $rka->tanggal_dokumen }}">
     </div>
     <div class="form-group">
         <label class="form-label">Uraian</label>
