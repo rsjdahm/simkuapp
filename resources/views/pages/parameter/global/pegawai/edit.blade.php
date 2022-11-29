@@ -1,11 +1,11 @@
-<form id="{{ time() }}_form" method="post" action="{{ route('pegawai.update', $pegawai->id) }}">
+<form method="post" action="{{ route('pegawai.update', $pegawai->id) }}">
     @csrf
     @method('put')
     <div class="form-group">
         <div class="row">
             <div class="col-sm-3">
                 <label class="form-label">Gelar Depan</label>
-                <input type="text" name="gelar_dpn" class="form-control" value="{{ $pegawai->gelar_dpn }}">
+                <input type="text" name="gelar_depan" class="form-control" value="{{ $pegawai->gelar_depan }}">
             </div>
             <div class="col-sm-6">
                 <label class="form-label">Nama Lengkap</label>
@@ -13,7 +13,7 @@
             </div>
             <div class="col-sm-3">
                 <label class="form-label">Gelar Belakang</label>
-                <input type="text" name="gelar_blkg" class="form-control" value="{{ $pegawai->gelar_blkg }}">
+                <input type="text" name="gelar_belakang" class="form-control" value="{{ $pegawai->gelar_belakang }}">
             </div>
         </div>
     </div>
@@ -48,21 +48,21 @@
         <div class="row">
             <div class="col-sm-6">
                 <label class="form-label">Tempat Lahir</label>
-                <input type="text" name="tmpt_lahir" class="form-control" value="{{ $pegawai->tmpt_lahir }}">
+                <input type="text" name="tempat_lahir" class="form-control" value="{{ $pegawai->tempat_lahir }}">
             </div>
             <div class="col-sm-6">
                 <label class="form-label">Tanggal Lahir</label>
-                <input type="date" name="tgl_lahir" class="form-control" value="{{ $pegawai->tgl_lahir }}">
+                <input type="date" name="tanggal_lahir" class="form-control" value="{{ $pegawai->tanggal_lahir }}">
             </div>
         </div>
     </div>
     <div class="form-group">
         <label class="form-label">Status Pegawai</label>
-        <select name="status_kepeg" class="form-control">
+        <select name="status_kepegawaian" class="form-control">
             <option disabled>-- Pilih Status Pegawai --</option>
-            @foreach (\App\Enums\Parameter\Global\StatusKepegawaianEnum::cases() as $status_kepeg)
-                <option @selected($pegawai->status_kepeg == $status_kepeg) value="{{ $status_kepeg }}">
-                    {{ $status_kepeg->value }}
+            @foreach (\App\Enums\Parameter\Global\StatusKepegawaianEnum::cases() as $status_kepegawaian)
+                <option @selected($pegawai->status_kepegawaian == $status_kepegawaian) value="{{ $status_kepegawaian }}">
+                    {{ $status_kepegawaian }}
                 </option>
             @endforeach
         </select>
@@ -73,7 +73,7 @@
 </form>
 
 <script>
-    $("form#{{ time() }}_form").on("submit", function(event) {
+    $("form[action='{{ route('pegawai.update', $pegawai->id) }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);

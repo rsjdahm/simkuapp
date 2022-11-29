@@ -12,32 +12,20 @@ class Pegawai extends Model
 
     protected $fillable = [
         'nama',
-        'gelar_dpn',
-        'gelar_blkg',
+        'gelar_depan',
+        'gelar_belakang',
         'nip',
         'nik',
         'npwp',
-        'tgl_lahir',
+        'tanggal_lahir',
         'alamat',
-        'tmpt_lahir',
-        'status_kepeg',
+        'tempat_lahir',
+        'status_kepegawaian',
         'jenis_kelamin',
-    ];
-
-    protected $appends = [
-        'nama_lengkap'
     ];
 
     protected $casts = [
         'jenis_kelamin' => JenisKelaminEnum::class,
-        'status_kepeg' => StatusKepegawaianEnum::class
+        'status_kepegawaian' => StatusKepegawaianEnum::class
     ];
-
-    public function getNamaLengkapAttribute()
-    {
-        if (!$this->gelar_blkg) {
-            return $this->gelar_dpn . ' ' . $this->nama;
-        }
-        return $this->gelar_dpn . ' ' . $this->nama . ', ' . $this->gelar_blkg;
-    }
 }

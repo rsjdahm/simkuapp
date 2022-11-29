@@ -28,15 +28,15 @@ class PegawaiRequest extends FormRequest
     {
         return [
             'nama' => ['required'],
-            'gelar_dpn' => ['nullable'],
-            'gelar_blkg' => ['nullable'],
+            'gelar_depan' => ['nullable'],
+            'gelar_belakang' => ['nullable'],
             'nip' => ['nullable'],
             'nik' => ['nullable', 'numeric'],
             'npwp' => ['nullable'],
-            'tgl_lahir' => ['nullable', 'date'],
+            'tanggal_lahir' => ['nullable', 'date'],
             'alamat' => ['nullable'],
-            'tmpt_lahir' => ['nullable'],
-            'status_kepeg' => ['required', new Enum(StatusKepegawaianEnum::class)],
+            'tempat_lahir' => ['nullable'],
+            'status_kepegawaian' => ['required', new Enum(StatusKepegawaianEnum::class)],
             'jenis_kelamin' => ['required', new Enum(JenisKelaminEnum::class)]
         ];
     }
