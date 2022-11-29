@@ -15,8 +15,7 @@ class RekSubRincObjekController extends Controller
     public function index(Builder $builder, Request $request)
     {
         if ($request->wantsJson()) {
-            $data = RekSubRincObjek::where('rek_rinc_objek_id', $request->rek_rinc_objek_id)
-                ->orderBy('kode');
+            $data = RekSubRincObjek::where('rek_rinc_objek_id', $request->rek_rinc_objek_id);
 
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -28,7 +27,12 @@ class RekSubRincObjekController extends Controller
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'kode', 'title' => 'Kode Sub Rincian Objek', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
-            ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening']);
+            ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening'])
+            ->parameters([
+                'order' => [
+                    2, 'asc'
+                ]
+            ]);
 
         $rek_rinc_objek = RekRincObjek::findOrFail($request->rek_rinc_objek_id);
 

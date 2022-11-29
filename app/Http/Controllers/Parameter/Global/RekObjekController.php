@@ -15,8 +15,7 @@ class RekObjekController extends Controller
     public function index(Builder $builder, Request $request)
     {
         if ($request->wantsJson()) {
-            $data = RekObjek::where('rek_jenis_id', $request->rek_jenis_id)
-                ->orderBy('kode');
+            $data = RekObjek::where('rek_jenis_id', $request->rek_jenis_id);
 
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -28,7 +27,12 @@ class RekObjekController extends Controller
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'kode', 'title' => 'Kode Objek', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
-            ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening']);
+            ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening'])
+            ->parameters([
+                'order' => [
+                    2, 'asc'
+                ]
+            ]);
 
         $rek_jenis = RekJenis::findOrFail($request->rek_jenis_id);
 

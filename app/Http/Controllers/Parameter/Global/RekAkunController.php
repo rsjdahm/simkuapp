@@ -14,7 +14,7 @@ class RekAkunController extends Controller
     public function index(Builder $builder, Request $request)
     {
         if ($request->wantsJson()) {
-            $data = RekAkun::orderBy('kode');
+            $data = RekAkun::query();
 
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -25,7 +25,12 @@ class RekAkunController extends Controller
         $table = $builder->minifiedAjax(route('rek-akun.index'))
             ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
             ->addColumn(['data' => 'kode', 'title' => 'Kode Akun', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
-            ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening']);
+            ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening'])
+            ->parameters([
+                'order' => [
+                    1, 'asc'
+                ]
+            ]);
 
         return view('pages.parameter.global.rekening.rek-akun.table', compact('table'));
     }

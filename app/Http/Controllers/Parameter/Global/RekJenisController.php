@@ -15,8 +15,7 @@ class RekJenisController extends Controller
     public function index(Builder $builder, Request $request)
     {
         if ($request->wantsJson()) {
-            $data = RekJenis::where('rek_kelompok_id', $request->rek_kelompok_id)
-                ->orderBy('kode');
+            $data = RekJenis::where('rek_kelompok_id', $request->rek_kelompok_id);
 
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -28,7 +27,12 @@ class RekJenisController extends Controller
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'kode', 'title' => 'Kode Jenis', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
-            ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening']);
+            ->addColumn(['data' => 'nama', 'title' => 'Nama Rekening'])
+            ->parameters([
+                'order' => [
+                    2, 'asc'
+                ]
+            ]);
 
         $rek_kelompok = RekKelompok::findOrFail($request->rek_kelompok_id);
 

@@ -19,17 +19,20 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Daftar Rekening</h4>
-                    <p class="card-title-desc mb-2">Daftar kode rekening ditetapkan berdasarkan regulasi
+                    <p class="card-title-desc mb-2">Kodefikasi rekening ditetapkan berdasarkan regulasi
                         Kementerian
                         Dalam Negeri.
                     </p>
-                    <div class="alert alert-success mb-4" role="alert">
+                    {{-- <div class="alert alert-success" role="alert">
                         <i class="fas fa-receipt mr-2"></i>
                         Permendagri No. 90 Tahun 2019 tentang Klasifikasi, Kodefikasi, dan Nomenklatur Perencanaan
                         Pembangunan dan Keuangan Daerah
-                    </div>
+                    </div> --}}
+                </div>
+            </div>
 
-
+            <div class="card">
+                <div class="card-body">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
                         <li class="nav-item">
