@@ -39,8 +39,8 @@ emptyTable: "Tidak ada data pada tabel ini.",
 infoFiltered: "Difilter dari total _MAX_ data.",
 search: "Cari:",
 paginate: {
-previous: "Sebelumnya",
-next: "Selanjutnya"
+previous: "<i class='fas fa-arrow-left'></i>",
+next: "<i class='fas fa-arrow-right'></i>"
 }
 },
 });
