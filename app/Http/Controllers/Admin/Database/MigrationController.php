@@ -23,7 +23,6 @@ class MigrationController extends Controller
             ->map(function ($item) use ($migration_db, $identifier_migration) {
                 $migration = $migration_db->firstWhere('migration', str_replace('.php', '', $item));
 
-
                 return (object)[
                     'migration' => $migration?->migration,
                     'tgl' => substr($item, 0, 16),
@@ -31,11 +30,10 @@ class MigrationController extends Controller
                     'batch' => $migration?->batch,
                     'rollback' => ($migration?->migration == $identifier_migration->migration) ? true : false
                 ];
-            })
-            ->sortBy('batch');
+            });
 
         if ($request->wantsJson()) {
-            return DataTables::of($migration_files)
+            return DataTables::collection($migration_files)
                 ->addIndexColumn()
                 ->addColumn('action', '@if($batch) <div class="btn-group btn-group-sm"><a data-load="modal" title="Edit Migration" href="{{ route("migration.edit", ["migration" => $migration]) }}" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a></div> @endif')
                 ->addColumn('migrate', '@if($batch && $rollback) <a data-action="delete" href="{{ route("migration.destroy", ["migration" => $migration]) }}" class="btn btn-danger btn-sm btn-rounded"><i class="fas fa-arrow-left"></i> Rollback</a> @endif @if(!$batch) <a data-action="post" href="{{ route("migration.store", ["migration" => $migration_file]) }}" class="btn btn-success btn-sm btn-rounded"><i class="fas fa-arrow-right"></i> Migrate</a> @endif')
@@ -51,7 +49,12 @@ class MigrationController extends Controller
             ->addColumn(['data' => 'tgl', 'title' => 'Stamp', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'migration_file', 'title' => 'Migration Files'])
             ->addColumn(['data' => 'migrate', 'title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
-            ->addColumn(['data' => 'batch', 'title' => 'Batch']);
+            ->addColumn(['data' => 'batch', 'title' => 'Batch'])
+            ->parameters([
+                'order' => [
+                    2, 'asc'
+                ]
+            ]);
 
         return view('pages.admin.migration.index', compact('table'));
     }
