@@ -29,7 +29,6 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">Daftar Migration</h4>
                     <div class="table-responsive">
                         {!! $table->table(['id' => time()]) !!}
                         {!! $table->scripts() !!}
