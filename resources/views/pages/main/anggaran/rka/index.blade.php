@@ -19,9 +19,11 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Dokumen RKA</h4>
-                    <p class="card-title-desc mb-4">Data Rencana Kerja Anggaran Perangkat Daerah</p>
-
-
+                    <p class="card-title-desc mb-0">Data Rencana Kerja Anggaran Perangkat Daerah</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
                         <li class="nav-item">
