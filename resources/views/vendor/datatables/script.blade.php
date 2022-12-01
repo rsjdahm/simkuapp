@@ -25,12 +25,12 @@ api.search(this.value).draw();
 });
 });
 });
-{{-- $.extend(true, $.fn.dataTable.defaults, {
-scrollY: '55vh',
+$.extend(true, $.fn.dataTable.defaults, {
+{{-- scrollY: '55vh',
 scrollX: true,
-scrollCollapse: true
+scrollCollapse: true --}}
 language: {
-processing: "Sedang memproses...",
+processing: "<i class='fas fa-spinner fa-spin'></i> Sedang memproses...",
 lengthMenu: "Tampilkan _MENU_ entri",
 zeroRecords: "Tidak ada data.",
 info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
@@ -43,4 +43,4 @@ previous: "Sebelumnya",
 next: "Selanjutnya"
 }
 },
-}); --}}
+});
