@@ -31,22 +31,22 @@
                     <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#bidang" role="tab">
-                                <span><i class="fas fa-home text-danger mr-1"></i> Urusan-Bidang</span>
+                                <span><i class="fas fa-home mr-1"></i> Urusan-Bidang</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" data-toggle="tab" href="#program" role="tab">
-                                <span><i class="fas fa-building text-danger mr-1"></i> Program</span>
+                                <span><i class="fas fa-building mr-1"></i> Program</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" data-toggle="tab" href="#kegiatan" role="tab">
-                                <span><i class="fas fa-briefcase text-danger mr-1"></i> Kegiatan</span>
+                                <span><i class="fas fa-briefcase mr-1"></i> Kegiatan</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" data-toggle="tab" href="#subkegiatan" role="tab">
-                                <span><i class="fas fa-book text-danger mr-1"></i> Subkegiatan</span>
+                                <span><i class="fas fa-book mr-1"></i> Subkegiatan</span>
                             </a>
                         </li>
                     </ul>

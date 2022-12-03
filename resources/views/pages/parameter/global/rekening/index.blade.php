@@ -37,32 +37,32 @@
                     <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#rek-akun" role="tab">
-                                <span><i class="fas fa-home text-danger mr-1"></i></span> Akun</span>
+                                <span><i class="fas fa-home mr-1"></i></span> Akun</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" data-toggle="tab" href="#rek-kelompok" role="tab">
-                                <span><i class="fas fa-layer-group text-danger mr-1"></i></span> Kelompok</span>
+                                <span><i class="fas fa-layer-group mr-1"></i></span> Kelompok</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" data-toggle="tab" href="#rek-jenis" role="tab">
-                                <span><i class="fas fa-archive text-danger mr-1"></i></span> Jenis</span>
+                                <span><i class="fas fa-archive mr-1"></i></span> Jenis</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" data-toggle="tab" href="#rek-objek" role="tab">
-                                <span><i class="fas fa-building text-danger mr-1"></i></span> Objek</span>
+                                <span><i class="fas fa-building mr-1"></i></span> Objek</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" data-toggle="tab" href="#rek-rinc-objek" role="tab">
-                                <span><i class="fas fa-calculator text-danger mr-1"></i></span> Rincian Objek</span>
+                                <span><i class="fas fa-calculator mr-1"></i></span> Rincian Objek</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" data-toggle="tab" href="#rek-sub-rinc-objek" role="tab">
-                                <span><i class="fas fa-chart-bar text-danger mr-1"></i></span> Sub Rincian Objek</span>
+                                <span><i class="fas fa-chart-bar mr-1"></i></span> Sub Rincian Objek</span>
                             </a>
                         </li>
                     </ul>

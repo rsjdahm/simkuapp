@@ -30,12 +30,12 @@
                     <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#pegawai" role="tab">
-                                <span><i class="fas fa-users text-danger mr-1"></i></span> Daftar Pegawai</span>
+                                <span><i class="fas fa-users mr-1"></i></span> Daftar Pegawai</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" data-toggle="tab" href="#detail-pegawai" role="tab">
-                                <span><i class="fas fa-user text-danger mr-1"></i></span> Detail Pegawai</span>
+                                <span><i class="fas fa-user mr-1"></i></span> Detail Pegawai</span>
                             </a>
                         </li>
                     </ul>
