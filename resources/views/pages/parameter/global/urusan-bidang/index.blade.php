@@ -33,12 +33,12 @@
                     <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#urusan" role="tab">
-                                <span><i class="fas fa-home mr-1"></i> Urusan</span>
+                                <span><i class="fas fa-home text-danger mr-1"></i> Urusan</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" data-toggle="tab" href="#bidang" role="tab">
-                                <span><i class="fas fa-layer-group mr-1"></i> Bidang</span>
+                                <span><i class="fas fa-layer-group text-danger mr-1"></i> Bidang</span>
                             </a>
                         </li>
                     </ul>

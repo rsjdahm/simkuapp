@@ -31,17 +31,17 @@
                     <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#bidang" role="tab">
-                                <span><i class="fas fa-home mr-1"></i> Urusan-Bidang</span>
+                                <span><i class="fas fa-home text-danger mr-1"></i> Urusan-Bidang</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" data-toggle="tab" href="#unit" role="tab">
-                                <span><i class="fas fa-building mr-1"></i> Unit</span>
+                                <span><i class="fas fa-building text-danger mr-1"></i> Unit</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" data-toggle="tab" href="#subunit" role="tab">
-                                <span><i class="fas fa-briefcase mr-1"></i> Subunit</span>
+                                <span><i class="fas fa-briefcase text-danger mr-1"></i> Subunit</span>
                             </a>
                         </li>
                     </ul>
