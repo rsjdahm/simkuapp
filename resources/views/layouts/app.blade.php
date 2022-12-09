@@ -83,7 +83,7 @@
                                             <i class="fas fa-times"></i>
                                         </span>
                                     </button>
-                                    <button type="button" class="close text-white" onclick="return load('div.modal[data-href=&quot;${url}&quot;] .modal-body', '${url}');">
+                                    <button type="button" class="close text-white mr-1" onclick="return load('div.modal[data-href=&quot;${url}&quot;] .modal-body', '${url}');">
                                         <span aria-hidden="true">
                                             <i class="fas fa-redo"></i>
                                         </span>
