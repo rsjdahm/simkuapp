@@ -85,7 +85,7 @@
                                     </button>
                                     <button type="button" class="close text-white mr-1" onclick="return load('div.modal[data-href=&quot;${url}&quot;] .modal-body', '${url}');">
                                         <span aria-hidden="true">
-                                            <i class="fas fa-redo"></i>
+                                            <i class="fas fa-sync-alt"></i>
                                         </span>
                                     </button>
                                 </div>

@@ -1,9 +1,3 @@
-<link href="{{ asset('libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
-<script src="{{ asset('libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-
-<script src="{{ asset('libs/inputmask/min/jquery.inputmask.bundle.min.js') }}"></script>
-
 <main data-topbar="dark">
     <div id="layout-wrapper">
 
@@ -21,6 +15,10 @@
     </div>
 </main>
 
+<link href="{{ asset('libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+<script src="{{ asset('libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('libs/inputmask/min/jquery.inputmask.bundle.min.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         const hash = (new URLSearchParams(window.location.search)).get('r');
