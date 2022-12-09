@@ -185,9 +185,9 @@
 
     $(document).ready(function() {
         // check if there is history then activate menu
-        const hash = window.location.hash.substr(1);
-        if (hash && hash != '/') {
-            const new_url = BASE_URL + hash;
+        const hash = (new URLSearchParams(window.location.search)).get('r');
+        if (hash) {
+            const new_url = BASE_URL + '/' + hash;
 
             $(".metismenu .active").removeClass('active');
 
@@ -203,6 +203,24 @@
             // if no history
             $('a[data-menu="default"]').addClass('active').parents('li').addClass('mm-active active');
         }
+        // const hash = window.location.hash.substr(1);
+        // if (hash && hash != '/') {
+        //     const new_url = BASE_URL + hash;
+
+        //     $(".metismenu .active").removeClass('active');
+
+        //     $('a[data-menu][href="' + new_url + '"]')
+        //         .addClass("active");
+        //     $('a[data-menu][href="' + new_url + '"]')
+        //         .parents('li').children('a').addClass('active');
+        //     $('a[data-menu][href="' + new_url + '"]')
+        //         .parents('li').addClass('mm-active active');
+        //     $('a[data-menu][href="' + new_url + '"]')
+        //         .parents('ul.sub-menu').addClass('mm-show');
+        // } else {
+        //     // if no history
+        //     $('a[data-menu="default"]').addClass('active').parents('li').addClass('mm-active active');
+        // }
     });
 
     $("body").on('click', 'a[data-menu]', function(event) {
@@ -223,11 +241,18 @@
     // save to history loader
     $("body").on('click', 'a[data-menu]', function(event) {
         event.preventDefault();
-        const href = BASE_URL + '/#/' + $(this).attr('href').replace(BASE_URL + '/', '');
+        const href = BASE_URL + '/?r=' + $(this).attr('href').replace(BASE_URL + '/', '');
         window.history.pushState({
             href
         }, '', href)
     });
+    // $("body").on('click', 'a[data-menu]', function(event) {
+    //     event.preventDefault();
+    //     const href = BASE_URL + '/#/' + $(this).attr('href').replace(BASE_URL + '/', '');
+    //     window.history.pushState({
+    //         href
+    //     }, '', href)
+    // });
 
     $('main').click(function(event) {
         if ($('main').hasClass("sidebar-enable")) {

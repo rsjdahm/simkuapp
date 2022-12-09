@@ -23,14 +23,22 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        // check if there is history
-        const hash = window.location.hash.substr(1);
-        if (hash && hash != '/') {
-            return load('#page', BASE_URL + hash);
+        const hash = (new URLSearchParams(window.location.search)).get('r');
+        if (hash) {
+            return load('#page', BASE_URL + '/' + hash);
         } else {
             // losss langsung load dashboard
             return load('#page', '{{ route('dashboard.show') }}');
         }
+
+        // // check if there is history
+        // const hash = window.location.hash.substr(1);
+        // if (hash && hash != '/') {
+        //     return load('#page', BASE_URL + hash);
+        // } else {
+        //     // losss langsung load dashboard
+        //     return load('#page', '{{ route('dashboard.show') }}');
+        // }
 
     });
 </script>
