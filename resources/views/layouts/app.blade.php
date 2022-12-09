@@ -15,7 +15,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800;900&display=swap" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css' . '?v=' . Str::random(4)) }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    {{-- <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" /> --}}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
     <link href="{{ asset('libs/toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/app.min.css' . '?v=' . Str::random(8)) }}" rel="stylesheet" type="text/css" />
