@@ -33,7 +33,17 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" data-toggle="tab" href="#rka" role="tab">
-                                <span><i class="fas fa-building mr-1"></i> Dokumen RKA</span>
+                                <span><i class="fas fa-file mr-1"></i> Dokumen RKA</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" data-toggle="tab" href="#program-rka" role="tab">
+                                <span><i class="fas fa-cogs mr-1"></i> Program</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" data-toggle="tab" href="#kegiatan-rka" role="tab">
+                                <span><i class="fas fa-briefcase mr-1"></i> Kegiatan</span>
                             </a>
                         </li>
                     </ul>
@@ -42,6 +52,8 @@
                     <div class="tab-content text-muted py-3">
                         <div class="tab-pane active" id="subunit" role="tabpanel"></div>
                         <div class="tab-pane" id="rka" role="tabpanel"></div>
+                        <div class="tab-pane" id="program-rka" role="tabpanel"></div>
+                        <div class="tab-pane" id="kegiatan-rka" role="tabpanel"></div>
                     </div>
                 </div>
             </div>

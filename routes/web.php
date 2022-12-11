@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Database\MigrationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Main\Anggaran\ProgramRkaController;
 use App\Http\Controllers\Main\Anggaran\RkaController;
 use App\Http\Controllers\Parameter\Global\BidangController;
 use App\Http\Controllers\Parameter\Global\KegiatanController;
@@ -92,6 +93,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         /// Rka
         Route::resource('/rka', RkaController::class)->except(['show']); //->name('rka.*');
         Route::get('/rka-table', [RkaController::class, 'table'])->name('rka.table');
+        /// Program Rka
+        Route::resource('/program-rka', ProgramRkaController::class)->except(['show']); //->name('program-rka.*');
     });
 
     // ADMIN

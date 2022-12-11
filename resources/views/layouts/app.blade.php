@@ -41,28 +41,28 @@
             $.ajax({
                 url,
                 success: function(response) {
-                    $(parent).fadeOut(250, function() {
-                        $(parent).html(response).fadeIn(250);
+                    $(parent).fadeOut(150, function() {
+                        $(parent).html(response).fadeIn(150);
                     });
                     return false;
                 },
                 error: function(xhr) {
                     if (xhr.status == 404) {
-                        $(parent).fadeOut(250, function() {
+                        $(parent).fadeOut(150, function() {
                             $(parent).html(
                                     '<div class="text-center py-4"><i style="font-size: 52pt" class="fas fa-exclamation-triangle text-danger mb-3"></i><br/><h5 class="text-center"><strong>404</strong> Not Found</h5></div>'
                                 )
                                 .fadeIn(
-                                    250);
+                                    150);
                         });
                         return false;
                     } else if (xhr.status == 500) {
-                        $(parent).fadeOut(250, function() {
+                        $(parent).fadeOut(150, function() {
                             $(parent).html(
                                     '<div class="text-center py-4"><i style="font-size: 52pt" class="fas fa-exclamation-circle text-danger mb-3"></i><br/><h5 class="text-center"><strong>500</strong> Internal Server Error</h5></div>'
                                 )
                                 .fadeIn(
-                                    250);
+                                    150);
                         });
                         return false;
                     }
