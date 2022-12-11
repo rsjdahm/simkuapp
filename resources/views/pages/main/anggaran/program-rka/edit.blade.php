@@ -7,7 +7,7 @@
         <select name="program_id" class="form-control">
             <option disabled selected>-- Pilih Program RKA --</option>
             @foreach ($program as $program)
-                <option @selected($program->id == $program_rka->rka_id) value="{{ $program->id }}">[{{ $program->kode }}]
+                <option @selected($program->id == $program_rka->program_id) value="{{ $program->id }}">[{{ $program->kode }}]
                     {{ $program->nama }}</option>
             @endforeach
         </select>
