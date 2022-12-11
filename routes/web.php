@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Main\Anggaran\KegiatanRkaController;
 use App\Http\Controllers\Main\Anggaran\ProgramRkaController;
 use App\Http\Controllers\Main\Anggaran\RkaController;
+use App\Http\Controllers\Main\Anggaran\SubkegiatanRkaController;
 use App\Http\Controllers\Parameter\Global\BidangController;
 use App\Http\Controllers\Parameter\Global\KegiatanController;
 use App\Http\Controllers\Parameter\Global\PegawaiController;
@@ -97,6 +98,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         /// Program Rka
         Route::resource('/program-rka', ProgramRkaController::class)->except(['show']); //->name('program-rka.*');
         Route::resource('/kegiatan-rka', KegiatanRkaController::class)->except(['show']); //->name('kegiatan-rka.*');
+        Route::resource('/subkegiatan-rka', SubkegiatanRkaController::class)->except(['show']); //->name('subkegiatan-rka.*');
     });
 
     // ADMIN

@@ -15,27 +15,25 @@ class ProgramRkaController extends Controller
 {
     public function index(Builder $builder, Request $request)
     {
-        if ($request->rka_id) {
-            if ($request->wantsJson()) {
-                $data = ProgramRka::where('rka_id', $request->rka_id)
-                    ->with(['program']);
+        if ($request->wantsJson()) {
+            $data = ProgramRka::where('rka_id', $request->rka_id)
+                ->with(['program']);
 
-                return DataTables::eloquent($data)
-                    ->addIndexColumn()
-                    ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button> <div class="dropdown-menu"><a data-load="modal" title="Edit Program RKA" href="{{ route("program-rka.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("program-rka.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#kegiatan-rka" href="{{ route("kegiatan-rka.index", ["program_rka_id" => $id]) }}" class="btn btn-primary text-white" title="Lihat Kegiatan RKA"><i class="fas fa-forward"></i></a></div>')
-                    ->toJson();
-            }
-
-            $table = $builder->minifiedAjax(route('program-rka.index', ['rka_id' => $request->rka_id]))
-                ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
-                ->addIndex(['title' => 'No.', 'style' => 'width: 1%;', 'class' => 'text-center'])
-                ->addColumn(['data' => 'program.kode', 'title' => 'Kode Program', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'program.nama', 'title' => 'Uraian Program RKA']);
-
-            $rka = Rka::findOrFail($request->rka_id);
-
-            return view('pages.main.anggaran.program-rka.table', compact('table', 'rka'));
+            return DataTables::eloquent($data)
+                ->addIndexColumn()
+                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button> <div class="dropdown-menu"><a data-load="modal" title="Edit Program RKA" href="{{ route("program-rka.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("program-rka.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#kegiatan-rka" href="{{ route("kegiatan-rka.index", ["program_rka_id" => $id]) }}" class="btn btn-primary text-white" title="Lihat Kegiatan RKA"><i class="fas fa-forward"></i></a></div>')
+                ->toJson();
         }
+
+        $table = $builder->minifiedAjax(route('program-rka.index', ['rka_id' => $request->rka_id]))
+            ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
+            ->addIndex(['title' => 'No.', 'style' => 'width: 1%;', 'class' => 'text-center'])
+            ->addColumn(['data' => 'program.kode', 'title' => 'Kode Program', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'program.nama', 'title' => 'Uraian Program RKA']);
+
+        $rka = Rka::findOrFail($request->rka_id);
+
+        return view('pages.main.anggaran.program-rka.table', compact('table', 'rka'));
     }
 
     public function create(Request $request)

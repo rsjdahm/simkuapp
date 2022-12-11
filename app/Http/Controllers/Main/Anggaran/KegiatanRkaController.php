@@ -15,28 +15,26 @@ class KegiatanRkaController extends Controller
 {
     public function index(Builder $builder, Request $request)
     {
-        if ($request->program_rka_id) {
-            if ($request->wantsJson()) {
-                $data = KegiatanRka::where('program_rka_id', $request->program_rka_id)
-                    ->with(['kegiatan', 'program_rka.program']);
+        if ($request->wantsJson()) {
+            $data = KegiatanRka::where('program_rka_id', $request->program_rka_id)
+                ->with(['kegiatan', 'program_rka.program']);
 
-                return DataTables::eloquent($data)
-                    ->addIndexColumn()
-                    ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button> <div class="dropdown-menu"><a data-load="modal" title="Edit Kegiatan RKA" href="{{ route("kegiatan-rka.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("kegiatan-rka.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#kegiatan-rka" href="{{ route("kegiatan-rka.index", ["program_rka_id" => $id]) }}" class="btn btn-primary text-white" title="Lihat Kegiatan RKA"><i class="fas fa-forward"></i></a></div>')
-                    ->toJson();
-            }
-
-            $table = $builder->minifiedAjax(route('kegiatan-rka.index', ['program_rka_id' => $request->program_rka_id]))
-                ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
-                ->addIndex(['title' => 'No.', 'style' => 'width: 1%;', 'class' => 'text-center'])
-                ->addColumn(['data' => 'program_rka.program.kode', 'title' => 'Kode Program', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'kegiatan.kode', 'title' => 'Kode Kegiatan', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'kegiatan.nama', 'title' => 'Uraian Kegiatan RKA']);
-
-            $program_rka = ProgramRka::findOrFail($request->program_rka_id);
-
-            return view('pages.main.anggaran.kegiatan-rka.table', compact('table', 'program_rka'));
+            return DataTables::eloquent($data)
+                ->addIndexColumn()
+                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button> <div class="dropdown-menu"><a data-load="modal" title="Edit Kegiatan RKA" href="{{ route("kegiatan-rka.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("kegiatan-rka.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#subkegiatan-rka" href="{{ route("subkegiatan-rka.index", ["kegiatan_rka_id" => $id]) }}" class="btn btn-primary text-white" title="Lihat Subkegiatan RKA"><i class="fas fa-forward"></i></a></div>')
+                ->toJson();
         }
+
+        $table = $builder->minifiedAjax(route('kegiatan-rka.index', ['program_rka_id' => $request->program_rka_id]))
+            ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
+            ->addIndex(['title' => 'No.', 'style' => 'width: 1%;', 'class' => 'text-center'])
+            ->addColumn(['data' => 'program_rka.program.kode', 'title' => 'Kode Program', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'kegiatan.kode', 'title' => 'Kode Kegiatan', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'kegiatan.nama', 'title' => 'Uraian Kegiatan RKA']);
+
+        $program_rka = ProgramRka::findOrFail($request->program_rka_id);
+
+        return view('pages.main.anggaran.kegiatan-rka.table', compact('table', 'program_rka'));
     }
 
     public function create(Request $request)
