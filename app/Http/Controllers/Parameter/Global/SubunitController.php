@@ -88,7 +88,7 @@ class SubunitController extends Controller
             ->addAction(['title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
             ->addIndex(['title' => 'No.', 'class' => 'text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'unit', 'title' => 'Unit'])
-            ->addColumn(['data' => 'kode', 'title' => 'Kode Unit', 'class' => 'font-weight-bold text-nowrap', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'kode', 'title' => 'Kode Unit', 'class' => 'text-nowrap', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Subunit SKPD'])
             ->parameters([
                 'order' => [

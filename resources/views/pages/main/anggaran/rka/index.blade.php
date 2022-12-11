@@ -25,25 +25,25 @@
             <div class="card">
                 <div class="card-body">
                     <!-- Nav tabs -->
-                    <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
+                    <ul class="nav nav-pills" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#subunit" role="tab">
-                                <span><i class="fas fa-home mr-1"></i> Subunit</span>
+                                <span>Subunit</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" data-toggle="tab" href="#rka" role="tab">
-                                <span><i class="fas fa-file mr-1"></i> Dokumen RKA</span>
+                                <span>Dokumen RKA</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" data-toggle="tab" href="#program-rka" role="tab">
-                                <span><i class="fas fa-cogs mr-1"></i> Program</span>
+                                <span>Program</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" data-toggle="tab" href="#kegiatan-rka" role="tab">
-                                <span><i class="fas fa-briefcase mr-1"></i> Kegiatan</span>
+                                <span>Kegiatan</span>
                             </a>
                         </li>
                     </ul>

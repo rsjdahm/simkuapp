@@ -14,6 +14,12 @@ class ProgramRka extends Model
         'rka_id',
     ];
 
+
+    public function rka()
+    {
+        return $this->belongsTo(Rka::class);
+    }
+
     public function program()
     {
         return $this->belongsTo(Program::class);

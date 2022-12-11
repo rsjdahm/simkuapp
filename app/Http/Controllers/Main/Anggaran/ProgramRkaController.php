@@ -22,7 +22,7 @@ class ProgramRkaController extends Controller
 
                 return DataTables::eloquent($data)
                     ->addIndexColumn()
-                    ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button> <div class="dropdown-menu"><a data-load="modal" title="Edit Program RKA" href="{{ route("program-rka.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("program-rka.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#program-rka" href="{{ route("program-rka.index", ["rka_id" => $id]) }}" class="btn btn-primary text-white" title="Lihat Program RKA"><i class="fas fa-forward"></i></a></div>')
+                    ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button> <div class="dropdown-menu"><a data-load="modal" title="Edit Program RKA" href="{{ route("program-rka.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("program-rka.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div><a data-action="open-tab" data-target="#kegiatan-rka" href="{{ route("kegiatan-rka.index", ["program_rka_id" => $id]) }}" class="btn btn-primary text-white" title="Lihat Kegiatan RKA"><i class="fas fa-forward"></i></a></div>')
                     ->toJson();
             }
 

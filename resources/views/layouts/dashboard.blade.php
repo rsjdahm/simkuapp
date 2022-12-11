@@ -55,7 +55,8 @@
             // clear
             $(anchor.data('target')).html('');
             $("a[href='" + anchor.data('target') + "'].nav-link").removeClass('disabled');
-            $('.nav-tabs a[href="' + anchor.data('target') + '"]').tab('show');
+            $('.nav-tabs a[href="' + anchor.data('target') + '"], .nav-pills a[href="' + anchor.data(
+                'target') + '"]').tab('show');
             // load
             load(anchor.data('target'), anchor.attr('href'));
             // disabled next tab
@@ -67,7 +68,8 @@
             $("a[href='" + anchor.data('target') + "'].nav-link").parent().nextAll().children('a.nav-link')
                 .addClass('disabled');
             $(anchor.data('target') + ".tab-pane").nextAll().html('');
-            $('.nav-tabs a[href="' + anchor.data('target') + '"]').tab('show');
+            $('.nav-tabs a[href="' + anchor.data('target') + '"], .nav-pills a[href="' + anchor.data(
+                'target') + '"]').tab('show');
         }
     });
     /// deletor data
