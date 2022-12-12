@@ -25,11 +25,11 @@
                                         RKA
                                     </a>
                                 </li>
-                                {{-- <li>
+                                <li>
                                     <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         Rincian Belanja
                                     </a>
-                                </li> --}}
+                                </li>
                                 {{-- <li>
                                     <a data-load="#page" data-menu="item" href="{{ route('test') }}">
                                         Rencana Kas
@@ -185,7 +185,7 @@
 
     $(document).ready(function() {
         // check if there is history then activate menu
-        const hash = (new URLSearchParams(window.location.search)).get('r');
+        const hash = (new URLSearchParams(window.location.search)).get('route');
         if (hash) {
             const new_url = BASE_URL + '/' + hash;
 
@@ -241,7 +241,7 @@
     // save to history loader
     $("body").on('click', 'a[data-menu]', function(event) {
         event.preventDefault();
-        const href = BASE_URL + '/?r=' + $(this).attr('href').replace(BASE_URL + '/', '');
+        const href = BASE_URL + '/?route=' + $(this).attr('href').replace(BASE_URL + '/', '');
         window.history.pushState({
             href
         }, '', href)

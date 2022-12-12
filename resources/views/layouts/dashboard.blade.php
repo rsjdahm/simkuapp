@@ -21,7 +21,7 @@
 <script src="{{ asset('libs/inputmask/min/jquery.inputmask.bundle.min.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        const hash = (new URLSearchParams(window.location.search)).get('r');
+        const hash = (new URLSearchParams(window.location.search)).get('route');
         if (hash) {
             return load('#page', BASE_URL + '/' + hash);
         } else {
