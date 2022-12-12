@@ -50,23 +50,21 @@ class AktivitasController extends Controller
         return response()->json(['message' => 'Data berhasil ditambah.']);
     }
 
-    public function edit(Aktivitas $aktivitas)
+    public function edit(Aktivitas $aktivita)
     {
-        $subkegiatan = Subkegiatan::all();
-
-        return view('pages.main.anggaran.aktivitas.edit', compact('aktivitas', 'subkegiatan'));
+        return view('pages.main.anggaran.aktivitas.edit', compact('aktivita'));
     }
 
-    public function update(Aktivitas $aktivitas, AktivitasRequest $request)
+    public function update(Aktivitas $aktivita, AktivitasRequest $request)
     {
-        $aktivitas->update($request->validated());
+        $aktivita->update($request->validated());
 
         return response()->json(['message' => 'Data berhasil diubah.']);
     }
 
-    public function destroy(Aktivitas $aktivitas)
+    public function destroy(Aktivitas $aktivita)
     {
-        $aktivitas->delete();
+        $aktivita->delete();
 
         return response()->json(['message' => 'Data berhasil dihapus.']);
     }

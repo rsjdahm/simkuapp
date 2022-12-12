@@ -1,16 +1,10 @@
-<form method="post" action="{{ route('subkegiatan-rka.update', $subkegiatan_rka->id) }}">
+<form method="post" action="{{ route('aktivitas.update', $aktivita->id) }}">
     @csrf
     @method('put')
-    <input type="hidden" name="kegiatan_rka_id" value="{{ $subkegiatan_rka->kegiatan_rka_id }}">
+    <input type="hidden" name="subkegiatan_rka_id" value="{{ $aktivita->subkegiatan_rka_id }}">
     <div class="form-group">
-        <label class="form-label">Kegiatan RKA</label>
-        <select name="subkegiatan_id" class="form-control">
-            <option disabled selected>-- Pilih Kegiatan RKA --</option>
-            @foreach ($subkegiatan as $subkegiatan)
-                <option @selected($subkegiatan->id == $subkegiatan_rka->subkegiatan_id) value="{{ $subkegiatan->id }}">[{{ $subkegiatan->kode }}]
-                    {{ $subkegiatan->nama }}</option>
-            @endforeach
-        </select>
+        <label class="form-label">Uraian Aktivitas</label>
+        <textarea name="uraian" class="form-control">{{ $aktivita->uraian }}</textarea>
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
@@ -18,7 +12,7 @@
 </form>
 
 <script>
-    $("form[action='{{ route('subkegiatan-rka.update', $subkegiatan_rka->id) }}']").on("submit", function(event) {
+    $("form[action='{{ route('aktivitas.update', $aktivita->id) }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);
