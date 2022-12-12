@@ -75,6 +75,7 @@ return array(
     'App\\Models\\Main\\Anggaran\\KegiatanRka' => $baseDir . '/app/Models/Main/Anggaran/KegiatanRka.php',
     'App\\Models\\Main\\Anggaran\\ProgramRka' => $baseDir . '/app/Models/Main/Anggaran/ProgramRka.php',
     'App\\Models\\Main\\Anggaran\\Rka' => $baseDir . '/app/Models/Main/Anggaran/Rka.php',
+    'App\\Models\\Main\\Anggaran\\SubkegiatanRka' => $baseDir . '/app/Models/Main/Anggaran/SubkegiatanRka.php',
     'App\\Models\\Parameter\\Global\\Bidang' => $baseDir . '/app/Models/Parameter/Global/Bidang.php',
     'App\\Models\\Parameter\\Global\\Kegiatan' => $baseDir . '/app/Models/Parameter/Global/Kegiatan.php',
     'App\\Models\\Parameter\\Global\\Pegawai' => $baseDir . '/app/Models/Parameter/Global/Pegawai.php',

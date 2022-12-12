@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Database\MigrationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Main\Anggaran\AktivitasController;
 use App\Http\Controllers\Main\Anggaran\KegiatanRkaController;
 use App\Http\Controllers\Main\Anggaran\ProgramRkaController;
 use App\Http\Controllers\Main\Anggaran\RkaController;
@@ -99,6 +100,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('/program-rka', ProgramRkaController::class)->except(['show']); //->name('program-rka.*');
         Route::resource('/kegiatan-rka', KegiatanRkaController::class)->except(['show']); //->name('kegiatan-rka.*');
         Route::resource('/subkegiatan-rka', SubkegiatanRkaController::class)->except(['show']); //->name('subkegiatan-rka.*');
+        Route::resource('/aktivitas', AktivitasController::class)->except(['show']); //->name('aktivitas.*');
     });
 
     // ADMIN

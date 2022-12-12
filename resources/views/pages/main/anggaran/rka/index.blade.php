@@ -51,6 +51,11 @@
                                 <span>Subkegiatan</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" data-toggle="tab" href="#aktivitas" role="tab">
+                                <span>Aktivitas</span>
+                            </a>
+                        </li>
                     </ul>
 
                     <!-- Tab panes -->
@@ -60,6 +65,7 @@
                         <div class="tab-pane" id="program-rka" role="tabpanel"></div>
                         <div class="tab-pane" id="kegiatan-rka" role="tabpanel"></div>
                         <div class="tab-pane" id="subkegiatan-rka" role="tabpanel"></div>
+                        <div class="tab-pane" id="aktivitas" role="tabpanel"></div>
                     </div>
                 </div>
             </div>

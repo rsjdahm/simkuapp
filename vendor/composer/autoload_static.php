@@ -699,6 +699,7 @@ class ComposerStaticInit442cae5d775dd183a6d6c44aac3ca1eb
         'App\\Models\\Main\\Anggaran\\KegiatanRka' => __DIR__ . '/../..' . '/app/Models/Main/Anggaran/KegiatanRka.php',
         'App\\Models\\Main\\Anggaran\\ProgramRka' => __DIR__ . '/../..' . '/app/Models/Main/Anggaran/ProgramRka.php',
         'App\\Models\\Main\\Anggaran\\Rka' => __DIR__ . '/../..' . '/app/Models/Main/Anggaran/Rka.php',
+        'App\\Models\\Main\\Anggaran\\SubkegiatanRka' => __DIR__ . '/../..' . '/app/Models/Main/Anggaran/SubkegiatanRka.php',
         'App\\Models\\Parameter\\Global\\Bidang' => __DIR__ . '/../..' . '/app/Models/Parameter/Global/Bidang.php',
         'App\\Models\\Parameter\\Global\\Kegiatan' => __DIR__ . '/../..' . '/app/Models/Parameter/Global/Kegiatan.php',
         'App\\Models\\Parameter\\Global\\Pegawai' => __DIR__ . '/../..' . '/app/Models/Parameter/Global/Pegawai.php',
