@@ -122,5 +122,13 @@ $(document)
                 xhr.responseJSON.message +
                 "</i>";
             return toastr.error(message);
+        } else if (xhr.status == 403) {
+            message =
+                "Anda tidak diizinkan untuk melakukan aksi ini." +
+                "<br /><br />" +
+                "<i>" +
+                xhr.responseJSON.message +
+                "</i>";
+            return toastr.error(message);
         }
     });

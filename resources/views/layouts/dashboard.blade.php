@@ -1,4 +1,4 @@
-<main data-topbar="dark">
+<main data-topbar="colored">
     <div id="layout-wrapper">
 
         @include('components.header_dashboard')
@@ -19,24 +19,15 @@
 <script src="{{ asset('libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('libs/inputmask/min/jquery.inputmask.bundle.min.js') }}"></script>
+
 <script type="text/javascript">
     $(document).ready(function() {
         const hash = (new URLSearchParams(window.location.search)).get('route');
         if (hash) {
             return load('#page', BASE_URL + '/' + hash);
         } else {
-            // losss langsung load dashboard
             return load('#page', '{{ route('dashboard.show') }}');
         }
-
-        // // check if there is history
-        // const hash = window.location.hash.substr(1);
-        // if (hash && hash != '/') {
-        //     return load('#page', BASE_URL + hash);
-        // } else {
-        //     // losss langsung load dashboard
-        //     return load('#page', '{{ route('dashboard.show') }}');
-        // }
 
     });
 </script>
@@ -50,6 +41,9 @@
         }
         if (anchor.data('action') == 'post') {
             return poster(anchor.attr('href'));
+        }
+        if (anchor.data('action') == 'reload') {
+            load($(anchor).closest('[data-href]'), $(anchor).closest('[data-href]').data('href'));
         }
         if (anchor.data('action') == 'open-tab') {
             // clear

@@ -73,27 +73,27 @@
     </div>
 </header>
 <script type="text/javascript">
-    function change_color_sidebar() {
-        if (992 <= $(window).width()) {
-            $("main").attr("data-sidebar", "dark");
-            $("main").removeAttr("data-topbar");
-        } else {
-            $("main").removeAttr("data-sidebar");
-            $("main").attr("data-topbar", "dark");
-        }
-    }
-    change_color_sidebar();
-    $(window).on('resize', function() {
-        change_color_sidebar();
-    });
+    // function change_color_sidebar() {
+    //     if (992 <= $(window).width()) {
+    //         $("main").attr("data-sidebar", "dark");
+    //         $("main").removeAttr("data-topbar");
+    //     } else {
+    //         $("main").removeAttr("data-sidebar");
+    //         $("main").attr("data-topbar", "dark");
+    //     }
+    // }
+    // change_color_sidebar();
+    // $(window).on('resize', function() {
+    //     change_color_sidebar();
+    // });
     $("#vertical-menu-btn").on("click", function(event) {
         event.preventDefault();
         $("main").toggleClass("sidebar-enable");
-        if (992 <= $(window).width()) {
-            $("main").toggleClass("vertical-collpsed");
-        } else {
-            $("main").removeClass("vertical-collpsed");
-        }
+        // if (992 <= $(window).width()) {
+        //     $("main").toggleClass("vertical-collpsed");
+        // } else {
+        //     $("main").removeClass("vertical-collpsed");
+        // }
     })
 </script>
 <script type="text/javascript">

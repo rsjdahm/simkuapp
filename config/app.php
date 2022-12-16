@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => 'Aplikasi SiMKU (RSJDAHM)',
+    'name' => 'Aplikasi SiMKU',
     'meta' => [
         'name' => 'SiMKU',
         'description' => 'Aplikasi Sistem Informasi Manajemen Keuangan RSJD Atma Husada Mahakam',
