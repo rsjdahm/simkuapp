@@ -25,8 +25,8 @@ class RekAkun extends Model
         return str_pad($this->kode, 1, '0', STR_PAD_LEFT);
     }
 
-    // public function bidang()
-    // {
-    //     return $this->hasMany(Bidang::class);
-    // }
+    public function rek_kelompok()
+    {
+        return $this->hasMany(RekKelompok::class);
+    }
 }

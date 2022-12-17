@@ -4,6 +4,7 @@ use App\Http\Controllers\Setup\BidangController;
 use App\Http\Controllers\Setup\KegiatanController;
 use App\Http\Controllers\Setup\ProgramController;
 use App\Http\Controllers\Setup\RekAkunController;
+use App\Http\Controllers\Setup\RekKelompokController;
 use App\Http\Controllers\Setup\SubKegiatanController;
 use App\Http\Controllers\Setup\UrusanController;
 use Illuminate\Support\Facades\Route;
@@ -18,4 +19,5 @@ Route::prefix('/setup/nomenklatur')->group(function () {
 
 Route::prefix('/setup/rekening')->group(function () {
     Route::resource('/rek-akun', RekAkunController::class);
+    Route::resource('/rek-kelompok', RekKelompokController::class);
 });
