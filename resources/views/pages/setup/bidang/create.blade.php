@@ -5,7 +5,8 @@
         <select name="urusan_id" class="form-control">
             <option value="" disabled selected>Pilih Urusan...</option>
             @foreach ($urusan as $urusan_item)
-                <option value="{{ $urusan_item->id }}">[{{ $urusan_item->kode }}] {{ $urusan_item->nama }}</option>
+                <option value="{{ $urusan_item->id }}">[{{ $urusan_item->kode_lengkap }}] {{ $urusan_item->nama }}
+                </option>
             @endforeach
         </select>
     </div>

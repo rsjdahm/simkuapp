@@ -19,13 +19,13 @@ class ProgramController extends Controller
             $data = Program::with([
                 'bidang',
                 'bidang.urusan',
-            ])->whereHas('bidang.urusan', function ($query) use ($request) {
-                $query->when($request->filled('urusan_id'), function ($query) use ($request) {
-                    $query->where('id', $request->urusan_id);
+            ])->whereHas('bidang.urusan', function ($q) use ($request) {
+                $q->when($request->filled('urusan_id'), function ($q) use ($request) {
+                    $q->where('id', $request->urusan_id);
                 });
-            })->whereHas('bidang', function ($query) use ($request) {
-                $query->when($request->filled('bidang_id'), function ($query) use ($request) {
-                    $query->where('bidang_id', $request->bidang_id);
+            })->whereHas('bidang', function ($q) use ($request) {
+                $q->when($request->filled('bidang_id'), function ($q) use ($request) {
+                    $q->where('id', $request->bidang_id);
                 });
             });
 
@@ -56,7 +56,11 @@ class ProgramController extends Controller
         $urusan = Urusan::all();
         $bidang = Bidang::all();
 
-        return view('pages.setup.program.index', compact('table', 'urusan', 'bidang'));
+        return view('pages.setup.program.index', compact(
+            'table',
+            'urusan',
+            'bidang'
+        ));
     }
 
     public function create()
@@ -64,7 +68,10 @@ class ProgramController extends Controller
         $urusan = Urusan::all();
         $bidang = Bidang::all();
 
-        return view('pages.setup.program.create', compact('urusan', 'bidang'));
+        return view('pages.setup.program.create', compact(
+            'urusan',
+            'bidang'
+        ));
     }
 
     public function store(ProgramRequest $request)
@@ -79,7 +86,11 @@ class ProgramController extends Controller
         $urusan = Urusan::all();
         $bidang = Bidang::all();
 
-        return view('pages.setup.program.edit', compact('program', 'urusan', 'bidang'));
+        return view('pages.setup.program.edit', compact(
+            'program',
+            'urusan',
+            'bidang'
+        ));
     }
 
     public function update(Program $program, ProgramRequest $request)

@@ -19,13 +19,13 @@
             </a>
         </li>
         <li>
-            <a data-load="#page" data-menu="item" href="{{ route('dashboard.show') }}">
+            <a data-load="#page" data-menu="item" href="{{ route('kegiatan.index') }}">
                 Kegiatan
             </a>
         </li>
         <li>
             <a data-load="#page" data-menu="item" href="{{ route('dashboard.show') }}">
-                Subkegiatan
+                Sub Kegiatan
             </a>
         </li>
     </ul>
@@ -43,6 +43,11 @@
         <li>
             <a data-load="#page" data-menu="item" href="{{ route('dashboard.show') }}">
                 Rek. Kelompok
+            </a>
+        </li>
+        <li>
+            <a data-load="#page" data-menu="item" href="{{ route('dashboard.show') }}">
+                Rek. Jenis
             </a>
         </li>
         <li>

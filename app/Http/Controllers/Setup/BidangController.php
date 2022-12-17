@@ -17,9 +17,9 @@ class BidangController extends Controller
         if ($request->wantsJson()) {
             $data = Bidang::with([
                 'urusan'
-            ])->whereHas('urusan', function ($query) use ($request) {
-                $query->when($request->filled('urusan_id'), function ($query) use ($request) {
-                    $query->where('urusan_id', $request->urusan_id);
+            ])->whereHas('urusan', function ($q) use ($request) {
+                $q->when($request->filled('urusan_id'), function ($q) use ($request) {
+                    $q->where('urusan_id', $request->urusan_id);
                 });
             });
 
@@ -47,7 +47,10 @@ class BidangController extends Controller
 
         $urusan = Urusan::all();
 
-        return view('pages.setup.bidang.index', compact('table', 'urusan'));
+        return view('pages.setup.bidang.index', compact(
+            'table',
+            'urusan'
+        ));
     }
 
     public function create()
