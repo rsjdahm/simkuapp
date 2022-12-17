@@ -27,7 +27,7 @@ class KegiatanRequest extends FormRequest
     {
         return [
             'program_id' => ['required', 'exists:program,id'],
-            'kode' => ['required', 'string'],
+            'kode' => ['required', 'numeric'],
             'nama' => ['required', 'string']
         ];
     }

@@ -72,7 +72,7 @@ class SubKegiatanController extends Controller
         $program = Program::all();
         $kegiatan = Kegiatan::all();
 
-        return view('pages.setup.sub_kegiatan.index', compact(
+        return view('pages.setup.sub-kegiatan.index', compact(
             'table',
             'urusan',
             'bidang',
@@ -88,7 +88,7 @@ class SubKegiatanController extends Controller
         $program = Program::all();
         $kegiatan = Kegiatan::all();
 
-        return view('pages.setup.sub_kegiatan.create', compact(
+        return view('pages.setup.sub-kegiatan.create', compact(
             'urusan',
             'bidang',
             'program',
@@ -110,7 +110,7 @@ class SubKegiatanController extends Controller
         $program = Program::all();
         $kegiatan = Kegiatan::all();
 
-        return view('pages.setup.sub_kegiatan.edit', compact(
+        return view('pages.setup.sub-kegiatan.edit', compact(
             'sub_kegiatan',
             'urusan',
             'bidang',

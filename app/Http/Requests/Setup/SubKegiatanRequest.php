@@ -27,7 +27,7 @@ class SubKegiatanRequest extends FormRequest
     {
         return [
             'kegiatan_id' => ['required', 'exists:kegiatan,id'],
-            'kode' => ['required', 'string'],
+            'kode' => ['required', 'numeric'],
             'nama' => ['required', 'string']
         ];
     }

@@ -36,7 +36,7 @@
     </a>
     <ul class="sub-menu">
         <li>
-            <a data-load="#page" data-menu="item" href="{{ route('dashboard.show') }}">
+            <a data-load="#page" data-menu="item" href="{{ route('rek-akun.index') }}">
                 Rek. Akun
             </a>
         </li>

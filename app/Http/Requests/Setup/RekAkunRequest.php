@@ -6,7 +6,7 @@ use App\Enums\UserRoleEnum;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class ProgramRequest extends FormRequest
+class RekAkunRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,6 @@ class ProgramRequest extends FormRequest
     public function rules()
     {
         return [
-            'bidang_id' => ['required', 'exists:bidang,id'],
             'kode' => ['required', 'numeric'],
             'nama' => ['required', 'string']
         ];

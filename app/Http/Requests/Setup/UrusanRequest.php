@@ -26,7 +26,7 @@ class UrusanRequest extends FormRequest
     public function rules()
     {
         return [
-            'kode' => ['required', 'string'],
+            'kode' => ['required', 'numeric'],
             'nama' => ['required', 'string']
         ];
     }
