@@ -18,7 +18,7 @@ class KegiatanController extends Controller
     {
         if ($request->wantsJson()) {
             $data = Kegiatan::with([
-                'program.bidang',
+                'program',
                 'program.bidang',
                 'program.bidang.urusan',
             ])->whereHas('program.bidang.urusan', function ($q) use ($request) {
@@ -52,7 +52,7 @@ class KegiatanController extends Controller
             }',
         ])
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
-            ->addColumn(['data' => 'kode_lengkap', 'title' => 'Kode Kegiatan', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'kode_lengkap', 'title' => 'Kode Kegiatan', 'class' => 'text-nowrap font-weight-bold', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Nomenklatur Kegiatan'])
             ->parameters([
                 'order' => [
@@ -99,7 +99,7 @@ class KegiatanController extends Controller
         $program = Program::all();
 
         return view('pages.setup.kegiatan.edit', compact(
-            'program',
+            'kegiatan',
             'urusan',
             'bidang',
             'program'

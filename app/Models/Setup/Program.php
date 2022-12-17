@@ -30,4 +30,10 @@ class Program extends Model
     {
         return $this->bidang->kode_lengkap . '.' . str_pad($this->kode, 2, '0', STR_PAD_LEFT);
     }
+
+
+    public function kegiatan()
+    {
+        return $this->hasMany(Kegiatan::class);
+    }
 }

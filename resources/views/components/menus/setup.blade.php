@@ -24,7 +24,7 @@
             </a>
         </li>
         <li>
-            <a data-load="#page" data-menu="item" href="{{ route('dashboard.show') }}">
+            <a data-load="#page" data-menu="item" href="{{ route('sub-kegiatan.index') }}">
                 Sub Kegiatan
             </a>
         </li>

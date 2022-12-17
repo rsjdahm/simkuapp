@@ -51,7 +51,7 @@ class MigrationController extends Controller
             ->addColumn(['data' => 'batch', 'title' => 'Batch'])
             ->parameters([
                 'order' => [
-                    1, 'asc'
+                    1, 'desc'
                 ]
             ]);
 
