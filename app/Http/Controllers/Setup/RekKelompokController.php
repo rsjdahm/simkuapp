@@ -19,7 +19,7 @@ class RekKelompokController extends Controller
                 'rek_akun'
             ])->whereHas('rek_akun', function ($q) use ($request) {
                 $q->when($request->filled('rek_akun_id'), function ($q) use ($request) {
-                    $q->where('rek_akun_id', $request->rek_akun_id);
+                    $q->where('id', $request->rek_akun_id);
                 });
             });
 

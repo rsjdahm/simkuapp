@@ -2004,7 +2004,9 @@ main[data-layout="horizontal"][data-layout-size="boxed"] .navbar-header {
 }
 .select2-results__option {
     padding: 6px 12px;
+    max-height: 300px;
 }
+
 .select2-dropdown {
     border: 1px solid rgba(0, 0, 0, 0.15);
     background-color: #fff;
