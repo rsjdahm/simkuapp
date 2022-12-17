@@ -21,7 +21,7 @@ return [
         'description' => 'Aplikasi Sistem Informasi Manajemen Keuangan RSJD Atma Husada Mahakam',
         'author' => 'Moh. Walid Arkham Sani, A.Md.Pnl.',
         'author_alias' => '@walidrsjd',
-        'version' => '1.0.1',
+        'version' => '3.0.0',
         'company' => 'RSJD Atma Husada Mahakam'
     ],
 

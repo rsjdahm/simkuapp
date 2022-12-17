@@ -1,13 +1,23 @@
-<form method="post" action="{{ route('urusan.update', $urusan->id) }}">
+<form method="post" action="{{ route('bidang.update', $bidang->id) }}">
     @csrf
     @method('put')
     <div class="form-group">
+        <label class="form-label">Urusan</label>
+        <select name="urusan_id" class="form-control">
+            <option value="" disabled>Pilih Urusan...</option>
+            @foreach ($urusan as $urusan_item)
+                <option @selected($urusan_item->id == $bidang->urusan_id) value="{{ $urusan_item->id }}">[{{ $urusan_item->kode }}]
+                    {{ $urusan_item->nama }}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group">
         <label class="form-label">Kode Urusan</label>
-        <input type="number" name="kode" class="form-control" value="{{ $urusan->kode }}">
+        <input type="number" name="kode" class="form-control" value="{{ $bidang->kode }}">
     </div>
     <div class="form-group">
         <label class="form-label">Nomenklatur Urusan</label>
-        <textarea name="nama" class="form-control">{{ $urusan->nama }}</textarea>
+        <textarea name="nama" class="form-control">{{ $bidang->nama }}</textarea>
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
@@ -15,7 +25,7 @@
 </form>
 
 <script>
-    $("form[action='{{ route('urusan.update', $urusan->id) }}']").on("submit", function(event) {
+    $("form[action='{{ route('bidang.update', $bidang->id) }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);

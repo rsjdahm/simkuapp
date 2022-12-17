@@ -1,6 +1,6 @@
 <div class="vertical-menu">
     <div data-simplebar class="h-100">
-        <div class="px-3 pt-3">
+        <div class="bg-light px-3 py-3">
             <div class="row">
                 <div class="col-3">
                     <span style="line-height: 36px; font-weight: bold;">Modul:</span>
@@ -15,7 +15,6 @@
                 </div>
             </div>
         </div>
-        <hr class="mb-0" />
         <div id="sidebar-menu">
             <ul class="metismenu list-unstyled" id="sidebar"></ul>
         </div>

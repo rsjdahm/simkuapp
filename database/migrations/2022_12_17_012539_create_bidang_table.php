@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('urusan', function (Blueprint $table) {
+        Schema::create('bidang', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('urusan_id')->nullable();
             $table->unsignedBigInteger('kode')->nullable();
             $table->string('nama')->nullable();
             $table->timestamps();
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('urusan');
+        Schema::dropIfExists('bidang');
     }
 };

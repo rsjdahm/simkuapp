@@ -35,9 +35,9 @@ class MigrationController extends Controller
         if ($request->wantsJson()) {
             return DataTables::of($migration_files)
                 ->addIndexColumn()
-                ->addColumn('action', '@if($batch) <div class="btn-group btn-group-sm"><a data-load="modal" title="Edit Migration" href="{{ route("migration.edit", ["migration" => $migration]) }}" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a></div> @endif')
-                ->addColumn('migrate', '@if($batch && $rollback) <a data-action="delete" href="{{ route("migration.destroy", ["migration" => $migration]) }}" class="btn btn-danger btn-sm btn-rounded"><i class="fas fa-arrow-left"></i> Rollback</a> @endif @if(!$batch) <a data-action="post" href="{{ route("migration.store", ["migration" => $migration_file]) }}" class="btn btn-success btn-sm btn-rounded"><i class="fas fa-arrow-right"></i> Migrate</a> @endif')
-                ->editColumn('tgl', '@if($batch) <span class="badge badge-pill badge-soft-success font-size-10">{{ $tgl }}</span> @else <span class="badge badge-pill badge-soft-warning font-size-10">{{ $tgl }}</span> @endif')
+                ->addColumn('action', '@if($batch) <div class="btn-group btn-group-sm"><a data-load="modal" title="Edit Migration" href="{{ route("migration.edit", ["migration" => $migration]) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a></div> @endif')
+                ->addColumn('migrate', '@if($batch && $rollback) <a data-action="delete" href="{{ route("migration.destroy", ["migration" => $migration]) }}" class="btn btn-danger btn-sm"><i class="fas fa-arrow-left"></i> Rollback</a> @endif @if(!$batch) <a data-action="post" href="{{ route("migration.store", ["migration" => $migration_file]) }}" class="btn btn-success btn-sm"><i class="fas fa-arrow-right"></i> Migrate</a> @endif')
+                ->editColumn('tgl', '@if($batch) <span class="badge badge-success">{{ $tgl }}</span> @else <span class="badge badge-warning">{{ $tgl }}</span> @endif')
                 ->editColumn('migration_file', '{{ substr($migration_file, 18) }}')
                 ->rawColumns(['tgl', 'action', 'migrate'])
                 ->toJson();

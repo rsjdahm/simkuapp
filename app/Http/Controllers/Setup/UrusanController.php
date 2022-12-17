@@ -18,13 +18,14 @@ class UrusanController extends Controller
 
             return DataTables::eloquent($data)
                 ->addIndexColumn()
-                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Nomenklatur Urusan" href="{{ route("urusan.edit", $id) }}" class="dropdown-item"><i class="fas fa-edit"></i> Edit</a><a data-action="delete" href="{{ route("urusan.destroy", $id) }}" class="dropdown-item text-danger"><i class="fas fa-trash"></i> Hapus</a></div></div>')
+                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Nomenklatur Urusan" href="{{ route("urusan.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("urusan.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div></div>')
+                ->addColumn('kode_lengkap', '{{ $kode_lengkap }}')
                 ->toJson();
         }
 
-        $table = $builder->minifiedAjax(route('urusan.index'))
+        $table = $builder->ajax(route('urusan.index'))
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
-            ->addColumn(['data' => 'kode', 'title' => 'Kode Urusan', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'kode_lengkap', 'title' => 'Kode Urusan', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Nomenklatur Urusan'])
             ->parameters([
                 'order' => [

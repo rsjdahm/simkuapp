@@ -1,11 +1,20 @@
-<form method="post" action="{{ route('urusan.store') }}">
+<form method="post" action="{{ route('bidang.store') }}">
     @csrf
     <div class="form-group">
-        <label class="form-label">Kode Urusan</label>
+        <label class="form-label">Urusan</label>
+        <select name="urusan_id" class="form-control">
+            <option value="" disabled selected>Pilih Urusan...</option>
+            @foreach ($urusan as $urusan_item)
+                <option value="{{ $urusan_item->id }}">[{{ $urusan_item->kode }}] {{ $urusan_item->nama }}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group">
+        <label class="form-label">Kode Bidang</label>
         <input type="number" name="kode" class="form-control">
     </div>
     <div class="form-group">
-        <label class="form-label">Nomenklatur Urusan</label>
+        <label class="form-label">Nomenklatur Bidang</label>
         <textarea name="nama" class="form-control"></textarea>
     </div>
     <div class="form-group">
@@ -14,7 +23,9 @@
 </form>
 
 <script>
-    $("form[action='{{ route('urusan.store') }}']").on("submit", function(event) {
+    $("select[name='urusan_id']").val($("select[name='urusan_id_filter']").val()).trigger('change');
+
+    $("form[action='{{ route('bidang.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);

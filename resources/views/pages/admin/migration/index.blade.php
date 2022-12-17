@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
-                <h4 class="font-size-18">Migration</h4>
+                <h4>Migration</h4>
                 <a data-action="reload" class="btn btn-primary btn-sm float-right text-white"><i
                         class="fas fa-sync-alt"></i></a>
                 <ol class="breadcrumb m-0">
@@ -16,12 +16,12 @@
 
     <div class="row">
         <div class="col-12">
-            <div class="card border-danger border">
-                <div class="card-header border-danger bg-transparent pb-2">
+            <div class="card border-danger mb-3 border">
+                <div class="card-header border-danger bg-light">
                     <h5 class="text-danger my-0"><i class="fas fa-exclamation-triangle mr-2"></i>Perhatian
                     </h5>
                 </div>
-                <div class="card-body pt-0">Migration ini berhubungan dengan DATABASE yang dapat berakibat fatal jika
+                <div class="card-body">Migration ini berhubungan dengan DATABASE yang dapat berakibat fatal jika
                     salah mengoperasikan
                     dan menyebabkan data terhapus.
                     <strong>HARAP BERHATI-HATI</strong> dalam mengoperasikan!

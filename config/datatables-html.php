@@ -12,7 +12,7 @@ return [
      */
     'table' => [
         'id'    => 'dataTableBuilder',
-        'class' => 'table table-striped table-bordered table-hover dt-responsive display datatable',
+        'class' => 'table table-striped table-hover dt-responsive display datatable',
         'width' => '100%',
         'cellspacing' => '0',
     ],

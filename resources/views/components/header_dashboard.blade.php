@@ -20,7 +20,7 @@
                     </span>
                 </a>
             </div>
-            <button type="button" class="btn header-item px-3" id="vertical-menu-btn">
+            <button type="button" class="btn header-item d-lg-none px-3" id="vertical-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="navbar-brand-box d-block d-lg-none">
@@ -31,12 +31,6 @@
                     <img src="{{ asset('img/logo-light.svg') }}" alt="" height="36">
                 </a>
             </div>
-            <form class="app-search d-none d-lg-block">
-                <div class="position-relative">
-                    <input type="text" class="form-control" placeholder="Cari sesuatu di sini...">
-                    <span class="fas fa-search"></span>
-                </div>
-            </form>
         </div>
         <div class="d-flex">
             <div class="dropdown d-inline-block">
@@ -55,15 +49,13 @@
                                     class="img-thumbnail rounded-circle">
                             </div>
                             <h5>{{ Auth::user()->nama }}</h5>
-                            <p class="text-muted mb-2">{{ Auth::user()->jabatan }}</p>
-                            <span class="badge badge-pill badge-soft-primary"><i
-                                    class="fas fa-user mr-1 align-middle"></i>
+                            <p class="mb-2">{{ Auth::user()->jabatan }}</p>
+                            <span class="badge badge-success"><i class="fas fa-user mr-1 align-middle"></i>
                                 {{ Auth::user()->role }}</span>
                         </div>
                         <div class="dropdown-divider"></div>
                         @csrf
                         <button type="submit" class="dropdown-item text-danger" href="{{ route('logout') }}">
-                            <i class="fas fa-power-off text-danger mr-1 align-middle"></i>
                             Logout
                         </button>
                     </form>
@@ -73,30 +65,10 @@
     </div>
 </header>
 <script type="text/javascript">
-    // function change_color_sidebar() {
-    //     if (992 <= $(window).width()) {
-    //         $("main").attr("data-sidebar", "dark");
-    //         $("main").removeAttr("data-topbar");
-    //     } else {
-    //         $("main").removeAttr("data-sidebar");
-    //         $("main").attr("data-topbar", "dark");
-    //     }
-    // }
-    // change_color_sidebar();
-    // $(window).on('resize', function() {
-    //     change_color_sidebar();
-    // });
     $("#vertical-menu-btn").on("click", function(event) {
         event.preventDefault();
         $("main").toggleClass("sidebar-enable");
-        // if (992 <= $(window).width()) {
-        //     $("main").toggleClass("vertical-collpsed");
-        // } else {
-        //     $("main").removeClass("vertical-collpsed");
-        // }
     })
-</script>
-<script type="text/javascript">
     $("#logout_form").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);

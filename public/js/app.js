@@ -31,7 +31,7 @@ $.ajaxSetup({
 $(document)
     .ajaxStart(function () {
         NProgress.start();
-        $("form").find("span.invalid-feedback").remove();
+        $("form").find("small.text-danger").remove();
         $("form").find("[name].border-danger").removeClass("border-danger");
     })
     .ajaxComplete(function () {
@@ -68,7 +68,7 @@ $(document)
                         input
                             .addClass("border-danger")
                             .after(
-                                `<span style="display: block !important;" class="invalid-feedback">${messages}</span>`
+                                `<small class="text-danger">${messages}</small>`
                             );
                     } else {
                         const input = $(
@@ -83,7 +83,7 @@ $(document)
                         input
                             .addClass("border-danger")
                             .after(
-                                `<span style="display: block !important;" class="invalid-feedback">${messages}</span>`
+                                `<small class="text-danger">${messages}</small>`
                             );
                     }
                 } else {
@@ -91,7 +91,7 @@ $(document)
                     input
                         .addClass("border-danger")
                         .after(
-                            `<span style="display: block !important;" class="invalid-feedback">${messages}</span>`
+                            `<small class="text-danger">${messages}</small>`
                         );
                 }
             });
@@ -132,3 +132,110 @@ $(document)
             return toastr.error(message);
         }
     });
+
+/// script global app and page loader
+function load(parent, url, callback) {
+    $.ajax({
+        url,
+        success: function (response) {
+            $(parent).html(response);
+            $(parent).attr("data-href", url);
+            // $('main select, .modal-body select').not('.dataTables_length select').css('width', '100%').select2();
+            $("main select, .modal-body select")
+                .css("width", "100%")
+                .select2({
+                    templateResult: function (data, container) {
+                        // We only really care if there is an element to pull classes from
+                        if (!data.element) {
+                            return data.text;
+                        }
+
+                        const $element = $(data.element);
+
+                        const $wrapper = $("<span></span>");
+                        // $wrapper.addClass($element[0].className);
+                        $wrapper.text(data.text);
+
+                        $(container)
+                            .addClass($element[0].className)
+                            .attr("style", $($element[0]).attr("style"));
+
+                        return $wrapper;
+                    },
+                });
+            if (callback) {
+                callback();
+            }
+        },
+        error: function (xhr) {
+            if (xhr.status == 404) {
+                $(parent).html(
+                    '<div class="text-center py-4"><i style="font-size: 52pt" class="fas fa-exclamation-triangle text-danger mb-3"></i><br/><h5 class="text-center"><strong>404</strong> Not Found</h5></div>'
+                );
+            } else if (xhr.status == 500) {
+                $(parent).html(
+                    '<div class="text-center py-4"><i style="font-size: 52pt" class="fas fa-exclamation-circle text-danger mb-3"></i><br/><h5 class="text-center"><strong>500</strong> Internal Server Error</h5></div>'
+                );
+            }
+        },
+    });
+}
+/// global loader modal
+function modal(title, url, size) {
+    $(".modal.fade").not(".modal.fade.show").remove();
+    $("body").append(
+        `<div data-href="${url}" class="modal fade" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered ${
+                    size ? `modal-${size}` : ""
+                }" role="document" style="max-width: 700px;">
+                    <div style="resize: both; overflow: hidden; min-width: 100px; min-height: 300px;" class="modal-content border-0">
+                        <div class="modal-header bg-primary">
+                            <h5 class="modal-title text-white font-weight-bold">${title}</h5>
+                            <div>
+                                <button type="button" class="btn btn-sm btn-primary" onclick="return load('div.modal[data-href=&quot;${url}&quot;] .modal-body', '${url}');">
+                                    <span aria-hidden="true">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </span>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">
+                                        <i class="fas fa-times"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div style="overflow: auto;" class="modal-body"></div>
+                    </div>
+                </div>
+            </div>`
+    );
+    $('div.modal[data-href="' + url + '"]').modal("toggle");
+    $('div.modal[data-href="' + url + '"]').draggable({
+        cursor: "move",
+        handle: ".modal-header",
+    });
+    load('div.modal[data-href="' + url + '"] .modal-body', url);
+}
+
+$(document).on("select2:open", () => {
+    document.querySelector(".select2-search__field").focus();
+});
+
+/// call initial layout berdasarkan status guest/loggedin
+$(document).ready(function () {
+    load("#app", $('meta[name="init-url"]').attr("content"));
+});
+
+/// hook for anchor
+$("body").on("click", "a[data-load]", function (event) {
+    const a = $(this);
+    event.preventDefault();
+    if (!a.data("menu")) {
+        return load(a.data("load"), a.attr("href"));
+    }
+});
+$("body").on("click", "a[data-load='modal']", function (event) {
+    const a = $(this);
+    event.preventDefault();
+    return modal(a.attr("title"), a.attr("href"), a.data("size"));
+});

@@ -25,10 +25,10 @@ api.search(this.value).draw();
 });
 });
 });
-$.extend(true, $.fn.dataTable.defaults, {
-{{-- scrollY: '55vh',
+{{-- $.extend(true, $.fn.dataTable.defaults, {
+scrollY: '55vh',
 scrollX: true,
-scrollCollapse: true --}}
+scrollCollapse: true
 language: {
 processing: "<i class='fas fa-spinner fa-spin'></i> Sedang memproses...",
 lengthMenu: "Tampilkan _MENU_ entri",
@@ -43,4 +43,12 @@ previous: "<i class='fas fa-arrow-left'></i>",
 next: "<i class='fas fa-arrow-right'></i>"
 }
 },
+});  --}}
+
+{{-- $("#%1$s").addClass('bg-white'); --}}
+$("#%1$s thead").addClass('bg-primary text-white');
+$("#%1$s thead th").addClass('align-middle');
+
+$("[data-filter-datatable='#%1$s']").change(function() {
+$("#%1$s").DataTable().ajax.reload(null, false);
 });
