@@ -51,7 +51,7 @@
             </a>
         </li>
         <li>
-            <a data-load="#page" data-menu="item" href="{{ route('dashboard.show') }}">
+            <a data-load="#page" data-menu="item" href="{{ route('rek-objek.index') }}">
                 Rek. Obj
             </a>
         </li>

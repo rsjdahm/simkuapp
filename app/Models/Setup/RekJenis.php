@@ -31,8 +31,8 @@ class RekJenis extends Model
         return $this->rek_kelompok->kode_lengkap . '.' . str_pad($this->kode, 1, '0', STR_PAD_LEFT);
     }
 
-    // public function rek_objek()
-    // {
-    //     return $this->hasMany(RekObjek::class);
-    // }
+    public function rek_objek()
+    {
+        return $this->hasMany(RekObjek::class);
+    }
 }
