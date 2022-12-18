@@ -61,7 +61,7 @@
             </a>
         </li>
         <li>
-            <a data-load="#page" data-menu="item" href="{{ route('dashboard.show') }}">
+            <a data-load="#page" data-menu="item" href="{{ route('rek-sub-rincian-objek.index') }}">
                 Rek. Sub Rincian Obj
             </a>
         </li>

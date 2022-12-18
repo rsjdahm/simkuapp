@@ -107,12 +107,14 @@ class RekRincianObjekController extends Controller
         $rek_akun = RekAkun::all();
         $rek_kelompok = RekKelompok::all();
         $rek_jenis = RekJenis::all();
+        $rek_objek = RekObjek::all();
 
         return view('pages.setup.rek-rincian-objek.edit', compact(
             'rek_rincian_objek',
             'rek_akun',
             'rek_kelompok',
-            'rek_jenis'
+            'rek_jenis',
+            'rek_objek'
         ));
     }
 
