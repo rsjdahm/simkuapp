@@ -10,7 +10,7 @@
                         {{-- <option disabled selected>-- Pilih Modul --</option> --}}
                         <option value="administrator">Administrator</option>
                         <option value="setup" selected>Setup</option>
-                        {{-- <option value="penatausahaan">Penatausahaan</option> --}}
+                        {{-- <option value="penganggaran">Penganggaran</option> --}}
                     </select>
                 </div>
             </div>

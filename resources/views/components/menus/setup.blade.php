@@ -32,6 +32,23 @@
 </li>
 <li>
     <a href="javascript: void(0);" class="has-arrow">
+        <span>Unit Kerja</span>
+    </a>
+    <ul class="sub-menu">
+        <li>
+            <a data-load="#page" data-menu="item" href="{{ route('unit-kerja.index') }}">
+                Unit Kerja
+            </a>
+        </li>
+        <li>
+            <a data-load="#page" data-menu="item" href="{{ route('sub-unit-kerja.index') }}">
+                Sub Unit Kerja
+            </a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="javascript: void(0);" class="has-arrow">
         <span>Rekening</span>
     </a>
     <ul class="sub-menu">

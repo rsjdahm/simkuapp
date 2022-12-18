@@ -12,11 +12,11 @@
         </select>
     </div>
     <div class="form-group">
-        <label class="form-label">Kode Urusan</label>
+        <label class="form-label">Kode Bidang</label>
         <input type="number" name="kode" class="form-control" value="{{ $bidang->kode }}">
     </div>
     <div class="form-group">
-        <label class="form-label">Nomenklatur Urusan</label>
+        <label class="form-label">Nomenklatur Bidang</label>
         <textarea name="nama" class="form-control">{{ $bidang->nama }}</textarea>
     </div>
     <div class="form-group">

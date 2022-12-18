@@ -233,6 +233,11 @@ function modalPdf(title, url) {
                         <div class="modal-header bg-primary">
                             <h5 class="modal-title text-white font-weight-bold">${title}</h5>
                             <div>
+                                <a href="${url}" title="Download PDF" target="_blank" class="btn btn-sm btn-primary">
+                                    <span aria-hidden="true">
+                                        <i class="fas fa-download"></i>
+                                    </span>
+                                </a>
                                 <button type="button" class="btn btn-sm btn-primary" onclick="return loadPdf('div.modal[data-href=&quot;${url}&quot;] .modal-body', '${url}');">
                                     <span aria-hidden="true">
                                         <i class="fas fa-sync-alt"></i>

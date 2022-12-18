@@ -1,39 +1,44 @@
-<style>
-    @page {
-        margin: 1.25cm 1.55cm;
-        font-family: 'Arial';
-        font-size: 9pt;
-        font-weight: normal;
-        size: 21cm 33cm;
-    }
+<html>
 
-    table {
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-        border-collapse: collapse;
-    }
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+        @page {
+            margin: 1.25cm 1.55cm;
+            font-family: 'Arial';
+            font-size: 9pt;
+            font-weight: normal;
+            size: 21cm 33cm;
+        }
 
-    table thead {
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-    }
+        table {
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            border-collapse: collapse;
+        }
 
-    table td {
-        border-left: 1px solid #000;
-        padding: 1px 5px;
-        vertical-align: top;
-    }
+        table thead {
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+        }
 
-    table th {
-        border-left: 1px solid #000;
-        padding: 5px 5px;
-    }
+        table td {
+            border-left: 1px solid #000;
+            padding: 1px 5px;
+            vertical-align: top;
+        }
 
-    table td:first-child,
-    table th:first-child {
-        border-left: none;
-    }
-</style>
+        table th {
+            border-left: 1px solid #000;
+            padding: 5px 5px;
+        }
+
+        table td:first-child,
+        table th:first-child {
+            border-left: none;
+        }
+    </style>
+</head>
 
 <body style="border: 1px solid black; padding: 5px 0 5px 0;">
     <div style="text-align: center;">
@@ -98,3 +103,5 @@
         </table>
     </div>
 </body>
+
+</html>

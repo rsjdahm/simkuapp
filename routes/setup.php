@@ -10,6 +10,8 @@ use App\Http\Controllers\Setup\RekObjekController;
 use App\Http\Controllers\Setup\RekRincianObjekController;
 use App\Http\Controllers\Setup\RekSubRincianObjekController;
 use App\Http\Controllers\Setup\SubKegiatanController;
+use App\Http\Controllers\Setup\SubUnitKerjaController;
+use App\Http\Controllers\Setup\UnitKerjaController;
 use App\Http\Controllers\Setup\UrusanController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +21,11 @@ Route::prefix('/setup/nomenklatur')->group(function () {
     Route::resource('/program', ProgramController::class);
     Route::resource('/kegiatan', KegiatanController::class);
     Route::resource('/sub-kegiatan', SubKegiatanController::class);
+});
+
+Route::prefix('/setup/unit-kerja')->group(function () {
+    Route::resource('/unit-kerja', UnitKerjaController::class);
+    Route::resource('/sub-unit-kerja', SubUnitKerjaController::class);
 });
 
 Route::prefix('/setup/rekening')->group(function () {

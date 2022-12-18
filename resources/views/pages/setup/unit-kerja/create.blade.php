@@ -1,17 +1,17 @@
-<form method="post" action="{{ route('program.update', $program->id) }}">
+<form method="post" action="{{ route('unit-kerja.store') }}">
     @csrf
-    @method('put')
     <div class="form-group">
-        <label class="form-label">Program</label>
-        <select name="urusan_id" class="form-control">
+        <label class="form-label">Bidang</label>
+        <select name="bidang_id" class="form-control">
             <option value="" disabled selected>Pilih Bidang...</option>
             @foreach ($urusan as $urusan_item)
                 <option class="bg-light text-primary font-weight-bold" disabled>[{{ $urusan_item->kode }}]
                     {{ $urusan_item->nama }}</option>
                 @foreach ($bidang as $bidang_item)
                     @if ($bidang_item->urusan_id == $urusan_item->id)
-                        <option @selected($urusan_item->id == $program->bidang_id) style="padding-left: 1.5rem;" value="{{ $bidang_item->id }}">
-                            [{{ $bidang_item->kode_lengkap }}] {{ $bidang_item->nama }}
+                        <option style="padding-left: 1.5rem;" value="{{ $bidang_item->id }}">
+                            [{{ $bidang_item->kode_lengkap }}]
+                            {{ $bidang_item->nama }}
                         </option>
                     @endif
                 @endforeach
@@ -19,20 +19,22 @@
         </select>
     </div>
     <div class="form-group">
-        <label class="form-label">Kode Program</label>
-        <input type="number" name="kode" class="form-control" value="{{ $program->kode }}">
+        <label class="form-label">Kode Unit kerja</label>
+        <input type="number" name="kode" class="form-control">
     </div>
     <div class="form-group">
-        <label class="form-label">Nomenklatur Program</label>
-        <textarea name="nama" class="form-control">{{ $program->nama }}</textarea>
+        <label class="form-label">Unit kerja</label>
+        <textarea name="nama" class="form-control"></textarea>
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
+        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Simpan</button>
     </div>
 </form>
 
 <script>
-    $("form[action='{{ route('program.update', $program->id) }}']").on("submit", function(event) {
+    $("select[name='bidang_id']").val($("select[name='bidang_id_filter']").val()).trigger('change');
+
+    $("form[action='{{ route('unit-kerja.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);

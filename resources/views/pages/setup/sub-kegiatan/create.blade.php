@@ -35,11 +35,11 @@
         </select>
     </div>
     <div class="form-group">
-        <label class="form-label">Kode Kegiatan</label>
+        <label class="form-label">Kode Sub Kegiatan</label>
         <input type="number" name="kode" class="form-control">
     </div>
     <div class="form-group">
-        <label class="form-label">Nomenklatur Kegiatan</label>
+        <label class="form-label">Nomenklatur Sub Kegiatan</label>
         <textarea name="nama" class="form-control"></textarea>
     </div>
     <div class="form-group">
