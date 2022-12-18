@@ -10,9 +10,11 @@ use App\Models\Setup\RekJenis;
 use App\Models\Setup\RekKelompok;
 use App\Models\Setup\RekObjek;
 use App\Models\Setup\RekRincianObjek;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Yajra\DataTables\Html\Builder;
+
 
 class RekSubRincianObjekController extends Controller
 {
@@ -143,5 +145,22 @@ class RekSubRincianObjekController extends Controller
         $rek_sub_rincian_objek->delete();
 
         return response()->json(['message' => 'Data berhasil dihapus.']);
+    }
+
+    public function pdfDaftar()
+    {
+        $rek_akun = RekAkun::with([
+            'rek_kelompok',
+            'rek_kelompok.rek_jenis',
+            'rek_kelompok.rek_jenis.rek_objek',
+            'rek_kelompok.rek_jenis.rek_objek.rek_rincian_objek',
+            'rek_kelompok.rek_jenis.rek_objek.rek_rincian_objek.rek_sub_rincian_objek',
+        ])
+            ->get();
+
+        $pdf = Pdf::loadView('pages.setup.rek-sub-rincian-objek.pdf-daftar', compact(
+            'rek_akun',
+        ));
+        return $pdf->stream('Daftar Rekening Standar.pdf');
     }
 }

@@ -18,6 +18,9 @@
             <a data-load="modal" title="Tambah Rekening Sub Rincian Objek"
                 href="{{ route('rek-sub-rincian-objek.create') }}" class="btn btn-success mb-3"><i
                     class="fas fa-plus mr-2"></i> Tambah</a>
+            <a data-load="modal-pdf" title="Cetak Daftar Rekening Standar"
+                href="{{ route('rek-sub-rincian-objek.pdf-daftar') }}" class="btn btn-secondary mb-3"><i
+                    class="fas fa-print mr-2"></i> Cetak Daftar</a>
         </div>
     </div>
     <div class="row">

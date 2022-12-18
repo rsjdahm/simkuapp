@@ -23,9 +23,19 @@ Route::prefix('/setup/nomenklatur')->group(function () {
 
 Route::prefix('/setup/rekening')->group(function () {
     Route::resource('/rek-akun', RekAkunController::class);
+
     Route::resource('/rek-kelompok', RekKelompokController::class);
+
     Route::resource('/rek-jenis', RekJenisController::class);
+    Route::get('/print/rek-jenis', [RekJenisController::class, 'pdfDaftar'])->name('rek-jenis.pdf-daftar');
+
     Route::resource('/rek-objek', RekObjekController::class);
+    Route::get('/print/rek-objek', [RekObjekController::class, 'pdfDaftar'])->name('rek-objek.pdf-daftar');
+
+
     Route::resource('/rek-rincian-objek', RekRincianObjekController::class);
+    Route::get('/print/rek-rincian-objek', [RekRincianObjekController::class, 'pdfDaftar'])->name('rek-rincian-objek.pdf-daftar');
+
     Route::resource('/rek-sub-rincian-objek', RekSubRincianObjekController::class);
+    Route::get('/print/rek-sub-rincian-objek', [RekSubRincianObjekController::class, 'pdfDaftar'])->name('rek-sub-rincian-objek.pdf-daftar');
 });

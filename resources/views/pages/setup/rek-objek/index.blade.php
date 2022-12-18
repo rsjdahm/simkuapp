@@ -17,6 +17,8 @@
         <div class="col-12">
             <a data-load="modal" title="Tambah Rekening Objek" href="{{ route('rek-objek.create') }}"
                 class="btn btn-success mb-3"><i class="fas fa-plus mr-2"></i> Tambah</a>
+            <a data-load="modal-pdf" title="Cetak Daftar Rekening Standar" href="{{ route('rek-objek.pdf-daftar') }}"
+                class="btn btn-secondary mb-3"><i class="fas fa-print mr-2"></i> Cetak Daftar</a>
         </div>
     </div>
     <div class="row">

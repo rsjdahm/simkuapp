@@ -180,6 +180,14 @@ function load(parent, url, callback) {
         },
     });
 }
+function loadPdf(parent, url) {
+    $(parent)
+        .html(`<object data="${url}" type="application/pdf" width="100%" height="100%">
+                <p>Browser tidak support menampilkan PDF.
+                    <a href="${url}">Klik Di Sini untuk Download</a>
+                </p>
+            </object>`);
+}
 /// global loader modal
 function modal(title, url, size) {
     $(".modal.fade").not(".modal.fade.show").remove();
@@ -216,6 +224,39 @@ function modal(title, url, size) {
     });
     load('div.modal[data-href="' + url + '"] .modal-body', url);
 }
+function modalPdf(title, url) {
+    $(".modal.fade").not(".modal.fade.show").remove();
+    $("body").append(
+        `<div data-href="${url}" class="modal fade" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document" style="min-width: calc(100vw - 20rem);">
+                    <div class="modal-content border-0" style="height: 90vh;">
+                        <div class="modal-header bg-primary">
+                            <h5 class="modal-title text-white font-weight-bold">${title}</h5>
+                            <div>
+                                <button type="button" class="btn btn-sm btn-primary" onclick="return loadPdf('div.modal[data-href=&quot;${url}&quot;] .modal-body', '${url}');">
+                                    <span aria-hidden="true">
+                                        <i class="fas fa-sync-alt"></i>
+                                    </span>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">
+                                        <i class="fas fa-times"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="modal-body p-0"></div>
+                    </div>
+                </div>
+            </div>`
+    );
+    $('div.modal[data-href="' + url + '"]').modal("toggle");
+    $('div.modal[data-href="' + url + '"]').draggable({
+        cursor: "move",
+        handle: ".modal-header",
+    });
+    loadPdf('div.modal[data-href="' + url + '"] .modal-body', url);
+}
 
 $(document).on("select2:open", () => {
     document.querySelector(".select2-search__field").focus();
@@ -238,4 +279,9 @@ $("body").on("click", "a[data-load='modal']", function (event) {
     const a = $(this);
     event.preventDefault();
     return modal(a.attr("title"), a.attr("href"), a.data("size"));
+});
+$("body").on("click", "a[data-load='modal-pdf']", function (event) {
+    const a = $(this);
+    event.preventDefault();
+    return modalPdf(a.attr("title"), a.attr("href"));
 });

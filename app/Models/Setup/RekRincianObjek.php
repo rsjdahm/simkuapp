@@ -31,8 +31,8 @@ class RekRincianObjek extends Model
         return $this->rek_objek->kode_lengkap . '.' . str_pad($this->kode, 2, '0', STR_PAD_LEFT);
     }
 
-    // public function rek_sub_rincian_objek()
-    // {
-    //     return $this->hasMany(RekSubRincianObjek::class);
-    // }
+    public function rek_sub_rincian_objek()
+    {
+        return $this->hasMany(RekSubRincianObjek::class);
+    }
 }

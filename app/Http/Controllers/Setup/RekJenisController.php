@@ -7,6 +7,7 @@ use App\Http\Requests\Setup\RekJenisRequest;
 use App\Models\Setup\RekJenis;
 use App\Models\Setup\RekAkun;
 use App\Models\Setup\RekKelompok;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Yajra\DataTables\Html\Builder;
@@ -107,5 +108,19 @@ class RekJenisController extends Controller
         $rek_jenis->delete();
 
         return response()->json(['message' => 'Data berhasil dihapus.']);
+    }
+
+    public function pdfDaftar()
+    {
+        $rek_akun = RekAkun::with([
+            'rek_kelompok',
+            'rek_kelompok.rek_jenis',
+        ])
+            ->get();
+
+        $pdf = Pdf::loadView('pages.setup.rek-jenis.pdf-daftar', compact(
+            'rek_akun',
+        ));
+        return $pdf->stream('Daftar Rekening Standar.pdf');
     }
 }
