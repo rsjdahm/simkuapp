@@ -1,9 +1,9 @@
-<form method="post" action="{{ route('rek-objek.store') }}">
+<form method="post" action="{{ route('rek-rincian-objek.store') }}">
     @csrf
     <div class="form-group">
-        <label class="form-label">Rekening Jenis</label>
-        <select name="rek_jenis_id" class="form-control">
-            <option value="" disabled selected>Pilih Rekening Jenis...</option>
+        <label class="form-label">Rekening Objek</label>
+        <select name="rek_objek_id" class="form-control">
+            <option value="" disabled selected>Pilih Rekening Objek...</option>
             @foreach ($rek_akun as $rek_akun_item)
                 <option class="bg-light text-primary font-weight-bold" disabled>[{{ $rek_akun_item->kode_lengkap }}]
                     {{ $rek_akun_item->nama }}</option>
@@ -14,10 +14,18 @@
                             {{ $rek_kelompok_item->nama }}</option>
                         @foreach ($rek_jenis as $rek_jenis_item)
                             @if ($rek_jenis_item->rek_kelompok_id == $rek_kelompok_item->id)
-                                <option style="padding-left: 2rem;" value="{{ $rek_jenis_item->id }}">
+                                <option class="bg-light text-dark" style="padding-left: 2rem;" disabled>
                                     [{{ $rek_jenis_item->kode_lengkap }}]
                                     {{ $rek_jenis_item->nama }}
                                 </option>
+                                @foreach ($rek_objek as $rek_objek_item)
+                                    @if ($rek_objek_item->rek_jenis_id == $rek_jenis_item->id)
+                                        <option style="padding-left: 2.5rem;" value="{{ $rek_objek_item->id }}">
+                                            [{{ $rek_objek_item->kode_lengkap }}]
+                                            {{ $rek_objek_item->nama }}
+                                        </option>
+                                    @endif
+                                @endforeach
                             @endif
                         @endforeach
                     @endif
@@ -26,11 +34,11 @@
         </select>
     </div>
     <div class="form-group">
-        <label class="form-label">Kode Rekening Objek</label>
+        <label class="form-label">Kode Rekening Rincian Objek</label>
         <input type="number" name="kode" class="form-control">
     </div>
     <div class="form-group">
-        <label class="form-label">Uraian Rekening Objek</label>
+        <label class="form-label">Uraian Rekening Rincian Objek</label>
         <textarea name="nama" class="form-control"></textarea>
     </div>
     <div class="form-group">
@@ -39,9 +47,9 @@
 </form>
 
 <script>
-    $("select[name='rek_jenis_id']").val($("select[name='rek_jenis_id_filter']").val()).trigger('change');
+    $("select[name='rek_objek_id']").val($("select[name='rek_objek_id_filter']").val()).trigger('change');
 
-    $("form[action='{{ route('rek-objek.store') }}']").on("submit", function(event) {
+    $("form[action='{{ route('rek-rincian-objek.store') }}']").on("submit", function(event) {
         event.preventDefault();
         const form = $(this);
         const data = new FormData($(this)[0]);

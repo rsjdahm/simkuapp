@@ -2,9 +2,9 @@
     @csrf
     @method('put')
     <div class="form-group">
-        <label class="form-label">Rekening Objek</label>
+        <label class="form-label">Rekening Jenis</label>
         <select name="rek_jenis_id" class="form-control">
-            <option value="" disabled selected>Pilih Rekening Objek...</option>
+            <option value="" disabled selected>Pilih Rekening Jenis...</option>
             @foreach ($rek_akun as $rek_akun_item)
                 <option class="bg-light text-primary font-weight-bold" disabled>[{{ $rek_akun_item->kode_lengkap }}]
                     {{ $rek_akun_item->nama }}</option>

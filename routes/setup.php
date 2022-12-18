@@ -7,6 +7,7 @@ use App\Http\Controllers\Setup\RekAkunController;
 use App\Http\Controllers\Setup\RekJenisController;
 use App\Http\Controllers\Setup\RekKelompokController;
 use App\Http\Controllers\Setup\RekObjekController;
+use App\Http\Controllers\Setup\RekRincianObjekController;
 use App\Http\Controllers\Setup\SubKegiatanController;
 use App\Http\Controllers\Setup\UrusanController;
 use Illuminate\Support\Facades\Route;
@@ -24,4 +25,5 @@ Route::prefix('/setup/rekening')->group(function () {
     Route::resource('/rek-kelompok', RekKelompokController::class);
     Route::resource('/rek-jenis', RekJenisController::class);
     Route::resource('/rek-objek', RekObjekController::class);
+    Route::resource('/rek-rincian-objek', RekRincianObjekController::class);
 });
