@@ -65,12 +65,13 @@ class RekJenisController extends Controller
 
     public function create()
     {
-        $rek_akun = RekAkun::all();
-        $rek_kelompok = RekKelompok::all();
+        $rek_akun = RekAkun::with([
+            'rek_kelompok'
+        ])
+            ->get();
 
         return view('pages.setup.rek-jenis.create', compact(
             'rek_akun',
-            'rek_kelompok'
         ));
     }
 
@@ -84,13 +85,14 @@ class RekJenisController extends Controller
     public function edit(RekJenis $rek_jeni)
     {
         $rek_jenis = $rek_jeni;
-        $rek_akun = RekAkun::all();
-        $rek_kelompok = RekKelompok::all();
+        $rek_akun = RekAkun::with([
+            'rek_kelompok'
+        ])
+            ->get();
 
         return view('pages.setup.rek-jenis.edit', compact(
             'rek_jenis',
             'rek_akun',
-            'rek_kelompok'
         ));
     }
 

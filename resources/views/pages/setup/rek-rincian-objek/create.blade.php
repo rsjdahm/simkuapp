@@ -4,31 +4,25 @@
         <label class="form-label">Rekening Objek</label>
         <select name="rek_objek_id" class="form-control">
             <option value="" disabled selected>Pilih Rekening Objek...</option>
-            @foreach ($rek_akun as $rek_akun_item)
+            @foreach ($rek_akun->sortBy('kode_lengkap') as $rek_akun_item)
                 <option class="bg-light text-primary font-weight-bold" disabled>[{{ $rek_akun_item->kode_lengkap }}]
                     {{ $rek_akun_item->nama }}</option>
-                @foreach ($rek_kelompok as $rek_kelompok_item)
-                    @if ($rek_kelompok_item->rek_akun_id == $rek_akun_item->id)
-                        <option class="bg-light text-dark font-weight-bold" style="padding-left: 1.5rem;" disabled>
-                            [{{ $rek_kelompok_item->kode_lengkap }}]
-                            {{ $rek_kelompok_item->nama }}</option>
-                        @foreach ($rek_jenis as $rek_jenis_item)
-                            @if ($rek_jenis_item->rek_kelompok_id == $rek_kelompok_item->id)
-                                <option class="bg-light text-dark" style="padding-left: 2rem;" disabled>
-                                    [{{ $rek_jenis_item->kode_lengkap }}]
-                                    {{ $rek_jenis_item->nama }}
-                                </option>
-                                @foreach ($rek_objek as $rek_objek_item)
-                                    @if ($rek_objek_item->rek_jenis_id == $rek_jenis_item->id)
-                                        <option style="padding-left: 2.5rem;" value="{{ $rek_objek_item->id }}">
-                                            [{{ $rek_objek_item->kode_lengkap }}]
-                                            {{ $rek_objek_item->nama }}
-                                        </option>
-                                    @endif
-                                @endforeach
-                            @endif
+                @foreach ($rek_akun_item->rek_kelompok->sortBy('kode_lengkap') as $rek_kelompok_item)
+                    <option class="bg-light text-dark font-weight-bold" style="padding-left: 1.5rem;" disabled>
+                        [{{ $rek_kelompok_item->kode_lengkap }}]
+                        {{ $rek_kelompok_item->nama }}</option>
+                    @foreach ($rek_kelompok_item->rek_jenis->sortBy('kode_lengkap') as $rek_jenis_item)
+                        <option class="bg-light text-dark" style="padding-left: 2rem;" disabled>
+                            [{{ $rek_jenis_item->kode_lengkap }}]
+                            {{ $rek_jenis_item->nama }}
+                        </option>
+                        @foreach ($rek_jenis_item->rek_objek->sortBy('kode_lengkap') as $rek_objek_item)
+                            <option style="padding-left: 2.5rem;" value="{{ $rek_objek_item->id }}">
+                                [{{ $rek_objek_item->kode_lengkap }}]
+                                {{ $rek_objek_item->nama }}
+                            </option>
                         @endforeach
-                    @endif
+                    @endforeach
                 @endforeach
             @endforeach
         </select>

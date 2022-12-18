@@ -83,16 +83,16 @@ class RekRincianObjekController extends Controller
 
     public function create()
     {
-        $rek_akun = RekAkun::all();
-        $rek_kelompok = RekKelompok::all();
-        $rek_jenis = RekJenis::all();
-        $rek_objek = RekObjek::all();
+        $rek_akun = RekAkun::with([
+            'rek_kelompok',
+            'rek_kelompok.rek_jenis',
+            'rek_kelompok.rek_jenis.rek_objek',
+        ])
+            ->get();
+
 
         return view('pages.setup.rek-rincian-objek.create', compact(
             'rek_akun',
-            'rek_kelompok',
-            'rek_jenis',
-            'rek_objek'
         ));
     }
 
@@ -105,17 +105,16 @@ class RekRincianObjekController extends Controller
 
     public function edit(RekRincianObjek $rek_rincian_objek)
     {
-        $rek_akun = RekAkun::all();
-        $rek_kelompok = RekKelompok::all();
-        $rek_jenis = RekJenis::all();
-        $rek_objek = RekObjek::all();
+        $rek_akun = RekAkun::with([
+            'rek_kelompok',
+            'rek_kelompok.rek_jenis',
+            'rek_kelompok.rek_jenis.rek_objek',
+        ])
+            ->get();
 
         return view('pages.setup.rek-rincian-objek.edit', compact(
             'rek_rincian_objek',
             'rek_akun',
-            'rek_kelompok',
-            'rek_jenis',
-            'rek_objek'
         ));
     }
 

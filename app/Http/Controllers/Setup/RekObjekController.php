@@ -74,14 +74,14 @@ class RekObjekController extends Controller
 
     public function create()
     {
-        $rek_akun = RekAkun::all();
-        $rek_kelompok = RekKelompok::all();
-        $rek_jenis = RekJenis::all();
+        $rek_akun = RekAkun::with([
+            'rek_kelompok',
+            'rek_kelompok.rek_jenis',
+        ])
+            ->get();
 
         return view('pages.setup.rek-objek.create', compact(
             'rek_akun',
-            'rek_kelompok',
-            'rek_jenis'
         ));
     }
 
@@ -94,15 +94,15 @@ class RekObjekController extends Controller
 
     public function edit(RekObjek $rek_objek)
     {
-        $rek_akun = RekAkun::all();
-        $rek_kelompok = RekKelompok::all();
-        $rek_jenis = RekJenis::all();
+        $rek_akun = RekAkun::with([
+            'rek_kelompok',
+            'rek_kelompok.rek_jenis',
+        ])
+            ->get();
 
         return view('pages.setup.rek-objek.edit', compact(
             'rek_objek',
             'rek_akun',
-            'rek_kelompok',
-            'rek_jenis'
         ));
     }
 

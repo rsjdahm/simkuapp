@@ -4,16 +4,14 @@
         <label class="form-label">Rekening Kelompok</label>
         <select name="rek_kelompok_id" class="form-control">
             <option value="" disabled selected>Pilih Rekening Kelompok...</option>
-            @foreach ($rek_akun as $rek_akun_item)
+            @foreach ($rek_akun->sortBy('kode_lengkap') as $rek_akun_item)
                 <option class="bg-light text-primary font-weight-bold" disabled>[{{ $rek_akun_item->kode }}]
                     {{ $rek_akun_item->nama }}</option>
-                @foreach ($rek_kelompok as $rek_kelompok_item)
-                    @if ($rek_kelompok_item->rek_akun_id == $rek_akun_item->id)
-                        <option style="padding-left: 1.5rem;" value="{{ $rek_kelompok_item->id }}">
-                            [{{ $rek_kelompok_item->kode_lengkap }}]
-                            {{ $rek_kelompok_item->nama }}
-                        </option>
-                    @endif
+                @foreach ($rek_akun_item->rek_kelompok->sortBy('kode_lengkap') as $rek_kelompok_item)
+                    <option style="padding-left: 1.5rem;" value="{{ $rek_kelompok_item->id }}">
+                        [{{ $rek_kelompok_item->kode_lengkap }}]
+                        {{ $rek_kelompok_item->nama }}
+                    </option>
                 @endforeach
             @endforeach
         </select>

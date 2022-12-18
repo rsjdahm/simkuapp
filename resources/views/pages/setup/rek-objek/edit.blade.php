@@ -5,24 +5,20 @@
         <label class="form-label">Rekening Jenis</label>
         <select name="rek_jenis_id" class="form-control">
             <option value="" disabled selected>Pilih Rekening Jenis...</option>
-            @foreach ($rek_akun as $rek_akun_item)
+            @foreach ($rek_akun->sortBy('kode_lengkap') as $rek_akun_item)
                 <option class="bg-light text-primary font-weight-bold" disabled>[{{ $rek_akun_item->kode_lengkap }}]
                     {{ $rek_akun_item->nama }}</option>
-                @foreach ($rek_kelompok as $rek_kelompok_item)
-                    @if ($rek_kelompok_item->rek_akun_id == $rek_akun_item->id)
-                        <option class="bg-light text-dark font-weight-bold" style="padding-left: 1.5rem;" disabled>
-                            [{{ $rek_kelompok_item->kode_lengkap }}]
-                            {{ $rek_kelompok_item->nama }}</option>
-                        @foreach ($rek_jenis as $rek_jenis_item)
-                            @if ($rek_jenis_item->rek_kelompok_id == $rek_kelompok_item->id)
-                                <option @selected($rek_jenis_item->id == $rek_objek->rek_jenis_id) style="padding-left: 2rem;"
-                                    value="{{ $rek_jenis_item->id }}">
-                                    [{{ $rek_jenis_item->kode_lengkap }}]
-                                    {{ $rek_jenis_item->nama }}
-                                </option>
-                            @endif
-                        @endforeach
-                    @endif
+                @foreach ($rek_akun_item->rek_kelompok->sortBy('kode_lengkap') as $rek_kelompok_item)
+                    <option class="bg-light text-dark font-weight-bold" style="padding-left: 1.5rem;" disabled>
+                        [{{ $rek_kelompok_item->kode_lengkap }}]
+                        {{ $rek_kelompok_item->nama }}</option>
+                    @foreach ($rek_kelompok_item->rek_jenis->sortBy('kode_lengkap') as $rek_jenis_item)
+                        <option @selected($rek_jenis_item->id == $rek_objek->rek_jenis_id) style="padding-left: 2rem;"
+                            value="{{ $rek_jenis_item->id }}">
+                            [{{ $rek_jenis_item->kode_lengkap }}]
+                            {{ $rek_jenis_item->nama }}
+                        </option>
+                    @endforeach
                 @endforeach
             @endforeach
         </select>
