@@ -35,7 +35,8 @@
                                             data-filter-datatable="#{{ $rand = Str::random(10) }}">
                                             <option value="" selected>Semua Rekening Akun</option>
                                             @foreach ($rek_akun as $rek_akun_item)
-                                                <option value="{{ $rek_akun_item->id }}">[{{ $rek_akun_item->kode }}]
+                                                <option value="{{ $rek_akun_item->id }}">
+                                                    [{{ $rek_akun_item->kode_lengkap }}]
                                                     {{ $rek_akun_item->nama }}
                                                 </option>
                                             @endforeach

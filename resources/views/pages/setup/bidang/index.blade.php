@@ -35,7 +35,8 @@
                                             data-filter-datatable="#{{ $rand = Str::random(10) }}">
                                             <option value="" selected>Semua Urusan</option>
                                             @foreach ($urusan as $urusan_item)
-                                                <option value="{{ $urusan_item->id }}">[{{ $urusan_item->kode }}]
+                                                <option value="{{ $urusan_item->id }}">
+                                                    [{{ $urusan_item->kode_lengkap }}]
                                                     {{ $urusan_item->nama }}
                                                 </option>
                                             @endforeach

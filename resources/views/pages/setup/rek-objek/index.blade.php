@@ -35,7 +35,8 @@
                                             data-filter-datatable="#{{ $rand = Str::random(10) }}">
                                             <option value="" selected>Semua Rekening Akun</option>
                                             @foreach ($rek_akun as $rek_akun_item)
-                                                <option value="{{ $rek_akun_item->id }}">[{{ $rek_akun_item->kode }}]
+                                                <option value="{{ $rek_akun_item->id }}">
+                                                    [{{ $rek_akun_item->kode_lengkap }}]
                                                     {{ $rek_akun_item->nama }}
                                                 </option>
                                             @endforeach
@@ -56,7 +57,7 @@
                                                 <option value="{{ $rek_kelompok_item->id }}"
                                                     data-rek_akun_id="{{ $rek_kelompok_item->rek_akun_id }}"
                                                     class="d-none">
-                                                    [{{ $rek_kelompok_item->kode }}]
+                                                    [{{ $rek_kelompok_item->kode_lengkap }}]
                                                     {{ $rek_kelompok_item->nama }}
                                                 </option>
                                             @endforeach
@@ -77,7 +78,7 @@
                                                 <option value="{{ $rek_jenis_item->id }}"
                                                     data-rek_kelompok_id="{{ $rek_jenis_item->rek_kelompok_id }}"
                                                     class="d-none">
-                                                    [{{ $rek_jenis_item->kode }}]
+                                                    [{{ $rek_jenis_item->kode_lengkap }}]
                                                     {{ $rek_jenis_item->nama }}
                                                 </option>
                                             @endforeach
