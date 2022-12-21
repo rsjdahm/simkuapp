@@ -2,9 +2,11 @@
 
 namespace App\Http\Requests\Setup;
 
-use App\Enums\UserRoleEnum;
+use App\Enums\Setup\JenisRekAkunEnum;
+use App\Enums\UserRole;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\Enum;
 
 class RekAkunRequest extends FormRequest
 {
@@ -15,7 +17,7 @@ class RekAkunRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->role == UserRoleEnum::Admin;
+        return Auth::user()->role == UserRole::Admin;
     }
 
     /**
@@ -27,7 +29,8 @@ class RekAkunRequest extends FormRequest
     {
         return [
             'kode' => ['required', 'numeric'],
-            'nama' => ['required', 'string']
+            'nama' => ['required', 'string'],
+            'jenis' => [new Enum(JenisRekAkunEnum::class)]
         ];
     }
 }

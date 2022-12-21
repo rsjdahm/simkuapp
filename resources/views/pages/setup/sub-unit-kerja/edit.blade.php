@@ -8,22 +8,18 @@
             @foreach ($urusan as $urusan_item)
                 <option class="bg-light text-primary font-weight-bold" disabled>[{{ $urusan_item->kode }}]
                     {{ $urusan_item->nama }}</option>
-                @foreach ($bidang as $bidang_item)
-                    @if ($bidang_item->urusan_id == $urusan_item->id)
-                        <option class="bg-light text-dark" style="padding-left: 1.5rem;" disabled>
-                            [{{ $bidang_item->kode_lengkap }}]
-                            {{ $bidang_item->nama }}
+                @foreach ($urusan_item->bidang as $bidang_item)
+                    <option class="bg-light text-dark" style="padding-left: 1.5rem;" disabled>
+                        [{{ $bidang_item->kode_lengkap }}]
+                        {{ $bidang_item->nama }}
+                    </option>
+                    @foreach ($bidang_item->unit_kerja as $unit_kerja_item)
+                        <option @selected($unit_kerja_item->id == $sub_unit_kerja->unit_kerja_id) style="padding-left: 1.5rem;"
+                            value="{{ $unit_kerja_item->id }}">
+                            [{{ $unit_kerja_item->kode_lengkap }}]
+                            {{ $unit_kerja_item->nama }}
                         </option>
-                        @foreach ($unit_kerja as $unit_kerja_item)
-                            @if ($unit_kerja_item->bidang_id == $bidang_item->id)
-                                <option @selected($unit_kerja_item->id == $sub_unit_kerja->unit_kerja_id) style="padding-left: 1.5rem;"
-                                    value="{{ $unit_kerja_item->id }}">
-                                    [{{ $unit_kerja_item->kode_lengkap }}]
-                                    {{ $unit_kerja_item->nama }}
-                                </option>
-                            @endif
-                        @endforeach
-                    @endif
+                    @endforeach
                 @endforeach
             @endforeach
         </select>

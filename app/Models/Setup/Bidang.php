@@ -17,8 +17,8 @@ class Bidang extends Model
         'nama'
     ];
 
-    protected $appends = [
-        'kode_lengkap',
+    protected $with = [
+        'urusan'
     ];
 
     public function urusan()
@@ -26,13 +26,22 @@ class Bidang extends Model
         return $this->belongsTo(Urusan::class);
     }
 
-    public function getKodeLengkapAttribute()
-    {
-        return $this->urusan->kode_lengkap . '.' . str_pad($this->kode, 2, '0', STR_PAD_LEFT);
-    }
-
     public function program()
     {
         return $this->hasMany(Program::class);
+    }
+
+    public function unit_kerja()
+    {
+        return $this->hasMany(UnitKerja::class);
+    }
+
+    protected $appends = [
+        'kode_lengkap',
+    ];
+
+    public function getKodeLengkapAttribute()
+    {
+        return $this->urusan->kode_lengkap . '.' . str_pad($this->kode, 2, '0', STR_PAD_LEFT);
     }
 }

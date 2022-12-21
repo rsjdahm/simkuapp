@@ -10,6 +10,15 @@
         <textarea name="nama" class="form-control">{{ $rek_akun->nama }}</textarea>
     </div>
     <div class="form-group">
+        <label class="form-label">Jenis Rekening Akun</label>
+        <select name="jenis" class="form-control">
+            <option value="" disabled selected>Pilih Jenis Rekening Akun...</option>
+            @foreach ($jenis as $jenis_item)
+                <option @selected($jenis_item == $rek_akun->jenis) value="{{ $jenis_item }}">{{ $jenis_item }}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group">
         <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
     </div>
 </form>

@@ -2,6 +2,7 @@
 
 namespace App\Models\Setup;
 
+use App\Enums\Setup\JenisRekAkunEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -13,11 +14,16 @@ class RekAkun extends Model
 
     protected $fillable = [
         'kode',
-        'nama'
+        'nama',
+        'jenis'
     ];
 
     protected $appends = [
         'kode_lengkap',
+    ];
+
+    protected $casts = [
+        'jenis' => JenisRekAkunEnum::class
     ];
 
     public function getKodeLengkapAttribute()
@@ -28,5 +34,10 @@ class RekAkun extends Model
     public function rek_kelompok()
     {
         return $this->hasMany(RekKelompok::class);
+    }
+
+    public function belanja()
+    {
+        return $this->where('jenis', JenisRekAkunEnum::Belanja);
     }
 }

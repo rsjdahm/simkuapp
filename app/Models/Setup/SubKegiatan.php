@@ -17,8 +17,8 @@ class SubKegiatan extends Model
         'nama'
     ];
 
-    protected $appends = [
-        'kode_lengkap',
+    protected $with = [
+        'kegiatan',
     ];
 
     public function kegiatan()
@@ -26,8 +26,18 @@ class SubKegiatan extends Model
         return $this->belongsTo(Kegiatan::class);
     }
 
+    protected $appends = [
+        'kode_lengkap',
+        'kode_lengkap_nama',
+    ];
+
     public function getKodeLengkapAttribute()
     {
         return $this->kegiatan->kode_lengkap . '.' . str_pad($this->kode, 3, '0', STR_PAD_LEFT);
+    }
+
+    public function getKodeLengkapNamaAttribute()
+    {
+        return '[' . $this->kode_lengkap . ']' . ' ' . $this->nama;
     }
 }

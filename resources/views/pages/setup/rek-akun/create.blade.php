@@ -9,6 +9,15 @@
         <textarea name="nama" class="form-control"></textarea>
     </div>
     <div class="form-group">
+        <label class="form-label">Jenis Rekening Akun</label>
+        <select name="jenis" class="form-control">
+            <option value="" disabled selected>Pilih Jenis Rekening Akun...</option>
+            @foreach ($jenis as $jenis_item)
+                <option value="{{ $jenis_item }}">{{ $jenis_item }}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group">
         <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Simpan</button>
     </div>
 </form>

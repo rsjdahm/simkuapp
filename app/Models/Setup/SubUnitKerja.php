@@ -2,6 +2,7 @@
 
 namespace App\Models\Setup;
 
+use App\Models\Anggaran\RkaPd;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -17,14 +18,23 @@ class SubUnitKerja extends Model
         'nama'
     ];
 
-    protected $appends = [
-        'kode_lengkap',
+    protected $with = [
+        'unit_kerja',
     ];
 
     public function unit_kerja()
     {
         return $this->belongsTo(UnitKerja::class);
     }
+
+    public function rka_pd()
+    {
+        return $this->hasMany(RkaPd::class);
+    }
+
+    protected $appends = [
+        'kode_lengkap',
+    ];
 
     public function getKodeLengkapAttribute()
     {

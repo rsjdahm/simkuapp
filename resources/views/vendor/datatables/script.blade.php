@@ -47,7 +47,7 @@ next: "<i class='fas fa-arrow-right'></i>"
 
 {{-- $("#%1$s").addClass('bg-white'); --}}
 $("#%1$s thead").addClass('bg-primary text-white');
-$("#%1$s thead th").addClass('align-middle');
+$("#%1$s thead th").addClass('align-middle text-center');
 
 $("[data-filter-datatable='#%1$s']").change(function() {
 $("#%1$s").DataTable().ajax.reload(null, false);

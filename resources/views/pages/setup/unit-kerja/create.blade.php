@@ -7,13 +7,11 @@
             @foreach ($urusan as $urusan_item)
                 <option class="bg-light text-primary font-weight-bold" disabled>[{{ $urusan_item->kode }}]
                     {{ $urusan_item->nama }}</option>
-                @foreach ($bidang as $bidang_item)
-                    @if ($bidang_item->urusan_id == $urusan_item->id)
-                        <option style="padding-left: 1.5rem;" value="{{ $bidang_item->id }}">
-                            [{{ $bidang_item->kode_lengkap }}]
-                            {{ $bidang_item->nama }}
-                        </option>
-                    @endif
+                @foreach ($urusan_item->bidang as $bidang_item)
+                    <option style="padding-left: 1.5rem;" value="{{ $bidang_item->id }}">
+                        [{{ $bidang_item->kode_lengkap }}]
+                        {{ $bidang_item->nama }}
+                    </option>
                 @endforeach
             @endforeach
         </select>

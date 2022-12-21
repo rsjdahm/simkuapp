@@ -51,6 +51,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
     require __DIR__ . '/setup.php';
+    require __DIR__ . '/anggaran.php';
 
     // ADMIN
     Route::prefix('/admin')->group(function () {

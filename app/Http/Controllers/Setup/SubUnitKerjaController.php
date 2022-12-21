@@ -17,11 +17,7 @@ class SubUnitKerjaController extends Controller
     public function index(Builder $builder, Request $request)
     {
         if ($request->wantsJson()) {
-            $data = SubUnitKerja::with([
-                'unit_kerja',
-                'unit_kerja.bidang',
-                'unit_kerja.bidang.urusan',
-            ])->whereHas('unit_kerja.bidang.urusan', function ($q) use ($request) {
+            $data = SubUnitKerja::whereHas('unit_kerja.bidang.urusan', function ($q) use ($request) {
                 $q->when($request->filled('urusan_id'), function ($q) use ($request) {
                     $q->where('id', $request->urusan_id);
                 });
@@ -33,10 +29,10 @@ class SubUnitKerjaController extends Controller
                 $q->when($request->filled('unit_kerja_id'), function ($q) use ($request) {
                     $q->where('id', $request->unit_kerja_id);
                 });
-            });
+            })
+                ->get();
 
-
-            return DataTables::eloquent($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Sub Unit Kerja" href="{{ route("sub-unit-kerja.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("sub-unit-kerja.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div></div>')
                 ->addColumn('kode_lengkap', '{{ $kode_lengkap }}')
@@ -52,11 +48,12 @@ class SubUnitKerjaController extends Controller
             }',
         ])
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
+            ->addIndex(['title' => 'No.', 'style' => 'width: 1%;', 'class' => 'text-center', 'orderable' => false])
             ->addColumn(['data' => 'kode_lengkap', 'title' => 'Kode Sub Unit Kerja', 'class' => 'text-nowrap font-weight-bold', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Sub Unit Kerja'])
             ->parameters([
                 'order' => [
-                    1, 'asc'
+                    2, 'asc'
                 ]
             ]);
 
@@ -74,14 +71,14 @@ class SubUnitKerjaController extends Controller
 
     public function create()
     {
-        $urusan = Urusan::all();
-        $bidang = Bidang::all();
-        $unit_kerja = UnitKerja::all();
+        $urusan = Urusan::with([
+            'bidang',
+            'bidang.unit_kerja'
+        ])
+            ->get();
 
         return view('pages.setup.sub-unit-kerja.create', compact(
             'urusan',
-            'bidang',
-            'unit_kerja'
         ));
     }
 
@@ -94,15 +91,15 @@ class SubUnitKerjaController extends Controller
 
     public function edit(SubUnitKerja $sub_unit_kerja)
     {
-        $urusan = Urusan::all();
-        $bidang = Bidang::all();
-        $unit_kerja = UnitKerja::all();
+        $urusan = Urusan::with([
+            'bidang',
+            'bidang.unit_kerja'
+        ])
+            ->get();
 
         return view('pages.setup.sub-unit-kerja.edit', compact(
             'sub_unit_kerja',
-            'urusan',
-            'bidang',
-            'unit_kerja'
+            'urusan'
         ));
     }
 

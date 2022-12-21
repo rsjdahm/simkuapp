@@ -18,11 +18,7 @@ class RekObjekController extends Controller
     public function index(Builder $builder, Request $request)
     {
         if ($request->wantsJson()) {
-            $data = RekObjek::with([
-                'rek_jenis',
-                'rek_jenis.rek_kelompok',
-                'rek_jenis.rek_kelompok.rek_akun'
-            ])->whereHas('rek_jenis.rek_kelompok.rek_akun', function ($q) use ($request) {
+            $data = RekObjek::whereHas('rek_jenis.rek_kelompok.rek_akun', function ($q) use ($request) {
                 $q->when($request->filled('rek_akun_id'), function ($q) use ($request) {
                     $q->where('id', $request->rek_akun_id);
                 });
@@ -34,9 +30,10 @@ class RekObjekController extends Controller
                 $q->when($request->filled('rek_jenis_id'), function ($q) use ($request) {
                     $q->where('id', $request->rek_jenis_id);
                 });
-            });
+            })
+                ->get();
 
-            return DataTables::eloquent($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Rekening Objek" href="{{ route("rek-objek.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("rek-objek.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div></div>')
                 ->addColumn('kode_lengkap', '{{ $kode_lengkap }}')
@@ -52,11 +49,12 @@ class RekObjekController extends Controller
             }',
         ])
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
+            ->addIndex(['title' => 'No.', 'style' => 'width: 1%;', 'class' => 'text-center', 'orderable' => false])
             ->addColumn(['data' => 'kode_lengkap', 'title' => 'Kode Rekening Objek', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Rekening Objek'])
             ->parameters([
                 'order' => [
-                    1, 'asc'
+                    2, 'asc'
                 ]
             ]);
 

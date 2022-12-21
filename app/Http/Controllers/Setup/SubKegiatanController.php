@@ -18,12 +18,7 @@ class SubKegiatanController extends Controller
     public function index(Builder $builder, Request $request)
     {
         if ($request->wantsJson()) {
-            $data = SubKegiatan::with([
-                'kegiatan',
-                'kegiatan.program',
-                'kegiatan.program.bidang',
-                'kegiatan.program.bidang.urusan',
-            ])->whereHas('kegiatan.program.bidang.urusan', function ($q) use ($request) {
+            $data = SubKegiatan::whereHas('kegiatan.program.bidang.urusan', function ($q) use ($request) {
                 $q->when($request->filled('urusan_id'), function ($q) use ($request) {
                     $q->where('id', $request->urusan_id);
                 });
@@ -39,10 +34,11 @@ class SubKegiatanController extends Controller
                 $q->when($request->filled('kegiatan_id'), function ($q) use ($request) {
                     $q->where('id', $request->kegiatan_id);
                 });
-            });
+            })
+                ->get();
 
 
-            return DataTables::eloquent($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Nomenklatur Sub Kegiatan" href="{{ route("sub-kegiatan.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("sub-kegiatan.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div></div>')
                 ->addColumn('kode_lengkap', '{{ $kode_lengkap }}')
@@ -59,11 +55,12 @@ class SubKegiatanController extends Controller
             }',
         ])
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
+            ->addIndex(['title' => 'No.', 'style' => 'width: 1%;', 'class' => 'text-center', 'orderable' => false])
             ->addColumn(['data' => 'kode_lengkap', 'title' => 'Kode Sub Kegiatan', 'class' => 'text-nowrap font-weight-bold', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Nomenklatur Sub Kegiatan'])
             ->parameters([
                 'order' => [
-                    1, 'asc'
+                    2, 'asc'
                 ]
             ]);
 

@@ -12,77 +12,90 @@ use Yajra\DataTables\Html\Builder;
 
 class BidangController extends Controller
 {
+    public function __construct(
+        Urusan $urusan,
+        Bidang $bidang
+    ) {
+        $this->urusan = $urusan;
+        $this->bidang = $bidang;
+    }
+
     public function index(Builder $builder, Request $request)
     {
-        if ($request->wantsJson()) {
-            $data = Bidang::with([
-                'urusan'
-            ])->whereHas('urusan', function ($q) use ($request) {
-                $q->when($request->filled('urusan_id'), function ($q) use ($request) {
-                    $q->where('urusan_id', $request->urusan_id);
-                });
-            });
+        if ($request->wantsJson()) :
 
-            return DataTables::eloquent($data)
+            $data = $this->bidang
+                ->whereHas('urusan', function ($q) use ($request) {
+                    $q->when($request->urusan_id, function ($q) use ($request) {
+                        $q->where('id', $request->urusan_id);
+                    });
+                })
+                ->get();
+
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Nomenklatur Bidang" href="{{ route("bidang.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("bidang.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div></div>')
                 ->addColumn('kode_lengkap', '{{ $kode_lengkap }}')
                 ->toJson();
-        }
+        else :
 
-        $table = $builder->ajax([
-            'url' => route('bidang.index'),
-            'data' => 'function(d) {
-                d.urusan_id = $("select[name=\'urusan_id_filter\']").val();
-            }',
-        ])
-            ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
-            ->addColumn(['data' => 'kode_lengkap', 'title' => 'Kode Bidang', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
-            ->addColumn(['data' => 'nama', 'title' => 'Nomenklatur Bidang'])
-            ->parameters([
-                'order' => [
-                    1, 'asc'
-                ]
+            $table = $builder->ajax([
+                'url' => route('bidang.index'),
+                'data' => 'function(d) {
+                    d.urusan_id = $("select[name=\'urusan_id_filter\']").val();
+                }',
+            ])
+                ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
+                ->addIndex(['title' => 'No.', 'style' => 'width: 1%;', 'class' => 'text-center', 'orderable' => false])
+                ->addColumn(['data' => 'kode_lengkap', 'title' => 'Kode Bidang', 'class' => 'text-center font-weight-bold', 'style' => 'width: 1%;'])
+                ->addColumn(['data' => 'nama', 'title' => 'Nomenklatur Bidang'])
+                ->parameters([
+                    'order' => [
+                        2, 'asc'
+                    ]
+                ]);
+
+            return view('pages.setup.bidang.index', [
+                'table' => $table,
+                'urusan' => $this->urusan->get()
             ]);
 
-        $urusan = Urusan::all();
-
-        return view('pages.setup.bidang.index', compact(
-            'table',
-            'urusan'
-        ));
+        endif;
     }
 
     public function create()
     {
-        $urusan = Urusan::all();
-        return view('pages.setup.bidang.create', compact('urusan'));
+        return view('pages.setup.bidang.create', [
+            'urusan' => $this->urusan->get()
+        ]);
     }
 
     public function store(BidangRequest $request)
     {
-        Bidang::create($request->validated());
+        $this->bidang->create($request->validated());
 
-        return response()->json(['message' => 'Data berhasil ditambah.']);
+        return response()->json(['message' => 'Data Bidang berhasil ditambah.']);
     }
 
     public function edit(Bidang $bidang)
     {
-        $urusan = Urusan::all();
-        return view('pages.setup.bidang.edit', compact('bidang', 'urusan'));
+        return view('pages.setup.bidang.edit', [
+            'bidang' => $bidang,
+            'urusan' => $this->urusan->get()
+        ]);
     }
 
     public function update(Bidang $bidang, BidangRequest $request)
     {
         $bidang->update($request->validated());
 
-        return response()->json(['message' => 'Data berhasil diubah.']);
+        return response()->json(['message' => 'Data Bidang berhasil diubah.']);
     }
 
     public function destroy(Bidang $bidang)
     {
         $bidang->delete();
 
-        return response()->json(['message' => 'Data berhasil dihapus.']);
+        return response()->json(['message' => 'Data Bidang berhasil dihapus.']);
     }
 }

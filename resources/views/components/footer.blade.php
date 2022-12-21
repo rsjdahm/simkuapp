@@ -8,7 +8,7 @@
                 <div class="text-sm-right d-block">
                     <img class="mr-2" src="{{ asset('img/logo-berakhlak.png') }}" height="28" />
                     <span class="badge badge-success"><i
-                            class="fas fa-check mr-1 align-middle"></i><strong>{{ config('app.meta.name') }}-WaLiD</strong>
+                            class="fas fa-check mr-1 align-middle"></i><strong>{{ config('app.meta.name') }}-walid.id</strong>
                         |
                         V{{ config('app.meta.version') }}</span>
                 </div>

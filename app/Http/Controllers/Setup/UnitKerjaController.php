@@ -16,10 +16,7 @@ class UnitKerjaController extends Controller
     public function index(Builder $builder, Request $request)
     {
         if ($request->wantsJson()) {
-            $data = UnitKerja::with([
-                'bidang',
-                'bidang.urusan',
-            ])->whereHas('bidang.urusan', function ($q) use ($request) {
+            $data = UnitKerja::whereHas('bidang.urusan', function ($q) use ($request) {
                 $q->when($request->filled('urusan_id'), function ($q) use ($request) {
                     $q->where('id', $request->urusan_id);
                 });
@@ -27,10 +24,11 @@ class UnitKerjaController extends Controller
                 $q->when($request->filled('bidang_id'), function ($q) use ($request) {
                     $q->where('id', $request->bidang_id);
                 });
-            });
+            })
+                ->get();
 
 
-            return DataTables::eloquent($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Unit Kerja" href="{{ route("unit-kerja.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("unit-kerja.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div></div>')
                 ->addColumn('kode_lengkap', '{{ $kode_lengkap }}')
@@ -45,11 +43,12 @@ class UnitKerjaController extends Controller
             }',
         ])
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
+            ->addIndex(['title' => 'No.', 'style' => 'width: 1%;', 'class' => 'text-center', 'orderable' => false])
             ->addColumn(['data' => 'kode_lengkap', 'title' => 'Kode Unit Kerja', 'class' => 'text-nowrap font-weight-bold', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Unit Kerja'])
             ->parameters([
                 'order' => [
-                    1, 'asc'
+                    2, 'asc'
                 ]
             ]);
 
@@ -65,12 +64,12 @@ class UnitKerjaController extends Controller
 
     public function create()
     {
-        $urusan = Urusan::all();
-        $bidang = Bidang::all();
+        $urusan = Urusan::with([
+            'bidang'
+        ])->get();
 
         return view('pages.setup.unit-kerja.create', compact(
             'urusan',
-            'bidang'
         ));
     }
 
@@ -83,13 +82,13 @@ class UnitKerjaController extends Controller
 
     public function edit(UnitKerja $unit_kerja)
     {
-        $urusan = Urusan::all();
-        $bidang = Bidang::all();
+        $urusan = Urusan::with([
+            'bidang'
+        ])->get();
 
         return view('pages.setup.unit-kerja.edit', compact(
             'unit_kerja',
             'urusan',
-            'bidang'
         ));
     }
 

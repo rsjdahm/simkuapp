@@ -6,9 +6,9 @@
         @page {
             margin: 1.25cm 1.55cm;
             font-family: 'Arial';
-            font-size: 9pt;
+            font-size: 8pt;
             font-weight: normal;
-            size: 21cm 33cm;
+            size: "A4";
         }
 
         table {

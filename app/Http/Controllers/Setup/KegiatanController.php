@@ -14,29 +14,38 @@ use Yajra\DataTables\Html\Builder;
 
 class KegiatanController extends Controller
 {
+    public function __construct(
+        Urusan $urusan,
+        Bidang $bidang,
+        Program $program,
+        Kegiatan $kegiatan
+    ) {
+        $this->urusan = $urusan;
+        $this->bidang = $bidang;
+        $this->program = $program;
+        $this->kegiatan = $kegiatan;
+    }
+
     public function index(Builder $builder, Request $request)
     {
         if ($request->wantsJson()) {
-            $data = Kegiatan::with([
-                'program',
-                'program.bidang',
-                'program.bidang.urusan',
-            ])->whereHas('program.bidang.urusan', function ($q) use ($request) {
-                $q->when($request->filled('urusan_id'), function ($q) use ($request) {
-                    $q->where('id', $request->urusan_id);
-                });
-            })->whereHas('program.bidang', function ($q) use ($request) {
-                $q->when($request->filled('bidang_id'), function ($q) use ($request) {
-                    $q->where('id', $request->bidang_id);
-                });
-            })->whereHas('program', function ($q) use ($request) {
-                $q->when($request->filled('program_id'), function ($q) use ($request) {
-                    $q->where('id', $request->program_id);
-                });
-            });
+            $data = $this->kegiatan
+                ->whereHas('program.bidang.urusan', function ($q) use ($request) {
+                    $q->when($request->filled('urusan_id'), function ($q) use ($request) {
+                        $q->where('id', $request->urusan_id);
+                    });
+                })->whereHas('program.bidang', function ($q) use ($request) {
+                    $q->when($request->filled('bidang_id'), function ($q) use ($request) {
+                        $q->where('id', $request->bidang_id);
+                    });
+                })->whereHas('program', function ($q) use ($request) {
+                    $q->when($request->filled('program_id'), function ($q) use ($request) {
+                        $q->where('id', $request->program_id);
+                    });
+                })
+                ->get();
 
-
-            return DataTables::eloquent($data)
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Nomenklatur Kegiatan" href="{{ route("kegiatan.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("kegiatan.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div></div>')
                 ->addColumn('kode_lengkap', '{{ $kode_lengkap }}')
@@ -52,11 +61,12 @@ class KegiatanController extends Controller
             }',
         ])
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
+            ->addIndex(['title' => 'No.', 'style' => 'width: 1%;', 'class' => 'text-center', 'orderable' => false])
             ->addColumn(['data' => 'kode_lengkap', 'title' => 'Kode Kegiatan', 'class' => 'text-nowrap font-weight-bold', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Nomenklatur Kegiatan'])
             ->parameters([
                 'order' => [
-                    1, 'asc'
+                    2, 'asc'
                 ]
             ]);
 
@@ -87,7 +97,7 @@ class KegiatanController extends Controller
 
     public function store(KegiatanRequest $request)
     {
-        Kegiatan::create($request->validated());
+        $this->kegiatan->create($request->validated());
 
         return response()->json(['message' => 'Data berhasil ditambah.']);
     }

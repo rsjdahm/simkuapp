@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Setup;
 
-use App\Enums\UserRoleEnum;
+use App\Enums\UserRole;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +15,7 @@ class SubKegiatanRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->role == UserRoleEnum::Admin;
+        return Auth::user()->role == UserRole::Admin;
     }
 
     /**

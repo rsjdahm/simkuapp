@@ -17,8 +17,8 @@ class Program extends Model
         'nama'
     ];
 
-    protected $appends = [
-        'kode_lengkap',
+    protected $with = [
+        'bidang'
     ];
 
     public function bidang()
@@ -26,14 +26,17 @@ class Program extends Model
         return $this->belongsTo(Bidang::class);
     }
 
-    public function getKodeLengkapAttribute()
-    {
-        return $this->bidang->kode_lengkap . '.' . str_pad($this->kode, 2, '0', STR_PAD_LEFT);
-    }
-
-
     public function kegiatan()
     {
         return $this->hasMany(Kegiatan::class);
+    }
+
+    protected $appends = [
+        'kode_lengkap',
+    ];
+
+    public function getKodeLengkapAttribute()
+    {
+        return $this->bidang->kode_lengkap . '.' . str_pad($this->kode, 2, '0', STR_PAD_LEFT);
     }
 }

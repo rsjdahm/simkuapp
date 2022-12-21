@@ -33,6 +33,12 @@ $(document)
         NProgress.start();
         $("form").find("small.text-danger").remove();
         $("form").find("[name].border-danger").removeClass("border-danger");
+
+        $("form")
+            .find("[name]")
+            .siblings("span.select2.select2-container")
+            .find("span.select2-selection.border-danger")
+            .removeClass("border-danger");
     })
     .ajaxComplete(function () {
         NProgress.done();
@@ -88,11 +94,23 @@ $(document)
                     }
                 } else {
                     const input = $('[name="' + name + '"]');
-                    input
-                        .addClass("border-danger")
-                        .after(
-                            `<small class="text-danger">${messages}</small>`
-                        );
+                    if (input.is("select")) {
+                        input
+                            .siblings("span.select2.select2-container")
+                            .after(
+                                `<small class="text-danger">${messages}</small>`
+                            );
+                        input
+                            .siblings("span.select2.select2-container")
+                            .find("span.select2-selection")
+                            .addClass("border-danger");
+                    } else {
+                        input
+                            .addClass("border-danger")
+                            .after(
+                                `<small class="text-danger">${messages}</small>`
+                            );
+                    }
                 }
             });
             message += "</ul>";
@@ -195,8 +213,8 @@ function modal(title, url, size) {
         `<div data-href="${url}" class="modal fade" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered ${
                     size ? `modal-${size}` : ""
-                }" role="document" style="max-width: 700px;">
-                    <div style="resize: both; overflow: hidden; min-width: 100px; min-height: 300px;" class="modal-content border-0">
+                }" role="document"">
+                    <div class="modal-content border-0">
                         <div class="modal-header bg-primary">
                             <h5 class="modal-title text-white font-weight-bold">${title}</h5>
                             <div>
@@ -205,7 +223,7 @@ function modal(title, url, size) {
                                         <i class="fas fa-sync-alt"></i>
                                     </span>
                                 </button>
-                                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">
                                         <i class="fas fa-times"></i>
                                     </span>
@@ -233,7 +251,7 @@ function modalPdf(title, url) {
                         <div class="modal-header bg-primary">
                             <h5 class="modal-title text-white font-weight-bold">${title}</h5>
                             <div>
-                                <a href="${url}" title="Download PDF" target="_blank" class="btn btn-sm btn-primary">
+                                <a href="${url}" title="Download PDF" target="_blank" class="btn btn-sm btn-success">
                                     <span aria-hidden="true">
                                         <i class="fas fa-download"></i>
                                     </span>
@@ -243,7 +261,7 @@ function modalPdf(title, url) {
                                         <i class="fas fa-sync-alt"></i>
                                     </span>
                                 </button>
-                                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">
                                         <i class="fas fa-times"></i>
                                     </span>

@@ -17,8 +17,8 @@ class RekSubRincianObjek extends Model
         'nama'
     ];
 
-    protected $appends = [
-        'kode_lengkap',
+    protected $with = [
+        'rek_rincian_objek'
     ];
 
     public function rek_rincian_objek()
@@ -26,8 +26,19 @@ class RekSubRincianObjek extends Model
         return $this->belongsTo(RekRincianObjek::class);
     }
 
+    protected $appends = [
+        'kode_lengkap',
+        'kode_lengkap_nama',
+    ];
+
+
     public function getKodeLengkapAttribute()
     {
         return $this->rek_rincian_objek->kode_lengkap . '.' . str_pad($this->kode, 4, '0', STR_PAD_LEFT);
+    }
+
+    public function getKodeLengkapNamaAttribute()
+    {
+        return '[' . $this->kode_lengkap . ']' . ' ' . $this->nama;
     }
 }

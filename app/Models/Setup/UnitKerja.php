@@ -17,8 +17,8 @@ class UnitKerja extends Model
         'nama'
     ];
 
-    protected $appends = [
-        'kode_lengkap',
+    protected $with = [
+        'bidang',
     ];
 
     public function bidang()
@@ -26,14 +26,17 @@ class UnitKerja extends Model
         return $this->belongsTo(Bidang::class);
     }
 
-    public function getKodeLengkapAttribute()
-    {
-        return $this->bidang->kode_lengkap . '.00-00.00-00.' . str_pad($this->kode, 2, '0', STR_PAD_LEFT);
-    }
-
-
     public function sub_unit_kerja()
     {
         return $this->hasMany(SubunitKerja::class);
+    }
+
+    protected $appends = [
+        'kode_lengkap',
+    ];
+
+    public function getKodeLengkapAttribute()
+    {
+        return $this->bidang->kode_lengkap . '.00-00.00-00.' . str_pad($this->kode, 2, '0', STR_PAD_LEFT);
     }
 }
