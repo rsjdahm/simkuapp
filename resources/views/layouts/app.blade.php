@@ -22,7 +22,8 @@
         rel="stylesheet">
 
     <link href="{{ asset('css/bootswatch.css' . '?v=' . Str::random(8)) }}" rel="stylesheet" type="text/css" />
-    <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet" />
+    {{-- <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet" /> --}}
+    <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('libs/toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />

@@ -33,7 +33,6 @@
                                     <div class="col-lg-10">
                                         <select name="sub_unit_kerja_id_filter" class="form-control"
                                             data-filter-datatable="#rka-pd-table">
-                                            <option value="">Semua Sub Unit Kerja</option>
                                             @foreach ($sub_unit_kerja as $sub_unit_kerja_item)
                                                 <option value="{{ $sub_unit_kerja_item->id }}">
                                                     [{{ $sub_unit_kerja_item->kode_lengkap }}]

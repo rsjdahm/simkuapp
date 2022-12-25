@@ -2,6 +2,7 @@
 
 namespace App\Models\Setup;
 
+use App\Models\Anggaran\BelanjaRkaPd;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -18,12 +19,18 @@ class RekSubRincianObjek extends Model
     ];
 
     protected $with = [
-        'rek_rincian_objek'
+        'rek_rincian_objek',
     ];
 
     public function rek_rincian_objek()
     {
         return $this->belongsTo(RekRincianObjek::class);
+    }
+
+
+    public function belanja_rka_pd()
+    {
+        return $this->hasMany(BelanjaRkaPd::class);
     }
 
     protected $appends = [

@@ -3114,8 +3114,10 @@ input[switch="dark"]:checked + label {
     background-clip: border-box;
     -webkit-box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
     box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
-    border: 0 solid #f6f6f6;
-    border-radius: 0.3rem;
+    /* border: 0 solid #f6f6f6;
+    border-radius: 0.3rem; */
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
 }
 
 #nprogress .spinner-icon {

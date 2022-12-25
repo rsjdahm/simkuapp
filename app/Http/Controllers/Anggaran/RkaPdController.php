@@ -5,8 +5,16 @@ namespace App\Http\Controllers\Anggaran;
 use App\Enums\Anggaran\StatusRkaPdEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Anggaran\RkaPdRequest;
+use App\Models\Anggaran\BelanjaRkaPd;
 use App\Models\Anggaran\RkaPd;
+use App\Models\Setup\RekAkun;
+use App\Models\Setup\RekJenis;
+use App\Models\Setup\RekKelompok;
+use App\Models\Setup\RekObjek;
+use App\Models\Setup\RekRincianObjek;
+use App\Models\Setup\RekSubRincianObjek;
 use App\Models\Setup\SubUnitKerja;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Yajra\DataTables\Html\Builder;
@@ -15,10 +23,14 @@ class RkaPdController extends Controller
 {
     public function __construct(
         SubUnitKerja $sub_unit_kerja,
-        RkaPd $rka_pd
+        RkaPd $rka_pd,
+        // BelanjaRkaPd $belanja_rka_pd,
+        RekAkun $rek_akun
     ) {
         $this->sub_unit_kerja = $sub_unit_kerja;
         $this->rka_pd = $rka_pd;
+        // $this->belanja_rka_pd = $belanja_rka_pd;
+        $this->rek_akun = $rek_akun;
     }
 
     public function index(Builder $builder, Request $request)
@@ -36,7 +48,9 @@ class RkaPdController extends Controller
 
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Sub Unit Kerja" href="{{ route("rka-pd.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("rka-pd.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div></div>')
+                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Sub Unit Kerja" href="{{ route("rka-pd.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("rka-pd.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div>
+                <a data-load="modal-pdf" title="Cetak Rincian Anggaran" href="{{ route("rka-pd.pdf-pagu-belanja", $id) }}" class="btn btn-sm btn-secondary"><i class="fas fa-print mr-2"></i> Rinc. Anggaran</a>
+                </div>')
                 ->editColumn('status', function ($i) {
                     switch ($i->status) {
                         case StatusRkaPdEnum::Murni:
@@ -150,5 +164,53 @@ class RkaPdController extends Controller
         $rka_pd->delete();
 
         return response()->json(['message' => 'Data berhasil dihapus.']);
+    }
+
+    public function printPdfPaguBelanja($rka_pd_id = null)
+    {
+        $rka_pd = RkaPd::where('id', $rka_pd_id)->first();
+
+        $belanja_rka_pd = BelanjaRkaPd::when($rka_pd_id, function ($q) use ($rka_pd_id) {
+            $q->where('rka_pd_id', $rka_pd_id);
+        })
+            ->get();
+
+        $rek_sub_rincian_objek = RekSubRincianObjek::whereIn('id', $belanja_rka_pd->pluck('rek_sub_rincian_objek_id'))
+            ->get()
+            ->sortBy('kode_lengkap');
+
+        $rek_rincian_objek = RekRincianObjek::whereIn('id', $rek_sub_rincian_objek->pluck('rek_rincian_objek_id'))
+            ->get()
+            ->sortBy('kode_lengkap');
+
+        $rek_objek = RekObjek::whereIn('id', $rek_rincian_objek->pluck('rek_objek_id'))
+            ->get()
+            ->sortBy('kode_lengkap');
+
+        $rek_jenis = RekJenis::whereIn('id', $rek_objek->pluck('rek_jenis_id'))
+            ->get()
+            ->sortBy('kode_lengkap');
+
+        $rek_kelompok = RekKelompok::whereIn('id', $rek_jenis->pluck('rek_kelompok_id'))
+            ->get()
+            ->sortBy('kode_lengkap');
+
+        $rek_akun = RekAkun::whereIn('id', $rek_kelompok->pluck('rek_akun_id'))
+            ->get()
+            ->sortBy('kode_lengkap');
+
+
+        return Pdf::loadView('pages.anggaran.rka-pd.pdf-pagu-belanja', compact(
+            'rka_pd',
+            'belanja_rka_pd',
+            'rek_sub_rincian_objek',
+            'rek_rincian_objek',
+            'rek_objek',
+            'rek_jenis',
+            'rek_kelompok',
+            'rek_akun',
+        ))
+            ->setPaper('a4', 'landscape')
+            ->stream('Pagu Belanja.pdf');
     }
 }

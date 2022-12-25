@@ -144,16 +144,9 @@ class RekSubRincianObjekController extends Controller
         return response()->json(['message' => 'Data berhasil dihapus.']);
     }
 
-    public function pdfDaftar()
+    public function printPdfDaftar()
     {
-        $rek_akun = RekAkun::with([
-            'rek_kelompok',
-            'rek_kelompok.rek_jenis',
-            'rek_kelompok.rek_jenis.rek_objek',
-            'rek_kelompok.rek_jenis.rek_objek.rek_rincian_objek',
-            'rek_kelompok.rek_jenis.rek_objek.rek_rincian_objek.rek_sub_rincian_objek',
-        ])
-            ->get();
+        $rek_akun = RekAkun::get();
 
         $pdf = Pdf::loadView('pages.setup.rek-sub-rincian-objek.pdf-daftar', compact(
             'rek_akun',

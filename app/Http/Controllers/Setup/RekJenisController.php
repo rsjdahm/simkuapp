@@ -111,13 +111,9 @@ class RekJenisController extends Controller
         return response()->json(['message' => 'Data berhasil dihapus.']);
     }
 
-    public function pdfDaftar()
+    public function printPdfDaftar()
     {
-        $rek_akun = RekAkun::with([
-            'rek_kelompok',
-            'rek_kelompok.rek_jenis',
-        ])
-            ->get();
+        $rek_akun = RekAkun::get();
 
         $pdf = Pdf::loadView('pages.setup.rek-jenis.pdf-daftar', compact(
             'rek_akun',
