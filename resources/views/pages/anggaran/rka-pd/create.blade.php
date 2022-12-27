@@ -1,49 +1,55 @@
 <form method="post" action="{{ route('rka-pd.store') }}">
     @csrf
-    <div class="form-group">
-        <label class="form-label">Sub Unit Kerja</label>
-        <select name="sub_unit_kerja_id" class="form-control">
-            <option value="" disabled selected>Pilih Sub Unit Kerja...</option>
-            @foreach ($sub_unit_kerja as $sub_unit_kerja_item)
-                <option value="{{ $sub_unit_kerja_item->id }}">
-                    [{{ $sub_unit_kerja_item->kode_lengkap }}]
-                    {{ $sub_unit_kerja_item->nama }}
-                </option>
-            @endforeach
-        </select>
-    </div>
-    <div class="form-group">
-        <label class="form-label">Nomor Dokumen</label>
-        <input name="nomor" class="form-control">
-    </div>
-    <div class="form-group">
-        <label class="form-label">Status</label>
-        <select name="status" class="form-control">
-            <option value="" disabled selected>Pilih Status...</option>
-            @foreach ($status as $status_item)
-                <option value="{{ $status_item }}">{{ $status_item }}</option>
-            @endforeach
-        </select>
-    </div>
-    <div class="form-group">
-        <label class="form-label">Tanggal Dokumen</label>
-        <input type="date" name="tanggal" class="form-control">
-    </div>
-    <div class="form-group">
-        <label class="form-label">Uraian Dokumen</label>
-        <textarea name="uraian" class="form-control"></textarea>
-    </div>
-    <div class="form-group">
-        <label class="form-label">Nilai Pagu Pendapatan</label>
-        <input name="pagu_pendapatan" class="form-control">
-    </div>
-    <div class="form-group">
-        <label class="form-label">Nilai Pagu Pengeluaran</label>
-        <input name="pagu_pengeluaran" class="form-control">
-    </div>
-    <div class="form-group">
-        <label class="form-label">Nilai Pagu Pembiayaan</label>
-        <input name="pagu_pembiayaan" class="form-control">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="form-label">Sub Unit Kerja</label>
+                <select name="sub_unit_kerja_id" class="form-control">
+                    <option value="" disabled selected>Pilih Sub Unit Kerja...</option>
+                    @foreach ($sub_unit_kerja as $sub_unit_kerja_item)
+                        <option value="{{ $sub_unit_kerja_item->id }}">
+                            [{{ $sub_unit_kerja_item->kode_lengkap }}]
+                            {{ $sub_unit_kerja_item->nama }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Nomor Dokumen</label>
+                <input name="nomor" class="form-control">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Status</label>
+                <select name="status" class="form-control">
+                    <option value="" disabled selected>Pilih Status...</option>
+                    @foreach ($status as $status_item)
+                        <option value="{{ $status_item }}">{{ $status_item }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Tanggal Dokumen</label>
+                <input type="date" name="tanggal" class="form-control">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Uraian Dokumen</label>
+                <textarea name="uraian" class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="form-label">Nilai Pagu Pendapatan</label>
+                <input name="pagu_pendapatan" class="form-control">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Nilai Pagu Pengeluaran</label>
+                <input name="pagu_pengeluaran" class="form-control">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Nilai Pagu Pembiayaan</label>
+                <input name="pagu_pembiayaan" class="form-control">
+            </div>
+        </div>
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Simpan</button>
