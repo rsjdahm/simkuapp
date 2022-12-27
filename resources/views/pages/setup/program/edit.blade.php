@@ -6,7 +6,7 @@
         <select name="urusan_id" class="form-control">
             <option value="" disabled selected>Pilih Bidang...</option>
             @foreach ($urusan as $urusan_item)
-                <option class="bg-light text-primary font-weight-bold" disabled>[{{ $urusan_item->kode }}]
+                <option class="bg-light text-primary font-weight-bold" disabled>[{{ $urusan_item->kode_lengkap }}]
                     {{ $urusan_item->nama }}</option>
                 @foreach ($bidang as $bidang_item)
                     @if ($bidang_item->urusan_id == $urusan_item->id)

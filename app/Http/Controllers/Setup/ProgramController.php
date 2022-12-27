@@ -72,8 +72,8 @@ class ProgramController extends Controller
     public function create()
     {
         return view('pages.setup.program.create', [
-            'urusan' => $this->urusan,
-            'bidang' => $this->bidang
+            'urusan' => $this->urusan->get(),
+            'bidang' => $this->bidang->get()
         ]);
     }
 
