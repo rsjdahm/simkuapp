@@ -21,31 +21,30 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="card bg-light mb-3">
-                        <div class="card-body p-2">
-                            <div class="form-group mb-0">
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <label><i class="fas fa-filter"></i> Sub Unit Kerja PD:</label>
-                                    </div>
-                                    <div class="col-lg-10">
-                                        <select name="sub_unit_kerja_id_filter" class="form-control"
-                                            data-filter-datatable="#rka-pd-table">
-                                            @foreach ($sub_unit_kerja as $sub_unit_kerja_item)
-                                                <option value="{{ $sub_unit_kerja_item->id }}">
-                                                    [{{ $sub_unit_kerja_item->kode_lengkap }}]
-                                                    {{ $sub_unit_kerja_item->nama }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+            <div class="card bg-light mb-3">
+                <div class="card-body p-2">
+                    <div class="form-group mb-0">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <label><i class="fas fa-filter"></i> Sub Unit Kerja PD:</label>
+                            </div>
+                            <div class="col-lg-10">
+                                <select name="sub_unit_kerja_id_filter" class="form-control"
+                                    data-filter-datatable="#rka-pd-table">
+                                    @foreach ($sub_unit_kerja as $sub_unit_kerja_item)
+                                        <option value="{{ $sub_unit_kerja_item->id }}">
+                                            [{{ $sub_unit_kerja_item->kode_lengkap }}]
+                                            {{ $sub_unit_kerja_item->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>
-
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
                     <div class="table-responsive">
                         {!! $table->table(['id' => 'rka-pd-table']) !!}
                         {!! $table->scripts() !!}

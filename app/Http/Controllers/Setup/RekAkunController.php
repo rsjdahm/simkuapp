@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Setup;
 
-use App\Enums\Setup\JenisRekAkunEnum;
+use App\Enums\Setup\JenisRekAkun;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Setup\RekAkunRequest;
 use App\Models\Setup\RekAkun;
@@ -29,10 +29,10 @@ class RekAkunController extends Controller
                 ->addColumn('kode_lengkap', '{{ $kode_lengkap }}')
                 ->editColumn('jenis', function ($i) {
                     switch ($i->jenis) {
-                        case JenisRekAkunEnum::Belanja:
+                        case JenisRekAkun::Belanja:
                             return '<span class="badge badge-danger"><i class="fas fa-sign-out-alt"></i> Belanja</span>';
                             break;
-                        case JenisRekAkunEnum::Pendapatan:
+                        case JenisRekAkun::Pendapatan:
                             return '<span class="badge badge-success"><i class="fas fa-sign-in-alt"></i> Pendapatan</span>';
                             break;
                     }
@@ -58,7 +58,7 @@ class RekAkunController extends Controller
     public function create()
     {
         return view('pages.setup.rek-akun.create', [
-            'jenis' => JenisRekAkunEnum::cases()
+            'jenis' => JenisRekAkun::cases()
         ]);
     }
 
@@ -73,7 +73,7 @@ class RekAkunController extends Controller
     {
         return view('pages.setup.rek-akun.edit', [
             'rek_akun' => $rek_akun,
-            'jenis' => JenisRekAkunEnum::cases()
+            'jenis' => JenisRekAkun::cases()
         ]);
     }
 

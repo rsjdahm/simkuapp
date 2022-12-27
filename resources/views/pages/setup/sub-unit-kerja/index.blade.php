@@ -21,70 +21,70 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="card bg-light mb-3">
-                        <div class="card-body p-2">
-                            <div class="form-group mb-2">
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <label><i class="fas fa-filter"></i> Urusan:</label>
-                                    </div>
-                                    <div class="col-lg-10">
-                                        <select name="urusan_id_filter" class="form-control"
-                                            data-filter-datatable="#{{ $rand = Str::random(10) }}">
-                                            <option value="">Semua Urusan</option>
-                                            @foreach ($urusan as $urusan_item)
-                                                <option value="{{ $urusan_item->id }}">
-                                                    [{{ $urusan_item->kode_lengkap }}] {{ $urusan_item->nama }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+            <div class="card bg-light mb-3">
+                <div class="card-body p-2">
+                    <div class="form-group mb-2">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <label><i class="fas fa-filter"></i> Urusan:</label>
                             </div>
-                            <div class="form-group mb-2">
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <label><i class="fas fa-filter"></i> Bidang:</label>
-                                    </div>
-                                    <div class="col-lg-10">
-                                        <select name="bidang_id_filter" class="form-control"
-                                            data-filter-datatable="#{{ $rand }}">
-                                            <option value="">Semua Bidang</option>
-                                            @foreach ($bidang as $bidang_item)
-                                                <option value="{{ $bidang_item->id }}"
-                                                    data-urusan_id="{{ $bidang_item->urusan_id }}" class="d-none">
-                                                    [{{ $bidang_item->kode_lengkap }}] {{ $bidang_item->nama }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group mb-0">
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <label><i class="fas fa-filter"></i> Unit Kerja:</label>
-                                    </div>
-                                    <div class="col-lg-10">
-                                        <select name="unit_kerja_id_filter" class="form-control"
-                                            data-filter-datatable="#{{ $rand }}">
-                                            <option value="">Semua Unit Kerja</option>
-                                            @foreach ($unit_kerja as $unit_kerja_item)
-                                                <option value="{{ $unit_kerja_item->id }}"
-                                                    data-bidang_id="{{ $unit_kerja_item->bidang_id }}" class="d-none">
-                                                    [{{ $unit_kerja_item->kode_lengkap }}]
-                                                    {{ $unit_kerja_item->nama }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+                            <div class="col-lg-10">
+                                <select name="urusan_id_filter" class="form-control"
+                                    data-filter-datatable="#{{ $rand = Str::random(10) }}">
+                                    <option value="">Semua Urusan</option>
+                                    @foreach ($urusan as $urusan_item)
+                                        <option value="{{ $urusan_item->id }}">
+                                            [{{ $urusan_item->kode_lengkap }}] {{ $urusan_item->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>
+                    <div class="form-group mb-2">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <label><i class="fas fa-filter"></i> Bidang:</label>
+                            </div>
+                            <div class="col-lg-10">
+                                <select name="bidang_id_filter" class="form-control"
+                                    data-filter-datatable="#{{ $rand }}">
+                                    <option value="">Semua Bidang</option>
+                                    @foreach ($bidang as $bidang_item)
+                                        <option value="{{ $bidang_item->id }}"
+                                            data-urusan_id="{{ $bidang_item->urusan_id }}" class="d-none">
+                                            [{{ $bidang_item->kode_lengkap }}] {{ $bidang_item->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-0">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <label><i class="fas fa-filter"></i> Unit Kerja:</label>
+                            </div>
+                            <div class="col-lg-10">
+                                <select name="unit_kerja_id_filter" class="form-control"
+                                    data-filter-datatable="#{{ $rand }}">
+                                    <option value="">Semua Unit Kerja</option>
+                                    @foreach ($unit_kerja as $unit_kerja_item)
+                                        <option value="{{ $unit_kerja_item->id }}"
+                                            data-bidang_id="{{ $unit_kerja_item->bidang_id }}" class="d-none">
+                                            [{{ $unit_kerja_item->kode_lengkap }}]
+                                            {{ $unit_kerja_item->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="card mb-3">
+                <div class="card-body">
                     <div class="table-responsive">
                         {!! $table->table(['id' => $rand]) !!}
                         {!! $table->scripts() !!}

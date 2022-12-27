@@ -21,31 +21,32 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="card bg-light mb-3">
-                        <div class="card-body p-2">
-                            <div class="form-group mb-0">
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <label><i class="fas fa-filter"></i> Rekening Akun:</label>
-                                    </div>
-                                    <div class="col-lg-10">
-                                        <select name="rek_akun_id_filter" class="form-control"
-                                            data-filter-datatable="#{{ $rand = Str::random(10) }}">
-                                            <option value="" selected>Semua Rekening Akun</option>
-                                            @foreach ($rek_akun as $rek_akun_item)
-                                                <option value="{{ $rek_akun_item->id }}">
-                                                    [{{ $rek_akun_item->kode_lengkap }}]
-                                                    {{ $rek_akun_item->nama }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+            <div class="card bg-light mb-3">
+                <div class="card-body p-2">
+                    <div class="form-group mb-0">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <label><i class="fas fa-filter"></i> Rekening Akun:</label>
+                            </div>
+                            <div class="col-lg-10">
+                                <select name="rek_akun_id_filter" class="form-control"
+                                    data-filter-datatable="#{{ $rand = Str::random(10) }}">
+                                    <option value="" selected>Semua Rekening Akun</option>
+                                    @foreach ($rek_akun as $rek_akun_item)
+                                        <option value="{{ $rek_akun_item->id }}">
+                                            [{{ $rek_akun_item->kode_lengkap }}]
+                                            {{ $rek_akun_item->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-body">
 
                     <div class="table-responsive">
                         {!! $table->table(['id' => $rand]) !!}

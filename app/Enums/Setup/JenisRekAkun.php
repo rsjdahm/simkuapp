@@ -2,7 +2,7 @@
 
 namespace App\Enums\Setup;
 
-enum JenisRekAkunEnum: string
+enum JenisRekAkun: string
 {
     case Belanja = 'Belanja';
     case Pendapatan = 'Pendapatan';

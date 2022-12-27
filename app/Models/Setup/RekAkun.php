@@ -2,7 +2,7 @@
 
 namespace App\Models\Setup;
 
-use App\Enums\Setup\JenisRekAkunEnum;
+use App\Enums\Setup\JenisRekAkun;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -23,7 +23,7 @@ class RekAkun extends Model
     ];
 
     protected $casts = [
-        'jenis' => JenisRekAkunEnum::class
+        'jenis' => JenisRekAkun::class
     ];
 
     public function getKodeLengkapAttribute()
@@ -38,6 +38,6 @@ class RekAkun extends Model
 
     public function belanja()
     {
-        return $this->where('jenis', JenisRekAkunEnum::Belanja);
+        return $this->where('jenis', JenisRekAkun::Belanja);
     }
 }

@@ -211,7 +211,7 @@ function modal(title, url, size) {
     $(".modal.fade").not(".modal.fade.show").remove();
     $("body").append(
         `<div data-href="${url}" class="modal fade" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered ${
+                <div class="modal-dialog ${
                     size ? `modal-${size}` : "modal-lg"
                 }" role="document"">
                     <div class="modal-content border-0">
@@ -246,7 +246,7 @@ function modalPdf(title, url) {
     $(".modal.fade").not(".modal.fade.show").remove();
     $("body").append(
         `<div data-href="${url}" class="modal fade" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg" role="document" style="min-width: calc(100vw - 20rem);">
+                <div class="modal-dialog modal-lg" role="document" style="min-width: calc(100vw - 20rem);">
                     <div class="modal-content border-0" style="height: 90vh;">
                         <div class="modal-header bg-primary border-bottom-0">
                             <h5 class="modal-title text-white font-weight-bold">${title}</h5>

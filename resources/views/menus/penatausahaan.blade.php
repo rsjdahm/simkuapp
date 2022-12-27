@@ -10,7 +10,7 @@
             <ul class="sub-menu">
                 <li>
                     <a data-load="#page" data-menu="item" href="{{ route('rka-pd.index') }}">
-                        Bank Tujuan
+                        Bukti GU
                     </a>
                 </li>
             </ul>

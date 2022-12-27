@@ -24,94 +24,92 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="card bg-light mb-3">
-                        <div class="card-body p-2">
-                            <div class="form-group mb-2">
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <label><i class="fas fa-filter"></i> Rekening Akun:</label>
-                                    </div>
-                                    <div class="col-lg-10">
-                                        <select name="rek_akun_id_filter" class="form-control"
-                                            data-filter-datatable="#{{ $rand = Str::random(10) }}">
-                                            <option value="" selected>Semua Rekening Akun</option>
-                                            @foreach ($rek_akun as $rek_akun_item)
-                                                <option value="{{ $rek_akun_item->id }}">
-                                                    [{{ $rek_akun_item->kode_lengkap }}]
-                                                    {{ $rek_akun_item->nama }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+            <div class="card bg-light mb-3">
+                <div class="card-body p-2">
+                    <div class="form-group mb-2">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <label><i class="fas fa-filter"></i> Rekening Akun:</label>
                             </div>
-                            <div class="form-group mb-2">
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <label><i class="fas fa-filter"></i> Rekening Kelompok:</label>
-                                    </div>
-                                    <div class="col-lg-10">
-                                        <select name="rek_kelompok_id_filter" class="form-control"
-                                            data-filter-datatable="#{{ $rand }}">
-                                            <option value="" selected>Semua Rekening Kelompok</option>
-                                            @foreach ($rek_kelompok as $rek_kelompok_item)
-                                                <option value="{{ $rek_kelompok_item->id }}"
-                                                    data-rek_akun_id="{{ $rek_kelompok_item->rek_akun_id }}"
-                                                    class="d-none">
-                                                    [{{ $rek_kelompok_item->kode_lengkap }}]
-                                                    {{ $rek_kelompok_item->nama }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group mb-2">
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <label><i class="fas fa-filter"></i> Rekening Jenis:</label>
-                                    </div>
-                                    <div class="col-lg-10">
-                                        <select name="rek_jenis_id_filter" class="form-control"
-                                            data-filter-datatable="#{{ $rand }}">
-                                            <option value="" selected>Semua Rekening Jenis</option>
-                                            @foreach ($rek_jenis as $rek_jenis_item)
-                                                <option value="{{ $rek_jenis_item->id }}"
-                                                    data-rek_kelompok_id="{{ $rek_jenis_item->rek_kelompok_id }}"
-                                                    class="d-none">
-                                                    [{{ $rek_jenis_item->kode_lengkap }}]
-                                                    {{ $rek_jenis_item->nama }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group mb-0">
-                                <div class="row">
-                                    <div class="col-lg-2">
-                                        <label><i class="fas fa-filter"></i> Rekening Objek:</label>
-                                    </div>
-                                    <div class="col-lg-10">
-                                        <select name="rek_objek_id_filter" class="form-control"
-                                            data-filter-datatable="#{{ $rand }}">
-                                            <option value="" selected>Semua Rekening Objek</option>
-                                            @foreach ($rek_objek as $rek_objek_item)
-                                                <option value="{{ $rek_objek_item->id }}"
-                                                    data-rek_jenis_id="{{ $rek_objek_item->rek_jenis_id }}"
-                                                    class="d-none">
-                                                    [{{ $rek_objek_item->kode_lengkap }}]
-                                                    {{ $rek_objek_item->nama }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+                            <div class="col-lg-10">
+                                <select name="rek_akun_id_filter" class="form-control"
+                                    data-filter-datatable="#{{ $rand = Str::random(10) }}">
+                                    <option value="" selected>Semua Rekening Akun</option>
+                                    @foreach ($rek_akun as $rek_akun_item)
+                                        <option value="{{ $rek_akun_item->id }}">
+                                            [{{ $rek_akun_item->kode_lengkap }}]
+                                            {{ $rek_akun_item->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>
+                    <div class="form-group mb-2">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <label><i class="fas fa-filter"></i> Rekening Kelompok:</label>
+                            </div>
+                            <div class="col-lg-10">
+                                <select name="rek_kelompok_id_filter" class="form-control"
+                                    data-filter-datatable="#{{ $rand }}">
+                                    <option value="" selected>Semua Rekening Kelompok</option>
+                                    @foreach ($rek_kelompok as $rek_kelompok_item)
+                                        <option value="{{ $rek_kelompok_item->id }}"
+                                            data-rek_akun_id="{{ $rek_kelompok_item->rek_akun_id }}" class="d-none">
+                                            [{{ $rek_kelompok_item->kode_lengkap }}]
+                                            {{ $rek_kelompok_item->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <label><i class="fas fa-filter"></i> Rekening Jenis:</label>
+                            </div>
+                            <div class="col-lg-10">
+                                <select name="rek_jenis_id_filter" class="form-control"
+                                    data-filter-datatable="#{{ $rand }}">
+                                    <option value="" selected>Semua Rekening Jenis</option>
+                                    @foreach ($rek_jenis as $rek_jenis_item)
+                                        <option value="{{ $rek_jenis_item->id }}"
+                                            data-rek_kelompok_id="{{ $rek_jenis_item->rek_kelompok_id }}"
+                                            class="d-none">
+                                            [{{ $rek_jenis_item->kode_lengkap }}]
+                                            {{ $rek_jenis_item->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mb-0">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <label><i class="fas fa-filter"></i> Rekening Objek:</label>
+                            </div>
+                            <div class="col-lg-10">
+                                <select name="rek_objek_id_filter" class="form-control"
+                                    data-filter-datatable="#{{ $rand }}">
+                                    <option value="" selected>Semua Rekening Objek</option>
+                                    @foreach ($rek_objek as $rek_objek_item)
+                                        <option value="{{ $rek_objek_item->id }}"
+                                            data-rek_jenis_id="{{ $rek_objek_item->rek_jenis_id }}" class="d-none">
+                                            [{{ $rek_objek_item->kode_lengkap }}]
+                                            {{ $rek_objek_item->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
 
                     <div class="table-responsive">
                         {!! $table->table(['id' => $rand]) !!}
