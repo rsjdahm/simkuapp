@@ -2,9 +2,9 @@
     @csrf
     @method('put')
     <div class="form-group">
-        <label class="form-label">RKA</label>
+        <label class="form-label">Rencana Anggaran</label>
         <select name="rka_pd_id" class="form-control">
-            <option value="" disabled selected>Pilih RKA...</option>
+            <option value="" disabled selected>Pilih Rencana Anggaran...</option>
             @foreach ($rka_pd as $rka_pd_item)
                 <option @selected($rka_pd_item->id == $belanja_rka_pd->rka_pd_id) value="{{ $rka_pd_item->id }}">
                     [{{ $rka_pd_item->status }}]

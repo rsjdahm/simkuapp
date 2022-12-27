@@ -1,9 +1,9 @@
 <form method="post" action="{{ route('belanja-rka-pd.store') }}">
     @csrf
     <div class="form-group">
-        <label class="form-label">RKA</label>
+        <label class="form-label">Rencana Anggaran</label>
         <select name="rka_pd_id" class="form-control">
-            <option value="" disabled selected>Pilih RKA...</option>
+            <option value="" disabled selected>Pilih Rencana Anggaran...</option>
             @foreach ($rka_pd as $rka_pd_item)
                 <option value="{{ $rka_pd_item->id }}">
                     [{{ $rka_pd_item->status }}]

@@ -14,24 +14,24 @@
         </select>
     </div>
     <div class="form-group">
-        <label class="form-label">Nomor Dokumen RKA</label>
+        <label class="form-label">Nomor Dokumen</label>
         <input name="nomor" class="form-control" value="{{ $rka_pd->nomor }}">
     </div>
     <div class="form-group">
-        <label class="form-label">Status RKA</label>
+        <label class="form-label">Status</label>
         <select name="status" class="form-control">
-            <option value="" disabled selected>Pilih Status RKA...</option>
+            <option value="" disabled selected>Pilih Status...</option>
             @foreach ($status as $status_item)
                 <option @selected($status_item == $rka_pd->status) value="{{ $status_item }}">{{ $status_item }}</option>
             @endforeach
         </select>
     </div>
     <div class="form-group">
-        <label class="form-label">Tanggal Dokumen RKA</label>
+        <label class="form-label">Tanggal Dokumen</label>
         <input type="date" name="tanggal" class="form-control" value="{{ $rka_pd->tanggal }}">
     </div>
     <div class="form-group">
-        <label class="form-label">Uraian Dokumen RKA</label>
+        <label class="form-label">Uraian Dokumen</label>
         <textarea name="uraian" class="form-control">{{ $rka_pd->uraian }}</textarea>
     </div>
     <div class="form-group">

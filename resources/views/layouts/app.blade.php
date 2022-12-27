@@ -29,6 +29,10 @@
     <link href="{{ asset('libs/toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+
+    <link href="{{ asset('libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet"
+        type="text/css" />
+
     <link href="{{ asset('css/app.css' . '?v=' . Str::random(8)) }}" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript">
@@ -47,6 +51,16 @@
     <script src="{{ asset('libs/toastr/toastr.min.js') }}"></script>
     <script src="{{ asset('libs/sweetalert2/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('libs/select2/js/select2.min.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+
+    <script src="{{ asset('libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+
+    <script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.19/dataRender/datetime.js" charset="utf8"></script>
+
+    <script src="{{ asset('libs/inputmask/min/jquery.inputmask.bundle.min.js') }}"></script>
 
     <script src="{{ asset('js/app.js' . '?v=' . Str::random(8)) }}"></script>
 </body>

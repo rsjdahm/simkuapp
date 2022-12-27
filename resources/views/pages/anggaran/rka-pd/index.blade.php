@@ -2,20 +2,20 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
-                <h4>RKA PD</h4>
+                <h4>Rencana Anggaran</h4>
                 <a data-action="reload" class="btn btn-primary btn-sm float-right text-white"><i
                         class="fas fa-sync-alt"></i></a>
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">Anggaran</li>
-                    <li class="breadcrumb-item">Penganggaran PD</li>
-                    <li class="breadcrumb-item active">RKA PD</li>
+                    <li class="breadcrumb-item">Penganggaran</li>
+                    <li class="breadcrumb-item active">Rencana Anggaran</li>
                 </ol>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-12">
-            <a data-load="modal" title="Tambah RKA PD" href="{{ route('rka-pd.create') }}"
+            <a data-load="modal" title="Tambah Rencana Anggaran" href="{{ route('rka-pd.create') }}"
                 class="btn btn-success mb-3"><i class="fas fa-plus mr-2"></i> Tambah</a>
         </div>
     </div>

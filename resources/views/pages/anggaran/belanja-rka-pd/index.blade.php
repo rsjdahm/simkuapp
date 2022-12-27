@@ -7,7 +7,7 @@
                         class="fas fa-sync-alt"></i></a>
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">Anggaran</li>
-                    <li class="breadcrumb-item">Penganggaran PD</li>
+                    <li class="breadcrumb-item">Penganggaran</li>
                     <li class="breadcrumb-item active">Rincian Belanja</li>
                 </ol>
             </div>
@@ -46,7 +46,7 @@
                             <div class="form-group mb-0">
                                 <div class="row">
                                     <div class="col-lg-2">
-                                        <label><i class="fas fa-filter"></i> RKA:</label>
+                                        <label><i class="fas fa-filter"></i> Rencana Anggaran:</label>
                                     </div>
                                     <div class="col-lg-10">
                                         <select name="rka_pd_id_filter" class="form-control"

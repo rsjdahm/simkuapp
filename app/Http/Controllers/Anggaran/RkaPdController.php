@@ -69,7 +69,7 @@ class RkaPdController extends Controller
                             break;
                     }
                 })
-                ->editColumn('pagu_pengeluaran', function ($i) {
+                ->editColumn('pagu_belanja', function ($i) {
                     return $i->belanja_rka_pd->sum('nilai');
                 })
                 ->rawColumns(['action', 'status', 'print'])
@@ -88,12 +88,12 @@ class RkaPdController extends Controller
                 ->addColumn(['data' => 'sub_unit_kerja.nama', 'title' => 'Nama SKPD'])
                 ->addColumn(['data' => 'nomor', 'title' => 'Nomor Dokumen', 'class' => 'text-center'])
                 ->addColumn(['data' => 'tanggal', 'title' => 'Tanggal Dokumen', 'class' => 'text-center'])
-                ->addColumn(['data' => 'uraian', 'title' => 'Uraian Dokumen RKA'])
+                ->addColumn(['data' => 'uraian', 'title' => 'Uraian Dokumen Rencana Anggaran'])
                 ->addColumn(['data' => 'print', 'title' => '', 'class' => 'text-center', 'orderable' => false])
                 ->addColumn(['data' => 'pagu_pendapatan', 'title' => 'Pendapatan', 'class' => 'text-right'])
-                ->addColumn(['data' => 'pagu_pengeluaran', 'title' => 'Belanja', 'class' => 'text-right'])
+                ->addColumn(['data' => 'pagu_belanja', 'title' => 'Belanja', 'class' => 'text-right'])
                 ->addColumn(['data' => 'pagu_pembiayaan', 'title' => 'Pembiayaan', 'class' => 'text-right'])
-                ->addColumn(['data' => 'status', 'title' => 'Status RKA', 'class' => 'text-center'])
+                ->addColumn(['data' => 'status', 'title' => 'Status Rencana Anggaran', 'class' => 'text-center'])
                 ->parameters([
                     "initComplete" => "function(settings, json) {
                     //menambah rowspan ke kolom yg tidak digeser

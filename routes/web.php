@@ -42,7 +42,7 @@ require __DIR__ . '/auth.php';
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/menu-modul/{modul?}', function ($modul = 'setup') {
-        return view('components.menus.' . $modul);
+        return view('menus.' . $modul);
     })->name('menu-modul');
 
 

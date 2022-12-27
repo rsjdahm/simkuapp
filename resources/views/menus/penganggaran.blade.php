@@ -1,11 +1,11 @@
 <li>
     <a href="javascript: void(0);" class="has-arrow">
-        <span>Penganggaran PD</span>
+        <span>Penganggaran</span>
     </a>
     <ul class="sub-menu">
         <li>
             <a data-load="#page" data-menu="item" href="{{ route('rka-pd.index') }}">
-                RKA PD
+                Rencana Anggaran
             </a>
         </li>
         <li>
