@@ -2,7 +2,7 @@
 
 namespace App\Models\Anggaran;
 
-use App\Enums\Anggaran\StatusRkaPdEnum;
+use App\Enums\Anggaran\StatusRkaPd;
 use App\Models\Setup\SubUnitKerja;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -25,7 +25,7 @@ class RkaPd extends Model
     ];
 
     protected $casts = [
-        'status' => StatusRkaPdEnum::class
+        'status' => StatusRkaPd::class
     ];
 
     protected $with = [

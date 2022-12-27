@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Anggaran;
 
-use App\Enums\Anggaran\StatusRkaPdEnum;
+use App\Enums\Anggaran\StatusRkaPd;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Anggaran\RkaPdRequest;
 use App\Models\Anggaran\BelanjaRkaPd;
@@ -52,16 +52,16 @@ class RkaPdController extends Controller
                 ->addColumn('print', '<a data-load="modal-pdf" title="Cetak Rincian Anggaran" href="{{ route("rka-pd.pdf-pagu-belanja", $id) }}" class="btn btn-sm btn-success"><i class="fas fa-print"></i></a>')
                 ->editColumn('status', function ($i) {
                     switch ($i->status) {
-                        case StatusRkaPdEnum::Murni:
+                        case StatusRkaPd::Murni:
                             return '<span class="badge badge-primary">Murni</span>';
                             break;
-                        case StatusRkaPdEnum::Pergeseran:
+                        case StatusRkaPd::Pergeseran:
                             return '<span class="badge badge-info">Pergeseran</span>';
                             break;
-                        case StatusRkaPdEnum::Perubahan:
+                        case StatusRkaPd::Perubahan:
                             return '<span class="badge badge-success">Perubahan</span>';
                             break;
-                        case StatusRkaPdEnum::AmbangBatas:
+                        case StatusRkaPd::AmbangBatas:
                             return '<span class="badge badge-warning">Ambang Batas</span>';
                             break;
                         default:
@@ -132,7 +132,7 @@ class RkaPdController extends Controller
     {
         return view('pages.anggaran.rka-pd.create', [
             'sub_unit_kerja' => $this->sub_unit_kerja->get(),
-            'status' => StatusRkaPdEnum::cases()
+            'status' => StatusRkaPd::cases()
         ]);
     }
 
@@ -148,7 +148,7 @@ class RkaPdController extends Controller
         return view('pages.anggaran.rka-pd.edit', [
             'rka_pd' => $rka_pd,
             'sub_unit_kerja' => $this->sub_unit_kerja->get(),
-            'status' => StatusRkaPdEnum::cases()
+            'status' => StatusRkaPd::cases()
         ]);
     }
 

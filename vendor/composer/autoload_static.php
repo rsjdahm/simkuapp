@@ -661,9 +661,9 @@ class ComposerStaticInit442cae5d775dd183a6d6c44aac3ca1eb
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
-        'App\\Enums\\Anggaran\\StatusRkaPdEnum' => __DIR__ . '/../..' . '/app/Enums/Anggaran/StatusRkaPdEnum.php',
+        'App\\Enums\\Anggaran\\StatusRkaPd' => __DIR__ . '/../..' . '/app/Enums/Anggaran/StatusRkaPd.php',
         'App\\Enums\\Setup\\JenisRekAkun' => __DIR__ . '/../..' . '/app/Enums/Setup/JenisRekAkun.php',
-        'App\\Enums\\UserRoleEnum' => __DIR__ . '/../..' . '/app/Enums/UserRoleEnum.php',
+        'App\\Enums\\UserRole' => __DIR__ . '/../..' . '/app/Enums/UserRole.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Admin\\MigrationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/MigrationController.php',
         'App\\Http\\Controllers\\Anggaran\\BelanjaRkaPdController' => __DIR__ . '/../..' . '/app/Http/Controllers/Anggaran/BelanjaRkaPdController.php',

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Anggaran;
 
-use App\Enums\Anggaran\StatusRkaPdEnum;
+use App\Enums\Anggaran\StatusRkaPd;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Anggaran\BelanjaRkaPdRequest;
 use App\Models\Anggaran\BelanjaRkaPd;
@@ -55,16 +55,16 @@ class BelanjaRkaPdController extends Controller
                 ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Sub Unit Kerja" href="{{ route("belanja-rka-pd.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("belanja-rka-pd.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div></div>')
                 ->editColumn('rka_pd.status', function ($i) {
                     switch ($i->rka_pd->status) {
-                        case StatusRkaPdEnum::Murni:
+                        case StatusRkaPd::Murni:
                             return '<span class="badge badge-primary">Murni</span>';
                             break;
-                        case StatusRkaPdEnum::Pergeseran:
+                        case StatusRkaPd::Pergeseran:
                             return '<span class="badge badge-info">Pergeseran</span>';
                             break;
-                        case StatusRkaPdEnum::Perubahan:
+                        case StatusRkaPd::Perubahan:
                             return '<span class="badge badge-success">Perubahan</span>';
                             break;
-                        case StatusRkaPdEnum::AmbangBatas:
+                        case StatusRkaPd::AmbangBatas:
                             return '<span class="badge badge-warning">Ambang Batas</span>';
                             break;
                         default:

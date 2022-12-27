@@ -7,9 +7,9 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
-    'App\\Enums\\Anggaran\\StatusRkaPdEnum' => $baseDir . '/app/Enums/Anggaran/StatusRkaPdEnum.php',
+    'App\\Enums\\Anggaran\\StatusRkaPd' => $baseDir . '/app/Enums/Anggaran/StatusRkaPd.php',
     'App\\Enums\\Setup\\JenisRekAkun' => $baseDir . '/app/Enums/Setup/JenisRekAkun.php',
-    'App\\Enums\\UserRoleEnum' => $baseDir . '/app/Enums/UserRoleEnum.php',
+    'App\\Enums\\UserRole' => $baseDir . '/app/Enums/UserRole.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Admin\\MigrationController' => $baseDir . '/app/Http/Controllers/Admin/MigrationController.php',
     'App\\Http\\Controllers\\Anggaran\\BelanjaRkaPdController' => $baseDir . '/app/Http/Controllers/Anggaran/BelanjaRkaPdController.php',

@@ -2,7 +2,7 @@
 
 namespace App\Enums\Anggaran;
 
-enum StatusRkaPdEnum: string
+enum StatusRkaPd: string
 {
     case Murni = 'Murni';
     case Pergeseran = 'Pergeseran';
