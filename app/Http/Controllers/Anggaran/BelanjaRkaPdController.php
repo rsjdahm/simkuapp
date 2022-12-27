@@ -134,7 +134,7 @@ class BelanjaRkaPdController extends Controller
                             page: 'current'
                         }).data().each(function(group, i) {
                             if (last !== group) {
-                                $(rows).eq(i).before('<tr><td colspan=\"8\" class=\"bg-primary text-white font-weight-bold\">' + group + '</td></tr>');
+                                $(rows).eq(i).before('<tr><td colspan=\"8\" class=\"bg-success text-white font-weight-bold\">' + group + '</td></tr>');
                                 last = group;
                             }
                         });
@@ -210,7 +210,7 @@ class BelanjaRkaPdController extends Controller
             'belanja_rka_pd' => $belanja_rka_pd,
             'rka_pd' => $this->rka_pd->get(),
             'sub_kegiatan' => $this->sub_kegiatan->get(),
-            'rek_akun' => $this->rek_akun->with([
+            'rek_akun' => $this->rek_akun->belanja()->with([
                 'rek_kelompok',
                 'rek_kelompok.rek_jenis',
                 'rek_kelompok.rek_jenis.rek_objek',

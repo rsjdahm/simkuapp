@@ -21,7 +21,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;500;800;900&display=swap"
         rel="stylesheet">
 
-    <link href="{{ asset('css/bootswatch.css' . '?v=' . Str::random(8)) }}" rel="stylesheet" type="text/css" />
+    {{-- <link href="{{ asset('css/bootswatch.css' . '?v=' . Str::random(8)) }}" rel="stylesheet" type="text/css" /> --}}
+    <link href="{{ asset('css/litera.css' . '?v=' . Str::random(8)) }}" rel="stylesheet" type="text/css" />
+    {{-- <link href="https://bootswatch.com/4/litera/bootstrap.min.css" rel="stylesheet" type="text/css" /> --}}
     {{-- <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet" /> --}}
     <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('libs/toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />

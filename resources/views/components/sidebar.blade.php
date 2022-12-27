@@ -11,6 +11,7 @@
                         <option value="administrator">Administrator</option>
                         <option value="setup" selected>Setup</option>
                         <option value="penganggaran">Anggaran</option>
+                        <option value="penatausahaan">Penatausahaan</option>
                     </select>
                 </div>
             </div>

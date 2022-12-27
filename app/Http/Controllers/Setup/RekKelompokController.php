@@ -37,7 +37,7 @@ class RekKelompokController extends Controller
             ])
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'style' => 'width: 1%;', 'class' => 'text-center', 'orderable' => false])
-                ->addColumn(['data' => 'kode_lengkap', 'title' => 'Kode Rekening Kelompok', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
+                ->addColumn(['data' => 'kode_lengkap', 'title' => 'Kode Rekening Kelompok', 'class' => 'font-weight-bold text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'nama', 'title' => 'Rekening Kelompok'])
                 ->parameters([
                     'order' => [

@@ -30,7 +30,10 @@ class RekAkunController extends Controller
                 ->editColumn('jenis', function ($i) {
                     switch ($i->jenis) {
                         case JenisRekAkunEnum::Belanja:
-                            return '<span class="badge badge-success"><i class="fas fa-sign-out-alt"></i> Belanja</span>';
+                            return '<span class="badge badge-danger"><i class="fas fa-sign-out-alt"></i> Belanja</span>';
+                            break;
+                        case JenisRekAkunEnum::Pendapatan:
+                            return '<span class="badge badge-success"><i class="fas fa-sign-in-alt"></i> Pendapatan</span>';
                             break;
                     }
                 })
@@ -40,7 +43,7 @@ class RekAkunController extends Controller
 
         $table = $builder->ajax(route('rek-akun.index'))
             ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
-            ->addColumn(['data' => 'kode_lengkap', 'title' => 'Kode Rekening Akun', 'class' => 'font-weight-bold', 'style' => 'width: 1%;'])
+            ->addColumn(['data' => 'kode_lengkap', 'title' => 'Kode Rekening Akun', 'class' => 'font-weight-bold text-center', 'style' => 'width: 1%;'])
             ->addColumn(['data' => 'nama', 'title' => 'Uraian Rekening Akun'])
             ->addColumn(['data' => 'jenis', 'title' => 'Jenis Rekening'])
             ->parameters([

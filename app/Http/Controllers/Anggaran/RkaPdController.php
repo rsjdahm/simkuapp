@@ -48,9 +48,8 @@ class RkaPdController extends Controller
 
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Sub Unit Kerja" href="{{ route("rka-pd.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("rka-pd.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div>
-                <a data-load="modal-pdf" title="Cetak Rincian Anggaran" href="{{ route("rka-pd.pdf-pagu-belanja", $id) }}" class="btn btn-sm btn-secondary"><i class="fas fa-print mr-2"></i> Rinc. Anggaran</a>
-                </div>')
+                ->addColumn('action', '<button type="button" class="btn btn-sm btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Sub Unit Kerja" href="{{ route("rka-pd.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("rka-pd.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div>')
+                ->addColumn('print', '<a data-load="modal-pdf" title="Cetak Rincian Anggaran" href="{{ route("rka-pd.pdf-pagu-belanja", $id) }}" class="btn btn-sm btn-success"><i class="fas fa-print"></i></a>')
                 ->editColumn('status', function ($i) {
                     switch ($i->status) {
                         case StatusRkaPdEnum::Murni:
@@ -73,7 +72,7 @@ class RkaPdController extends Controller
                 ->editColumn('pagu_pengeluaran', function ($i) {
                     return $i->belanja_rka_pd->sum('nilai');
                 })
-                ->rawColumns(['action', 'status'])
+                ->rawColumns(['action', 'status', 'print'])
                 ->toJson();
 
         else :
@@ -90,6 +89,7 @@ class RkaPdController extends Controller
                 ->addColumn(['data' => 'nomor', 'title' => 'Nomor Dokumen', 'class' => 'text-center'])
                 ->addColumn(['data' => 'tanggal', 'title' => 'Tanggal Dokumen', 'class' => 'text-center'])
                 ->addColumn(['data' => 'uraian', 'title' => 'Uraian Dokumen RKA'])
+                ->addColumn(['data' => 'print', 'title' => '', 'class' => 'text-center', 'orderable' => false])
                 ->addColumn(['data' => 'pagu_pendapatan', 'title' => 'Pendapatan', 'class' => 'text-right'])
                 ->addColumn(['data' => 'pagu_pengeluaran', 'title' => 'Belanja', 'class' => 'text-right'])
                 ->addColumn(['data' => 'pagu_pembiayaan', 'title' => 'Pembiayaan', 'class' => 'text-right'])
@@ -97,13 +97,13 @@ class RkaPdController extends Controller
                 ->parameters([
                     "initComplete" => "function(settings, json) {
                     //menambah rowspan ke kolom yg tidak digeser
-                    $('#rka-pd-table thead tr:nth-child(1) th').filter(':nth-child(1),:nth-child(2),:nth-child(3),:nth-child(4),:nth-child(5),:nth-child(6),:nth-child(10)').attr('rowspan', '2');
+                    $('#rka-pd-table thead tr:nth-child(1) th').filter(':nth-child(1),:nth-child(2),:nth-child(3),:nth-child(4),:nth-child(5),:nth-child(6),:nth-child(7),:nth-child(11)').attr('rowspan', '2');
                     //menambah tr baru setelah tr lama
                     $('#rka-pd-table thead').append('<tr role=\"row\"></tr>');
                     //menggeser kolom yg tidak dirowspan ke tr baru
-                    $('#rka-pd-table thead tr:nth-child(1) th').filter(':nth-child(7),:nth-child(8),:nth-child(9)').prependTo('#rka-pd-table thead tr:nth-child(2)');
+                    $('#rka-pd-table thead tr:nth-child(1) th').filter(':nth-child(8),:nth-child(9),:nth-child(10)').prependTo('#rka-pd-table thead tr:nth-child(2)');
                     //menambah kolom colspan ke tr lama
-                    $('<th colspan=\"3\" class=\"text-center align-middle\">Pagu Anggaran</th>').insertAfter('#rka-pd-table thead tr:nth-child(1) th:nth-child(6)');
+                    $('<th colspan=\"3\" class=\"text-center align-middle\">Pagu Anggaran</th>').insertAfter('#rka-pd-table thead tr:nth-child(1) th:nth-child(7)');
                 }",
                     'order' => [
                         2, 'asc'
@@ -114,7 +114,7 @@ class RkaPdController extends Controller
                             'render' => '$.fn.dataTable.render.moment("DD/MM/YYYY")'
                         ],
                         [
-                            'targets' => [6, 7, 8],
+                            'targets' => [7, 8, 9],
                             'render' => '$.fn.dataTable.render.number(".", ",", 2, "")'
                         ],
                     ]
