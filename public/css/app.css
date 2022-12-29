@@ -383,12 +383,13 @@ main[data-layout="horizontal"] .footer {
     transition: all 0.4s;
 }
 #sidebar-menu li a:before {
-    content: "\f105";
+    content: "\f15b";
+    /* content: "\f105"; */
     font-family: "Font Awesome 5 Free";
-    font-weight: 900;
+    font-weight: 400;
     display: block;
     float: left;
-    margin-right: 0.4rem;
+    margin-right: 0.5rem;
 }
 #sidebar-menu ul li a i {
     display: inline-block;
