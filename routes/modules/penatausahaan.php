@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\Penatausahaan\BankController;
 use App\Http\Controllers\Penatausahaan\BuktiGuController;
+use App\Http\Controllers\Penatausahaan\PotonganPfkController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/penatausahaan/belanja')->group(function () {
     Route::resource('/bank', BankController::class);
+    Route::resource('/potongan-pfk', PotonganPfkController::class);
     Route::resource('/bukti-gu', BuktiGuController::class);
 });

@@ -9,7 +9,7 @@
             </a>
         </li>
         <li>
-            <a data-load="#page" data-menu="item" href="{{ route('bank.index') }}">
+            <a data-load="#page" data-menu="item" href="{{ route('potongan-pfk.index') }}">
                 Potongan PFK
             </a>
         </li>
