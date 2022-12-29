@@ -50,15 +50,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/ringkasan', [DashboardController::class, 'show'])->name('dashboard.show');
 
 
-    require __DIR__ . '/setup.php';
-    require __DIR__ . '/anggaran.php';
-
-    // ADMIN
-    Route::prefix('/admin')->group(function () {
-        Route::get('/migration', [MigrationController::class, 'index'])->name('migration.index');
-        Route::post('/migration/{migration}', [MigrationController::class, 'store'])->name('migration.store');
-        Route::get('/migration/{migration}/edit', [MigrationController::class, 'edit'])->name('migration.edit');
-        Route::put('/migration/{migration}', [MigrationController::class, 'update'])->name('migration.update');
-        Route::delete('/migration/{migration}', [MigrationController::class, 'destroy'])->name('migration.destroy');
-    });
+    require __DIR__ . '/modules/admin.php';
+    require __DIR__ . '/modules/setup.php';
+    require __DIR__ . '/modules/anggaran.php';
+    require __DIR__ . '/modules/penatausahaan.php';
 });

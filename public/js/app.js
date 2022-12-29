@@ -172,7 +172,7 @@ function load(parent, url, callback) {
 
                         const $wrapper = $("<span></span>");
                         // $wrapper.addClass($element[0].className);
-                        $wrapper.text(data.text);
+                        $wrapper.html(data.text);
 
                         $(container)
                             .addClass($element[0].className)
@@ -187,11 +187,11 @@ function load(parent, url, callback) {
         },
         error: function (xhr) {
             if (xhr.status == 404) {
-                $(parent).html(
+                return $(parent).html(
                     '<div class="text-center py-4"><i style="font-size: 52pt" class="fas fa-exclamation-triangle text-danger mb-3"></i><br/><h5 class="text-center"><strong>404</strong> Not Found</h5></div>'
                 );
             } else if (xhr.status == 500) {
-                $(parent).html(
+                return $(parent).html(
                     '<div class="text-center py-4"><i style="font-size: 52pt" class="fas fa-exclamation-circle text-danger mb-3"></i><br/><h5 class="text-center"><strong>500</strong> Internal Server Error</h5></div>'
                 );
             }
@@ -199,7 +199,7 @@ function load(parent, url, callback) {
     });
 }
 function loadPdf(parent, url) {
-    $(parent)
+    return $(parent)
         .html(`<object data="${url}" type="application/pdf" width="100%" height="100%">
                 <p>Browser tidak support menampilkan PDF.
                     <a href="${url}">Klik Di Sini untuk Download</a>
@@ -240,7 +240,15 @@ function modal(title, url, size) {
         cursor: "move",
         handle: ".modal-header",
     });
-    load('div.modal[data-href="' + url + '"] .modal-body', url);
+    return load(
+        'div.modal[data-href="' + url + '"] .modal-body',
+        url,
+        function () {
+            $('div.modal[data-href="' + url + '"] .modal-body')
+                .find("[autofocus]")
+                .focus();
+        }
+    );
 }
 function modalPdf(title, url) {
     $(".modal.fade").not(".modal.fade.show").remove();
@@ -278,7 +286,7 @@ function modalPdf(title, url) {
         cursor: "move",
         handle: ".modal-header",
     });
-    loadPdf('div.modal[data-href="' + url + '"] .modal-body', url);
+    return loadPdf('div.modal[data-href="' + url + '"] .modal-body', url);
 }
 
 $(document).on("select2:open", () => {
@@ -294,7 +302,11 @@ $(document).ready(function () {
 $("body").on("click", "a[data-load]", function (event) {
     const a = $(this);
     event.preventDefault();
-    if (!a.data("menu")) {
+    if (
+        !a.data("menu") &&
+        a.data("load") != "modal" &&
+        a.data("load") != "modal-pdf"
+    ) {
         return load(a.data("load"), a.attr("href"));
     }
 });

@@ -164,7 +164,7 @@
                                             {{ number_format($total_per_sub_rincian, 2, ',', '.') }}
                                         </td>
                                         @php
-                                            if ($_rek_akun->jenis == \App\Enums\Setup\JenisRekAkunEnum::Belanja):
+                                            if ($_rek_akun->jenis == \App\Enums\Setup\JenisRekAkun::Belanja):
                                                 $defisit_surplus = $defisit_surplus - $total_per_sub_rincian;
                                             endif;
                                         @endphp
