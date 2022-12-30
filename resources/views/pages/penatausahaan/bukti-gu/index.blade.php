@@ -23,8 +23,42 @@
         <div class="col-12">
             <div class="card mb-3">
                 <div class="card-body">
+                    <div class="form-group mb-2">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Status Pending:</label>
+                                @foreach (App\Enums\Penatausahaan\StatusPendingBuktiGu::cases() as $status_pending)
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input"
+                                                name="status_pending_filter_table_bukti-gu"
+                                                value="{{ $status_pending }}" @checked($status_pending == App\Enums\Penatausahaan\StatusPendingBuktiGu::Normal)>
+                                            {{ $status_pending }}
+                                            <strong></strong>
+                                        </label>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="col-md-2">
+                                <label>Bulan:</label>
+                                <select name="bulan_filter_table_bukti-gu" class="form-control">
+                                    <option value="">Semua Bulan...</option>
+                                    @for ($bulan = 1; $bulan <= 12; $bulan++)
+                                        <option value="{{ $bulan }}">
+                                            {{ Carbon\Carbon::create()->month($bulan)->translatedFormat('F') }}
+                                        </option>
+                                    @endfor
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
                     <div class="table-responsive">
-                        {!! $table->table(['id' => Str::random(10)]) !!}
+                        {!! $table->table(['id' => 'bukti-gu'], true) !!}
                         {!! $table->scripts() !!}
                     </div>
 

@@ -54,3 +54,6 @@ $("#%1$s thead th").addClass('align-middle text-center');
 $("[data-filter-datatable='#%1$s']").change(function() {
 $("#%1$s").DataTable().ajax.reload(null, false);
 });
+$("[name$='_filter_table_%1$s']").change(function() {
+$("#%1$s").DataTable().ajax.reload(null, false);
+});

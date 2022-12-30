@@ -2,8 +2,20 @@
     @csrf
     <div class="row">
         <div class="col-md-6">
+            <div class="form-group bg-light rounded border p-3">
+                <label class="form-label">Status Pending <span class="text-danger">*</span></label>
+                @foreach (App\Enums\Penatausahaan\StatusPendingBuktiGu::cases() as $status_pending)
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="status_pending"
+                                value="{{ $status_pending }}" @checked($status_pending == App\Enums\Penatausahaan\StatusPendingBuktiGu::Normal)>
+                            {{ $status_pending }}
+                        </label>
+                    </div>
+                @endforeach
+            </div>
             <div class="form-group">
-                <label class="form-label">Kode Rekening</label>
+                <label class="form-label">Kode Rekening <span class="text-danger">*</span></label>
                 <select name="belanja_rka_pd_id" class="form-control">
                     <option value="" disabled selected>Pilih Rekening Belanja...</option>
                     @foreach ($rek_akun->sortBy('kode_lengkap') as $rek_akun_item)
@@ -47,23 +59,23 @@
                 </select>
             </div>
             <div class="form-group">
-                <label class="form-label">Nomor Bukti</label>
-                <input autofocus type="number" name="nomor" class="form-control">
+                <label class="form-label">Nomor Bukti <span class="text-warning">*</span></label>
+                <input autofocus name="nomor" class="form-control">
             </div>
             <div class="form-group">
-                <label class="form-label">Tanggal</label>
+                <label class="form-label">Tanggal <span class="text-warning">*</span></label>
                 <input type="date" name="tanggal" class="form-control">
             </div>
             <div class="form-group">
-                <label class="form-label">Uraian</label>
+                <label class="form-label">Uraian <span class="text-danger">*</span></label>
                 <textarea name="uraian" class="form-control"></textarea>
             </div>
             <div class="form-group">
-                <label class="form-label">Nilai</label>
-                <input type="number" name="nilai" class="form-control">
+                <label class="form-label">Nilai <span class="text-danger">*</span></label>
+                <input type="number" name="nilai" step=".0001" class="form-control">
             </div>
             <div class="form-group">
-                <label class="form-label">Metode Pembayaran</label>
+                <label class="form-label">Metode Pembayaran <span class="text-danger">*</span></label>
                 <select name="metode_pembayaran" class="form-control">
                     <option value="" disabled selected>Pilih Metode Pembayaran...</option>
                     @foreach (\App\Enums\Penatausahaan\MetodePembayaran::cases() as $metode_pembayaran)
@@ -72,31 +84,34 @@
                 </select>
             </div>
             <div class="form-group">
-                <label class="form-label">Status</label>
-                <select name="status" class="form-control">
-                    @foreach (\App\Enums\Penatausahaan\StatusBuktiGu::cases() as $status)
+                <label class="form-label">Status <span class="text-danger">*</span></label>
+                <input name="status" value="{{ App\Enums\Penatausahaan\StatusBuktiGu::BelumPosting }}" readonly
+                    class="form-control">
+                {{-- <select name="status" class="form-control">
+                    @foreach (App\Enums\Penatausahaan\StatusBuktiGu::cases() as $status)
                         <option value="{{ $status }}">{{ $status }}</option>
                     @endforeach
-                </select>
+                </select> --}}
             </div>
         </div>
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body">
                     <div class="form-group">
-                        <label class="form-label">Nama Penerima</label>
+                        <label class="form-label">Nama Penerima <span class="text-danger">*</span></label>
                         <input name="nama" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Jenis Penerima</label>
+                        <label class="form-label">Jenis Penerima <span class="text-danger">*</span></label>
                         <select name="jenis" class="form-control">
+                            <option value="" disabled selected>Pilih Jenis Penerima...</option>
                             @foreach (\App\Enums\Penatausahaan\JenisBuktiGu::cases() as $jenis)
                                 <option value="{{ $jenis }}">{{ $jenis }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Alamat</label>
+                        <label class="form-label">Alamat <span class="text-danger">*</span></label>
                         <textarea name="alamat" class="form-control"></textarea>
                     </div>
                     <div class="form-group">

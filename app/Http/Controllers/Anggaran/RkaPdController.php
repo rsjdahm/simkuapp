@@ -80,8 +80,8 @@ class RkaPdController extends Controller
             $table = $builder->ajax([
                 'url' => route('rka-pd.index'),
                 'data' => 'function(d) {
-                d.sub_unit_kerja_id = $("select[name=\'sub_unit_kerja_id_filter\']").val();
-            }',
+                    d.sub_unit_kerja_id = $("select[name=\'sub_unit_kerja_id_filter\']").val();
+                }',
             ])
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'style' => 'width: 1%;', 'class' => 'text-center', 'orderable' => false])

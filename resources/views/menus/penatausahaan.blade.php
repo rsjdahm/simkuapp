@@ -30,6 +30,18 @@
                 Bukti GU
             </a>
         </li>
+        <li>
+            <a href="javascript: void(0);" class="has-arrow">
+                <span>Laporan</span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a data-load="#page" data-menu="item">
+                        Buku Pembantu Kas Tunai
+                    </a>
+                </li>
 
+            </ul>
+        </li>
     </ul>
 </li>

@@ -13,6 +13,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "nwidart/laravel-modules": "^9.0",
+        "riskihajar/terbilang": "^1.2",
         "yajra/laravel-datatables": "^9.0"
     },
     "require-dev": {

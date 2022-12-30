@@ -142,7 +142,7 @@ class BelanjaRkaPdController extends Controller
                             page: 'current'
                         }).data().each(function(group, i) {
                             if (last !== group) {
-                                $(rows).eq(i).before('<tr><td colspan=\"8\" class=\"bg-light text-primary font-weight-bold\">' + group + '</td></tr>');
+                                $(rows).eq(i).before('<tr><td colspan=\"8\" class=\"text-primary font-weight-bold\">' + group + '</td></tr>');
                                 last = group;
                             }
                         });
@@ -150,7 +150,7 @@ class BelanjaRkaPdController extends Controller
                             page: 'current'
                         }).data().each(function(group, i) {
                             if (last !== group) {
-                                $(rows).eq(i).before('<tr><td colspan=\"8\" class=\"bg-light font-weight-bold\">' + group + '</td></tr>');
+                                $(rows).eq(i).before('<tr><td colspan=\"8\" class=\"font-weight-bold\">' + group + '</td></tr>');
                                 last = group;
                             }
                         });
@@ -158,7 +158,7 @@ class BelanjaRkaPdController extends Controller
                             page: 'current'
                         }).data().each(function(group, i) {
                             if (last !== group) {
-                                $(rows).eq(i).before('<tr><td colspan=\"8\"  class=\"bg-light font-weight-bold\">' + group + '</td></tr>');
+                                $(rows).eq(i).before('<tr><td colspan=\"8\"  class=\"font-weight-bold\">' + group + '</td></tr>');
                                 last = group;
                             }
                         });

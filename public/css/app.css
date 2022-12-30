@@ -3168,3 +3168,7 @@ input[switch="dark"]:checked + label {
 label {
     font-weight: 600;
 }
+
+.form-check-label {
+    cursor: pointer;
+}

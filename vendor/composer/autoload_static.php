@@ -102,6 +102,7 @@ class ComposerStaticInit442cae5d775dd183a6d6c44aac3ca1eb
         ),
         'R' => 
         array (
+            'Riskihajar\\Terbilang\\' => 21,
             'Ramsey\\Uuid\\' => 12,
             'Ramsey\\Collection\\' => 18,
         ),
@@ -376,6 +377,10 @@ class ComposerStaticInit442cae5d775dd183a6d6c44aac3ca1eb
         'Sabberworm\\CSS\\' => 
         array (
             0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/src',
+        ),
+        'Riskihajar\\Terbilang\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/riskihajar/terbilang/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -678,6 +683,7 @@ class ComposerStaticInit442cae5d775dd183a6d6c44aac3ca1eb
         'App\\Enums\\Penatausahaan\\JenisTransaksiBelanja' => __DIR__ . '/../..' . '/app/Enums/Penatausahaan/JenisTransaksiBelanja.php',
         'App\\Enums\\Penatausahaan\\MetodePembayaran' => __DIR__ . '/../..' . '/app/Enums/Penatausahaan/MetodePembayaran.php',
         'App\\Enums\\Penatausahaan\\StatusBuktiGu' => __DIR__ . '/../..' . '/app/Enums/Penatausahaan/StatusBuktiGu.php',
+        'App\\Enums\\Penatausahaan\\StatusPotonganBuktiGu' => __DIR__ . '/../..' . '/app/Enums/Penatausahaan/StatusPotonganBuktiGu.php',
         'App\\Enums\\Setup\\JenisRekAkun' => __DIR__ . '/../..' . '/app/Enums/Setup/JenisRekAkun.php',
         'App\\Enums\\UserRole' => __DIR__ . '/../..' . '/app/Enums/UserRole.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -697,6 +703,8 @@ class ComposerStaticInit442cae5d775dd183a6d6c44aac3ca1eb
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\Penatausahaan\\BankController' => __DIR__ . '/../..' . '/app/Http/Controllers/Penatausahaan/BankController.php',
         'App\\Http\\Controllers\\Penatausahaan\\BuktiGuController' => __DIR__ . '/../..' . '/app/Http/Controllers/Penatausahaan/BuktiGuController.php',
+        'App\\Http\\Controllers\\Penatausahaan\\PotonganBuktiGuController' => __DIR__ . '/../..' . '/app/Http/Controllers/Penatausahaan/PotonganBuktiGuController.php',
+        'App\\Http\\Controllers\\Penatausahaan\\PotonganPfkController' => __DIR__ . '/../..' . '/app/Http/Controllers/Penatausahaan/PotonganPfkController.php',
         'App\\Http\\Controllers\\Setup\\BidangController' => __DIR__ . '/../..' . '/app/Http/Controllers/Setup/BidangController.php',
         'App\\Http\\Controllers\\Setup\\KegiatanController' => __DIR__ . '/../..' . '/app/Http/Controllers/Setup/KegiatanController.php',
         'App\\Http\\Controllers\\Setup\\ProgramController' => __DIR__ . '/../..' . '/app/Http/Controllers/Setup/ProgramController.php',
@@ -725,6 +733,8 @@ class ComposerStaticInit442cae5d775dd183a6d6c44aac3ca1eb
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
         'App\\Http\\Requests\\Penatausahaan\\BankRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Penatausahaan/BankRequest.php',
         'App\\Http\\Requests\\Penatausahaan\\BuktiGuRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Penatausahaan/BuktiGuRequest.php',
+        'App\\Http\\Requests\\Penatausahaan\\PotonganBuktiGuRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Penatausahaan/PotonganBuktiGuRequest.php',
+        'App\\Http\\Requests\\Penatausahaan\\PotonganPfkRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Penatausahaan/PotonganPfkRequest.php',
         'App\\Http\\Requests\\Setup\\BidangRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Setup/BidangRequest.php',
         'App\\Http\\Requests\\Setup\\KegiatanRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Setup/KegiatanRequest.php',
         'App\\Http\\Requests\\Setup\\ProgramRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Setup/ProgramRequest.php',
@@ -743,6 +753,8 @@ class ComposerStaticInit442cae5d775dd183a6d6c44aac3ca1eb
         'App\\Models\\Anggaran\\RkaPd' => __DIR__ . '/../..' . '/app/Models/Anggaran/RkaPd.php',
         'App\\Models\\Penatausahaan\\Bank' => __DIR__ . '/../..' . '/app/Models/Penatausahaan/Bank.php',
         'App\\Models\\Penatausahaan\\BuktiGu' => __DIR__ . '/../..' . '/app/Models/Penatausahaan/BuktiGu.php',
+        'App\\Models\\Penatausahaan\\PotonganBuktiGu' => __DIR__ . '/../..' . '/app/Models/Penatausahaan/PotonganBuktiGu.php',
+        'App\\Models\\Penatausahaan\\PotonganPfk' => __DIR__ . '/../..' . '/app/Models/Penatausahaan/PotonganPfk.php',
         'App\\Models\\Setup\\Bidang' => __DIR__ . '/../..' . '/app/Models/Setup/Bidang.php',
         'App\\Models\\Setup\\Kegiatan' => __DIR__ . '/../..' . '/app/Models/Setup/Kegiatan.php',
         'App\\Models\\Setup\\Program' => __DIR__ . '/../..' . '/app/Models/Setup/Program.php',
@@ -5268,6 +5280,9 @@ class ComposerStaticInit442cae5d775dd183a6d6c44aac3ca1eb
         'Ramsey\\Uuid\\Validator\\GenericValidator' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/GenericValidator.php',
         'Ramsey\\Uuid\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/ValidatorInterface.php',
         'ReturnTypeWillChange' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/ReturnTypeWillChange.php',
+        'Riskihajar\\Terbilang\\Facades\\Terbilang' => __DIR__ . '/..' . '/riskihajar/terbilang/src/Facades/Terbilang.php',
+        'Riskihajar\\Terbilang\\Terbilang' => __DIR__ . '/..' . '/riskihajar/terbilang/src/Terbilang.php',
+        'Riskihajar\\Terbilang\\TerbilangServiceProvider' => __DIR__ . '/..' . '/riskihajar/terbilang/src/TerbilangServiceProvider.php',
         'Sabberworm\\CSS\\CSSList\\AtRuleBlockList' => __DIR__ . '/..' . '/sabberworm/php-css-parser/src/CSSList/AtRuleBlockList.php',
         'Sabberworm\\CSS\\CSSList\\CSSBlockList' => __DIR__ . '/..' . '/sabberworm/php-css-parser/src/CSSList/CSSBlockList.php',
         'Sabberworm\\CSS\\CSSList\\CSSList' => __DIR__ . '/..' . '/sabberworm/php-css-parser/src/CSSList/CSSList.php',

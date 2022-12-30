@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => '3.x-dev',
         'version' => '3.9999999.9999999.9999999-dev',
-        'reference' => 'eeeaff61ca13066b7fb291cd82192ed0c71758d4',
+        'reference' => 'affaca13767740a323941ab7ffe56834d905f88b',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -502,7 +502,7 @@
         'laravel/laravel' => array(
             'pretty_version' => '3.x-dev',
             'version' => '3.9999999.9999999.9999999-dev',
-            'reference' => 'eeeaff61ca13066b7fb291cd82192ed0c71758d4',
+            'reference' => 'affaca13767740a323941ab7ffe56834d905f88b',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -1012,6 +1012,15 @@
             'replaced' => array(
                 0 => '4.5.1',
             ),
+        ),
+        'riskihajar/terbilang' => array(
+            'pretty_version' => '1.2.5',
+            'version' => '1.2.5.0',
+            'reference' => '924eb6b2f96da2cfb90ed91aa9c4ee78d4986f23',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../riskihajar/terbilang',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'sabberworm/php-css-parser' => array(
             'pretty_version' => '8.4.0',

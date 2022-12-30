@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('bukti_gu', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('belanja_rka_pd_id')->nullable();
+            $table->string('status_pending')->nullable();
             $table->string('nomor')->nullable();
             $table->date('tanggal')->nullable();
             $table->text('uraian')->nullable();
@@ -24,9 +25,9 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->string('nama')->nullable();
             $table->text('alamat')->nullable();
-            $table->text('npwp')->nullable();
+            $table->string('npwp')->nullable();
             $table->unsignedBigInteger('bank_id')->nullable();
-            $table->text('nomor_rekening')->nullable();
+            $table->string('nomor_rekening')->nullable();
             $table->string('jenis')->nullable();
             $table->timestamps();
             $table->softDeletes();
