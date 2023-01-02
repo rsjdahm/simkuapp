@@ -27,12 +27,12 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <label>Status Pending:</label>
-                                @foreach (App\Enums\Penatausahaan\StatusPendingBuktiGu::cases() as $status_pending)
+                                @foreach (App\Enums\Penatausahaan\StatusPending::cases() as $status_pending)
                                     <div class="form-check">
                                         <label class="form-check-label">
                                             <input type="radio" class="form-check-input"
                                                 name="status_pending_filter_table_bukti-gu"
-                                                value="{{ $status_pending }}" @checked($status_pending == App\Enums\Penatausahaan\StatusPendingBuktiGu::Normal)>
+                                                value="{{ $status_pending }}" @checked($status_pending == App\Enums\Penatausahaan\StatusPending::Normal)>
                                             {{ $status_pending }}
                                             <strong></strong>
                                         </label>

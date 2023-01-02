@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('kode')->nullable();
             $table->string('nama')->nullable();
+            $table->string('jenis')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -132,7 +132,7 @@
             <td>
                 <strong>Setuju dan Lunas dibayar tgl:</strong>
                 {!! $bukti_gu->tanggal
-                    ? Carbon\Carbon::parse($bukti_gu->tanggal)->translatedFormat('d F Y')
+                    ? Carbon\Carbon::parse($bukti_gu->tanggal_bayar)->translatedFormat('d F Y')
                     : '.....................................' !!}
                 <br />
                 Bendahara Pengeluaran,

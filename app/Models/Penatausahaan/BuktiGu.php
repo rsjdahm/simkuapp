@@ -4,8 +4,8 @@ namespace App\Models\Penatausahaan;
 
 use App\Enums\Penatausahaan\JenisBuktiGu;
 use App\Enums\Penatausahaan\MetodePembayaran;
-use App\Enums\Penatausahaan\StatusBuktiGu;
-use App\Enums\Penatausahaan\StatusPendingBuktiGu;
+use App\Enums\Penatausahaan\StatusPosting;
+use App\Enums\Penatausahaan\StatusPending;
 use App\Models\Anggaran\BelanjaRkaPd;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -21,6 +21,7 @@ class BuktiGu extends Model
         'status_pending',
         'nomor',
         'tanggal',
+        'tanggal_bayar',
         'uraian',
         'nilai',
         'metode_pembayaran',
@@ -34,10 +35,9 @@ class BuktiGu extends Model
     ];
 
     protected $casts = [
-        'status_pending' => StatusPendingBuktiGu::class,
+        'status_pending' => StatusPending::class,
         'metode_pembayaran' => MetodePembayaran::class,
-        // 'tanggal' => 'date',
-        'status' => StatusBuktiGu::class,
+        'status' => StatusPosting::class,
         'jenis' => JenisBuktiGu::class,
     ];
 

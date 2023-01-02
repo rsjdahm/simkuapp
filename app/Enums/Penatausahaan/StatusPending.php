@@ -2,7 +2,7 @@
 
 namespace App\Enums\Penatausahaan;
 
-enum StatusPendingBuktiGu: string
+enum StatusPending: string
 {
     case Normal = 'Normal';
     case Pending = 'Pending';

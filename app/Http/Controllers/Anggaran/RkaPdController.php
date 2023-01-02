@@ -111,7 +111,11 @@ class RkaPdController extends Controller
                     'columnDefs' => [
                         [
                             'targets' => [4],
-                            'render' => '$.fn.dataTable.render.moment("DD/MM/YYYY")'
+                            'render' => 'function (data) {
+                                if (data) {
+                                    return moment(data).format("DD/MM/YYYY");
+                                }
+                            }'
                         ],
                         [
                             'targets' => [7, 8, 9],

@@ -5,7 +5,7 @@
         <div class="col-md-6">
             <div class="form-group bg-light rounded border p-3">
                 <label class="form-label">Status Pending <span class="text-danger">*</span></label>
-                @foreach (App\Enums\Penatausahaan\StatusPendingBuktiGu::cases() as $status_pending)
+                @foreach (App\Enums\Penatausahaan\StatusPending::cases() as $status_pending)
                     <div class="form-check">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="status_pending"
@@ -90,7 +90,7 @@
             <div class="form-group">
                 <label class="form-label">Status <span class="text-danger">*</span></label>
                 <select name="status" class="form-control">
-                    @foreach (\App\Enums\Penatausahaan\StatusBuktiGu::cases() as $status)
+                    @foreach (\App\Enums\Penatausahaan\StatusPosting::cases() as $status)
                         <option value="{{ $status }}" @selected($bukti_gu->status == $status)>{{ $status }}</option>
                     @endforeach
                 </select>
@@ -136,6 +136,11 @@
                         <label class="form-label">No. Rekening Penerima</label>
                         <input type="number" name="nomor_rekening" class="form-control"
                             value="{{ $bukti_gu->nomor_rekening }}">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tanggal Bayar <span class="text-warning">*</span></label>
+                        <input type="date" name="tanggal_bayar" class="form-control"
+                            value="{{ $bukti_gu->tanggal_bayar }}">
                     </div>
                 </div>
             </div>

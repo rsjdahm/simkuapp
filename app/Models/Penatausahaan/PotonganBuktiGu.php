@@ -2,7 +2,7 @@
 
 namespace App\Models\Penatausahaan;
 
-use App\Enums\Penatausahaan\StatusPotonganBuktiGu;
+use App\Enums\Penatausahaan\StatusSetor;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -18,11 +18,13 @@ class PotonganBuktiGu extends Model
         'nilai',
         'nomor_billing',
         'nomor_penyetoran',
-        'status'
+        'status',
+        'tanggal_setor',
+        'tanggal_buku'
     ];
 
     protected $casts = [
-        'status' => StatusPotonganBuktiGu::class
+        'status' => StatusSetor::class
     ];
 
     protected $with = [

@@ -4,11 +4,11 @@
         <div class="col-md-6">
             <div class="form-group bg-light rounded border p-3">
                 <label class="form-label">Status Pending <span class="text-danger">*</span></label>
-                @foreach (App\Enums\Penatausahaan\StatusPendingBuktiGu::cases() as $status_pending)
+                @foreach (App\Enums\Penatausahaan\StatusPending::cases() as $status_pending)
                     <div class="form-check">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="status_pending"
-                                value="{{ $status_pending }}" @checked($status_pending == App\Enums\Penatausahaan\StatusPendingBuktiGu::Normal)>
+                                value="{{ $status_pending }}" @checked($status_pending == App\Enums\Penatausahaan\StatusPending::Normal)>
                             {{ $status_pending }}
                         </label>
                     </div>
@@ -85,13 +85,11 @@
             </div>
             <div class="form-group">
                 <label class="form-label">Status <span class="text-danger">*</span></label>
-                <input name="status" value="{{ App\Enums\Penatausahaan\StatusBuktiGu::BelumPosting }}" readonly
-                    class="form-control">
-                {{-- <select name="status" class="form-control">
-                    @foreach (App\Enums\Penatausahaan\StatusBuktiGu::cases() as $status)
+                <select name="status" class="form-control">
+                    @foreach (App\Enums\Penatausahaan\StatusPosting::cases() as $status)
                         <option value="{{ $status }}">{{ $status }}</option>
                     @endforeach
-                </select> --}}
+                </select>
             </div>
         </div>
         <div class="col-md-6">
@@ -132,6 +130,10 @@
                     <div class="form-group">
                         <label class="form-label">No. Rekening Penerima</label>
                         <input type="number" name="nomor_rekening" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tanggal Bayar <span class="text-warning">*</span></label>
+                        <input type="date" name="tanggal_bayar" class="form-control">
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@
 
 namespace App\Enums\Penatausahaan;
 
-enum StatusBuktiGu: string
+enum StatusPosting: string
 {
     case BelumPosting = 'Belum Posting';
     case Posting = 'Posting';

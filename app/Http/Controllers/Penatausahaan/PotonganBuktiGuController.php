@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Penatausahaan;
 
 use App\Enums\Penatausahaan\JenisPotonganPfk;
-use App\Enums\Penatausahaan\StatusBuktiGu;
-use App\Enums\Penatausahaan\StatusPotonganBuktiGu;
+use App\Enums\Penatausahaan\StatusSetor;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Penatausahaan\PotonganBuktiGuRequest;
 use App\Models\Penatausahaan\BuktiGu;
@@ -28,23 +27,20 @@ class PotonganBuktiGuController extends Controller
                 ->with('total_nilai', $data->sum(function ($i) {
                     return $i->nilai;
                 }))
-                ->with('total_nilai_penyetoran', $data->where('status', StatusPotonganBuktiGu::Setor)->sum(function ($i) {
+                ->with('total_nilai_penyetoran', $data->where('status', StatusSetor::Setor)->sum(function ($i) {
                     return $i->nilai;
                 }))
                 ->addIndexColumn()
                 ->addColumn('action',  function ($i) {
-                    // if ($i->bukti_gu->status == StatusBuktiGu::BelumPosting && $i->status == StatusPotonganBuktiGu::BelumSetor) :
-                    if ($i->status == StatusPotonganBuktiGu::BelumSetor) :
-                        return '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Potongan PFK" href="' . route("potongan-bukti-gu.edit", $i->id) . '" class="dropdown-item">Edit</a><a data-action="delete" href="' . route("potongan-bukti-gu.destroy", $i->id) . '" class="dropdown-item text-danger">Hapus</a></div></div>';
-                    endif;
+                    return '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Potongan PFK" href="' . route("potongan-bukti-gu.edit", $i->id) . '" class="dropdown-item">Edit</a><a data-action="delete" href="' . route("potongan-bukti-gu.destroy", $i->id) . '" class="dropdown-item text-danger">Hapus</a></div></div>';
                 })
                 ->editColumn('status', function ($i) {
                     switch ($i->status) {
-                        case StatusPotonganBuktiGu::BelumSetor:
-                            return '<span class="badge badge-warning">' . StatusPotonganBuktiGu::BelumSetor->value . '</span>';
+                        case StatusSetor::BelumSetor:
+                            return '<span class="badge badge-warning">' . StatusSetor::BelumSetor->value . '</span>';
                             break;
-                        case StatusPotonganBuktiGu::Setor:
-                            return '<span class="badge badge-success">' . StatusPotonganBuktiGu::Setor->value . '</span>';
+                        case StatusSetor::Setor:
+                            return '<span class="badge badge-success">' . StatusSetor::Setor->value . '</span>';
                             break;
                         default:
                             return '<span class="badge badge-secondary">-</span>';
@@ -84,7 +80,7 @@ class PotonganBuktiGuController extends Controller
                 ->addColumn(['data' => 'nilai', 'title' => 'Nilai Potongan', 'class' => 'text-right'])
                 ->addColumn(['data' => 'status', 'title' => 'Status Penyetoran', 'class' => 'text-center', 'style' => 'width: 1%;'])
                 ->addColumn(['data' => 'nomor_billing', 'title' => 'Nomor Billing'])
-                ->addColumn(['data' => 'nomor_penyetoran', 'title' => 'NTPN/Bukti Penyetoran'])
+                ->addColumn(['data' => 'nomor_penyetoran', 'title' => 'NTPN/Nomor Penyetoran'])
                 ->parameters([
                     'order' => [
                         2, 'asc'

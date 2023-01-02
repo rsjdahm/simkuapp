@@ -15,7 +15,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <div class="card mini-stats-wid">
+            <div class="card mb-3">
                 <div class="card-body">
                     <div class="media">
                         <div class="media-body">
@@ -23,8 +23,9 @@
                             <h4 class="mb-0">{{ request()->ip() }}</h4>
                         </div>
 
-                        <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
-                            <span class="avatar-title">
+                        <div class="avatar-sm rounded-circle bg-primary align-self-center">
+                            <span class="avatar-title rounded-circle bg-primary">
+
                                 <i class="fas fa-desktop font-size-24"></i>
                             </span>
                         </div>
@@ -33,7 +34,7 @@
             </div>
         </div>
         <div class="col">
-            <div class="card mini-stats-wid">
+            <div class="card mb-3">
                 <div class="card-body">
                     <div class="media">
                         <div class="media-body">
@@ -64,8 +65,9 @@
                                 }
                             </script>
                         </div>
-                        <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
-                            <span class="avatar-title">
+                        <div class="avatar-sm rounded-circle bg-primary align-self-center">
+                            <span class="avatar-title rounded-circle bg-primary">
+
                                 <i class="fas fa-clock font-size-24"></i>
                             </span>
                         </div>
@@ -76,16 +78,17 @@
     </div>
     <div class="row">
         <div class="col-md-4">
-            <div class="card mini-stats-wid">
+            <div class="card mb-3">
                 <div class="card-body">
                     <div class="media">
                         <div class="media-body">
                             <p class="text-muted font-weight-medium">Total Anggaran</p>
-                            <h4 class="mb-0">Rp 18.500.000.000,00</h4>
+                            <h4 class="mb-0">Rp {{ number_format($sum_belanja_rka_pd, 2, ',', '.') }}</h4>
                         </div>
 
-                        <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
-                            <span class="avatar-title">
+                        <div class="avatar-sm rounded-circle bg-primary align-self-center">
+                            <span class="avatar-title rounded-circle bg-primary">
+
                                 <i class="fas fa-copy font-size-24"></i>
                             </span>
                         </div>
@@ -94,12 +97,15 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card mini-stats-wid">
+            <div class="card mb-3">
                 <div class="card-body">
                     <div class="media">
                         <div class="media-body">
                             <p class="text-muted font-weight-medium">Total Realisasi</p>
-                            <h4 class="mb-0">Rp -</h4>
+                            <h4 class="mb-0">Rp {{ number_format($sum_realisasi_belanja_rka_pd, 2, ',', '.') }}</h4>
+                            <small class="font-weight-bold text-success">
+                                {{ number_format(($sum_realisasi_belanja_rka_pd / $sum_belanja_rka_pd) * 100, 2, ',', '.') }}%
+                            </small>
                         </div>
 
                         <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
@@ -112,12 +118,17 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card mini-stats-wid">
+            <div class="card mb-3">
                 <div class="card-body">
                     <div class="media">
                         <div class="media-body">
                             <p class="text-muted font-weight-medium">Sisa Anggaran</p>
-                            <h4 class="mb-0">Rp -</h4>
+                            <h4 class="mb-0">Rp
+                                {{ number_format($sum_belanja_rka_pd - $sum_realisasi_belanja_rka_pd, 2, ',', '.') }}
+                            </h4>
+                            <small class="font-weight-bold text-danger">
+                                {{ number_format((($sum_belanja_rka_pd - $sum_realisasi_belanja_rka_pd) / $sum_belanja_rka_pd) * 100, 2, ',', '.') }}%
+                            </small>
                         </div>
 
                         <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">

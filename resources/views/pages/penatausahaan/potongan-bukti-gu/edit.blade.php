@@ -25,18 +25,33 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="form-group">
-                <label class="form-label">Status</label>
-                <select name="status" class="form-control">
-                    @foreach (\App\Enums\Penatausahaan\StatusPotonganBuktiGu::cases() as $status)
-                        <option value="{{ $status }}" @selected($potongan_bukti_gu->status == $status)>{{ $status }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="form-group">
-                <label class="form-label">NTPN/Bukti Penyetoran</label>
-                <input name="nomor_penyetoran" class="form-control" value="{{ $potongan_bukti_gu->nomor_penyetoran }}">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="form-label">Tanggal Setor</label>
+                        <input type="date" name="tanggal_setor" class="form-control"
+                            value="{{ $potongan_bukti_gu->tanggal_setor }}">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tanggal Buku</label>
+                        <input type="date" name="tanggal_buku" class="form-control"
+                            value="{{ $potongan_bukti_gu->tanggal_buku }}">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">NTPN/Nomor Penyetoran</label>
+                        <input name="nomor_penyetoran" class="form-control"
+                            value="{{ $potongan_bukti_gu->nomor_penyetoran }}">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Status</label>
+                        <select name="status" class="form-control">
+                            @foreach (\App\Enums\Penatausahaan\StatusSetor::cases() as $status)
+                                <option value="{{ $status }}" @selected($potongan_bukti_gu->status == $status)>{{ $status }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

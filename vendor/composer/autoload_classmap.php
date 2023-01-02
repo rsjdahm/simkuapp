@@ -13,6 +13,7 @@ return array(
     'App\\Enums\\Penatausahaan\\JenisTransaksiBelanja' => $baseDir . '/app/Enums/Penatausahaan/JenisTransaksiBelanja.php',
     'App\\Enums\\Penatausahaan\\MetodePembayaran' => $baseDir . '/app/Enums/Penatausahaan/MetodePembayaran.php',
     'App\\Enums\\Penatausahaan\\StatusBuktiGu' => $baseDir . '/app/Enums/Penatausahaan/StatusBuktiGu.php',
+    'App\\Enums\\Penatausahaan\\StatusPendingBuktiGu' => $baseDir . '/app/Enums/Penatausahaan/StatusPendingBuktiGu.php',
     'App\\Enums\\Penatausahaan\\StatusPotonganBuktiGu' => $baseDir . '/app/Enums/Penatausahaan/StatusPotonganBuktiGu.php',
     'App\\Enums\\Setup\\JenisRekAkun' => $baseDir . '/app/Enums/Setup/JenisRekAkun.php',
     'App\\Enums\\UserRole' => $baseDir . '/app/Enums/UserRole.php',

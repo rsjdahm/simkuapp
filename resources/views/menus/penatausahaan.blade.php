@@ -4,11 +4,6 @@
     </a>
     <ul class="sub-menu">
         <li>
-            <a data-load="#page" data-menu="item" href="{{ route('rka-pd.index') }}">
-                Penetapan UP
-            </a>
-        </li>
-        <li>
             <a data-load="#page" data-menu="item" href="{{ route('potongan-pfk.index') }}">
                 Potongan PFK
             </a>
@@ -25,6 +20,11 @@
         <span>Belanja</span>
     </a>
     <ul class="sub-menu">
+        <li>
+            <a data-load="#page" data-menu="item" href="{{ route('penetapan-up.index') }}">
+                Penetapan UP
+            </a>
+        </li>
         <li>
             <a data-load="#page" data-menu="item" href="{{ route('bukti-gu.index') }}">
                 Bukti GU

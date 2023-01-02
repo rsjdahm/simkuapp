@@ -20,22 +20,32 @@
                 <label class="form-label">Nomor Billing</label>
                 <input name="nomor_billing" class="form-control">
             </div>
-
         </div>
         <div class="col-md-6">
-            <div class="form-group">
-                <div class="form-group">
-                    <label class="form-label">Status</label>
-                    <input name="status" value="{{ App\Enums\Penatausahaan\StatusPotonganBuktiGu::BelumSetor }}"
-                        readonly class="form-control">
-                    {{-- <select name="status" class="form-control">
-                            @foreach (\App\Enums\Penatausahaan\StatusPotonganBuktiGu::cases() as $status)
-                                <option value="{{ $status }}">{{ $status }}</option>
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="form-label">Tanggal Setor</label>
+                        <input type="date" name="tanggal_setor" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tanggal Buku</label>
+                        <input type="date" name="tanggal_buku" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">NTPN/Nomor Penyetoran</label>
+                        <input name="nomor_penyetoran" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Status</label>
+                        <select name="status" class="form-control">
+                            @foreach (\App\Enums\Penatausahaan\StatusSetor::cases() as $status)
+                                <option value="{{ $status }}">{{ $status }}
+                                </option>
                             @endforeach
-                        </select> --}}
+                        </select>
+                    </div>
                 </div>
-                <label class="form-label">NTPN/Bukti Penyetoran</label>
-                <input name="nomor_penyetoran" class="form-control">
             </div>
         </div>
     </div>

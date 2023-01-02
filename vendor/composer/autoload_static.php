@@ -683,6 +683,7 @@ class ComposerStaticInit442cae5d775dd183a6d6c44aac3ca1eb
         'App\\Enums\\Penatausahaan\\JenisTransaksiBelanja' => __DIR__ . '/../..' . '/app/Enums/Penatausahaan/JenisTransaksiBelanja.php',
         'App\\Enums\\Penatausahaan\\MetodePembayaran' => __DIR__ . '/../..' . '/app/Enums/Penatausahaan/MetodePembayaran.php',
         'App\\Enums\\Penatausahaan\\StatusBuktiGu' => __DIR__ . '/../..' . '/app/Enums/Penatausahaan/StatusBuktiGu.php',
+        'App\\Enums\\Penatausahaan\\StatusPendingBuktiGu' => __DIR__ . '/../..' . '/app/Enums/Penatausahaan/StatusPendingBuktiGu.php',
         'App\\Enums\\Penatausahaan\\StatusPotonganBuktiGu' => __DIR__ . '/../..' . '/app/Enums/Penatausahaan/StatusPotonganBuktiGu.php',
         'App\\Enums\\Setup\\JenisRekAkun' => __DIR__ . '/../..' . '/app/Enums/Setup/JenisRekAkun.php',
         'App\\Enums\\UserRole' => __DIR__ . '/../..' . '/app/Enums/UserRole.php',

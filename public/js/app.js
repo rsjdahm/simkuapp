@@ -199,12 +199,23 @@ function load(parent, url, callback) {
     });
 }
 function loadPdf(parent, url) {
-    return $(parent)
-        .html(`<object data="${url}" type="application/pdf" width="100%" height="100%">
+    $.ajax({
+        url: url,
+        xhrFields: {
+            responseType: "blob",
+        },
+        success: function (data) {
+            const blob = new Blob([data], { type: "application/pdf" });
+            const href = window.URL.createObjectURL(blob);
+
+            return $(parent)
+                .html(`<object data="${href}" type="application/pdf" width="100%" height="100%">
                 <p>Browser tidak support menampilkan PDF.
                     <a href="${url}">Klik Di Sini untuk Download</a>
                 </p>
             </object>`);
+        },
+    });
 }
 /// global loader modal
 function modal(title, url, size) {
