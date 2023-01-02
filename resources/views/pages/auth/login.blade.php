@@ -21,15 +21,9 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
                                 </div>
-                                <input name="email" type="email" class="form-control"
-                                    placeholder="{{ __('Email') }}" required />
-                                @error('email')
-                                    <div class="invalid-tooltip">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                                <input name="login" class="form-control" placeholder="Email atau NIP" required />
                             </div>
                         </div>
 
@@ -38,13 +32,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                                 </div>
-                                <input name="password" type="password" class="form-control"
-                                    placeholder="{{ __('Password') }}" required />
-                                @error('password')
-                                    <div class="invalid-tooltip">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                                <input name="password" type="password" class="form-control" placeholder="Kata Sandi"
+                                    required />
                             </div>
                         </div>
 

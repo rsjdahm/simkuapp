@@ -8,10 +8,9 @@
                 <div class="col-9">
                     <select name="module-menu" class="form-control" style="width: 100%;">
                         {{-- <option disabled selected>-- Pilih Modul --</option> --}}
-                        <option value="administrator">Administrator</option>
-                        <option value="setup" selected>Setup</option>
-                        <option value="penganggaran">Anggaran</option>
-                        <option value="penatausahaan">Penatausahaan</option>
+                        @foreach (explode(',', Auth::user()->modul) as $modul)
+                            <option value="{{ $modul }}">{{ Str::title($modul) }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
