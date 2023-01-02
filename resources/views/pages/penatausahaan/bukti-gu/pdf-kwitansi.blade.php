@@ -131,7 +131,7 @@
             </td>
             <td>
                 <strong>Setuju dan Lunas dibayar tgl:</strong>
-                {!! $bukti_gu->tanggal
+                {!! $bukti_gu->tanggal_bayar
                     ? Carbon\Carbon::parse($bukti_gu->tanggal_bayar)->translatedFormat('d F Y')
                     : '.....................................' !!}
                 <br />
