@@ -262,42 +262,43 @@ function modal(title, url, size) {
     );
 }
 function modalPdf(title, url) {
-    $(".modal.fade").not(".modal.fade.show").remove();
-    $("body").append(
-        `<div data-href="${url}" class="modal fade" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document" style="min-width: calc(100vw - 20rem);">
-                    <div class="modal-content border-0" style="height: 90vh;">
-                        <div class="modal-header bg-primary border-bottom-0">
-                            <h5 class="modal-title text-white font-weight-bold">${title}</h5>
-                            <div>
-                                <a href="${url}" title="Download PDF" target="_blank" class="btn btn-sm btn-success">
-                                    <span aria-hidden="true">
-                                        <i class="fas fa-download"></i>
-                                    </span>
-                                </a>
-                                <button type="button" class="btn btn-sm btn-primary" onclick="return loadPdf('div.modal[data-href=&quot;${url}&quot;] .modal-body', '${url}');">
-                                    <span aria-hidden="true">
-                                        <i class="fas fa-sync-alt"></i>
-                                    </span>
-                                </button>
-                                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">
-                                        <i class="fas fa-times"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="modal-body p-0"></div>
-                    </div>
-                </div>
-            </div>`
-    );
-    $('div.modal[data-href="' + url + '"]').modal("toggle");
-    $('div.modal[data-href="' + url + '"]').draggable({
-        cursor: "move",
-        handle: ".modal-header",
-    });
-    return loadPdf('div.modal[data-href="' + url + '"] .modal-body', url);
+    return window.open(url, title, "width=1024,height=768");
+    // $(".modal.fade").not(".modal.fade.show").remove();
+    // $("body").append(
+    //     `<div data-href="${url}" class="modal fade" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+    //             <div class="modal-dialog modal-lg" role="document" style="min-width: calc(100vw - 20rem);">
+    //                 <div class="modal-content border-0" style="height: 90vh;">
+    //                     <div class="modal-header bg-primary border-bottom-0">
+    //                         <h5 class="modal-title text-white font-weight-bold">${title}</h5>
+    //                         <div>
+    //                             <a href="${url}" title="Download PDF" target="_blank" class="btn btn-sm btn-success">
+    //                                 <span aria-hidden="true">
+    //                                     <i class="fas fa-download"></i>
+    //                                 </span>
+    //                             </a>
+    //                             <button type="button" class="btn btn-sm btn-primary" onclick="return loadPdf('div.modal[data-href=&quot;${url}&quot;] .modal-body', '${url}');">
+    //                                 <span aria-hidden="true">
+    //                                     <i class="fas fa-sync-alt"></i>
+    //                                 </span>
+    //                             </button>
+    //                             <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" aria-label="Close">
+    //                                 <span aria-hidden="true">
+    //                                     <i class="fas fa-times"></i>
+    //                                 </span>
+    //                             </button>
+    //                         </div>
+    //                     </div>
+    //                     <div class="modal-body p-0"></div>
+    //                 </div>
+    //             </div>
+    //         </div>`
+    // );
+    // $('div.modal[data-href="' + url + '"]').modal("toggle");
+    // $('div.modal[data-href="' + url + '"]').draggable({
+    //     cursor: "move",
+    //     handle: ".modal-header",
+    // });
+    // return loadPdf('div.modal[data-href="' + url + '"] .modal-body', url);
 }
 
 $(document).on("select2:open", () => {
