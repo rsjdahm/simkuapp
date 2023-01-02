@@ -1,7 +1,3 @@
-NProgress.configure({
-    template: SPINNER,
-});
-
 toastr.options = {
     closeButton: true,
     debug: false,

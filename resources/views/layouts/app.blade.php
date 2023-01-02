@@ -37,8 +37,6 @@
 
     <script type="text/javascript">
         var BASE_URL = "{{ url('/') }}";
-        var SPINNER =
-            '<div class="bar" role="bar"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-container"><img rel="preload" height="60" width="60" src="{{ asset('img/loader.gif') }}" alt="Loading..."/></div></div>';
     </script>
 </head>
 
