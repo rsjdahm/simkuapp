@@ -22,6 +22,7 @@
     height: 70px;
     padding: 0 calc(24px / 2) 0 0;
     /* border-bottom: 2px solid rgba(0, 0, 0, 0.1); */
+    box-shadow: 0 1px 4px rgb(0 0 0 / 40%);
 }
 .navbar-header .dropdown.show .header-item {
     background-color: #f8f9fa;
@@ -328,9 +329,9 @@ main[data-layout="horizontal"] .footer {
     margin-top: 0;
     position: fixed;
     top: 70px;
-    -webkit-box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+    /* -webkit-box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
     box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
-    border: 1px solid rgba(0, 0, 0, 0.125);
+    border: 1px solid rgba(0, 0, 0, 0.125); */
 }
 .main-content {
     margin-left: 250px;
@@ -433,25 +434,9 @@ main[data-layout="horizontal"] .footer {
     color: #7f8387;
     font-weight: 600;
 }
-/** custom */
-.metismenu .active {
-    color: #4582ec !important;
-}
-.metismenu .active i {
-    color: #4582ec !important;
-}
-/** custom */
-.mm-active {
-    color: #4582ec !important;
-}
 .mm-active .active {
-    color: #4582ec !important;
-}
-.mm-active .active i {
-    color: #4582ec !important;
-}
-.mm-active > i {
-    color: #4582ec !important;
+    /* color: #4582ec !important; */
+    font-weight: bold;
 }
 @media (max-width: 992px) {
     .vertical-menu {
