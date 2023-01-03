@@ -14,7 +14,7 @@ return [
         'id'    => 'dataTableBuilder',
         // 'class' => 'table table-sm table-bordered table-hover dt-responsive display datatable',
         // 'class' => 'table table-sm table-hover dt-responsive display datatable',
-        'class' => 'table table-sm table-striped table-bordered table-hover dt-responsive display datatable',
+        'class' => 'table table-sm table-striped table-hover dt-responsive display datatable',
         'width' => '100%',
         'cellspacing' => '0',
     ],

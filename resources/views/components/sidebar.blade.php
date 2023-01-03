@@ -1,6 +1,6 @@
 <div class="vertical-menu">
     <div data-simplebar class="h-100">
-        <div class="bg-light px-3 py-3">
+        <div class="px-3 py-3">
             <div class="row">
                 <div class="col-3">
                     <span style="line-height: 36px; font-weight: bold;">Modul:</span>
@@ -84,10 +84,16 @@
         load('#sidebar', url, function() {
             let url = new URL(window.location);
             url.searchParams.set('module', val);
+
+            // let defaultUrl = $('a[data-menu="default"]').data('href').replace(BASE_URL + '/', '');
+            // url.searchParams.set('route', defaultUrl);
+
             window.history.pushState({}, '', url)
             $("#sidebar").metisMenu();
 
             activateMenu();
+
+            // load($('a[data-menu="default"]').data('load'), $('a[data-menu="default"]').data('href'));
         });
     });
 </script>
