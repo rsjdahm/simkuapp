@@ -56,6 +56,7 @@
 
     <script src="{{ asset('libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('libs/chart.js/Chart.bundle.min.js') }}"></script>
 
     {{-- <script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js"></script>
     <script src="https://cdn.datatables.net/plug-ins/1.10.19/dataRender/datetime.js" charset="utf8"></script> --}}
