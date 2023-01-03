@@ -240,10 +240,10 @@ function modal(title, url, size) {
             </div>`
     );
     $('div.modal[data-href="' + url + '"]').modal("toggle");
-    $('div.modal[data-href="' + url + '"]').draggable({
-        cursor: "move",
-        handle: ".modal-header",
-    });
+    // $('div.modal[data-href="' + url + '"]').draggable({
+    //     cursor: "move",
+    //     handle: ".modal-header",
+    // });
     return load(
         'div.modal[data-href="' + url + '"] .modal-body',
         url,

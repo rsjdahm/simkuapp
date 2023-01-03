@@ -22,7 +22,9 @@
         rel="stylesheet">
 
     {{-- <link href="{{ asset('css/bootswatch.css' . '?v=' . Str::random(8)) }}" rel="stylesheet" type="text/css" /> --}}
-    <link href="{{ asset('css/litera.css' . '?v=' . Str::random(8)) }}" rel="stylesheet" type="text/css" />
+    {{-- <link href="{{ asset('css/litera.css' . '?v=' . Str::random(8)) }}" rel="stylesheet" type="text/css" /> --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     {{-- <link href="https://bootswatch.com/4/litera/bootstrap.min.css" rel="stylesheet" type="text/css" /> --}}
     {{-- <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet" /> --}}
     <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" />
