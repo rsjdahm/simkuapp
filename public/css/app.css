@@ -378,7 +378,7 @@ main[data-layout="horizontal"] .footer {
 #sidebar-menu ul li a {
     display: block;
     padding: 0.3rem 1.25rem;
-    color: #545a6d;
+    color: #444444;
     position: relative;
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
@@ -399,7 +399,6 @@ main[data-layout="horizontal"] .footer {
     padding-bottom: 0.125em;
     line-height: 1.40625rem;
     vertical-align: middle;
-    color: #7f8387;
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
 }
