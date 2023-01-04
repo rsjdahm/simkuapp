@@ -37,7 +37,11 @@
                 <span class="font-weight-bold text-light"
                     id="digital-clock">{{ Carbon\Carbon::now()->isoFormat('HH:mm:ss') }}</span>
                 <script>
-                    @if (env('DEBUGBAR_ENABLED') == true)
+                    @if (env('DEBUGBAR_ENABLED') == 'true')
+                        $(function() {
+                            startTime();
+                        });
+
                         function startTime() {
                             var today = new Date();
                             var h = today.getHours();
@@ -66,9 +70,6 @@
                                     }
                                 });
                             }, 1000)
-                        });
-                        $(function() {
-                            startTime();
                         });
                     @endif
                 </script>
