@@ -3,7 +3,7 @@
     top: 0;
     right: 0;
     left: 0;
-    z-index: 9999;
+    z-index: 1039;
     background-color: #fff;
     -webkit-box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
     box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
@@ -2131,6 +2131,12 @@ main[data-layout="horizontal"][data-layout-size="boxed"] .navbar-header {
     max-height: 300px;
     overflow-y: auto;
 }
+.select2-dropdown {
+    z-index: 1038;
+}
+.modal ~ .select2-container .select2-dropdown {
+    z-index: 1051 !important;
+}
 input[switch] {
     display: none;
 }
@@ -3127,7 +3133,7 @@ input[switch="dark"]:checked + label {
     background: #f0ad4e;
 
     position: fixed;
-    z-index: 2000;
+    z-index: 10000;
     top: 0;
     left: 0;
 
