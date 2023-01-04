@@ -32,12 +32,6 @@ $(document)
         // NProgress.done();
 
         $("form").find("small.text-danger").remove();
-        $("form").find("[name].border-danger").removeClass("border-danger");
-        $("form")
-            .find("[name]")
-            .siblings("span.select2.select2-container")
-            .find("span.select2-selection.border-danger")
-            .removeClass("border-danger");
 
         if (xhr.readyState == 0) {
             return toastr.error(
@@ -79,11 +73,9 @@ $(document)
                                 name[2] +
                                 ']"]'
                         );
-                        input
-                            .addClass("border-danger")
-                            .after(
-                                `<small class="text-danger">${messages}</small>`
-                            );
+                        input.after(
+                            `<small class="text-danger">${messages}</small>`
+                        );
                     }
                 } else {
                     const input = $('[name="' + name + '"]');
@@ -93,16 +85,10 @@ $(document)
                             .after(
                                 `<small class="text-danger">${messages}</small>`
                             );
-                        input
-                            .siblings("span.select2.select2-container")
-                            .find("span.select2-selection")
-                            .addClass("border-danger");
                     } else {
-                        input
-                            .addClass("border-danger")
-                            .after(
-                                `<small class="text-danger">${messages}</small>`
-                            );
+                        input.after(
+                            `<small class="text-danger">${messages}</small>`
+                        );
                     }
                 }
             });
