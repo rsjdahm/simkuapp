@@ -34,30 +34,41 @@
         </div>
         <div class="d-flex">
             <div class="dropdown d-inline-block">
-                <span class="font-weight-bold text-light" id="txt"></span>
+                <span class="font-weight-bold text-light"
+                    id="digital-clock">{{ Carbon\Carbon::now()->isoFormat('HH:mm:ss') }}</span>
                 <script>
-                    $(function() {
-                        startTime();
+                    $(document).ready(function() {
+                        setInterval(function() {
+                            $.ajax({
+                                url: '{{ route('jam') }}',
+                                success: function(data) {
+                                    $('#digital-clock').text(data)
+                                }
+                            });
+                        }, 1000)
                     });
+                    // $(function() {
+                    //     startTime();
+                    // });
 
-                    function startTime() {
-                        var today = new Date();
-                        var h = today.getHours();
-                        var m = today.getMinutes();
-                        var s = today.getSeconds();
-                        m = checkTime(m);
-                        s = checkTime(s);
-                        document.getElementById('txt').innerHTML =
-                            h + ":" + m + ":" + s;
-                        var t = setTimeout(startTime, 500);
-                    }
+                    // function startTime() {
+                    //     var today = new Date("{{ Carbon\Carbon::now() }}");
+                    //     var h = today.getHours();
+                    //     var m = today.getMinutes();
+                    //     var s = today.getSeconds();
+                    //     m = checkTime(m);
+                    //     s = checkTime(s);
+                    //     document.getElementById('digital-clock').innerHTML =
+                    //         h + ":" + m + ":" + s;
+                    //     var t = setTimeout(startTime, 500);
+                    // }
 
-                    function checkTime(i) {
-                        if (i < 10) {
-                            i = "0" + i
-                        }; // add zero in front of numbers < 10
-                        return i;
-                    }
+                    // function checkTime(i) {
+                    //     if (i < 10) {
+                    //         i = "0" + i
+                    //     }; // add zero in front of numbers < 10
+                    //     return i;
+                    // }
                 </script>
                 <button type="button" class="btn header-item" id="page-header-user-dropdown" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">

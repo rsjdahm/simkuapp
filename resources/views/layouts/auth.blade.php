@@ -1,7 +1,7 @@
 <main data-topbar="dark" data-layout="horizontal">
     <div id="layout-wrapper">
 
-        @include('components.header_auth')
+        @include('components.header-auth')
 
         @include('components.topbar')
 

@@ -1,7 +1,7 @@
 <main data-topbar="colored">
     <div id="layout-wrapper">
 
-        @include('components.header_dashboard')
+        @include('components.header-dashboard')
 
         @include('components.sidebar')
 

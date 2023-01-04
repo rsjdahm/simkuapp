@@ -3,25 +3,6 @@
 use App\Http\Controllers\Admin\MigrationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Main\Anggaran\AktivitasController;
-use App\Http\Controllers\Main\Anggaran\KegiatanRkaController;
-use App\Http\Controllers\Main\Anggaran\ProgramRkaController;
-use App\Http\Controllers\Main\Anggaran\RkaController;
-use App\Http\Controllers\Main\Anggaran\SubkegiatanRkaController;
-use App\Http\Controllers\Parameter\Global\BidangController;
-use App\Http\Controllers\Parameter\Global\KegiatanController;
-use App\Http\Controllers\Parameter\Global\PegawaiController;
-use App\Http\Controllers\Parameter\Global\ProgramController;
-use App\Http\Controllers\Parameter\Global\RekAkunController;
-use App\Http\Controllers\Parameter\Global\RekJenisController;
-use App\Http\Controllers\Parameter\Global\RekKelompokController;
-use App\Http\Controllers\Parameter\Global\RekObjekController;
-use App\Http\Controllers\Parameter\Global\RekRincObjekController;
-use App\Http\Controllers\Parameter\Global\RekSubRincObjekController;
-use App\Http\Controllers\Parameter\Global\SubkegiatanController;
-use App\Http\Controllers\Parameter\Global\SubunitController;
-use App\Http\Controllers\Parameter\Global\UnitController;
-use App\Http\Controllers\Parameter\Global\UrusanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/jam', function () {
+    return Carbon\Carbon::now()->isoFormat('HH:mm:ss');
+})->name('jam');
 
 require __DIR__ . '/auth.php';
 
