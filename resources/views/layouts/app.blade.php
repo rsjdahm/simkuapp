@@ -7,7 +7,7 @@
     <meta content="{{ config('app.meta.description') }}" name="description" />
     <meta content="{{ config('app.meta.author') }}" name="author" />
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
-    <meta name="theme-color" content="#2a3042">
+    <meta name="theme-color" content="#2196f3" media="(prefers-color-scheme: light)">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <meta name="init-url" content="{{ Auth::check() ? route('dashboard') : route('auth') }}" />
