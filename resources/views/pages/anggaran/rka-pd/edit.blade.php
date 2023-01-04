@@ -69,10 +69,14 @@
             type: form.attr("method"),
             processData: false,
             contentType: false,
+            beforeSend: function() {
+                NProgress.start();
+            },
             success: function(response) {
                 toastr.success(response.message);
                 $('table.datatable').DataTable().ajax.reload(null, false);
                 form.closest('div.modal').modal("hide");
+                NProgress.done();
             }
         });
         return false;
