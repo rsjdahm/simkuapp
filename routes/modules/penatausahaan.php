@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Penatausahaan\BankController;
 use App\Http\Controllers\Penatausahaan\BuktiGuController;
+use App\Http\Controllers\Penatausahaan\PenandatanganController;
 use App\Http\Controllers\Penatausahaan\PenetapanUpController;
 use App\Http\Controllers\Penatausahaan\PotonganBuktiGuController;
 use App\Http\Controllers\Penatausahaan\PotonganPfkController;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/penatausahaan/parameter')->group(function () {
     Route::resource('/bank', BankController::class);
     Route::resource('/potongan-pfk', PotonganPfkController::class);
+    Route::resource('/penandatangan', PenandatanganController::class);
 });
 Route::prefix('/penatausahaan/belanja')->group(function () {
     Route::resource('/penetapan-up', PenetapanUpController::class);
