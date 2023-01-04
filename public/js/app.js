@@ -22,6 +22,8 @@ $.ajaxSetup({
 });
 $(document).ajaxError(function (event, xhr, settings, thrownError) {
     $("form").find("small.text-danger").remove();
+    $("form").find("input, textarea, .select2-selection").css("box-shadow", "");
+
     NProgress.done();
 
     if (xhr.readyState == 0) {
@@ -49,11 +51,10 @@ $(document).ajaxError(function (event, xhr, settings, thrownError) {
 
                 if (name.length < 3) {
                     const input = $('[name^="' + name[0] + '[]"]');
-                    input
-                        .addClass("border-danger")
-                        .after(
-                            `<small class="text-danger">${messages}</small>`
-                        );
+                    input.css("box-shadow", "inset 0 -1px 0 red");
+                    input.after(
+                        `<small class="text-danger">${messages}</small>`
+                    );
                 } else {
                     const input = $(
                         '[name^="' +
@@ -64,6 +65,7 @@ $(document).ajaxError(function (event, xhr, settings, thrownError) {
                             name[2] +
                             ']"]'
                     );
+                    input.css("box-shadow", "inset 0 -1px 0 red");
                     input.after(
                         `<small class="text-danger">${messages}</small>`
                     );
@@ -73,10 +75,17 @@ $(document).ajaxError(function (event, xhr, settings, thrownError) {
                 if (input.is("select")) {
                     input
                         .siblings("span.select2.select2-container")
+                        .children("span.selection")
+                        .children(".select2-selection")
+                        .css("box-shadow", "inset 0 -1px 0 red");
+
+                    input
+                        .siblings("span.select2.select2-container")
                         .after(
                             `<small class="text-danger">${messages}</small>`
                         );
                 } else {
+                    input.css("box-shadow", "inset 0 -1px 0 red");
                     input.after(
                         `<small class="text-danger">${messages}</small>`
                     );
