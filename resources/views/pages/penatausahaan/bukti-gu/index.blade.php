@@ -25,21 +25,24 @@
                 <div class="card-body">
                     <div class="form-group mb-2">
                         <div class="row">
-                            <div class="col-md-2">
-                                <label>Status Pending:</label>
-                                @foreach (App\Enums\Penatausahaan\StatusPending::cases() as $status_pending)
-                                    <div class="form-check">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input"
-                                                name="status_pending_filter_table_bukti-gu"
-                                                value="{{ $status_pending }}" @checked($status_pending == App\Enums\Penatausahaan\StatusPending::Normal)>
-                                            {{ $status_pending }}
-                                            <strong></strong>
-                                        </label>
-                                    </div>
-                                @endforeach
+                            <div class="col-md-3">
+                                <label class="d-block">Status Pending:</label>
+                                <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-success active">
+                                        <input type="radio" name="status_pending_filter_table_bukti-gu"
+                                            value="{{ App\Enums\Penatausahaan\StatusPending::Normal }}"
+                                            autocomplete="off" checked=""> Normal
+                                        <strong class="text-dark bg-secondary ml-2 rounded px-2"></strong>
+                                    </label>
+                                    <label class="btn btn-warning">
+                                        <input type="radio" name="status_pending_filter_table_bukti-gu"
+                                            value="{{ App\Enums\Penatausahaan\StatusPending::Pending }}"
+                                            autocomplete="off"> Pending
+                                        <strong class="text-dark bg-secondary ml-2 rounded px-2"></strong>
+                                    </label>
+                                </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <label>Bulan:</label>
                                 <select name="bulan_filter_table_bukti-gu" class="form-control">
                                     <option value="">Semua Bulan...</option>

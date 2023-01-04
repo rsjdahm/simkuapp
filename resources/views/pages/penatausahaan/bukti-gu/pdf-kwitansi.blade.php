@@ -118,14 +118,13 @@
                 <br />
                 Kuasa Pengguna Anggaran BLUD
                 <br />
-                (Wakil Direktur Umum dan Keuangan)
                 <br />
                 <br />
                 <br />
                 <br />
-                <strong><u>Syahrani, S.Sos., M.Si.</u></strong>
+                <strong><u>Hadi Machbudiansyah, S.E., M.M.</u></strong>
                 <br />
-                NIP. 19680810 199003 1 017
+                NIP. 19750911 199402 1 001
                 <br />
                 <br />
             </td>

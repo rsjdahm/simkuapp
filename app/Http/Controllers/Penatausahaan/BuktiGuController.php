@@ -154,8 +154,8 @@ class BuktiGuController extends Controller
                     var api = this.api();
                     var json = api.ajax.json();
 
-                    $('[name$=\"_filter_table_bukti-gu\"][value=\"" . StatusPending::Normal->value . "\"]').siblings('strong').html('<span class=\"text-white ml-2 px-3 rounded bg-success\">' + json.bukti_gu_normal_count + '</span>');
-                    $('[name$=\"_filter_table_bukti-gu\"][value=\"" . StatusPending::Pending->value . "\"]').siblings('strong').html('<span class=\"text-white ml-2 px-3 rounded bg-warning\">' + json.bukti_gu_pending_count + '</span>');
+                    $('[name$=\"_filter_table_bukti-gu\"][value=\"" . StatusPending::Normal->value . "\"]').siblings('strong').html('<span>' + json.bukti_gu_normal_count + '</span>');
+                    $('[name$=\"_filter_table_bukti-gu\"][value=\"" . StatusPending::Pending->value . "\"]').siblings('strong').html('<span>' + json.bukti_gu_pending_count + '</span>');
                 }")
                 ->footerCallback("function (row, data, start, end, display) {
                     var api = this.api();

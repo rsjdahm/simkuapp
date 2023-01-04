@@ -244,12 +244,10 @@
                             <br />
                             <br />
                             <br />
-                            <br />
                             <hr style="border: 0.5px solid black; width: 80%;" />
                         </td>
                         <td
                             style="border: 0; padding: 3px 5px; width: 33%; border-right: 1px solid black; vertical-align: top; text-align: center;">
-                            <br />
                             <br />
                             BENDAHARA PENGELUARAN
                             <br />
@@ -268,15 +266,13 @@
                             <br />
                             Kuasa Pengguna Anggaran BLUD
                             <br />
-                            (Wakil Direktur Umum dan Keuangan)
                             <br />
                             <br />
                             <br />
                             <br />
+                            <strong><u>Hadi Machbudiansyah, S.E., M.M.</u></strong>
                             <br />
-                            <strong><u>Syahrani, S.Sos., M.Si.</u></strong>
-                            <br />
-                            NIP. 19680810 199003 1 017
+                            NIP. 19750911 199402 1 001
                         </td>
                     </tr>
                 </table>
