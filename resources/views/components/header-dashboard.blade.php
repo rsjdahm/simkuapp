@@ -37,38 +37,40 @@
                 <span class="font-weight-bold text-light"
                     id="digital-clock">{{ Carbon\Carbon::now()->isoFormat('HH:mm:ss') }}</span>
                 <script>
-                    $(document).ready(function() {
-                        setInterval(function() {
-                            $.ajax({
-                                url: '{{ route('jam') }}',
-                                success: function(data) {
-                                    $('#digital-clock').text(data)
-                                }
-                            });
-                        }, 1000)
-                    });
-                    // $(function() {
-                    //     startTime();
-                    // });
+                    @if (env('DEBUGBAR_ENABLED') == true)
+                        function startTime() {
+                            var today = new Date("{{ Carbon\Carbon::now() }}");
+                            var h = today.getHours();
+                            var m = today.getMinutes();
+                            var s = today.getSeconds();
+                            m = checkTime(m);
+                            s = checkTime(s);
+                            document.getElementById('digital-clock').innerHTML =
+                                h + ":" + m + ":" + s;
+                            var t = setTimeout(startTime, 500);
+                        }
 
-                    // function startTime() {
-                    //     var today = new Date("{{ Carbon\Carbon::now() }}");
-                    //     var h = today.getHours();
-                    //     var m = today.getMinutes();
-                    //     var s = today.getSeconds();
-                    //     m = checkTime(m);
-                    //     s = checkTime(s);
-                    //     document.getElementById('digital-clock').innerHTML =
-                    //         h + ":" + m + ":" + s;
-                    //     var t = setTimeout(startTime, 500);
-                    // }
-
-                    // function checkTime(i) {
-                    //     if (i < 10) {
-                    //         i = "0" + i
-                    //     }; // add zero in front of numbers < 10
-                    //     return i;
-                    // }
+                        function checkTime(i) {
+                            if (i < 10) {
+                                i = "0" + i
+                            }; // add zero in front of numbers < 10
+                            return i;
+                        }
+                    @else
+                        $(document).ready(function() {
+                            setInterval(function() {
+                                $.ajax({
+                                    url: '{{ route('jam') }}',
+                                    success: function(data) {
+                                        $('#digital-clock').text(data)
+                                    }
+                                });
+                            }, 1000)
+                        });
+                        $(function() {
+                            startTime();
+                        });
+                    @endif
                 </script>
                 <button type="button" class="btn header-item" id="page-header-user-dropdown" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
