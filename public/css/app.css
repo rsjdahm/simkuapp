@@ -3239,3 +3239,14 @@ label {
 .form-check-label {
     cursor: pointer;
 }
+
+div.dataTables_wrapper div.dataTables_processing {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    margin-top: -26px;
+    text-align: center;
+    padding: 1em 0;
+}
