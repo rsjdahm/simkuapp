@@ -39,7 +39,7 @@
                 <script>
                     @if (env('DEBUGBAR_ENABLED') == true)
                         function startTime() {
-                            var today = new Date("{{ Carbon\Carbon::now() }}");
+                            var today = new Date();
                             var h = today.getHours();
                             var m = today.getMinutes();
                             var s = today.getSeconds();
