@@ -6,7 +6,7 @@ use App\Enums\Penatausahaan\StatusPosting;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Enum;
 
-class PenetapanUpRequest extends FormRequest
+class PengajuanUpRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

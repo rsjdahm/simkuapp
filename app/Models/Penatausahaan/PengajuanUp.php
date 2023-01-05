@@ -8,11 +8,11 @@ use App\Models\Setup\SubUnitKerja;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class PenetapanUp extends Model
+class PengajuanUp extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'penetapan_up';
+    protected $table = 'pengajuan_up';
 
     protected $fillable = [
         'sub_unit_kerja_id',

@@ -2,7 +2,7 @@
 
 namespace App\Enums\Penatausahaan;
 
-enum JenisTransaksiBelanja: string
+enum JenisPengeluaran: string
 {
     case UP = 'UP';
     case GU = 'GU';

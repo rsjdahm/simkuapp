@@ -31,13 +31,13 @@
     </a>
     <ul class="sub-menu">
         <li>
-            <a data-load="#page" data-menu="item" href="{{ route('penetapan-up.index') }}">
-                Penetapan UP
+            <a data-load="#page" data-menu="item" href="{{ route('pengajuan-up.index') }}">
+                SPM
             </a>
         </li>
         <li>
-            <a data-load="#page" data-menu="item">
-                SPM
+            <a data-load="#page" data-menu="item" href="{{ route('pengajuan-up.index') }}">
+                SP2D
             </a>
         </li>
     </ul>
@@ -48,6 +48,11 @@
     </a>
     <ul class="sub-menu">
         <li>
+            <a data-load="#page" data-menu="item" href="{{ route('pengajuan-up.index') }}">
+                Pengajuan UP
+            </a>
+        </li>
+        <li>
             <a data-load="#page" data-menu="item" href="{{ route('bukti-gu.index') }}">
                 Bukti GU
             </a>
@@ -55,6 +60,11 @@
         <li>
             <a data-load="#page" data-menu="item" href="{{ route('spj-gu.index') }}">
                 SPJ GU
+            </a>
+        </li>
+        <li>
+            <a data-load="#page" data-menu="item" href="{{ route('spj-gu.index') }}">
+                SPP
             </a>
         </li>
         <li>

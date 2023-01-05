@@ -262,21 +262,13 @@ $("body").on("click", "a[data-load='modal-pdf']", function (event) {
     return modalPdf(a.attr("title"), a.attr("href"));
 });
 /// hooks for anchor do
-$("body").on("click", "a[data-action]", function (event) {
-    const anchor = $(this);
+$("body").on("click", "a[data-action='delete']", function (event) {
     event.preventDefault();
-    if (anchor.data("action") == "delete") {
-        return deletor(anchor);
-    }
-    if (anchor.data("action") == "post") {
-        return poster(anchor);
-    }
-    if (anchor.data("action") == "reload") {
-        load(
-            $(anchor).closest("[data-href]"),
-            $(anchor).closest("[data-href]").data("href")
-        );
-    }
+    return deletor($(this));
+});
+$("body").on("click", "a[data-action='post']", function (event) {
+    event.preventDefault();
+    return poster($(this));
 });
 /// deletor data
 function deletor(anchor) {
