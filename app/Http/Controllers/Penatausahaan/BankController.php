@@ -25,8 +25,8 @@ class BankController extends Controller
 
             $table = $builder->ajax(route('bank.index'))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
-                ->addColumn(['data' => 'kode', 'title' => 'Kode Bank', 'class' => 'text-center font-weight-bold', 'style' => 'width: 1%;'])
-                ->addColumn(['data' => 'nama', 'title' => 'Nama Bank'])
+                ->addColumn(['data' => 'kode', 'title' => 'Kode Bank', 'class' => 'text-center font-weight-bold', 'style' => 'width: 1%;', 'defaultContent' => '-'])
+                ->addColumn(['data' => 'nama', 'title' => 'Nama Bank', 'defaultContent' => '-'])
                 ->parameters([
                     'order' => [
                         1, 'asc'

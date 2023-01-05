@@ -50,10 +50,10 @@ class PenetapanUpController extends Controller
             $table = $builder->ajax(route('penetapan-up.index'))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addColumn(['data' => 'tanggal', 'title' => 'Tanggal', 'class' => 'text-center', 'width' => '1%', 'defaultContent' => '-'])
-                ->addColumn(['data' => 'nomor', 'title' => 'Nomor Penetapan', 'class' => 'text-center', 'defaultContent' => '-'])
-                ->addColumn(['data' => 'uraian', 'title' => 'Uraian'])
-                ->addColumn(['data' => 'nilai', 'title' => 'Nilai', 'class' => 'text-right'])
-                ->addColumn(['data' => 'status', 'title' => 'Status', 'class' => 'text-center', 'style' => 'width: 1%;'])
+                ->addColumn(['data' => 'nomor', 'title' => 'Nomor Penetapan', 'class' => 'text-center font-weight-bold', 'defaultContent' => '-'])
+                ->addColumn(['data' => 'uraian', 'title' => 'Uraian', 'defaultContent' => '-'])
+                ->addColumn(['data' => 'nilai', 'title' => 'Nilai', 'class' => 'text-right', 'defaultContent' => '-'])
+                ->addColumn(['data' => 'status', 'title' => 'Status', 'class' => 'text-center', 'style' => 'width: 1%;', 'defaultContent' => '-'])
                 ->addAction(['data' => 'action2', 'title' => '', 'class' => 'text-nowrap', 'style' => 'width: 1%;', 'orderable' => false])
                 ->parameters([
                     'order' => [
