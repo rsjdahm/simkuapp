@@ -7,7 +7,7 @@
                         class="fas fa-sync-alt"></i></a>
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item">Penatausahaan</li>
-                    <li class="breadcrumb-item">Belanja</li>
+                    <li class="breadcrumb-item">Tata Usaha</li>
                     <li class="breadcrumb-item active">Penetapan UP</li>
                 </ol>
             </div>

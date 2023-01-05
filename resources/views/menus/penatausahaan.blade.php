@@ -27,7 +27,7 @@
 </li>
 <li>
     <a href="javascript: void(0);" class="has-arrow">
-        <span>Belanja</span>
+        <span>Tata Usaha</span>
     </a>
     <ul class="sub-menu">
         <li>
@@ -36,8 +36,25 @@
             </a>
         </li>
         <li>
+            <a data-load="#page" data-menu="item">
+                SPM
+            </a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="javascript: void(0);" class="has-arrow">
+        <span>Pengeluaran</span>
+    </a>
+    <ul class="sub-menu">
+        <li>
             <a data-load="#page" data-menu="item" href="{{ route('bukti-gu.index') }}">
                 Bukti GU
+            </a>
+        </li>
+        <li>
+            <a data-load="#page" data-menu="item">
+                SPJ GU
             </a>
         </li>
         <li>
