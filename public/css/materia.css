@@ -1648,11 +1648,13 @@ pre code {
     padding: 0.3rem;
 }
 .table-bordered {
-    border: 1px solid #dee2e6;
+    /* border: 1px solid #dee2e6; */
+    border: 1px solid rgb(18 38 63 / 7.5%)
 }
 .table-bordered td,
 .table-bordered th {
-    border: 1px solid #dee2e6;
+    /* border: 1px solid #dee2e6; */
+    border: 1px solid rgb(18 38 63 / 7.5%)
 }
 .table-bordered thead td,
 .table-bordered thead th {

@@ -195,8 +195,8 @@ function modal(title, url, size) {
     $(".modal.fade").not(".modal.fade.show").remove();
     $("body").append(
         `<div data-href="${url}" class="modal fade" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
-                <div class="modal-dialog ${
-                    size ? `modal-${size}` : "modal-lg"
+                <div class="modal-dialog modal-dialog-centered ${
+                    size ? `modal-${size}` : ""
                 }" role="document"">
                     <div class="modal-content border-0">
                         <div class="modal-header bg-primary">

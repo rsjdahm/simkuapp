@@ -53,7 +53,7 @@
             </a>
         </li>
         <li>
-            <a data-load="#page" data-menu="item">
+            <a data-load="#page" data-menu="item" href="{{ route('spj-gu.index') }}">
                 SPJ GU
             </a>
         </li>

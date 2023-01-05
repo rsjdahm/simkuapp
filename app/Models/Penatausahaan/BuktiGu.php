@@ -59,4 +59,9 @@ class BuktiGu extends Model
     {
         return $this->hasMany(PotonganBuktiGu::class);
     }
+
+    public function bukti_spj_gu()
+    {
+        return $this->hasOne(BuktiSpjGu::class);
+    }
 }

@@ -35,7 +35,7 @@
             return deletor(anchor.attr('href'));
         }
         if (anchor.data('action') == 'post') {
-            return poster(anchor.attr('href'));
+            return poster(anchor.attr('href'), anchor.data('formdata'));
         }
         if (anchor.data('action') == 'reload') {
             load($(anchor).closest('[data-href]'), $(anchor).closest('[data-href]').data('href'));
@@ -67,7 +67,7 @@
         });
     }
 
-    function poster(href) {
+    function poster(href, formData) {
         swal.fire({
             title: "Anda yakin akan posting data ini?",
             text: "Periksa kembali data anda sebelum posting.",
@@ -82,6 +82,7 @@
             if (result.value) {
                 $.ajax({
                     url: href,
+                    data: formData ?? null,
                     type: "post",
                     success: function(response) {
                         toastr.success(response.message);
