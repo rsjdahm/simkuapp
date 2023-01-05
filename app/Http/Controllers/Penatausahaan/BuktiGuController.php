@@ -135,8 +135,8 @@ class BuktiGuController extends Controller
             $table = $builder->ajax([
                 'url' => route('bukti-gu.index'),
                 'data' => 'function(d) {
-                    d.status_pending = $("[name=\'status_pending_filter_table_bukti-gu\']:checked").val();
-                    d.bulan = $("[name=\'bulan_filter_table_bukti-gu\']").val();
+                    d.status_pending = $("[name=\'status_pending_filter_datatable_bukti-gu-table\']:checked").val();
+                    d.bulan = $("[name=\'bulan_filter\']").val();
                 }',
             ])
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
@@ -154,8 +154,8 @@ class BuktiGuController extends Controller
                     var api = this.api();
                     var json = api.ajax.json();
 
-                    $('[name$=\"_filter_table_bukti-gu\"][value=\"" . StatusPending::Normal->value . "\"]').siblings('strong').html('<span>' + json.bukti_gu_normal_count + '</span>');
-                    $('[name$=\"_filter_table_bukti-gu\"][value=\"" . StatusPending::Pending->value . "\"]').siblings('strong').html('<span>' + json.bukti_gu_pending_count + '</span>');
+                    $('[name$=\"_filter_datatable_bukti-gu-table\"][value=\"" . StatusPending::Normal->value . "\"]').siblings('strong').html('<span>' + json.bukti_gu_normal_count + '</span>');
+                    $('[name$=\"_filter_datatable_bukti-gu-table\"][value=\"" . StatusPending::Pending->value . "\"]').siblings('strong').html('<span>' + json.bukti_gu_pending_count + '</span>');
                 }")
                 ->footerCallback("function (row, data, start, end, display) {
                     var api = this.api();

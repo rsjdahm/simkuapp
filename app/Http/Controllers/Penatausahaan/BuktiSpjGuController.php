@@ -51,19 +51,29 @@ class BuktiSpjGuController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', '<a data-action="delete" href="{{ route("bukti-spj-gu.destroy", $id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>')
                 ->addColumn('potongan_bukti_gu_pph21', function ($i) {
-                    return $i->bukti_gu->potongan_bukti_gu->where('potongan_pfk.jenis', JenisPotonganPfk::PPh21)->sum('nilai');
+                    $nilai = $i->bukti_gu->potongan_bukti_gu->where('potongan_pfk.jenis', JenisPotonganPfk::PPh21)->sum('nilai');
+                    if ($nilai == 0) return null;
+                    return $nilai;
                 })
                 ->addColumn('potongan_bukti_gu_pph22', function ($i) {
-                    return $i->bukti_gu->potongan_bukti_gu->where('potongan_pfk.jenis', JenisPotonganPfk::PPh22)->sum('nilai');
+                    $nilai = $i->bukti_gu->potongan_bukti_gu->where('potongan_pfk.jenis', JenisPotonganPfk::PPh22)->sum('nilai');
+                    if ($nilai == 0) return null;
+                    return $nilai;
                 })
                 ->addColumn('potongan_bukti_gu_pph23', function ($i) {
-                    return $i->bukti_gu->potongan_bukti_gu->where('potongan_pfk.jenis', JenisPotonganPfk::PPh23)->sum('nilai');
+                    $nilai = $i->bukti_gu->potongan_bukti_gu->where('potongan_pfk.jenis', JenisPotonganPfk::PPh23)->sum('nilai');
+                    if ($nilai == 0) return null;
+                    return $nilai;
                 })
                 ->addColumn('potongan_bukti_gu_ppn', function ($i) {
-                    return $i->bukti_gu->potongan_bukti_gu->where('potongan_pfk.jenis', JenisPotonganPfk::PPN)->sum('nilai');
+                    $nilai = $i->bukti_gu->potongan_bukti_gu->where('potongan_pfk.jenis', JenisPotonganPfk::PPN)->sum('nilai');
+                    if ($nilai == 0) return null;
+                    return $nilai;
                 })
                 ->addColumn('potongan_bukti_gu_lainnya', function ($i) {
-                    return $i->bukti_gu->potongan_bukti_gu->where('potongan_pfk.jenis', JenisPotonganPfk::Lainnya)->sum('nilai');
+                    $nilai = $i->bukti_gu->potongan_bukti_gu->where('potongan_pfk.jenis', JenisPotonganPfk::Lainnya)->sum('nilai');
+                    if ($nilai == 0) return null;
+                    return $nilai;
                 })
                 ->toJson();
         else :
@@ -76,12 +86,12 @@ class BuktiSpjGuController extends Controller
                 ->addColumn(['data' => 'bukti_gu.tanggal', 'title' => 'Tanggal', 'class' => 'text-center', 'defaultContent' => '-'])
                 ->addColumn(['data' => 'bukti_gu.uraian', 'title' => 'Uraian', 'defaultContent' => '-'])
                 ->addColumn(['data' => 'bukti_gu.nilai', 'title' => 'Jumlah', 'class' => 'text-right', 'defaultContent' => '-'])
-                ->addColumn(['data' => 'potongan_bukti_gu_pph21', 'title' => JenisPotonganPfk::PPh21->value, 'class' => 'text-right'])
-                ->addColumn(['data' => 'potongan_bukti_gu_pph22', 'title' => JenisPotonganPfk::PPh22->value, 'class' => 'text-right'])
-                ->addColumn(['data' => 'potongan_bukti_gu_pph23', 'title' => JenisPotonganPfk::PPh23->value, 'class' => 'text-right'])
-                ->addColumn(['data' => 'potongan_bukti_gu_ppn', 'title' => JenisPotonganPfk::PPN->value, 'class' => 'text-right'])
-                ->addColumn(['data' => 'potongan_bukti_gu_lainnya', 'title' => JenisPotonganPfk::Lainnya->value, 'class' => 'text-right'])
-                ->addColumn(['data' => 'bukti_gu.potongan_bukti_gu_sum_nilai', 'title' => 'Jumlah Potongan', 'class' => 'text-right', 'defaultContent' => '0,00'])
+                ->addColumn(['data' => 'potongan_bukti_gu_pph21', 'title' => JenisPotonganPfk::PPh21->value, 'class' => 'text-right', 'defaultContent' => '-'])
+                ->addColumn(['data' => 'potongan_bukti_gu_pph22', 'title' => JenisPotonganPfk::PPh22->value, 'class' => 'text-right', 'defaultContent' => '-'])
+                ->addColumn(['data' => 'potongan_bukti_gu_pph23', 'title' => JenisPotonganPfk::PPh23->value, 'class' => 'text-right', 'defaultContent' => '-'])
+                ->addColumn(['data' => 'potongan_bukti_gu_ppn', 'title' => JenisPotonganPfk::PPN->value, 'class' => 'text-right', 'defaultContent' => '-'])
+                ->addColumn(['data' => 'potongan_bukti_gu_lainnya', 'title' => JenisPotonganPfk::Lainnya->value, 'class' => 'text-right', 'defaultContent' => '-'])
+                ->addColumn(['data' => 'bukti_gu.potongan_bukti_gu_sum_nilai', 'title' => 'Jumlah Potongan', 'class' => 'text-right', 'defaultContent' => '-'])
                 ->columnDefs([
                     [
                         'targets' => [4],

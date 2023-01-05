@@ -29,13 +29,13 @@
                                 <label class="d-block">Status Pending:</label>
                                 <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">
                                     <label class="btn btn-primary active">
-                                        <input type="radio" name="status_pending_filter_table_bukti-gu"
+                                        <input type="radio" name="status_pending_filter_datatable_bukti-gu-table"
                                             value="{{ App\Enums\Penatausahaan\StatusPending::Normal }}"
                                             autocomplete="off" checked=""> Normal
                                         <strong class="text-light bg-success ml-2 rounded px-2"></strong>
                                     </label>
                                     <label class="btn btn-primary">
-                                        <input type="radio" name="status_pending_filter_table_bukti-gu"
+                                        <input type="radio" name="status_pending_filter_datatable_bukti-gu-table"
                                             value="{{ App\Enums\Penatausahaan\StatusPending::Pending }}"
                                             autocomplete="off"> Pending
                                         <strong class="text-light bg-warning ml-2 rounded px-2"></strong>
@@ -44,7 +44,8 @@
                             </div>
                             <div class="col-md-3">
                                 <label>Bulan:</label>
-                                <select name="bulan_filter_table_bukti-gu" class="form-control">
+                                <select name="bulan_filter" data-filter-datatable="#bukti-gu-table"
+                                    class="form-control">
                                     <option value="">Semua Bulan...</option>
                                     @for ($bulan = 1; $bulan <= 12; $bulan++)
                                         <option value="{{ $bulan }}">
@@ -61,7 +62,7 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <div class="table-responsive">
-                        {!! $table->table(['id' => 'bukti-gu'], true) !!}
+                        {!! $table->table(['id' => 'bukti-gu-table'], true) !!}
                         {!! $table->scripts() !!}
                     </div>
 

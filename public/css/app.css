@@ -1,3 +1,16 @@
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgb(33 150 243 / 35%);
+    border-radius: 20px;
+    border: 6px solid transparent;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
 #page-topbar {
     position: fixed;
     top: 0;
@@ -3249,4 +3262,11 @@ div.dataTables_wrapper div.dataTables_processing {
     margin-top: -26px;
     text-align: center;
     padding: 1em 0;
+}
+
+div.dataTables_wrapper div.dataTables_length select {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 15px;
+    padding-left: 5px;
 }

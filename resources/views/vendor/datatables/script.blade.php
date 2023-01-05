@@ -1,25 +1,25 @@
-{{-- $(function(){window.{{ config('datatables-html.namespace', 'LaravelDataTables') }}=window.{{ config('datatables-html.namespace', 'LaravelDataTables') }}||{};window.{{ config('datatables-html.namespace', 'LaravelDataTables') }}["%1$s"]=$("#%1$s").DataTable(%2$s);}); --}}
-$("#%1$s").DataTable(%2$s);
+$(function(){window.{{ config('datatables-html.namespace', 'LaravelDataTables') }}=window.{{ config('datatables-html.namespace', 'LaravelDataTables') }}||{};window.{{ config('datatables-html.namespace', 'LaravelDataTables') }}["%1$s"]=$("#%1$s").DataTable(%2$s);});
 
-{{-- $.extend(true, $.fn.dataTable.defaults, {
-scrollY: '55vh',
-scrollX: true,
-scrollCollapse: true,
-language: {
-processing: "<i class='fas fa-spinner fa-spin'></i> Sedang memproses...",
-lengthMenu: "Tampilkan _MENU_ entri",
-zeroRecords: "Tidak ada data.",
-info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
-infoEmpty: "",
-emptyTable: "Tidak ada data pada tabel ini.",
-infoFiltered: "Difilter dari total _MAX_ data.",
-search: "Cari:",
-paginate: {
-previous: "<i class='fas fa-arrow-left'></i>",
-next: "<i class='fas fa-arrow-right'></i>"
+$.extend(true, $.fn.dataTable.defaults, {
+{{-- "scrollY": "60vh",
+"scrollX": true,
+"scrollCollapse": true, --}}
+"language": {
+"processing": "Sedang memproses...",
+"lengthMenu": "Tampilkan _MENU_ entri",
+"zeroRecords": "Tidak ada data.",
+"info": "Menampilkan _START_-_END_ dari _TOTAL_ entri",
+"infoEmpty": "",
+"emptyTable": "Tidak ada data pada tabel ini.",
+"infoFiltered": "Difilter dari total _MAX_ data.",
+"search": "Cari:",
+"paginate": {
+"previous": "<i class='fas fa-arrow-left'></i>",
+"next": "<i class='fas fa-arrow-right'></i>"
 }
-},
-}); --}}
+}
+});
+
 
 $(document).on("init.dt", function(e, settings) {
 const api = new $.fn.dataTable.Api(settings);
@@ -54,6 +54,6 @@ $("#%1$s thead th").addClass('align-middle text-center');
 $("[data-filter-datatable='#%1$s']").change(function() {
 $("#%1$s").DataTable().ajax.reload(null, false);
 });
-$("[name$='_filter_table_%1$s']").change(function() {
+$("[name$='_filter_datatable_%1$s']").change(function() {
 $("#%1$s").DataTable().ajax.reload(null, false);
 });

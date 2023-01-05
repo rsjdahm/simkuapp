@@ -140,6 +140,7 @@ function load(parent, url, callback) {
             $(parent).html(response);
             $(parent).attr("data-href", url);
             $("main select, .modal-body select")
+                .not("div.dataTables_wrapper div.dataTables_length select")
                 .css("width", "100%")
                 .select2({
                     templateResult: function (data, container) {
