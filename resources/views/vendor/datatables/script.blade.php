@@ -10,7 +10,7 @@ $.extend(true, $.fn.dataTable.defaults, {
 "zeroRecords": "Tidak ada data.",
 "info": "Menampilkan _START_-_END_ dari _TOTAL_ entri",
 "infoEmpty": "",
-"emptyTable": "Tidak ada data pada tabel ini.",
+"emptyTable": "Tidak ada data.",
 "infoFiltered": "Difilter dari total _MAX_ data.",
 "search": "Cari:",
 "paginate": {

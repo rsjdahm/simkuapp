@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Penatausahaan\BuktiSpjGuRequest;
 use App\Models\Penatausahaan\BuktiGu;
 use App\Models\Penatausahaan\BuktiSpjGu;
+use App\Models\Penatausahaan\SpjGu;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Yajra\DataTables\Html\Builder;
@@ -49,7 +50,9 @@ class BuktiSpjGuController extends Controller
                     return $i->bukti_gu->potongan_bukti_gu->where('potongan_pfk.jenis', JenisPotonganPfk::Lainnya)->sum('nilai');
                 }))
                 ->addIndexColumn()
-                ->addColumn('action', '<a data-action="delete" href="{{ route("bukti-spj-gu.destroy", $id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>')
+                ->addColumn('action', function ($i) {
+                    return '<a data-action="delete" data-title="Hapus Bukti Pengeluaran?" data-text="Periksa data kembali sebelum menghapus Bukti Pengeluaran Nomor: ' . $i->bukti_gu->nomor . ' ini pada Surat Pertanggungjawaban Nomor: ' . $i->spj_gu->nomor . '" href="' . route("bukti-spj-gu.destroy", $i->id) . '" class="btn btn-danger btn-sm text-nowrap"><i class="fas fa-trash"></i> Hapus</a>';
+                })
                 ->addColumn('potongan_bukti_gu_pph21', function ($i) {
                     $nilai = $i->bukti_gu->potongan_bukti_gu->where('potongan_pfk.jenis', JenisPotonganPfk::PPh21)->sum('nilai');
                     if ($nilai == 0) return null;
@@ -85,7 +88,7 @@ class BuktiSpjGuController extends Controller
                 ->addColumn(['data' => 'bukti_gu.nomor', 'title' => 'Nomor Bukti', 'class' => 'text-center font-weight-bold'])
                 ->addColumn(['data' => 'bukti_gu.tanggal', 'title' => 'Tanggal', 'class' => 'text-center', 'defaultContent' => '-'])
                 ->addColumn(['data' => 'bukti_gu.uraian', 'title' => 'Uraian', 'defaultContent' => '-'])
-                ->addColumn(['data' => 'bukti_gu.nilai', 'title' => 'Jumlah', 'class' => 'text-right', 'defaultContent' => '-'])
+                ->addColumn(['data' => 'bukti_gu.nilai', 'title' => 'Jumlah', 'class' => 'text-right font-weight-bold', 'defaultContent' => '-'])
                 ->addColumn(['data' => 'potongan_bukti_gu_pph21', 'title' => JenisPotonganPfk::PPh21->value, 'class' => 'text-right', 'defaultContent' => '-'])
                 ->addColumn(['data' => 'potongan_bukti_gu_pph22', 'title' => JenisPotonganPfk::PPh22->value, 'class' => 'text-right', 'defaultContent' => '-'])
                 ->addColumn(['data' => 'potongan_bukti_gu_pph23', 'title' => JenisPotonganPfk::PPh23->value, 'class' => 'text-right', 'defaultContent' => '-'])
@@ -151,6 +154,8 @@ class BuktiSpjGuController extends Controller
     {
         if ($request->wantsJson()) :
 
+            $spj_gu = SpjGu::findOrFail($request->spj_gu_id);
+
             $data = BuktiGu::where('status', StatusPosting::Posting)
                 ->withSum('potongan_bukti_gu', 'nilai')
                 ->doesntHave('bukti_spj_gu')
@@ -158,8 +163,8 @@ class BuktiSpjGuController extends Controller
 
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', function ($i) use ($request) {
-                    return '<a data-action="post" href="' . route("bukti-spj-gu.store") . '" data-formdata=\'{"bukti_gu_id":' . $i->id . ',"spj_gu_id":' . $request->spj_gu_id . '}\' class="btn btn-success btn-sm"><i class="fas fa-plus"></i></a>';
+                ->addColumn('action', function ($i) use ($request, $spj_gu) {
+                    return '<a data-action="post" data-title="Tambahkan Bukti Pengeluaran?" data-text="Periksa data kembali sebelum menambahkan Bukti Pengeluaran Nomor: ' . $i->nomor . ' ini pada Surat Pertanggungjawaban Nomor: ' . $spj_gu->nomor . '" data-button="Tambahkan" href="' . route("bukti-spj-gu.store") . '" data-formdata=\'{"bukti_gu_id":' . $i->id . ',"spj_gu_id":' . $request->spj_gu_id . '}\' class="btn btn-success btn-sm text-nowrap"><i class="fas fa-plus"></i> Tambahkan BP</a>';
                 })
                 ->toJson();
         endif;

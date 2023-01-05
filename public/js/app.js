@@ -196,19 +196,14 @@ function modal(title, url, size) {
     $(".modal.fade").not(".modal.fade.show").remove();
     $("body").append(
         `<div data-href="${url}" class="modal fade" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered ${
+                <div class="modal-dialog modal-dialog-scrollable ${
                     size ? `modal-${size}` : ""
                 }" role="document"">
                     <div class="modal-content border-0">
                         <div class="modal-header bg-primary">
-                            <h5 class="modal-title text-white font-weight-bold">${title}</h5>
+                            <span class="modal-title text-white font-weight-bold">${title}</span>
                             <div>
-                                <button type="button" class="btn btn-sm btn-primary" onclick="return load('div.modal[data-href=&quot;${url}&quot;] .modal-body', '${url}');">
-                                    <span aria-hidden="true">
-                                        <i class="fas fa-sync-alt"></i>
-                                    </span>
-                                </button>
-                                <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="badge badge-danger border-0" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">
                                         <i class="fas fa-times"></i>
                                     </span>
@@ -266,3 +261,74 @@ $("body").on("click", "a[data-load='modal-pdf']", function (event) {
     event.preventDefault();
     return modalPdf(a.attr("title"), a.attr("href"));
 });
+/// hooks for anchor do
+$("body").on("click", "a[data-action]", function (event) {
+    const anchor = $(this);
+    event.preventDefault();
+    if (anchor.data("action") == "delete") {
+        return deletor(anchor);
+    }
+    if (anchor.data("action") == "post") {
+        return poster(anchor);
+    }
+    if (anchor.data("action") == "reload") {
+        load(
+            $(anchor).closest("[data-href]"),
+            $(anchor).closest("[data-href]").data("href")
+        );
+    }
+});
+/// deletor data
+function deletor(anchor) {
+    swal.fire({
+        title: anchor.data("title") ?? "Anda yakin akan menghapus data ini?",
+        text:
+            anchor.data("text") ??
+            "Periksa kembali data anda sebelum menghapus.",
+        type: "warning",
+        showCancelButton: true,
+        buttonsStyling: false,
+        confirmButtonClass: "btn btn-danger mr-4",
+        cancelButtonClass: "btn btn-secondary",
+        confirmButtonText: anchor.data("button") ?? "Hapus",
+        cancelButtonText: "Batal",
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                url: href,
+                type: "delete",
+                success: function (response) {
+                    toastr.success(response.message);
+                    $("table.datatable").DataTable().ajax.reload(null, false);
+                },
+            });
+        }
+    });
+}
+
+function poster(anchor) {
+    swal.fire({
+        title: anchor.data("title") ?? "Anda yakin akan posting data ini?",
+        text:
+            anchor.data("text") ?? "Periksa kembali data anda sebelum posting.",
+        type: "warning",
+        showCancelButton: true,
+        buttonsStyling: false,
+        confirmButtonClass: "btn btn-success mr-4",
+        cancelButtonClass: "btn btn-secondary",
+        confirmButtonText: anchor.data("button") ?? "Posting",
+        cancelButtonText: "Batal",
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                url: anchor.attr("href"),
+                data: anchor.data("formdata") ?? null,
+                type: "post",
+                success: function (response) {
+                    toastr.success(response.message);
+                    $("table.datatable").DataTable().ajax.reload(null, false);
+                },
+            });
+        }
+    });
+}
