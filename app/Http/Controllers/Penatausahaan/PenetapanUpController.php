@@ -23,7 +23,7 @@ class PenetapanUpController extends Controller
 
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Penetapan UP" href="{{ route("penetapan-up.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("penetapan-up.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div></div>')
+                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" data-size="lg" title="Edit Penetapan UP" href="{{ route("penetapan-up.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("penetapan-up.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div></div>')
                 ->addColumn('action2', function ($i) {
                     return '<div class="btn-group btn-group-sm ml-1" role="group"><button type="button" title="Cetak Dokumen" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-print"></i></button><div class="dropdown-menu">
                     <a data-load="modal-pdf" title="Cetak SPP-UP Nomor: ' . $i->nomor . '" href="' . route("penetapan-up.pdf-spp", $i->id) . '" class="dropdown-item">SPP-UP</a>

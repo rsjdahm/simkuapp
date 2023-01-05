@@ -72,7 +72,7 @@ class BuktiSpjGuController extends Controller
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addIndex(['title' => 'No.', 'style' => 'width: 1%;', 'class' => 'text-center', 'orderable' => false])
                 ->addColumn(['data' => 'bukti_gu.belanja_rka_pd.rek_sub_rincian_objek.kode_lengkap_nama', 'title' => 'Kode Rekening'])
-                ->addColumn(['data' => 'bukti_gu.nomor', 'title' => 'Nomor Bukti', 'class' => 'text-center'])
+                ->addColumn(['data' => 'bukti_gu.nomor', 'title' => 'Nomor Bukti', 'class' => 'text-center font-weight-bold'])
                 ->addColumn(['data' => 'bukti_gu.tanggal', 'title' => 'Tanggal', 'class' => 'text-center', 'defaultContent' => '-'])
                 ->addColumn(['data' => 'bukti_gu.uraian', 'title' => 'Uraian'])
                 ->addColumn(['data' => 'bukti_gu.nilai', 'title' => 'Jumlah', 'class' => 'text-right'])

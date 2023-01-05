@@ -48,7 +48,7 @@ class RkaPdController extends Controller
 
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', '<button type="button" class="btn btn-sm btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Sub Unit Kerja" href="{{ route("rka-pd.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("rka-pd.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div>')
+                ->addColumn('action', '<button type="button" class="btn btn-sm btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" data-size="lg" title="Edit Rencana Anggaran" href="{{ route("rka-pd.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("rka-pd.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div>')
                 ->addColumn('print', '<a data-load="modal-pdf" title="Cetak Rincian Anggaran" href="{{ route("rka-pd.pdf-pagu-belanja", $id) }}" class="btn btn-sm btn-success"><i class="fas fa-print"></i></a>')
                 ->editColumn('status', function ($i) {
                     switch ($i->status) {

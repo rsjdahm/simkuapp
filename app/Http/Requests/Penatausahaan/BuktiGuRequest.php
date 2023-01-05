@@ -31,8 +31,8 @@ class BuktiGuRequest extends FormRequest
         return [
             'belanja_rka_pd_id' => ['required', 'exists:belanja_rka_pd,id'],
             'status_pending' => ['required', new Enum(StatusPending::class)],
-            'nomor' => ['required_if:status_pending,' . StatusPending::Normal->value, 'nullable', 'string'],
-            'tanggal' => ['required_if:status_pending,' . StatusPending::Normal->value, 'nullable', 'date'],
+            'nomor' => ['required_if:status_pending,' . StatusPending::Normal->value, 'required_if:status,' . StatusPosting::Posting->value, 'nullable', 'string'],
+            'tanggal' => ['required_if:status_pending,' . StatusPending::Normal->value, 'required_if:status,' . StatusPosting::Posting->value, 'nullable', 'date'],
             'uraian' => ['required', 'string'],
             'nilai' => ['required', 'numeric'],
             'metode_pembayaran' => ['required', new Enum(MetodePembayaran::class)],

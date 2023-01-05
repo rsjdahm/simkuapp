@@ -55,10 +55,10 @@ class BuktiGuController extends Controller
                 }))
                 ->addIndexColumn()
                 ->addColumn('action', function ($i) {
-                    return '<div class="btn-group btn-group-sm" role="group"><button type="button" title="Aksi" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Bukti GU" href="' . route("bukti-gu.edit", $i->id) . '" class="dropdown-item">Edit</a><a data-action="delete" href="' . route("bukti-gu.destroy", $i->id) . '" class="dropdown-item text-danger">Hapus</a></div></div>';
+                    return '<div class="btn-group btn-group-sm" role="group"><button type="button" title="Aksi" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" data-size="lg" title="Edit Bukti GU" href="' . route("bukti-gu.edit", $i->id) . '" class="dropdown-item">Edit</a><a data-action="delete" href="' . route("bukti-gu.destroy", $i->id) . '" class="dropdown-item text-danger">Hapus</a></div></div>';
                 })
                 ->addColumn('action2', function ($i) {
-                    $action = '<div class="btn-group btn-group-sm" role="group"><button type="button" title="Tambah Data Pendukung" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-plus"></i></button><div class="dropdown-menu"><a data-load="modal" title="Potongan pada Bukti GU Nomor: ' . $i->nomor . '" href="' . route('potongan-bukti-gu.index', ['bukti_gu_id' => $i->id]) . '" class="dropdown-item">Potongan (' . $i->potongan_bukti_gu_count . ')</a></div></div>';
+                    $action = '<div class="btn-group btn-group-sm" role="group"><button type="button" title="Tambah Data Pendukung" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-plus"></i></button><div class="dropdown-menu"><a data-load="modal" data-size="lg" title="Potongan pada Bukti GU Nomor: ' . $i->nomor . '" href="' . route('potongan-bukti-gu.index', ['bukti_gu_id' => $i->id]) . '" class="dropdown-item">Potongan (' . $i->potongan_bukti_gu_count . ')</a></div></div>';
 
                     // if ($i->status == StatusPosting::Posting) :
                     $action .= '<div class="btn-group btn-group-sm ml-1" role="group"><button type="button" title="Cetak Dokumen" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="fas fa-print"></i></button><div class="dropdown-menu">

@@ -52,7 +52,7 @@ class BelanjaRkaPdController extends Controller
                     return $i->nilai;
                 }))
                 ->addIndexColumn()
-                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" title="Edit Sub Unit Kerja" href="{{ route("belanja-rka-pd.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("belanja-rka-pd.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div></div>')
+                ->addColumn('action', '<div class="btn-group btn-group-sm" role="group"><button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><i class="fas fa-wrench"></i></button><div class="dropdown-menu"><a data-load="modal" data-size="lg" title="Edit Rincian Belanja" href="{{ route("belanja-rka-pd.edit", $id) }}" class="dropdown-item">Edit</a><a data-action="delete" href="{{ route("belanja-rka-pd.destroy", $id) }}" class="dropdown-item text-danger">Hapus</a></div></div>')
                 ->editColumn('rka_pd.status', function ($i) {
                     switch ($i->rka_pd->status) {
                         case StatusRkaPd::Murni:

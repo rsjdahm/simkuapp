@@ -60,7 +60,7 @@ class SpjGuController extends Controller
             $table = $builder->ajax(route('spj-gu.index'))
                 ->addAction(['title' => '', 'style' => 'width: 1%;', 'orderable' => false])
                 ->addColumn(['data' => 'tanggal', 'title' => 'Tanggal LPJ', 'class' => 'text-center', 'defaultContent' => '-'])
-                ->addColumn(['data' => 'nomor', 'title' => 'Nomor SPJ'])
+                ->addColumn(['data' => 'nomor', 'title' => 'Nomor SPJ', 'class' => 'text-center font-weight-bold'])
                 ->addColumn(['data' => 'uraian', 'title' => 'Uraian'])
                 ->addColumn(['data' => 'nilai', 'title' => 'Jumlah Belanja',  'class' => 'text-right'])
                 ->addColumn(['data' => 'nilai_potongan', 'title' => 'Jumlah Potongan', 'class' => 'text-right'])

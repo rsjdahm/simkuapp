@@ -1649,16 +1649,21 @@ pre code {
 }
 .table-bordered {
     /* border: 1px solid #dee2e6; */
-    border: 1px solid rgb(18 38 63 / 7.5%)
+    border: 1px solid rgb(18 38 63 / 7.5%);
 }
 .table-bordered td,
 .table-bordered th {
     /* border: 1px solid #dee2e6; */
-    border: 1px solid rgb(18 38 63 / 7.5%)
+    border: 1px solid rgb(18 38 63 / 7.5%);
 }
 .table-bordered thead td,
 .table-bordered thead th {
-    border-bottom-width: 2px;
+    /* border-bottom-width: 2px; */
+    border-bottom: 2px solid rgb(18 38 63 / 7.5%);
+}
+table.table-bordered.dataTable thead th:last-child,
+table.table-bordered.dataTable thead td:last-child {
+    border-right-width: 1px;
 }
 .table-borderless tbody + tbody,
 .table-borderless td,
