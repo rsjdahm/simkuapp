@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bukti_gu', function (Blueprint $table) {
+        Schema::create('belanja_ls', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('belanja_rka_pd_id')->nullable();
             $table->string('status_pending')->nullable();
@@ -42,6 +42,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bukti_gu');
+        Schema::dropIfExists('belanja_ls');
     }
 };

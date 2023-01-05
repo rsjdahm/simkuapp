@@ -31,12 +31,12 @@
     </a>
     <ul class="sub-menu">
         <li>
-            <a data-load="#page" data-menu="item" href="{{ route('pengajuan-up.index') }}">
+            <a data-load="#page" data-menu="item">
                 SPM
             </a>
         </li>
         <li>
-            <a data-load="#page" data-menu="item" href="{{ route('pengajuan-up.index') }}">
+            <a data-load="#page" data-menu="item">
                 SP2D
             </a>
         </li>
@@ -60,6 +60,11 @@
         <li>
             <a data-load="#page" data-menu="item" href="{{ route('spj-gu.index') }}">
                 SPJ GU
+            </a>
+        </li>
+        <li>
+            <a data-load="#page" data-menu="item" href="{{ route('belanja-ls.index') }}">
+                Belanja LS
             </a>
         </li>
         <li>

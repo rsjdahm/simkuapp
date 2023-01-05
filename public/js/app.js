@@ -287,7 +287,8 @@ function deletor(anchor) {
     }).then((result) => {
         if (result.value) {
             $.ajax({
-                url: href,
+                url: anchor.attr("href"),
+                data: anchor.data("formdata") ?? null,
                 type: "delete",
                 success: function (response) {
                     toastr.success(response.message);
