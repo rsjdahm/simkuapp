@@ -46,7 +46,7 @@
                             <h3 style="margin: 0;">PEMERINTAH PROVINSI KALIMANTAN TIMUR</h3>
                             <h2 style="margin: 0; font-size: 11pt;">SURAT PERMINTAAN PEMBAYARAN UANG PERSEDIAAN (SPP-UP)
                                 BLUD </h2>
-                            Nomor : {{ $penetapan_up->nomor }}
+                            Nomor : {{ $pengajuan_up->nomor }}
                         </td>
                     </tr>
                 </table>
@@ -63,7 +63,7 @@
                             :
                         </td>
                         <td>
-                            {{ $penetapan_up->sub_unit_kerja->nama }}
+                            {{ $pengajuan_up->sub_unit_kerja->nama }}
                         </td>
                     </tr>
                     <tr>
@@ -129,7 +129,7 @@
                             :
                         </td>
                         <td>
-                            {{ $penetapan_up->uraian }}
+                            {{ $pengajuan_up->uraian }}
                         </td>
                     </tr>
                     <tr>
@@ -147,9 +147,9 @@
         </tr>
         <tr>
             <td style="black; padding-left: 7.75cm;">
-                Sebesar Rp. {{ number_format($penetapan_up->nilai, 2, ',', '.') }}
+                Sebesar Rp. {{ number_format($pengajuan_up->nilai, 2, ',', '.') }}
                 <br />
-                (Terbilang: <i>{{ Str::title(Terbilang::make($penetapan_up->nilai)) }} Rupiah</i>)
+                (Terbilang: <i>{{ Str::title(Terbilang::make($pengajuan_up->nilai)) }} Rupiah</i>)
                 <br />
                 <br />
             </td>
@@ -218,7 +218,7 @@
             <td style="padding-left: 10cm; text-align: center;">
                 <br />
                 <br />
-                Samarinda, {{ Carbon\Carbon::parse($penetapan_up->tanggal)->translatedFormat('d F Y') }}
+                Samarinda, {{ Carbon\Carbon::parse($pengajuan_up->tanggal)->translatedFormat('d F Y') }}
                 <br />
                 BENDAHARA PENGELUARAN
                 <br />
@@ -262,7 +262,7 @@
                             <h3 style="margin: 0;">PEMERINTAH PROVINSI KALIMANTAN TIMUR</h3>
                             <h2 style="margin: 0; font-size: 11pt;">SURAT PERMINTAAN PEMBAYARAN UANG PERSEDIAAN (SPP-UP)
                                 BLUD </h2>
-                            Nomor : {{ $penetapan_up->nomor }}<br />
+                            Nomor : {{ $pengajuan_up->nomor }}<br />
                             Tahun Anggaran : 2023
                         </td>
                     </tr>
@@ -287,21 +287,21 @@
                 </tr>
                 <tr>
                     <td style="border: 1px solid black; border-left: 0; text-align: center;">1</td>
-                    <td style="border: 1px solid black;">{{ $penetapan_up->rek_sub_rincian_objek->kode_lengkap }}</td>
-                    <td style="border: 1px solid black;">{{ $penetapan_up->rek_sub_rincian_objek->nama }}</td>
+                    <td style="border: 1px solid black;">{{ $pengajuan_up->rek_sub_rincian_objek->kode_lengkap }}</td>
+                    <td style="border: 1px solid black;">{{ $pengajuan_up->rek_sub_rincian_objek->nama }}</td>
                     <td style="border: 1px solid black; border-right: 0; text-align: right;">
-                        {{ number_format($penetapan_up->nilai, 2, ',', '.') }}</td>
+                        {{ number_format($pengajuan_up->nilai, 2, ',', '.') }}</td>
                 </tr>
             </table>
         </tr>
         <tr>
             <td style="text-align: right; font-weight: bold;">
-                TOTAL : Rp. {{ number_format($penetapan_up->nilai, 2, ',', '.') }}
+                TOTAL : Rp. {{ number_format($pengajuan_up->nilai, 2, ',', '.') }}
             </td>
         </tr>
         <tr>
             <td>
-                Terbilang: <i>{{ Str::title(Terbilang::make($penetapan_up->nilai)) }} Rupiah</i>
+                Terbilang: <i>{{ Str::title(Terbilang::make($pengajuan_up->nilai)) }} Rupiah</i>
             </td>
         </tr>
         <tr>
@@ -323,7 +323,7 @@
                             NIP. 19680810 199003 1 017
                         </td>
                         <td style="text-align: center;">
-                            Samarinda, {{ Carbon\Carbon::parse($penetapan_up->tanggal)->translatedFormat('d F Y') }}
+                            Samarinda, {{ Carbon\Carbon::parse($pengajuan_up->tanggal)->translatedFormat('d F Y') }}
                             <br />
                             BENDAHARA PENGELUARAN
                             <br />
